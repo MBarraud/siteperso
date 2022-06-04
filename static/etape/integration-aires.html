@@ -1,0 +1,70 @@
+        <article>
+            <header>
+                <h2><span class="cadre">Exercice 1</span> Aire sous la courbe d'une fonction constante.</h2>
+                <p>Soit $f$ la fonction définie sur $\mathbb{R}$ par $f(x)=4$.</p>
+                <ol>
+                  <li> Représenter $f$ sur l’intervalle $[−2\,; 10]$ dans un repère
+                       orthonormé d’unité $0,\!5\!$ cm.</li>
+                  <li> Hachurer sur le graphique le domaine $\mathscr{D}$ limité par la
+                       courbe de $f$, l’axe des abscisses et les droites d’équations
+                       $x = 1$ et $x = 6$.</li>
+                  <li>En s’aidant du graphique, déterminer $\displaystyle\int_{1}^{6}f(x)\text{d}x$ et
+                       en déduire l’aire hachurée en cm$^2$.</li>
+                </ol>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la solution</button>
+                <button>Cacher la solution</button>
+            <div class="centre"><iframe src="https://embed.api.video/vod/vi6gCqYlpGkStITz58eypyBM" frameborder="0" scrolling="no" allowfullscreen="">Solution en vidéo E23-01</iframe></div>
+
+            <ol class="question">
+              <li> Représentation de $f$ sur $[−2\,; 10]$ :<br />
+
+                <div class="centre"><div class="figure"><canvas id="graphe1" height="180", width="320">Balise canvas non supportée</canvas></div></div>
+                   <script>
+                    var graphe = calibre("graphe1",-3.5,11.5,-1.5,5.5,1);
+                    var f = x => 4;
+                    axes();
+                    /* la courbes */
+                    graphe.strokeStyle = "#0098f8";
+                    graphe.lineWidth=2;
+                    trace(f,-2,10);
+                    /* Les textes*/
+                    ecrit("$\\mathscr{C}_f$",-2,5,"#0098f8");
+                   </script>
+              </li>
+              <li> Le domaine $\mathscr{D}$ :<br />
+
+                <div class="centre"><div class="figure"><canvas id="graphe2" height="180", width="320">Balise canvas non supportée</canvas></div></div>
+                   <script>
+                    var graphe = calibre("graphe2",-3.5,11.5,-1.5,5.5,1);
+                    var f = x => 4;
+                    /*la surface de l'intégrale   */
+                    graphe.fillStyle = '#0098f8';
+                    integrale(f,1,6,'hachure');
+                    axes();
+                    /* la courbes */
+                    graphe.strokeStyle = "#0098f8";
+                    graphe.lineWidth=2;
+                    trace(f,-2,10);
+                    /* les droites */
+                    graphe.strokeStyle = "#000000";
+                    graphe.lineWidth=2;
+                    graphe.setLineDash([5,5]);
+                    segment(1,ymin,1,ymax);
+                    segment(6,ymin,6,ymax);
+                    /* Les textes*/
+                    ecrit("$\\mathscr{C}_f$",-2,5,"#0098f8");
+                    ecrit("$x=1$",1.1,6);
+                    ecrit("$x=6$",6.1,6);
+                    </script></li>
+              <li> $\displaystyle\int_{1}^{6}f(x)\text{d}x$ est le nombre d'unités d'aires.<br/>
+                  (L'unité d'aire est l'aire du rectangle défini par les deux vecteurs de base d'un repère orthonormé.)<br/>
+                  On peut en compter $4\times5=20$ donc :<div class="resultat">$\displaystyle\int_{1}^{6}f(x)\text{d}x= 20$</div> (sans unité !)
+                  <br/>
+                  L'unité d'aire vaut $0,\!5\,\text{cm} \times 0,\!5\,\text{cm} = 0,\!25\,\text{cm}^2$<br />
+                  L’aire de la surface hachurée vaut donc $20 \times  0,\!25\,\text{cm}^2$ donc <div class="resultat">$5\,\text{cm}^2$</div>.
+              </li>
+            </ol>
+            </section>
+        </article>

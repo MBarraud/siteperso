@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html lang = "fr">
+<head>
+{% block header %}
+    <meta property="og:title" content="Cours de M Barraud au lycée de Lattre de Tassigny">
+    <meta property="og:description" content="Cours et exercices corrigés en mathématiques, SNT et NSI au lycée">
+    <meta property="og:image" content="http://barraud.pythonanywhere.com/static/img/profil_.png">
+    <meta property="og:url" content="http://barraud.pythonanywhere.com">
+    <meta charset = "utf-8" />
+    <link rel="stylesheet" type="text/css" href="/static/app-{{ app }}/{{ app }}-style.css"/>
+    <title>Au lycée</title>
+{% endblock %}
+</head>
+{% block main %}
+    {{ html }}
+{% endblock %}
+    <script src="/static/app-{{ app }}/{{ app }}-script.js"></script>
+</html>

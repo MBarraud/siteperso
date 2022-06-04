@@ -1,0 +1,148 @@
+<article>
+            <header> 
+                <h2><span class="cadre">Préambule</span> Par rapport au cours de NSI</h2>
+                <p>La notion de socket et la conception de serveurs en général n'est pas un attendu du programme de NSI. Il n'est demandé aux élèves &laquo; que &raquo; de comprendre le type des données qui transitent sur un réeseau et comment elles le font.<br />
+                Mais dans le cadre des projets, être capable de monter un mini-serveur en Python peut se révéler utile. J'espère que ce cours répondra à cette attente.</p>  
+            </header>
+            <section><h3>Prérequis</h3>
+            <p> On suppose compris la notion de Client/Serveur vue en cours et on va se contenter ici de produire un serveur local (sur un LAN) </p>
+            </section>
+        </article>
+        
+        <article>
+            <header> 
+                <h2><span class="cadre">Définition</span> Socket</h2>
+                <p>Un socket est ce qui sert d'interface entre l'application et les protocoles TCP/IP.<br />
+                <ul><li>Il permet à l'application l'envoie et la réception de messages.</li>
+                    <li>Il est définit par</li>
+                    <ul><li>Une adresse IP (sa propre adresse pour le serveur ou l'adresse du destinataire du message)</li>
+                        <li>Un numéro de port (pour identifier le logiciel parmis les autres sur la machine)</li>
+                    </ul>
+                </ul>             
+                <p>&laquo; socket &raquo; peut se traduire par &laquo; prise &raquo; : c'est ce qui permet de &laquo; brancher &raquo; le logiciel au réseau.</p>
+            </header>
+            <section><h3>Dans un script Python :</h3>
+                <pre><code class="language-python">import socket
+
+# On définit le type d'adresse et le mode de communication (TCP/IP):
+serveur = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+# On définit l'adresse de l'hôte et le port de communication :
+serveur.bind(('localhost', 12800))</code></pre> 
+            </section>
+        </article>
+        
+        <article>
+            <header> 
+                <h2><span class="cadre">Protocole</span> Étapes de la communication TCP</h2>
+                <div class="centre"><div id="schema">
+                    <div class="top">Serveur</div><div class="top">Client</div>
+                    <div>Création d'un socket serveur</div>
+                    <div style="grid-column-start: 2; grid-row-start: 2; grid-row-end: 5; margin-top : auto;">Création d'un socket</div>
+                    <div>Assignation d'un port</div>
+                    <div>Attente d'un client</div>
+                    <div>Connexion acceptée</div>
+                    <div class="gauche">Demande de connexion</div>
+                    <div style="grid-column-start: 1; grid-column-end: 3;grid-row-start: 6; height : 40px; max-height : 40px; border : 0px; padding : 0px;">Le serveur crée automatiquement un nouveau socket pour communiquer avec le client</div>
+                    <div>Attente et réception</div>
+                    <div class="gauche">Envoie d'un message</div>
+                    <div class="droite">Envoie d'un message</div>
+                    <div>Attente et réception</div>
+                    <div style="grid-column-start: 1; grid-column-end: 3;grid-row-start: 9; max-height : auto; border : 0px; padding : 0px;">On peut répéter ces opérations autant que l'on veut</div>
+                    <div>Fermeture du socket client</div>
+                    <div>Fermeture du socket</div>
+                    <div>Fermeture du socket serveur</div>
+                </div></div>
+                <style>
+                #schema {
+                    display : inline-grid;
+                    grid-template-columns: 250px 250px;
+                    background-color : #FFFFFF;
+                    color : black;
+                    width : 500px;
+                }
+                #schema div {
+                    position : relative;
+                    border : 1px solid black;
+                    margin-top : 0px;
+                    margin-bottom : 10px;
+                    margin-left : 10px;
+                    margin-right : 10px;
+                    padding : 3px;
+                    height : 20px;
+                    max-height : 20px;
+                }  
+                #schema .top {
+                    border : transparent;
+                    font-weight : bold;
+                    margin-bottom : 0px;
+                }            
+                .droite:after {
+                    position: absolute;
+                    content: "";
+                    width: 0;
+                    height: 0;
+                    border-top: 5px solid transparent;
+                    border-left: 10px solid black;
+                    border-bottom: 5px solid transparent;
+                    right : -16px;
+                    top : calc(50% - 5px);
+                }         
+                .gauche:after {
+                    position: absolute;
+                    content: "";
+                    width: 0;
+                    height: 0;
+                    border-top: 5px solid transparent;
+                    border-right: 10px solid black;
+                    border-bottom: 5px solid transparent;
+                    left : -16px;
+                    top : calc(50% - 5px);
+                }
+                </style>
+            </header>
+            <section><h3>Script Python minimaliste pour un serveur</h3>
+                <pre><code class="language-python">import socket
+
+# Création d'un socket serveur
+serveur = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+# Assignation d'un port
+serveur.bind(('localhost', 12800))
+# Attente d'un client
+serveur.listen(5)
+print("Le serveur en attente de client...")
+
+# Connexion acceptée
+client, infos = serveur.accept()
+# Attente et réception
+msg_recu = client.recv(1024)
+print("Message reçu :",msg_recu.decode('utf8'))
+# Envoie d'un message
+client.send("5 / 5".encode('utf8'))
+
+# Fermeture du socket client
+client.close()
+print("Client déconnecté.")
+# Fermeture du socket serveur
+serveur.close()
+print("Serveur fermé.")</code></pre> 
+            </section>
+            <section><h3>Script Python minimaliste pour le client correspondant</h3>
+                <pre><code class="language-python">import socket
+
+# Création d'un socket
+connexion = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+# Demande de connexion
+connexion.connect(('localhost', 12800))
+print("Connexion établie avec le serveur.")
+
+# Envoie d'un message
+msg_a_envoyer = input("> ").encode('utf8')
+connexion.send(msg_a_envoyer)
+# Attente et réception
+msg_recu = connexion.recv(1024)
+print(msg_recu.decode('utf8'))
+
+# Fermeture du socket
+connexion.close()</code></pre> 
+            </section>
+        </article>  

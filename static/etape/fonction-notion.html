@@ -1,0 +1,164 @@
+        <article>
+            <header>
+                <h2><span class="cadre">Définition</span> Fonction</h2>
+                <p>Une fonction $f$ est définie par :
+                <ul><li>l'ensemble des valeurs ( de $x$ ) utilisables par $f$, appelé <em>ensemble de définition</em> de $f$, noté $\mathscr{D}_f$</li>
+                    <li>la méthode, le programme de calcul ou la formule permettant d'associer un unique réel notée $f(x)$ à chacun de ces $x\in \mathscr{D}_f$.</li>
+                </ul>
+                </p>
+            </header>
+            <section>
+                <h3>Exemple de définition d'une fonction</h3>
+                <ul><li>Par une formule :<br/>$f$ est la fonction définie sur $\mathbb{R}$ par : $f(x)=2-x^2$.</li>
+                    <li>Par un tableau :<br/>
+                    <table><tr><td>$x$</td><td style='border-left:solid 1pt;'>-2</td><td style='border-left:solid 1pt;'>-1</td><td style='border-left:solid 1pt;'>0</td><td style='border-left:solid 1pt;'>1</td><td style='border-left:solid 1pt;'>2</td></tr>
+                           <tr><td>$f(x)$</td><td style='border-left:solid 1pt;'>-2</td><td style='border-left:solid 1pt;'>1</td><td style='border-left:solid 1pt;'>2</td><td style='border-left:solid 1pt;'>1</td><td style='border-left:solid 1pt;'>-2</td></tr>
+                    </table></li>
+                    <li>Par une courbe :<br/>
+                <div class="centre"><div class="figure"><canvas id="graphe1" height="180", width="320">Balise canvas non supportée</canvas></div></div>
+                <script>
+                    var graphe = calibre("graphe1",-3,3,-3,3,1);
+                    var f = x => 2-x*x;
+                    axes();
+                    /* la courbes */
+                    graphe.strokeStyle = "#000000";
+                    graphe.lineWidth=2;
+                    trace(f,xmin,xmax);
+                    /* Les textes*/
+                    ecrit("$y=f(x)$",-3,2);
+                </script></li>
+                </ul>
+
+            </section>
+        </article>
+
+        <article>
+            <header>
+                <h2><span class="cadre">Définition</span> Image</h2>
+                <p>Si $x\in \mathscr{D}_f$ et si on note $y=f(x)$ alors $y$, c'est à dire $f(x)$ est l'<em>image</em> de $x$ par $f$.
+                </p>
+            </header>
+            <section>
+                <h3>Image de 1 par $f$</h3>
+                <ul><li>Si $f(x)=2-x^2$ on calcule : $f(1)$ $=2-(1)^2$ $=\ldots$</li>
+                    <li>Par un tableau :<br/>
+                    <table><tr><td>$x$</td><td style='border-left:solid 1pt;'>-2</td><td style='border-left:solid 1pt;position:relative;'>-1</td><td style='border-left:solid 1pt;'>0</td><td style='border-left:solid 1pt;position:relative;'>1
+                    <div style="position:absolute;right:0px;top:1em;"><canvas id="fleche1" height="30", width="8" style="border : 0px;background: rgba(0,0,0,0);">Balise canvas non supportée</canvas></div>
+                    </td><td style='border-left:solid 1pt;'>2</td></tr>
+                           <tr><td>$f(x)$</td><td style='border-left:solid 1pt;'>-2</td><td style='border-left:solid 1pt;'>1</td><td style='border-left:solid 1pt;'>2</td><td style='border-left:solid 1pt;'>1</td><td style='border-left:solid 1pt;'>-2</td></tr>
+                    </table>
+                    <script>
+                    zone = document.getElementById("fleche1");
+                    graphiquecanvas = zone.getContext("2d");
+                    graphiquecanvas.beginPath();
+                    graphiquecanvas.moveTo(6,28);
+                    graphiquecanvas.lineTo(0, 30);
+                    graphiquecanvas.moveTo(0,24);
+                    graphiquecanvas.lineTo(0, 30);
+                    graphiquecanvas.arcTo(10, 13, 0, 6, 15);
+                    graphiquecanvas.lineTo(0, 6);
+                    graphiquecanvas.stroke();
+                    </script>
+                    </li>
+                    <li>Par une courbe :<br/>
+                <div class="centre"><div class="figure"><canvas id="graphe2" height="180", width="320">Balise canvas non supportée</canvas></div></div>
+                <script>
+                    var graphe = calibre("graphe2",-3,3,-3,3,1);
+                    var f = x => 2-x*x;
+                    axes();
+                    /* la courbes */
+                    graphe.strokeStyle = "#000000";
+                    graphe.lineWidth=2;
+                    trace(f,xmin,xmax);
+                    /* les droites */
+                    graphe.lineWidth=2;
+                    graphe.setLineDash([5,5]);
+                    segment(1,ymin,1,ymax);
+                    fleche(point(1,f(1)),point(0,f(1)));
+                    /* Les textes*/
+                    ecrit("$y=f(x)$",-3,2);
+                </script></li>
+                </ul>
+            </section>
+        </article>
+
+        <article>
+            <header>
+                <h2><span class="cadre">Définition</span> Antécédents</h2>
+                <p>Si $x\in \mathscr{D}_f$ et si on note $y=f(x)$ alors $x$ est un <em>antécédent</em> de $y$ par $f$.
+                </p>
+            </header>
+            <section>
+                <h3>Antécédents de 1 par $f$</h3>
+                <ul><li>Si $f(x)=2-x^2$, on résout :$1=2-x^2$ $\Leftrightarrow \ldots$</li>
+                    <li>Par un tableau :<br/>
+                    <table><tr><td>$x$</td><td style='border-left:solid 1pt;'>-2</td><td style='border-left:solid 1pt;position:relative;'>-1
+                    <div style="position:absolute;right:0px;top:1em;"><canvas id="fleche2" height="30", width="8" style="border : 0px;background: rgba(0,0,0,0);">Balise canvas non supportée</canvas></div>
+                    </td><td style='border-left:solid 1pt;'>0</td><td style='border-left:solid 1pt;position:relative;'>1
+                    <div style="position:absolute;right:0px;top:1em;"><canvas id="fleche3" height="30", width="8" style="border : 0px;background: rgba(0,0,0,0);">Balise canvas non supportée</canvas></div>
+                    </td><td style='border-left:solid 1pt;'>2</td></tr>
+                           <tr><td>$f(x)$</td><td style='border-left:solid 1pt;'>-2</td><td style='border-left:solid 1pt;'>1</td><td style='border-left:solid 1pt;'>2</td><td style='border-left:solid 1pt;'>1</td><td style='border-left:solid 1pt;'>-2</td></tr>
+                    </table>
+                    <script>
+                    zone = document.getElementById("fleche2");
+                    graphiquecanvas = zone.getContext("2d");
+                    graphiquecanvas.beginPath();
+                    graphiquecanvas.moveTo(0,30);
+                    graphiquecanvas.arcTo(10, 13, 0, 6, 15);
+                    graphiquecanvas.lineTo(0, 6);
+                    graphiquecanvas.lineTo(0, 12);
+                    graphiquecanvas.moveTo(0, 6);
+                    graphiquecanvas.lineTo(6, 8);
+                    graphiquecanvas.stroke();
+                    </script>
+                    <script>
+                    zone = document.getElementById("fleche3");
+                    graphiquecanvas = zone.getContext("2d");
+                    graphiquecanvas.beginPath();
+                    graphiquecanvas.moveTo(0,30);
+                    graphiquecanvas.arcTo(10, 13, 0, 6, 15);
+                    graphiquecanvas.lineTo(0, 6);
+                    graphiquecanvas.lineTo(0, 12);
+                    graphiquecanvas.moveTo(0, 6);
+                    graphiquecanvas.lineTo(6, 8);
+                    graphiquecanvas.stroke();
+                    </script>
+                    </li>
+                    <li>Par une courbe :<br/>
+                <div class="centre"><div class="figure"><canvas id="graphe3" height="180", width="320">Balise canvas non supportée</canvas></div></div>
+                <script>
+                    var graphe = calibre("graphe3",-3,3,-3,3,1);
+                    var f = x => 2-x*x;
+                    axes();
+                    /* la courbes */
+                    graphe.strokeStyle = "#000000";
+                    graphe.lineWidth=2;
+                    trace(f,xmin,xmax);
+                    /* les droites */
+                    graphe.lineWidth=2;
+                    graphe.setLineDash([5,5]);
+                    segment(xmin,1,xmax,1);
+                    fleche(point(-1,1),point(-1,0));
+                    fleche(point(1,1),point(1,0));
+                    /* Les textes*/
+                    ecrit("$y=f(x)$",-3,2);
+                </script></li>
+                </ul>
+            </section>
+        </article>
+
+
+
+
+        <article>
+            <header>
+                <h2><span class="cadre">Théorème</span> Courbe ou représentation graphique d'une fonction</h2>
+                <p>Soient $f$ une fonction d'ensemble de définition $\mathscr{D}_f$ et $\mathscr{C}_f$ une représentation graphique de $f$ :
+
+                <ul><li> Un point $M$ de coordonnées $(x;y)$ est sur $\mathscr{C}_f$ si et seulement si $y$ est l'image de $x$ par $f$.</li>
+                    <li> $M(x;y)\in\mathscr{C}_f \quad \Leftrightarrow \quad x\in\mathscr{D}_f$ et $y=f(x)$.</li>
+                </ul>
+                </p>
+            </header>
+        </article>
+

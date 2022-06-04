@@ -1,0 +1,194 @@
+<article>
+            <header>
+                <h2><span class="cadre">Préambule</span> Par rapport au cours de NSI</h2>
+                <p>L'utilisation d'objet permettant un rendu graphqiue n'est pas un attendu du programme de NSI.
+                Je présente ici l'utilisation du module tkinter qui permet de contruire des interfaces graphiques permettant de démarrer des projets en python.</p>
+            </header>
+            <section><h3>Prérequis</h3>
+            <p> On suppose comprises les notions de module et de classe (en Python) ainsi que la notion d'événement (vus en JavaScript)</p>
+            </section>
+        </article>
+
+        <article>
+            <header>
+                <h2><span class="cadre">Installation</span> tkinter</h2>
+                <p>En principe, sous Windows le module est installé par défaut avec Python.</p>
+                <p>Sous un environnement de type Linux : <code class="language-python">sudo apt-get install python3-tk</code>.<br />
+
+            </header>
+            <section><h3>Dans un script Python :</h3>
+                <pre><code class="language-python">from tkinter import Tk
+
+# On crée la fenètre en instanciant un objet de la classe Tk :
+fenetre = Tk()
+
+# ...
+
+# Quand tout est bien définit : on lance la boucle événementielle.
+fenetre.mainloop()</code></pre>
+            </section>
+        </article>
+
+        <article>
+            <header>
+                <h2><span class="cadre">Widget</span></h2>
+                <p>Un Widget est un composant graphique de la fenêtre.
+                Par exemple un menu, un bouton, un champ de saisie,
+                une étiquette, un cadre composée d'autres widgets,
+                une zone pour dessinner...</p>
+                <p>Il existe auttant de classe dans tkinter que de
+                Widget, chacun obtenu par instanciation.</p>
+                <p>(Une bonne documentation <a href="http://tkinter.fdex.eu/">ici</a>.)</a></p>
+            </header>
+            <section class="ouvrable">
+                <button>Voir un exemple complet</button>
+                <button>Cacher l'exemple</button>
+                <p>Label est le widget étiquette ou post-it qui peut contenir du
+                   texte et/ou une image.</p>
+                <p>Comme tous les widgets, l'objet instancié est positionnable
+                   par la méthode <code class="language-python">pack</code>.</p>
+
+                <pre><code class="language-python">from tkinter import Tk, Label
+
+fenetre = Tk()
+
+# Création de l'étiquette pour cette fenêtre :
+etiquette = Label(fenetre,text="Du texte.")
+# Positionnement de l'étiquette sur la fenêtre :
+etiquette.pack()
+
+fenetre.mainloop()</code></pre>
+            </section>
+        </article>
+
+        <article>
+            <header>
+                <h2><span class="cadre">Canvas</span></h2>
+                <p>Pour pouvoir dessiner des formes géométriques ou des
+                   images et les faire bouger, ou encore positionner d'autres
+                   widgets ou cadres au pixel plès, on utilise un widget
+                   particulier : Canvas</p>
+                <p>Une fois placé dans une fenetre il apparait sous la forme
+                   d'un rectangle et définit un système de coordonnées d'origine
+                   le coin supérieur gauche et d'unité le pixel.</p>
+            </header>
+            <section class="ouvrable">
+                <button>Voir un exemple complet</button>
+                <button>Cacher l'exemple</button>
+                <p>On dessine une balle rouge sur fond noir.</p>
+
+                <pre><code class="language-python">from tkinter import Tk, Canvas
+
+fenetre = Tk()
+fenetre.title("Baballe")
+
+# Création de la zone de dessin :
+dessin = Canvas(fenetre,width = 800, height=600, bd=0, bg="#000000")
+dessin.pack()
+# Création de la balle :
+balle = dessin.create_oval(390,290,410,310,fill="#FF0000")
+
+fenetre.mainloop()</code></pre>
+            </section>
+        </article>
+
+        <article>
+            <header>
+                <h2><span class="cadre">Animation</span></h2>
+                <p>Pour générer une animation dans une zone de dessin,
+                   il suffit de mettre régulièrement à jour les coordonnées
+                   des formes dessinées.</p>
+                <p>On n'écrit pas de boucle pour cela car une boucle générale
+                   existe déjà : celle qui est à l'écoute des événements, lancée
+                   à la dernière ligne de nos scripts (et qui ne nous a servi
+                   à rien jusqu'ici).</p>
+                <p>On va donc créer à intervalle régulier un événement qui
+                    déclenchera la mise à jour des coordonnées. On le fait
+                    avec la méthode <code class="language-python">after</code>
+                    de la classe Tk, en précisant le delai (en ms) à attendre
+                    avant son déclenchement et le gestionnaire associé.</p>
+                <p>L'asctuce, pour générer cet événement en bloucle, est de
+                   le faire à la fin de chaque mise à jour de manière récursive.</p>
+            </header>
+            <section class="ouvrable">
+                <button>Voir un exemple complet</button>
+                <button>Cacher l'exemple</button>
+                <pre><code class="language-python">from tkinter import Tk, Canvas
+
+fenetre = Tk()
+fenetre.title("Baballe")
+
+dessin = Canvas(fenetre,width = 800, height=600, bd=0, bg="#000000")
+dessin.pack():
+balle = dessin.create_oval(390,290,410,310,fill="#FF0000")
+# Définition de l'intervalle de temps pour les mises à jour en ms
+dt = 30
+# Vitesse de la balle en pixels par intervalle de temps
+dx, dy = 5, 2
+
+def deplacement():
+    # Déplacement de la balle :
+    dessin.move(balle,dx,dy)
+    # Récurtion
+    fenetre.after(dt,deplacement)
+
+# Initialisation de la récurtion
+deplacement()
+fenetre.mainloop()</code></pre>
+            </section>
+        </article>
+
+        <article>
+            <header>
+                <h2><span class="cadre">Interactivité</span></h2>
+                <p>Pour généré de l'interactivité, il suffit d'associer à un
+                   événement possible, un gestionnaire (une fonction de cet
+                   événement)</p>
+                <p>Cela se fait avec la méthode <code class="language-python">bind</code>
+                   d'argument l'événéement et la fonction.</p>
+                <p>L'événement s'écrit <code class="language-python">"&lt;Button-1&gt;"</code>
+                pour le clique gauche de la sourie,  <code class="language-python">"&lt;KeyPress-space&gt;"</code>
+                pour l'appui sur la touche espace... et la fonction qui
+                joue le rôle de gestionnaire de l'événemetn est à écrire selon
+                les besoins.</p>
+            </header>
+            <section class="ouvrable">
+                <button>Voir un exemple complet</button>
+                <button>Cacher l'exemple</button>
+                <pre><code class="language-python">from tkinter import Tk, Canvas
+
+fenetre = Tk()
+fenetre.title("Baballe")
+
+dessin = Canvas(fenetre,width = 800, height=600, bd=0, bg="#000000")
+dessin.pack()
+balle = dessin.create_oval(390,290,410,310,fill="#FF0000")
+dx, dy, dt = 5, 2, 30
+
+def deplacement():
+    dessin.move(balle,dx,dy)
+    fenetre.after(dt,deplacement)
+
+def clic(event):
+    global dx, dy
+    # position du pointeur de la souris
+    x, y  = event.x, event.y
+    # position de la balle
+    c = dessin.coords(balle)
+    c_x, c_y = (c[0]+c[2])/2, (c[1]+c[3])/2
+    # Calcul de la nouvelle vitesse
+    dx, dy = (x - c_x)/50, (y - c_y)/50
+
+def stop(event):
+    global dx, dy
+    dx, dy = 0, 0
+
+# Association d'un événement à son gestionnaire
+fenetre.bind("&lt;Button-1&gt;", clic)
+fenetre.bind("&lt;KeyPress-space&gt;", stop)
+
+deplacement()
+fenetre.mainloop()
+</code></pre>
+            </section>
+        </article>

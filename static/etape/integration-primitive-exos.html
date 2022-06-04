@@ -1,0 +1,430 @@
+<article>
+            <header>
+                <h2><span class="cadre">Exercice 1</span> Calculs par primitives.</h2>
+                <div class="double">
+                    <ol  class="question">
+                        <li> $\displaystyle \int_{-2}^4 x^2\text{d}x$</li>
+                        <li> $\displaystyle \int_{-1}^4 (2x-3)^2\text{d}x$</li>
+                        <li> $\displaystyle \int_{0,5}^1 \dfrac{1}{t^4}\text{d}t$</li>
+                        <li> $\displaystyle \int_{0}^2 \dfrac{3t}{(t^2+1)^2}\text{d}t$</li>
+                        <li> $\displaystyle \int_{0}^1 \dfrac{1}{\sqrt{x}}\text{d}x$</li>
+                        <li> $\displaystyle \int_{-1}^{\sqrt{3}} \dfrac{3x}{\sqrt{x^2+1}}\text{d}x$</li>
+                        <li> $\displaystyle \int_{\ln(2)}^{\ln(3)} 4\text{e}^t\text{d}t$</li>
+                        <li> $\displaystyle \int_{0}^1 t\text{e}^{t^2-1}\text{d}t$</li>
+                        <li> $\displaystyle \int_{1}^{2} \dfrac{x-3}{x}\text{d}x$</li>
+                        <li> $\displaystyle \int_{1}^{2} \dfrac{x-3}{x^2}\text{d}x$</li>
+                    </ol>
+                </div>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la solution</button>
+                <button>Cacher la solution</button>
+                <ol class="question">
+                    <li> La fonction définie par $f(x)=x^2$ est une donction de référence dont on connait une primitive qui s'écrit $F(x)=\frac{1}{3}x^3$<br />
+                        D'où : $\displaystyle \int_{-2}^4 x^2\text{d}x = \left[\frac{1}{3}x^3\right]_{-2}^4 = \frac{1}{3}4^3-\frac{1}{3}(-2)^3 =$<div class="resultat">$24$</div><br />
+                        On peut bien sûr vérifier en comptant les unités d'aires sous la courbe :
+                        <div class="centre"><div class="figure"><canvas id="graphe3" height="180" width="320">Balise canvas non supportée</canvas></div></div>
+                        <script>
+                            var f = x => x*x;
+                            var graphe = calibre("graphe3",-3,5,-2,17,1/3);
+
+                            graphe.fillStyle = '#0098f8';
+                            integrale(f,-2,4);
+
+                            axes();
+
+                            graphe.lineWidth=1;
+                            graphe.strokeStyle = "#000000";
+                            trace(f,-6,6);
+
+                            graphe.lineWidth=2;
+                            graphe.setLineDash([5,5]);
+                            segment(-2,ymin,-2,ymax);
+                            segment(4,ymin,4,ymax);
+                        </script>
+                    </li>
+                    <li> Première solution en développant : <br />
+                        $\displaystyle \int_{-1}^4 (2x-3)^2\text{d}x = \int_{-1}^4 (4x^2-12x+9)\text{d}x$<br />
+                        Donc $\displaystyle \int_{-1}^4 (2x-3)^2\text{d}x = \left[ \frac{4}{3}x^3-6x^2+9x \right]_{-1}^4$<br />
+                        $\displaystyle = \left(\frac{4}{3}4^3-6\times4^2+9\times4\right) - \left(\frac{4}{3}(-1)^3-6\times(-1)^2+9\times(-1)\right) $<br />
+                        $\displaystyle =$<div class="resultat">$\dfrac{125}{3}$</div><br />
+                        L'autre méthode, à laquelle il faut s'entrainner, est de passer par une formule composée.<br />
+                        Ici : $(2x-3)^2 = \frac{1}{2} \times 2 \times  (2x-3)^2$.<br />
+                        On reconnait la forme $u' \times  u^n$ avec $n=2$, $u(x)=2x-3$ et  $u'(x)=2$.<br />
+                        Une primitive est $\frac{1}{n+1}  u^{n+1}$ donc :<br />
+                        $\displaystyle \int_{-1}^4 (2x-3)^2\text{d}x = \left[ \frac{1}{2}\,\frac{1}{3}(2x-3)^3\right]_{-1}^4$<br />
+                        $\displaystyle = \frac{1}{6}(2\times4-3)^3 - \frac{1}{6}(2\times(-1)-3)^3 =$<div class="resultat">$\dfrac{125}{3}$</div>
+                    </li>
+                    <li> La fonction définie par $f(t)=\dfrac{1}{t^4}$ est une donction de référence dont on connait une primitive qui s'écrit $F(t)=\dfrac{-1}{3t^3}$<br />
+                        Donc $\displaystyle \int_{0,5}^1 \dfrac{1}{t^4}\text{d}t = \left[ \frac{-1}{3t^3} \right]_{0,5}^1 = \frac{-1}{3} - \frac{-8}{3} = $<div class="resultat">$\dfrac{7}{3} $</div>
+                    </li>
+                    <li> $\dfrac{3t}{(t^2+1)^2} = \dfrac{3}{2}\dfrac{2t}{(t^2+1)^2}$<br />
+                        On reconnait la forme $\dfrac{u'}{u^n}$ de primitive $\dfrac{-1}{(n-1)u^{n-1}}$<br />
+                        Donc : $\displaystyle \int_{0}^2 \dfrac{3t}{(t^2+1)^2}\text{d}t =  \left[ \frac{3}{2}\dfrac{-1}{t^2+1} \right]_{0}^2 = \dfrac{-3}{10}-\dfrac{-3}{2}=$<div class="resultat">$\dfrac{12}{10} $</div></li>
+                    <li> $\dfrac{1}{\sqrt{x}} = 2\dfrac{1}{2\sqrt{x}}$ et on reconnait la dérivée de la fonction "racine carré".
+                        Donc $\displaystyle \int_{0}^1 \dfrac{1}{\sqrt{x}}\text{d}x = \left[ 2\sqrt{x}\right]_{0}^1 = 2\sqrt{1} - 2\sqrt{0}=$<div class="resultat">$2$</div>
+                    </li>
+                    <li> $\dfrac{3x}{\sqrt{x^2+1}} = 3\dfrac{2x}{2\sqrt{x^2+1}}$<br />
+                        On reconnait la forme $\dfrac{u'}{2\sqrt{u}}$ de primitive $\sqrt{u}$.<br />
+                        Donc $\displaystyle \int_{-1}^{\sqrt{3}} \dfrac{3x}{\sqrt{x^2+1}}\text{d}x = \left[ 3\sqrt{x^2+1} \right]_{-1}^{\sqrt{3}}$<br />
+                        $= 3\sqrt{\sqrt{3}^2+1} - 3\sqrt{(-1)^2+1}=$<div class="resultat">$6-3\sqrt{2}$</div>
+                    </li>
+                    <li> L'exponentielle est une fonction de référence qui est sa propre primitive.
+                        Donc $\displaystyle \int_{\ln(2)}^{\ln(3)} 4\text{e}^t\text{d}t = \left[ 4\text{e}^t \right]_{\ln(2)}^{\ln(3)}$<br />
+                        $= 4\text{e}^{\ln(3)} - 4\text{e}^{\ln(2)}= 4\times3 - 4\times2 =$<div class="resultat">$4$</div>
+                    </li>
+                    <li> $t\text{e}^{t^2-1} = \dfrac{1}{2}\times 2t\text{e}^{t^2-1}$.<br />
+                        On reconnait la forme $u'\text{e}^u$ de primitive $\text{e}^u$.<br />
+                        Donc $\displaystyle \int_{0}^1 t\text{e}^{t^2-1}\text{d}t = \left[ \dfrac{1}{2}\text{e}^{t^2-1} \right]_{0}^{1}$<br />
+                        $= \dfrac{1}{2}\text{e}^{0} - \dfrac{1}{2}\text{e}^{-1}= $<div class="resultat">$\dfrac{1}{2}- \dfrac{1}{2\text{e}}$</div>
+                    </li>
+                    <li> Chercher une forme du type $\dfrac{u'}{u^n}$ ne sert à rien ici.<br />
+                        Il suffit de réécrire : $\dfrac{x-3}{x} = \dfrac{x}{x}-\dfrac{3}{x} = 1-3\dfrac{1}{x}$ <br />
+                        On reconnait alors deux fonction de références (constante et inverse).<br />
+                        Donc $\displaystyle \int_{1}^{2} \dfrac{x-3}{x}\text{d}x = \left[ x -3\ln(x) \right]_{1}^{2}$<br />
+                        $= (2 -3\ln(2)) - (1 -3\ln(1))= $<div class="resultat">$1-3\ln(2)$</div><br />
+                        En essayant de vérifier ce résultat on contate un problème : il est négatif. En fait, la fonction proposée est négative sur l'intervalle donné. On verra par la suite que cette valeur correpond cependant bien toujours à l'aire entre la courbe et l'axe des abscisses. Elle est négative car sous cet axe.
+                    </li>
+                    <li> On procède comme pour la précédente avec les mêmes remarques.<br />
+                        $\dfrac{x-3}{x^2}=\dfrac{x}{x^2}-\dfrac{3}{x^2} = \dfrac{1}{x}+3\dfrac{-1}{x^2} $<br />
+                        Donc $\displaystyle \int_{1}^{2} \dfrac{x-3}{x^2}\text{d}x = \left[ \ln(x)+3\dfrac{1}{x} \right]_{1}^{2}$<br />
+                        $\displaystyle \int_{1}^{2} \dfrac{x-3}{x^2}\text{d}x = \left[ \ln(x)+3\dfrac{1}{x} \right]_{1}^{2}$
+                    </li>
+                </ol>
+            </section>
+        </article>
+
+        <article>
+            <header>
+                <h2><span class="cadre">Exercice 2</span> Dériver avant d'intégrer</h2>
+                <p>Soit $f$ la fonction définie par $f(x)=x \sin(x)$ sur $\mathbb{R}$.</p>
+                <ol class="question">
+                    <li> Démontrer, pour tout réel $x$, que	$f''(x)+f(x)=2\cos(x)$.</li>
+                    <li> En déduire $\displaystyle \int_{0}^{\frac{\pi}{2}} x \sin(x)\text{d}x$</li>
+                </ol>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la solution</button>
+                <button>Cacher la solution</button>
+                <ol class="question">
+                    <li>$f$ est un produit et $(uv)' = u'v+uv'$.<br />
+                        Donc $f'(x)=1\sin(x)+x\cos(x)$<br />
+                        Puis de même $f''(x)=\cos(x)+1\cos(x)-x\sin(x)=2\cos(x)-x\sin(x)$.<br />
+                        Finalement $f''(x) + f(x) = 2\cos(x)$.
+                    </li>
+                    <li>Ce qui précède donne $f(x) = 2\cos(x) - f''(x)$.<br />
+                        On peut dans une somme, déterminer une primitive de chaque terme :<br />
+                        <ul>
+                            <li>Une primitive de $2\cos$ est $2\sin$</li>
+                            <li>Un primitive de $f''$ est $f'$</li>
+                            <li>On a déjà calculé : $f'(x)=\sin(x)+x\cos(x)$</li>
+                        </ul>
+                        On en déduit : $\displaystyle \int_{0}^{\frac{\pi}{2}} x \sin(x)\text{d}x = \left[ 2\sin(x)+-(\sin(x)+x\cos(x)) \right]_{0}^{\frac{\pi}{2}}$<br />
+                        $\displaystyle \int_{0}^{\frac{\pi}{2}} x \sin(x)\text{d}x = \left[ \sin(x)-x\cos(x) \right]_{0}^{\frac{\pi}{2}} = 1 - 0 = $<div class="resultat">$1$</div><br />
+                        (Pour vérifier à la calculatrice, assurez-vous qu'elle soit configurée pour les angles en radians.)
+                    </li>
+                </ol>
+            </section>
+        </article>
+
+        <article>
+            <header>
+                <h2><span class="cadre">Exercice 3</span> Intégration à partir d'une relation différentielle</h2>
+                <p>Soit $f$ la fonction définie par $f(x)=(1-x) \mathrm{e}^x$ sur $\mathbb{R}$.</p>
+                <ol class="question">
+                    <li>  Trouver une relation entre $f''(x)$, $f'(x)$ et $f(x)$.</li>
+                    <li> En déduire $\displaystyle \int_{0}^{1} f(t)\text{d}t$.</li>
+                </ol>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la solution</button>
+                <button>Cacher la solution</button>
+                <ol class="question">
+                    <li> $f$ est un produit et $(uv)' = u'v+uv'$.<br />
+                         Donc $f'(x)=-\mathrm{e}^x+(1-x)\mathrm{e}^x = -x\mathrm{e}^x$<br />
+                         Puis $f''(x)=-\mathrm{e}^x-x\mathrm{e}^x = (-1-x)\mathrm{e}^x$<br />
+                         On en déduit  : <div class="resultat">$f(x) = 2f'(x)-f''(x)$</div>
+                    </li>
+                    <li> D'après le 1 : $\displaystyle \int_{0}^{1} f(t)\text{d}t = \int_{0}^{1} (2f'(t)-f''(t))\text{d}t$<br />
+                         D'où $\displaystyle \int_{0}^{1} f(t)\text{d}t = \left[ 2f(t)-f'(t)\right]_{0}^{1}$<br />
+                         $= (2f(1)-f'(1))-(2f(0)-f'(0)) =$<div class="resultat">$\mathrm{e}-2$</div>
+                    </li>
+                </ol>
+            </section>
+        </article>
+
+        <article>
+            <header>
+                <h2><span class="cadre">Exercice 4</span> Intégration à partir d'une relation différentielle</h2>
+                <p>En s'inspirant de ce qui précède, déterminer une primitive de $f$ si $f(x)=\mathrm{e}^x \sin(x)$ sur $\mathbb{R}$.</p>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la solution</button>
+                <button>Cacher la solution</button>
+                <ul class="question">
+                    <li> $f$ est un produit et $(uv)' = u'v+uv'$.<br />
+                         Donc $f'(x)=\mathrm{e}^x\sin(x)+\mathrm{e}^x\cos(x) = (\sin(x)+\cos(x))\mathrm{e}^x$<br />
+                         Puis $f''(x)=(\cos(x)-\sin(x))\mathrm{e}^x + (\sin(x)+\cos(x))\mathrm{e}^x = 2\cos(x)\mathrm{e}^x$<br />
+                         On en déduit  : <div class="resultat">$f(x) = f'(x)-\frac{1}{2}f''(x)$</div>
+                    </li>
+                    <li> D'après le 1, une primitive de $f$ est donc une primitive de $f'-\frac{1}{2}f''$<br />
+                         C'est à dire $f-\frac{1}{2}f'$. On peut donc écrire une primitive $F$ de $f$ :<br />
+                         $F(x) = \mathrm{e}^x \sin(x)-\frac{1}{2}(\sin(x)+\cos(x))\mathrm{e}^x =$<div class="resultat">$\frac{1}{2}(\sin(x)-\cos(x))\mathrm{e}^x$</div>
+                    </li>
+                </ul>
+            </section>
+        </article>
+
+        <article>
+            <header>
+                <h2><span class="cadre">Exercice 5</span> Calculs d'intégrales au BAC (2013-2014)</h2>
+                <p>Calculer :</p>
+                <ol class="question">
+                    <li>(Asie, juin 2014) $\displaystyle \int_{0}^1 \left(\mathrm{e}^{1,2 x}+\mathrm{e}^{-1,2 x}\right)\text{d}x$.</li>
+                    <li>(Métropole, juin 2013) $\displaystyle \int_{\frac{1}{\mathrm{e}}}^1 f(x)\text{d}x$ avec $f(x)=\dfrac{2}{x}+2\times\dfrac{1}{x}\times\ln(x)$</li>
+                    <li>(Antilles-Guyane, juin 2013 & Liban, mai 2014) $\displaystyle \int_{0}^{\ln(10)} x \mathrm{e}^{-x}\text{d}x$<br />
+                        après avoir dérivé la fonction $g$ définie par $g(x)=(x+1)\mathrm{e}^{-x}$.</li>
+                    <li>(Antilles-Guyane, juin 2014) $\displaystyle \int_{1}^{3} \left(x + 1 + \dfrac{x}{\mathrm{e}^x}\right)\text{d}x$<br />
+                        (en s'aidant de la question précédente).</li>
+                    <li>(Métropole, septembre 2013) $\displaystyle \int_{0}^{1} f(x)\text{d}x$ sachant que $f=(x+2)\mathrm{e}^{\frac{1}{2}x}$.<br />
+                        ( après avoir vérifié que $f(x)=2(u'v+u v')$ avec $u(x)=x$ et $v(x)=\mathrm{e}^{\frac{1}{2}x}$. )</li>
+                </ol>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la solution</button>
+                <button>Cacher la solution</button>
+                <ol class="question">
+                    <li>$\displaystyle \int_{0}^1 \left(\mathrm{e}^{1,2 x}+\mathrm{e}^{-1,2 x}\right)\text{d}x$
+                        $= \left[ \frac{1}{1,2}\mathrm{e}^{1,2x}+\frac{1}{-1,2}\mathrm{e}^{-1,2x}\right]_0^1$
+                        $= $<div class="resultat">$\dfrac{\mathrm{e}^{1,2}-\mathrm{e}^{-1,2}}{1,2}$</div></li>
+                    <li>$2\times\dfrac{1}{x}\times\ln(x)$
+                        $= 2 u'(x) (u(x))^1$ a pour primitive $(u(x))^2$
+                        $=(\ln(x))^2$<br />
+                        On en déduit $\displaystyle \int_{\frac{1}{\mathrm{e}}}^1 f(x)\text{d}x$
+                        $= \left[2\ln(x)+(\ln(x))^2\right]_{\mathrm{e}^{-1}}^1=0-(-2+1)$
+                        $= $<div class="resultat">$1$</div>
+                    </li>
+                    <li>$g(x)=(x+1)\mathrm{e}^{-x}$ donne $g'(x)=\mathrm{e}^{-x}-(x+1)\mathrm{e}^{-x}=-x\mathrm{e}^{-x}$<br />
+                        D'où $\displaystyle \int_{0}^{\ln(10)} x \mathrm{e}^{-x}\text{d}x$
+                        $ =\left[-g(x)\right]_0^{\ln(10)}$
+                        $ =-(\ln(10)+1)\mathrm{e}^{-\ln(10)}-(-1)$
+                        $ =$<div class="resultat">$\dfrac{9-\ln(10)}{10}$</div><br />
+                        Aide au calcul : $\mathrm{e}^{-\ln(10)} = \mathrm{e}^{\ln\left(\frac{1}{10}\right)}  = \frac{1}{10}$
+                    </li>
+                    <li>$x\mapsto\dfrac{x}{\mathrm{e}^x}$
+                        $ = x\mathrm{e}^{-x}$ a pour primitive $x\mapsto-g(x) = -(x+1)\mathrm{e}^{-x}$<br />
+                        Donc $\displaystyle \int_{1}^{3}\left( x + 1 + \dfrac{x}{\mathrm{e}^x}\right)\text{d}x$
+                        $ =  \left[\frac{1}{2}x^2+x-(x+1)\mathrm{e}^{-x}\right]_{1}^3$
+                        $ = \left(\frac{9}{2}+3-4\mathrm{e}^{-3}\right) - \left(\frac{1}{2}+1-2\mathrm{e}^{-1}\right)$
+                        $ = $<div class="resultat">$6+2\mathrm{e}^{-1}-4\mathrm{e}^{-3}$</div>
+                    </li>
+                    <li>$u(x)=x$ donne $u'(x)=1$ et $v(x)=\mathrm{e}^{\frac{1}{2}x}$ donne $v'(x)=\frac{1}{2}\mathrm{e}^{\frac{1}{2}x}$<br />
+                        D'où $2(u'v+uv')$ $=2\left(1\mathrm{e}^{\frac{1}{2}x}+x\frac{1}{2}\mathrm{e}^{\frac{1}{2}x}\right)$
+                        $=2\left(1+\frac{1}{2}x\right)\mathrm{e}^{\frac{1}{2}x} $
+                        $=(2+x)\mathrm{e}^{\frac{1}{2}x} = f(x)$.<br />
+                        Or on connait une primitive de $u'v+uv'$ : c'est $u\times v$.<br />
+                        D'où $\displaystyle \int_{0}^{1} f(x)\text{d}x = \left[2\times u(x)\times v(x)\right]_0^1$
+                        $=\left[2x\mathrm{e}^{\frac{1}{2}x}\right]_0^1$
+                        $=2\mathrm{e}^{\frac{1}{2}}-0$
+                        $=$<div class="resultat">$2\sqrt{\mathrm{e}}$</div>
+                    </li>
+                </ol>
+            </section>
+        </article>
+
+        <article>
+            <header>
+                <h2><span class="cadre">Exercice 6</span> BAC : Liban (mai 2013)</h2>
+                <p> La fonction $f$ est définie sur $\mathbb{R}$ par : $f(x)=\dfrac{1}{1+\mathrm{e} ^{-x}}$.</p>
+                <ol class="question">
+                    <li>(A1) Démontrer que, pour tout réel $x$, $f(x)=\dfrac{e^x}{1+\mathrm{e} ^{x}}$.</li>
+                    <li>(A4)  On définit le nombre $I=\displaystyle\int_0^{1}f(x)\text{d}x$.<br />
+                        Montrer que $I=\ln\left(\dfrac{1+\mathrm{e}}{2}\right)$.<br />
+                        Donner une interprétation graphique de $I$.
+                    </li>
+                </ol>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la solution</button>
+                <button>Cacher la solution</button>
+                <ol class="question">
+                    <li>$f(x)=\dfrac{1}{1+\mathrm{e} ^{-x}}\times\dfrac{\mathrm{e} ^{x}}{\mathrm{e} ^{x}}$
+                        $ =\dfrac{\mathrm{e} ^{x}}{\mathrm{e} ^{x}+\mathrm{e} ^{0}} $
+                        $ =\dfrac{\mathrm{e} ^{x}}{\mathrm{e} ^{x}+1} $
+                    </li>
+                    <li>$\dfrac{\mathrm{e} ^{x}}{1+\mathrm{e} ^{x}}$ est de la forme $\dfrac{u'}{u}$ avec $u>0$ donc de primitive $\ln(u)$.<br />
+                        Donc $I=\displaystyle\int_0^{1}f(x)\text{d}x$
+                        $ =\left[\ln\left(1+\mathrm{e}^x\right)\right]_0^1$
+                        $=$<div class="resultat">$\ln(1+\mathrm{e})-\ln(2)$</div><br />
+                        Comme $f$ est positive, $I\approx0,62$ est l'aire en unités d'aire de la surface délimitée par la courbe de $f$ l'axe des abscisses et les droites d'équations $x=0$ et $x=1$ dans un repère orthogonal.<br />
+                        C'est la surface représentée ci-dessous :
+                        <div class="centre"><div class="figure"><canvas id="graphe4" height="180" width="320">Balise canvas non supportée</canvas></div></div>
+                        <script>
+                            var f = x => 1/(1+Math.exp(-x));
+                            var graphe = calibre("graphe4",-1,2,-1,2,1);
+
+                            graphe.fillStyle = '#0098f8';
+                            integrale(f,0,1,0.01);
+
+                            axes();
+
+                            graphe.lineWidth=1;
+                            graphe.strokeStyle = "#000000";
+                            trace(f,xmin,xmax,0.01);
+
+                            graphe.lineWidth=2;
+                            graphe.setLineDash([5,5]);
+                            segment(0,ymin,0,ymax);
+                            segment(1,ymin,1,ymax);
+                        </script>
+                    </li>
+                </ol>
+            </section>
+        </article>
+
+        <article>
+            <header>
+                <h2><span class="cadre">Exercice 7</span> BAC : Centres étrangers (Juin 2013)</h2>
+                <p>On considère la fonction $g$ définie pour tout réel $x$ de l'intervalle $[0\,;1]$ par : <div class="centre">$g(x) = 1 + \mathrm{e}^{-x}$</div>
+                    On admet que, pour tout réel $x\in[0\,;1]$, $g(x)>0$.<br />
+                    On note $\mathscr{C}$ la courbe représentative de la fonction $g$ dans un repère orthogonal, et $\mathscr{D}$ le domaine plan compris d'une part entre l'axe des abscisses et la courbe $\mathscr{C}$, d'autre part entre les droites d'équation $x = 0$ et $x = 1 $.<br />
+                    La courbe $\mathscr{C}$ et le domaine $\mathscr{D}$ sont représentés ci-dessous.
+                    <div class="centre"><div class="figure"><canvas id="graphe5" height="180" width="320">Balise canvas non supportée</canvas></div></div>
+                    <script>
+                        var f = x => 1+Math.exp(-x);
+                        var graphe = calibre("graphe5",-0.2,1.2,-0.2,2.2,1/2);
+                        graphe.fillStyle = '#f89800';
+                        integrale(f,0,1,0.01,'hachure');
+                        axes();
+                        graphe.lineWidth=1;
+                        graphe.strokeStyle = "#000000";
+                        trace(f,0,1,0.01);
+                        segment(1,0,1,f(1));
+                        ecrit("$\\mathscr{C}$",0.75,1.75);
+                        ecrit("$\\mathscr{D}$",0.5,0.75);
+                    </script>
+                    Le but de cet exercice est de partager le domaine $\mathscr{D}$ en deux domaines de même aire,
+                    d'abord par une droite parallèle à l'axe des ordonnées (partie A), puis par une droite parallèle à l'axe des abscisses (partie B).
+                </p>
+                <p class="titre">Partie A</p>
+                <p>Soit $a$ un réel tel que $0\leqslant a\leqslant 1$.<br />
+                    On note $\mathscr{A}_{1}$ l'aire du domaine compris entre la courbe $\mathscr{C}$, l'axe $(Ox)$,les droites d'équation $x = 0$ et $x =a$ ,
+                    puis $\mathscr{A}_{2}$ celle du domaine compris entre la courbe $\mathscr{C}$, $(Ox)$ et les droites d'équation $x = a$ et $x = 1$.<br />
+                    $\mathscr{A}_{1}$ et $\mathscr{A}_{2}$ sont exprimées en unités d'aire.
+                    <div class="centre"><div class="figure"><canvas id="graphe6" height="180" width="320">Balise canvas non supportée</canvas></div></div>
+                    <script>
+                        var f = x => 1+Math.exp(-x);
+                        var graphe = calibre("graphe6",-0.2,1.2,-0.2,2.2,1/2);
+                        graphe.fillStyle = '#f89800';
+                        integrale(f,0,0.45,0.01,'hachure');
+                        integrale(f,0.45,1,0.01,'hachure-45');
+                        axes();
+                        graphe.lineWidth=1;
+                        graphe.strokeStyle = "#000000";
+                        trace(f,0,1,0.01);
+                        segment(1,0,1,f(1));
+                        ecrit("$\\mathscr{C}$",0.75,1.75);
+                        ecrit("$\\mathscr{A}_1$",0.2,1.2);
+                        ecrit("$\\mathscr{A}_2$",0.7,1.2);
+                        segment(0.45,0,0.45,f(0.45));
+                        ecrit("$a$",0.42,0);
+                    </script>
+                </p>
+                <ol class="question">
+                    <li><ol>
+                        <li>Démontrer que $\mathscr{A}_{1}= a - \mathrm{e}^{-a} + 1$.</li>
+                        <li>Exprimer $\mathscr{A}_{2}$ en fonction de $a$.</li>
+                    </ol></li>
+                    <li>Soit $f$ définie pour tout $x$ de $[0~;~1]$ par :
+                        <div class="centre">$f(x) =2x - 2\,\mathrm{e}^{- x} + \dfrac{1}{\mathrm{e}}$</div>
+                        <ol>
+                            <li>Dresser le tableau de variation de la fonction $f$ sur l'intervalle $[0~;~1]$. On précisera les valeurs exactes de $f(0)$ et $f(1)$. </li>
+                            <li>Démontrer que la fonction $f$ s'annule une fois et une seule sur l'intervalle $[0~;~1]$. en un réel $\alpha$. Donner la valeur de $\alpha$ arrondie au centième.</li>
+                        </ol>
+                    </li>
+                    <li>En utilisant les questions précédentes, déterminer une valeur approchée du réel $a$ pour lequel les aires $\mathscr{A}_{1}$ et $\mathscr{A}_{2}$ sont égales.</li>
+                </ol>
+                <p class="titre">Partie B</p>
+                <p>Soit $b$ un réel positif.<br />
+                    Dans cette partie, on se propose de partager le domaine $\mathscr{D}$ en deux domaines de même aire par la droite d'équation $y=b$. On admet qu'il existe un unique réel $b$ positif solution.
+                </p>
+                <ol class="question">
+                    <li>Justifier l'inégalité $b<1 + \dfrac{1}{\mathrm{e}}$. On pourra utiliser un argument graphique.</li>
+                    <li>Déterminer la valeur exacte du réel $b$. </li>
+                </ol>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la solution</button>
+                <button>Cacher la solution</button>
+                <p class="titre">Partie A</p>
+                <ol class="question">
+                    <li><ol>
+                        <li>$\mathscr{A}_{1}$ $ = \displaystyle \int_{0}^a \left(1 + \mathrm{e}^{- x}\right)\text{d}x$
+                            $ = \left[x - \mathrm{e}^{- x} \right]_{0}^a$
+                            $ = \left(a - \mathrm{e}^{- a}\right) - \left(0 - \mathrm{e}^{- 0} \right)$
+                            $ = $ <div class="resultat">$a - \mathrm{e}^{- a} + 1$</div>.
+                        </li>
+                        <li>$\mathscr{A}_{2} = \displaystyle \int_{a}^1 \left(1 + \mathrm{e}^{- x}\right)\text{d}x$
+                            $ = \left[x - \mathrm{e}^{- x} \right]_{a}^1$
+                            $ = \left(1 - \mathrm{e}^{- 1}\right) - \left(a - \mathrm{e}^{- a} \right)$
+                            $ = $ <div class="resultat">$1 - a + \mathrm{e}^{- a} - \mathrm{e}^{- 1}$</div>.
+                        </li>
+                    </ol></li>
+                    <li>
+                        <ol>
+                            <li>$f'(x) = 2 + 2\text{e}^{- x}$<br />
+                                Les deux termes de cette somme sont positifs, donc :
+                                <table>
+                                    <thead>
+                                        <tr><th>$x$</th><td>$0$</td><td></td><td>$1$</td></tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="signe"><th>$f'(x)$</th><td></td><td>$+$</td><td></td></tr>
+                                        <tr class="variation"><th>$f(x)$</th><td style="vertical-align: bottom;">$\frac{1}{\mathrm{e}}-2$</td><td><div class='croissante'></div></td><td style="vertical-align: top;">$2-\frac{1}{\mathrm{e}}$</td></tr>
+                                    </tbody>
+                                </table></li>
+                            <li>Sur $[0\,;1]$, $f$ croît de $f(0) \approx -1,6 < 0$ à $f(1) \approx 1,6 > 0$.<br />
+                                Comme elle est continue sur cet intervalle, elle s'annule une seule fois en $\alpha \in [0\,;1]$.<br />
+                                La calculatrice permet de trouver que $0,452 < \alpha < 0,453$.<br />
+                                Donc <div class="resultat">$\alpha \approx 0,45$</div> au centième près.
+                            </li>
+                        </ol>
+                    </li>
+                    <li>$\mathscr{A}_{1} = \mathscr{A}_{2} \Leftrightarrow a + 1 - \text{e}^{- a} = 1 - a + \text{e}^{- a} - \text{e}^{- 1}$
+                        $ \Leftrightarrow 2a - \text{e}^{- a} + \text{e}^{- 1} = 0$
+                        $ \Leftrightarrow f(a) = 0$
+                        $ \Leftrightarrow a=\alpha$.<br />
+                        Finalement les aires sont égales pour <div class="resultat">$a = \alpha$</div> $ \approx 0,45$.
+                    </li>
+                </ol>
+                <p class="titre">Partie B</p>
+                <div class="centre"><div class="figure"><canvas id="graphe7" height="180" width="320">Balise canvas non supportée</canvas></div></div>
+                <script>
+                    var f = x => 1+Math.exp(-x);
+                    var graphe = calibre("graphe7",-0.2,1.2,-0.2,2.2,1/2);
+                    graphe.fillStyle = '#f89800';
+                    integrale(f,0,1,0.01,'hachure');
+                    graphe.fillStyle = '#ffffff';
+                    integrale(x => 0.816,0,1,0.01);
+                    graphe.fillStyle = '#f89800';
+                    integrale(x => 0.816,0,1,0.01,'hachure-45');
+                    axes();
+                    graphe.lineWidth=1;
+                    graphe.strokeStyle = "#000000";
+                    trace(f,0,1,0.01);
+                    segment(1,0,1,f(1));
+                    ecrit("$\\mathscr{C}$",0.75,1.75);
+                    segment(0,0.816,1,0.816);
+                    ecrit("$b$",-0.1,0.93);
+                </script>
+                <ol class="question">
+                    <li>Comme $g$ est décroissante sur $[0\,1]$ et que $g(0) = 2$, l'aire $\mathcal{A}$ du domaine $\mathcal{D}$ est inférieure à $2 \times 1 = 2$.
+                        Donc l'aire du domaine (rectangulaire) du bas, égale à $b \times 1 = b$ doit être inférieure à $\frac{1}{2}2 = 1$.
+                        A fortiori : $b < 1 + \dfrac{1}{\mathrm{e}}$.</li>
+                    <li>$b = \frac{1}{2}\displaystyle\int_{0}^1 g(x)\:\text{d}x$
+                        $ = \frac{1}{2}\left[x - \text{e}^{- x}\right]_{0}^1$
+                        $ = \frac{1}{2}\left(1 - \text{e}^{- 1}\right) + \frac{1}{2}\text{e}^0 $.
+                        $ = $<div class="resultat">$1 - \frac{1}{2\text{e}}$</div>$\approx 0,816$.</li>
+                </ol>
+            </section>
+        </article>

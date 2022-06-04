@@ -1,0 +1,211 @@
+<article>
+            <header><h2><span class="cadre">Définition</span> Loi exponentielle</h2>
+            <p>La loi exponentielle de paramètre $\lambda>0$ est la loi de densité $f$ définie sur $[0;+\infty[$ par : \[f(t)=\lambda\mathrm{e}^{-\lambda t}\]
+            </p>
+            <div class="centre">
+                <div class="figure"><canvas id="graphe1" height="180" width="320">Balise canvas non supportée</canvas></div>
+            </div>
+            <script>
+                var graphe = calibre("graphe1", -1, 3, -0.5, 1.5,1);
+                var f = x => 0.8*Math.exp(-0.8*x);
+                graphe.setLineDash([]);
+                graphe.strokeStyle = '#000000';
+                axes();
+                trace(f,0,xmax);
+                ecrit("$1$",0.95,-0.1);
+                ecrit("$\\lambda$",-0.2,0.85);
+                ecrit("$1$",-0.2,1.05);
+                ecrit("$\\mathscr{C}_f$",1,0.6);
+            </script>
+            <p>Si $X$ suit une loi exponentielle de paramètre $\lambda$, on notera : $X\hookrightarrow\mathscr{E}(\lambda)$</p>
+            </header>
+            <section>
+                <h3>Vérifions que $f$ est bien une fonction de densité :</h3>
+                <ul>
+                    <li>$f$ est continue car l'exponentielle l'est sur $\mathbb{R}$</li>
+                    <li>$f$ est positive car $\mathrm{e}xp$ et $\lambda$ se sont.</li>
+                    <li>L'intégrale sur $I=[0;+\infty[$ se calcule par la limite : $\displaystyle \lim_{x\to+\infty}\int_0^x \lambda \mathrm{e}^{-\lambda t}\text{d}t$<br />
+                        Or $\displaystyle \int_0^x \lambda \mathrm{e}^{-\lambda t}\text{d}t$
+                        $\displaystyle = \left[ \lambda \frac{1}{-\lambda}\mathrm{e}^{-\lambda t}\right]_0^x$
+                        $\displaystyle = (-\mathrm{e}^{-\lambda x})-(-\mathrm{e}^{0})$
+                        $\displaystyle = 1 - \mathrm{e}^{-\lambda x}$<br />
+                        Et comme $\displaystyle \lim_{x\to+\infty}-\lambda x=-\infty$ alors $\displaystyle \lim_{x\to+\infty}\mathrm{e}^{-\lambda x}=0$ d'où le résultat.
+                    </li>
+                </ul>
+            </section>
+        </article>
+
+        <article>
+            <header><h2><span class="cadre">Théorème</span> Calculs de probabilité sous loi exponentielle</h2>
+            <p>Si $X\hookrightarrow\mathscr{E}(\lambda)$ alors pour $0\leqslant a \leqslant b$ :
+                <ul>
+                    <li>$P(a\leqslant X\leqslant b)=\mathrm{e}^{-\lambda a}-\mathrm{e}^{-\lambda b}$
+                    <div class="centre">
+                        <div class="figure"><canvas id="graphe2" height="180" width="320">Balise canvas non supportée</canvas></div>
+                    </div>
+                    <script>
+                        var graphe = calibre("graphe2", -1, 3, -0.5, 1.5,1);
+                        var f = x => 0.8*Math.exp(-0.8*x);
+                        var a = 0.4;
+                        var b = 1.6;
+                        graphe.setLineDash([]);
+                        graphe.strokeStyle = '#000000';
+                        graphe.fillStyle = '#0098f8';
+                        integrale(f,a,b);
+                        axes();
+                        trace(f,0,xmax);
+                        graphe.setLineDash([3,3]);
+                        segment(a,0,a,f(a));
+                        segment(b,0,b,f(b));
+                        ecrit("$a$",a-0.05,-0.1);
+                        ecrit("$b$",b-0.05,-0.05);
+                        ecrit("$\\lambda$",-0.2,0.85);
+                        ecrit("$\\mathscr{C}_f$",1,0.6);
+                        ecrit("$\\mathrm{e}^{-\\lambda a}-\\mathrm{e}^{-\\lambda b}$",0.5,0.25);
+                    </script></li>
+                    <li>$P(X \geqslant a)=\mathrm{e}^{-\lambda a}$
+                    <div class="centre">
+                        <div class="figure"><canvas id="graphe3" height="180" width="320">Balise canvas non supportée</canvas></div>
+                    </div>
+                    <script>
+                        var graphe = calibre("graphe3", -1, 3, -0.5, 1.5,1);
+                        var f = x => 0.8*Math.exp(-0.8*x);
+                        var a = 0.4;
+                        var b = 1.6;
+                        graphe.setLineDash([]);
+                        graphe.strokeStyle = '#000000';
+                        graphe.fillStyle = '#0098f8';
+                        integrale(f,a,xmax);
+                        axes();
+                        trace(f,0,xmax);
+                        graphe.setLineDash([3,3]);
+                        segment(a,0,a,f(a));
+                        ecrit("$a$",a-0.05,-0.1);
+                        ecrit("$\\lambda$",-0.2,0.85);
+                        ecrit("$\\mathscr{C}_f$",1,0.6);
+                        ecrit("$\\mathrm{e}^{-\\lambda a}$",1,0.25);
+                    </script></li>
+                    <li>$P(X\leqslant b)=1-\mathrm{e}^{-\lambda b}$
+                    <div class="centre">
+                        <div class="figure"><canvas id="graphe4" height="180" width="320">Balise canvas non supportée</canvas></div>
+                    </div>
+                    <script>
+                        var graphe = calibre("graphe4", -1, 3, -0.5, 1.5,1);
+                        var f = x => 0.8*Math.exp(-0.8*x);
+                        var a = 0.4;
+                        var b = 1.6;
+                        graphe.setLineDash([]);
+                        graphe.strokeStyle = '#000000';
+                        graphe.fillStyle = '#0098f8';
+                        integrale(f,0,b);
+                        axes();
+                        trace(f,0,xmax);
+                        graphe.setLineDash([3,3]);
+                        segment(b,0,b,f(b));
+                        ecrit("$b$",b-0.05,-0.05);
+                        ecrit("$\\lambda$",-0.2,0.85);
+                        ecrit("$\\mathscr{C}_f$",1,0.6);
+                        ecrit("$1-\\mathrm{e}^{-\\lambda b}$",0.5,0.25);
+                    </script></li>
+                </ul>
+            </p>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la démonstration</button>
+                <button>Cacher la démonstration</button>
+                $\displaystyle \int_a^b \lambda \mathrm{e}^{-\lambda t}\text{d}t$
+                $\displaystyle = \left[ \lambda \frac{1}{-\lambda}\mathrm{e}^{-\lambda t}\right]_a^b$
+                $\displaystyle = (-\mathrm{e}^{-\lambda b})-(-\mathrm{e}^{-\lambda a})$
+                $\displaystyle = \mathrm{e}^{-\lambda a} - \mathrm{e}^{-\lambda b}$<br />
+                On en déduit les deux autres en prenant $a=0$ ou en calculant la limite quand $b\to+\infty$.
+            </section>
+        </article>
+
+        <article>
+            <header><h2><span class="cadre">Théorème</span> Durée de vie sans vieillisement</h2>
+            <p>Si $T\hookrightarrow\mathscr{E}(\lambda)$, elle vérifie la propriété de &laquo; durée de vie sans vieillissement &raquo; : <br />
+            Pour tous réels $t>0$ et $h>0$,  \[P_{T\geqslant t}(T\geqslant t+h)=P(T\geqslant h)\]
+            </p>
+            <p>Quelque soit le temps $t$ de vie écoulé, la probabilité de vivre un temps $h$ supplémentaire est la même
+            (que celle de vivre un temps $h$ au départ).
+            </p>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la démonstration (ROC)</button>
+                <button>Cacher la démonstration</button>
+                Soient $T\hookrightarrow\mathscr{E}(\lambda)$, $t>0$ et $h>0$:<br />
+                $\displaystyle P_{T\geqslant t}(T\geqslant t+h)$
+                $\displaystyle =\frac{P\left((T\geqslant t) \cap (T\geqslant t+h)\right)}{P(T\geqslant t)}$
+                $\displaystyle =\frac{P(T\geqslant (t+h))}{P(T\geqslant t)}$
+                $\displaystyle =\frac{\mathrm{e}^{-\lambda (t+h)}}{\mathrm{e}^{-\lambda t}}$
+                $\displaystyle =\mathrm{e}^{-\lambda h}$
+                $\displaystyle =P(T\geqslant h)$
+            </section>
+        </article>
+
+        <article>
+            <header><h2><span class="cadre">Exercice 6 (E32)</span> Application directe</h2>
+            <p>$X$ est une variable aléatoire suivant de la loi exponentielle de paramètre $0,3$. Calculer :
+                <ol>
+                    <li>$P(X \leqslant 1)$</li>
+                    <li>$P(X \geqslant 3)$</li>
+                    <li>$P(3\leqslant X \leqslant 4)$</li>
+                    <li>$P_{(X \geqslant 3)}(X \leqslant 4)$</li>
+                </ol>
+            </p>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la solution</button>
+                <button>Cacher la solution</button>
+                <ol>
+                    <li>$P(X \leqslant 1)$ $=1-\mathrm{e}^{-0,3}$ $\approx 0,259$</li>
+                    <li>$P(X \geqslant 3)$ $=\mathrm{e}^{-0,3\times3}$  $\approx 0,407$</li>
+                    <li>$P(3\leqslant X \leqslant 4)$  $=\mathrm{e}^{-0,3\times3} - \mathrm{e}^{-0,3\times4}$ $\approx 0,105$</li>
+                    <li>$P_{(X \geqslant 3)}(X \leqslant 4)$
+                        $= 1-P_{(X \geqslant 3)}(X \geqslant 4)$
+                        $= 1-P_{(X \geqslant 3)}(X \geqslant 3+1)$
+                        $= 1-P(X \geqslant 1)$
+                        $= P(X \leqslant 1)$ $\approx 0,259$</li>
+                </ol>
+            </section>
+        </article>
+
+        <article>
+            <header><h2><span class="cadre">Exercice 7 (E32)</span> Demi-vie</h2>
+            <p>$X$ est une variable aléatoire suivant de la loi exponentielle de paramètre $0,5$. Calculer la valeur de $t$ pour laquelle : $P(X\leqslant t)=P(X>t)$</p>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la solution</button>
+                <button>Cacher la solution</button>
+                On peut faire le calcul dans le cas général, pour une loi exponentielle de paramètre $\lambda$ :<br />
+                $P(X\leqslant t)=P(X>t)$
+                $\Leftrightarrow 1-\mathrm{e}^{-\lambda t} = \mathrm{e}^{-\lambda t}$
+                $\Leftrightarrow 1 = 2\mathrm{e}^{-\lambda t}$
+                $\Leftrightarrow \frac{1}{2} = \mathrm{e}^{-\lambda t}$
+                $\Leftrightarrow \ln\left(\frac{1}{2}\right) = -\lambda t$
+                $\Leftrightarrow \ln(2) = \lambda t$
+                $\Leftrightarrow t = \dfrac{\ln(2)}{\lambda}$<br />
+                Pour $\lambda = 0,5$, on trouve donc $t = 2\ln(2)\approx 1,386$
+            </section>
+        </article>
+
+        <article>
+            <header><h2><span class="cadre">Exercice 8 (E32)</span> Demi-vie du carbone 14</h2>
+            <p>La durée de vie, en années, d'un atome radioactif peut être modélisée par une variable aléatoire $D$ suivant une loi exponentielle de paramètre $\lambda$.
+               On appelle demi-vie de cet élément le nombre réel $T$ tel que la probabilité que cet atome se désintègre avant $T$ années soit égale à 0,5.<br />
+               Ainsi, la demi-vie du carbone 14 est de 5730 ans.<br />
+               Calculer le paramètre $\lambda$ dans le cas du carbone 14.
+            </p>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la solution</button>
+                <button>Cacher la solution</button>
+                Une mise en équation du texte donne : $P(D&lt;T)=0,5$
+                $\Leftrightarrow 1-\mathrm{e}^{-\lambda T}=0,5$
+                $\Leftrightarrow \mathrm{e}^{-\lambda T}=0,5$
+                $\Leftrightarrow -\lambda T=\ln(0,5)$
+                $\Leftrightarrow \lambda T=\ln(2)$
+                $\Leftrightarrow \lambda =\dfrac{\ln(2)}{T}$<br />
+                Avec $T = 5730$, cela donne $\lambda =\dfrac{\ln(2)}{5730}\approx 0,000121$
+            </section>
+        </article>

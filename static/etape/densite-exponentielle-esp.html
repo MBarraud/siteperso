@@ -1,0 +1,141 @@
+<article>
+            <header><h2><span class="cadre">Théorème</span> Calculs de probabilité sous loi exponentielle</h2>
+            <p>Si $T\hookrightarrow\mathscr{E}(\lambda)$ : \[E(X)=\frac{1}{\lambda}\]</p>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la démonstration (ROC)</button>
+                <button>Cacher la démonstration</button>
+                Soient $T\hookrightarrow\mathscr{E}(\lambda)$.
+                On cherche à calculer $\displaystyle E(X)=\lim_{x\to+\infty}\int_{0}^x t \times \lambda\mathrm{e}^{-\lambda t}	\text{d}t$.
+                <ul>
+                    <li>Calcul de $\displaystyle \int_{0}^x t\times \lambda \mathrm{e}^{-\lambda t}\text{d}t$<br />
+                    	On reconnait un produit, mais il ce n'est pas $u' \mathrm{e}^u$ ni aucune autre forme du cours.<br />
+                        Le principe est ici d'utiliser la forme de dérivation $(u v)' = u' v + u v'$ réécrite : \[u v' = (u v)' - u' v \]
+                        Cette technique n'est pas un attendu du programme comme en témoigne la façon de redemander ce calcul au BAC (exercice ci-dessous).
+                        Posons :
+                        <ul>
+                            <li> $u(t)=t$, donc $u'(t)=1$</li>
+                            <li> $v'(t)=\lambda\mathrm{e}^{-\lambda t}$, donc $v(t)=-\mathrm{e}^{-\lambda t}$.</li>
+                        </ul>
+                        On a alors :
+                        $\displaystyle \int_{0}^x t \times \lambda\mathrm{e}^{-\lambda t}\text{d}t$
+                        $\displaystyle =\int_{0}^x u(t) v'(t)\text{d}t$
+                        $\displaystyle =\int_{0}^x (u v)'(t) - u'(t) v(t) \text{d}t$
+                        $\displaystyle =\int_{0}^x (u v)'(t)\text{d}t - \int_{0}^x u'(t) v(t) \text{d}t$<br />
+                        Or $\displaystyle \int_{0}^x (u v)'(t)\text{d}t $
+                        $\displaystyle = [(u v)(t)]_0^x$
+                        $\displaystyle = \left[-t \mathrm{e}^{-\lambda t}\right]_0^x$
+                        $\displaystyle = -x\mathrm{e}^{-\lambda x}$<br />
+                        et $\displaystyle \int_{0}^x u'(t) v(t) \text{d}t$
+                        $\displaystyle = \int_{0}^x -\mathrm{e}^{-\lambda t} \text{d}t$
+                        $\displaystyle = \left[\frac{1}{\lambda}\mathrm{e}^{-\lambda t}\right]_0^x$
+                        $\displaystyle = \frac{1}{\lambda}\mathrm{e}^{-\lambda x}-\frac{1}{\lambda}$<br />
+                        Donc $\displaystyle \int_{0}^x t \times \lambda\mathrm{e}^{-\lambda t}\text{d}t=\dfrac{1}{\lambda}(-\lambda x\mathrm{e}^{-\lambda x}-\mathrm{e}^{-\lambda x}+1)$
+                    </li>
+                    <li>Calcul de la limite<br />
+                    	Comme $\lambda>0$ alors $\displaystyle \lim_{x\to+\infty}-\lambda x=-\infty$.<br />
+                        Or $\displaystyle \lim_{X\to-\infty}\mathrm{e}^X=0$ et $\displaystyle \lim_{X\to-\infty}X\mathrm{e}^X=0$.<br />
+                        donc $\displaystyle \lim_{x\to+\infty}\mathrm{e}^{-\lambda x}=0$ et $\displaystyle \lim_{x\to+\infty}-\lambda x\mathrm{e}^{-\lambda x}=0$.<br />
+	                	Les opérations sur les limites donnent alors : $\displaystyle E(X)=\lim_{x\to+\infty}\int_{0}^x t \times \lambda\mathrm{e}^{-\lambda t}\text{d}t=\frac{1}{\lambda}$.</li>
+                </ul>
+            </section>
+        </article>
+
+        <article>
+            <header><h2><span class="cadre">Exercice 9 (E32)</span> Asie - BAC S - Juin 2015</h2>
+                <p>La durée de vie (exprimée en heures) du panneau électrique affichant les scores des concurrents lors d'une compétition sportive est
+                   une variable aléatoire $T$ qui suit la loi exponentielle de paramètre $\lambda = 10^{-4}$ (exprimé en h$^{-1}$).
+                </p>
+                <ol>
+                    <li>Quelle est la probabilité que le panneau fonctionne au moins pendant 2000 heures ?</li>
+                    <li><strong>Restitution organisée des connaissances</strong><br />
+                        Dans cette question, $\lambda$ désigne un réel strictement positif.
+                        On rappelle que l'espérance mathématique de la variable aléatoire $T$ suivant une loi
+                        exponentielle de paramètre $\lambda$, est définie par :
+                        \[\text{E}(T) = \displaystyle\lim_{x \to + \infty} \displaystyle\int_0^x \lambda t \text{e}^{- \lambda t}\:\text{d}t\]
+                        <ol>
+                            <li>On considère la fonction $F$, définie pour tout réel $t$ par : $F(t) = \left(- t - \dfrac{1}{\lambda}\right)\text{e}^{- \lambda t}$.
+                                Démontrer que la fonction $F$ est une primitive sur $\mathbb{R}$ de la fonction $f$ définie pour tout réel $t$ par :
+                                $f(t) = \lambda t\mathrm{e}^{- \lambda t}$.</li>
+                            <li>En déduire que l'espérance mathématique de la variable aléatoire $T$ est égale à $\dfrac{1}{\lambda}$.<br />
+                                Quelle est l'espérance de durée de vie du panneau électrique affichant le score des concurrents ?</li>
+                        </ol>
+                    </li>
+                </ol>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la solution</button>
+                <button>Cacher la solution</button>
+                <ol>
+                    <li>$P(T\geqslant2000)$ $=\mathrm{e}^{-0,0001\times 2000}$
+                        $ = \mathrm{e}^{-0,0001\times 2000}$
+                        $ = \mathrm{e}^{-0,2}$
+                        $ \approx 0,819$</li>
+                    <li><ol>
+                            <li>$F(t) = \left(- t - \dfrac{1}{\lambda}\right)\mathrm{e}^{- \lambda t}$ est un produit $u\times v$ avec
+                                <ul><li>$u(t)=- t - \dfrac{1}{\lambda}$ donc $u'(t)=- 1$</li>
+                                    <li>$v(t)=\mathrm{e}^{- \lambda t}=\mathrm{e}^{w(t)}$ donc $v'(t)=w'(t)\mathrm{e}^{w(t)}=-\lambda\mathrm{e}^{- \lambda t}$</li>
+                                </ul>
+                                Donc $F'(t) = -1\times\mathrm{e}^{- \lambda t}+\left(- t - \dfrac{1}{\lambda}\right)\times\left(-\lambda\mathrm{e}^{- \lambda t}\right)$
+                                $= \left(-1+ \lambda t +  1\right)\mathrm{e}^{- \lambda t}$
+                                $=  \lambda t\mathrm{e}^{- \lambda t}$
+                                $= f(t)$</li>
+                            <li>$\displaystyle\int_0^x \lambda t \text{e}^{- \lambda t}\:\text{d}t$
+                                $\displaystyle = \left[ \left(- t - \dfrac{1}{\lambda}\right)\mathrm{e}^{- \lambda t}\right]_0^x$
+                                $\displaystyle = \left(- x - \dfrac{1}{\lambda}\right)\mathrm{e}^{- \lambda x} -  \left( - \dfrac{1}{\lambda}\right)\mathrm{e}^{0}$
+                                $\displaystyle = \dfrac{1}{\lambda}\left(1 - \lambda x \mathrm{e}^{- \lambda x} - \mathrm{e}^{- \lambda x}\right)$<br />
+                                Comme $\lambda>0$ alors $\displaystyle \lim_{x\to+\infty}-\lambda x=-\infty$.<br />
+                                Or $\displaystyle \lim_{X\to-\infty}\mathrm{e}^X=0$ et $\displaystyle \lim_{X\to-\infty}X\mathrm{e}^X=0$.<br />
+                                donc $\displaystyle \lim_{x\to+\infty}\mathrm{e}^{-\lambda x}=0$ et $\displaystyle \lim_{x\to+\infty}-\lambda x\mathrm{e}^{-\lambda x}=0$.<br />
+                                Les opérations sur les limites donnent alors : $\displaystyle E(X)=\lim_{x\to+\infty}\int_{0}^x t \times \lambda\mathrm{e}^{-\lambda t}\text{d}t=\frac{1}{\lambda}$.<br />
+                                L'espérance de durée de vie du panneau électrique est donc $\dfrac{1}{10^{-4}}=10^4=10 000$ heures.</li>
+                        </ol>
+                    </li>
+                </ol>
+            </section>
+        </article>
+
+        <article>
+            <header><h2><span class="cadre">Exercice 10 (E32)</span> Métropole - BAC S - Juin 2015</h2>
+                <p>Soit $X$ une variable aléatoire qui suit la loi exponentielle de paramètre $\lambda$,
+                   où $\lambda$ est un réel strictement positif donné. On rappelle que la densité de probabilité
+                   de cette loi est la fonction $f$  définie sur $[0~;~+ \infty[$ par : $f(x) = \lambda\mathrm{e}^{- \lambda x}$.
+                </p>
+                <ol>
+                    <li>Soit $c$ et $d$ deux réels tels que $0 \leqslant c &lt; d$.<br />
+                        Démontrer que la probabilité $P( c \leqslant X \leqslant d)$ vérifie : $P(c \leqslant X \leqslant d) = \mathrm{e}^{- \lambda c} - \mathrm{e}^{- \lambda d}$
+                    </li>
+                    <li>Déterminer une valeur de $\lambda$ à $10^{-3}$ près de telle sorte que la probabilité $P(X > 20)$ soit égale à 0,05.</li>
+                    <li>Donner l'espérance de la variable aléatoire $X$.</li>
+                </ol>
+                <strong>Dans la suite de l'exercice on prend $\boldsymbol{\lambda = 0,15}$.</strong>
+                <ol start="4">
+                    <li>Calculer $P(10 \leqslant X \leqslant 20)$.</li>
+                    <li>Calculer la probabilité de l'évènement $(X > 18)$.</li>
+                </ol>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la solution</button>
+                <button>Cacher la solution</button>
+                <ol>
+                    <li> $\displaystyle P(c \leqslant X \leqslant d)$
+                        $\displaystyle = \int_c^d \lambda \mathrm{e}^{-\lambda t}\text{d}t$
+                        $\displaystyle = \left[ \lambda \frac{1}{-\lambda}\mathrm{e}^{-\lambda t}\right]_c^d$
+                        $\displaystyle = (-\mathrm{e}^{-\lambda d})-(-\mathrm{e}^{-\lambda c})$
+                        $\displaystyle = \mathrm{e}^{-\lambda c} - \mathrm{e}^{-\lambda d}$
+                    </li>
+                    <li>$P(X > 20)=0,05$
+                        $\Leftrightarrow 1- P(0 \leqslant X \leqslant 20)=0,05$
+                        $\Leftrightarrow  \mathrm{e}^{0} - \mathrm{e}^{-20\lambda}=0,95$
+                        $\Leftrightarrow  \mathrm{e}^{-20\lambda}=0,05$
+                        $\Leftrightarrow  -20\lambda=\ln(0,05)$
+                        $\Leftrightarrow  \lambda=\dfrac{\ln(20)}{20}\approx 0,150$.</li>
+                    <li>L'espérance est $\dfrac{1}{\lambda}\approx 6,67$.</li>
+                    <li>$P(10 \leqslant X \leqslant 20)$
+                        $\displaystyle = \mathrm{e}^{-0,15\times 10} - \mathrm{e}^{-0,15\times20}$
+                        $\displaystyle \approx 0,173$.</li>
+                    <li>$P(X > 18)= \mathrm{e}^{-0,15\times 18}$
+                        $\displaystyle \approx 0,067$.</li>
+                </ol>
+            </section>
+        </article>

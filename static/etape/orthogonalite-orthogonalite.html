@@ -1,0 +1,302 @@
+<article>
+            <header>
+                <h2><span class="cadre">Définitions</span> Vecteurs orthogonaux et droites orthogonales</h2>
+                <p>Soient $\vec u$ et $\vec v$ deux vecteurs ; $\mathscr{D}$ et $\mathscr{D}'$ deux droites ; dans l'espace.
+                    <ul>
+                        <li>$\vec u$ et $\vec v$ sont deux vecteurs orthogonaux si $\vec u\,.\,\vec v =0$.
+                    </li>
+                    <li>$\mathscr{D}$ et $\mathscr{D}'$ sont deux droites <emph>orthogonales</emph> si tout vecteur directeur de $\mathscr{D}$ est orthogonal à tout veteur directeur de $\mathscr{D}'$.
+                        <div class="centre"><div class="figure"><canvas id="graphe1" height="180", width="320">Balise canvas non supportée</canvas></div></div>
+                        <script>
+                            var graphe = calibre3D("graphe1", -0.25, 2, -1.5, 1.5, -0.5, 1);
+                            var O = point(0,0,0);
+                            var I = point(1,0,0);
+                            var J = point(0,1,0);
+                            var K = point(0,0,1);
+                            var M = point(-0.5,-0.5,0.5);
+                            graphe.lineWidth = 1;
+                            graphe.fillStyle = '#0098f8';
+                            remplir(point(-0.5,-0.6,0),point(2,-0.6,0),point(2,1.6,0),point(-0.5,1.6,0));
+                            graphe.lineWidth = 0.5;
+                            ligne(point(-0.4,0,0),point(1.9,0,0));
+                            ligne(combinaison(1,M,-0.5,J,0.5,O),combinaison(1,M,1.5,J,-1.5,O));
+                            graphe.lineWidth = 1.5;
+                            fleche(O,I);
+                            graphe.setLineDash([3,3]);
+                            fleche(O,J);
+                            graphe.setLineDash([]);
+                            fleche(M,combinaison(1,M,1,J,-1,O));
+                            graphe.lineWidth = 1.5;
+                            graphe.setLineDash([1,1]);
+                            ligne(M,O);
+                            ligne(combinaison(1,M,1,J,-1,O),J);
+                            graphe.lineWidth = 1;
+                            graphe.setLineDash([]);
+                            ligne(point(0.3,0,0),point(0.3,0.3,0),point(0,0.3,0));
+                            ecrit("$\\vec{u}$",0.5,-0.03);
+                            ecrit("$\\vec{v}$",-0.6,0.7);
+                            ecrit("$\\vec{u}.\\vec{v}=0$",0.6,0.3);
+                            ecrit("$\\mathscr{D}$ orthogonale à $\\mathscr{D'}$",0.2,1);
+                            ecrit("$\\mathscr{D'}$",1.8,0.2);
+                        </script></li>
+                    <li>Si de plus ces droites sont sécantes, on dit que ce sont deux droites perpendiculaires.
+                        <div class="centre"><div class="figure"><canvas id="graphe2" height="180", width="320">Balise canvas non supportée</canvas></div></div>
+                        <script>
+                            var graphe = calibre3D("graphe2", -0.25, 2, -1.5, 1.5, -0.5, 1);
+                            var O = point(0,0,0);
+                            var I = point(1,0,0);
+                            var J = point(0,1,0);
+                            var K = point(0,0,1);
+                            var M = point(-0.5,-0.5,0.5);
+                            graphe.lineWidth = 1;
+                            graphe.fillStyle = '#0098f8';
+                            remplir(point(-0.5,-0.6,0),point(2,-0.6,0),point(2,1.6,0),point(-0.5,1.6,0));
+                            graphe.lineWidth = 0.5;
+                            ligne(point(-0.4,0,0),point(1.9,0,0));
+                            ligne(combinaison(-0.5,J,1.5,O),combinaison(1.5,J,-0.5,O));
+                            graphe.lineWidth = 1.5;
+                            fleche(O,I);
+                            fleche(O,J);
+                            graphe.lineWidth = 1;
+                            ligne(point(0.3,0,0),point(0.3,0.3,0),point(0,0.3,0));
+                            ecrit("$\\vec{u}$",0.5,-0.03);
+                            ecrit("$\\vec{v}$",0.2,0.4);
+                            ecrit("$\\vec{u}.\\vec{v}=0$",0.6,0.3);
+                            ecrit("$\\mathscr{D}$ orthogonale à $\\mathscr{D'}$",0.95,0.75);
+                            ecrit("$\\mathscr{D'}$",1.8,0.2);
+                        </script></li>
+                </p>
+            </header>
+        </article>
+
+        <article>
+            <header>
+                <h2><span class="cadre">Théorème </span> Condition suffisante d'orthogonalité de droites</h2>
+                <p>Pour que deux droites $\mathscr{D}$ et $\mathscr{D}'$ soient orthogonales, il suffit qu'un vecteur directeur de $\mathscr{D}$
+                    soit orthogonal à un vecteur directeur de $\mathscr{D}'$.
+                </p>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la démonstration</button>
+                <button>Cacher la démonstration</button>
+                Notons $\vec d$ et $\vec {d'}$ des vecteurs directeurs de $\mathscr{D}$ et $\mathscr{D}'$ orthogonaux, c'est à dire : $\vec d . \vec {d'} = 0$.<br />
+                <ul>
+                    <li>Tout vecteur directeur de $\mathscr{D}$ est colinéaire à $\vec d$ et s'écrit donc $\lambda \vec d$ avec $\lambda \in \mathbb{R}$.</li>
+                    <li>Tout vecteur directeur de $\mathscr{D}'$ est colinéaire à $\vec {d'}$ et s'écrit donc $\lambda' \vec {d'}$ avec $\lambda' \in \mathbb{R}$.</li>
+                </ul>
+                Et par linéarité : $(\lambda \vec d ).(\lambda' \vec {d'} ) = \lambda\lambda' \times \vec d . \vec {d'} = 0$.
+            </section>
+        </article>
+
+        <article>
+            <header>
+                <h2><span class="cadre">Exercice </span> Prérequis à l'exercice 5</h2>
+                <p> On considère ci-dessous le cube $ABCDEFGH$.</p>
+                <div class="centre"><div class="figure"><canvas id="graphe5" height="180", width="320">Balise canvas non supportée</canvas></div></div>
+                <script>
+                    var graphe = calibre3D("graphe5", -1.25, 1.25, -1.25, 1.25, -1.25, 1.25);
+                    var A = point(-1,-1,-1);
+                    var B = point(1,-1,-1);
+                    var C = point(1,1,-1);
+                    var D = point(-1,1,-1);
+                    var E = point(-1,-1,1);
+                    var F = point(1,-1,1);
+                    var G = point(1,1,1);
+                    var H = point(-1,1,1);
+                    ligne(A,B,C,G,H,E,A);
+                    ligne(E,F,B);
+                    ligne(F,G);
+                    graphe.strokeStyle = '#f89800';
+                    graphe.lineWidth = 1.5;
+                    ligne(combinaison(1.2,E,-0.2,G),combinaison(-0.2,E,1.2,G));
+                    ligne(F,combinaison(-0.2,D,1.2,F));
+                    graphe.setLineDash([5,5]);
+                    ligne(combinaison(1.2,D,-0.2,F),F);
+                    graphe.setLineDash([5,5]);
+                    graphe.strokeStyle = '#0098f8';
+                    graphe.lineWidth = 2;
+                    fleche(D,A);
+                    fleche(D,C);
+                    fleche(D,H);
+                    ecrit("$A$",-2,-1.25);
+                    ecrit("$B$",0.75,-1.25);
+                    ecrit("$D$",-0.8,-0.5);
+                    ecrit("$C$",1.8,-0.5);
+                    ecrit("$E$",-2,0.7);
+                    ecrit("$F$",0.75,0.7);
+                    ecrit("$H$",-0.8,1.45);
+                    ecrit("$G$",1.8,1.45);
+                </script>
+                <p>On se place dans le repère $\left(D\,;\overrightarrow{DA}\,,\overrightarrow{DC}\,,\overrightarrow{DH}\right)$</p>
+                <p>Démontrer que les droites $(EG)$ et $(DF)$ sont orthogonales.</p>
+                <p>Sont-elles perpendiculaires ?</p>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la solution</button>
+                <button>Cacher la solution</button>
+                Dans ce repère : $D(0\,;0\,;0)$, $E(1\,;0\,;1)$, $F(1\,;1\,;1)$ et $G(0\,;1\,;1)$<br />
+                Donc : $\overrightarrow{EG} \left(\begin{smallmatrix}-1\\1\\0\end{smallmatrix}\right)$
+                ; $\overrightarrow{DF} \left(\begin{smallmatrix}1\\1\\1\end{smallmatrix}\right)$
+                et $\overrightarrow{EG} . \overrightarrow{DF} = (-1)\times 1 + 1\times1+0\times1 =0$.<br />
+                Donc $\overrightarrow{EG}$ et $\overrightarrow{DF}$ sont orthogonaux, donc $(EG)$ et $(DF)$ sont orthogonales.<br />
+                Elles ne sont pas perpendiculaires car $(DF)$ n'est pas dans le plan $(EFG)$ et le coupe en $F$ qui n'est pas sur $(EG)$.
+
+            </section>
+        </article>
+
+
+        <article>
+            <header>
+                <h2><span class="cadre">Définition</span> Droite perpendiculaire à un plan</h2>
+                <p>Soient $\mathscr{D}$ une droite et $\mathscr{P}$ un plan dans l'espace.</p>
+                <p>$\mathscr{D}$ est dite perpendiculaire à $\mathscr{P}$ si elle est orthogonale à toute droite de  $\mathscr{P}$</p>
+                <div class="centre"><div class="figure"><canvas id="graphe6" height="180", width="320">Balise canvas non supportée</canvas></div></div>
+                <script>
+                    var graphe = calibre3D("graphe6", -2, 2, -1.5, 1.5, -0.5, 1);
+                    var O = point(0,0,0);
+                    var I = point(1,0,0);
+                    var J = point(0,1,0);
+                    var K = point(0,0,1);
+                    graphe.lineWidth = 0.5;
+                    ligne(point(0,0,-2),point(0,0,0));
+                    graphe.fillStyle = '#0098f8';
+                    remplir(point(-2,-1.6,0),point(2,-1.6,0),point(2,1.6,0),point(-2,1.6,0));
+                    ligne(point(0,0,0),point(0,0,2));
+                    ligne(point(-1.5,0,0),point(1.5,0,0));
+                    ligne(point(0,-1.5,0),point(0,1.5,0));
+                    ligne(point(-1.5,-1.3,0),point(1.5,-0.7,0));
+                    graphe.lineWidth = 1.5;
+                    fleche(O,I);
+                    fleche(O,J);
+                    fleche(O,K);
+                    fleche(point(-1,-1.2,0),point(-1,-1.2,1));
+                    fleche(point(-1,-1.2,0),point(-0.5,-1.1,0));
+                    graphe.setLineDash([]);
+                    graphe.lineWidth = 1;
+                    graphe.setLineDash([]);
+                    ligne(point(0.25,0,0),point(0.25,0,0.25),point(0,0,0.25));
+                    ligne(point(0,0.25,0),point(0,0.25,0.25),point(0,0,0.25));
+                    ligne(point(-0.75,-1.15,0),point(-0.75,-1.15,0.25),point(-1,-1.2,0.25));
+                    ecrit("$\\mathscr{D}$ perpendiculaire à $\\mathscr{P}$",0.1,1.8);
+                    ecrit("$\\mathscr{P}$",2.2,0.5);
+                </script>
+            </header>
+        </article>
+
+        <article>
+            <header>
+                <h2><span class="cadre">Théorème </span> Condition suffisante de perpendicularité d'une droite et d'un plan</h2>
+                <p>Pour qu'une droite $\mathscr{D}$ et un plan $\mathscr{P}$ soient perpendiculaires, il suffit que $\mathscr{D}$
+                    soit orthogonale à deux droites $\Delta$ et $\Delta'$ sécantes contenues dans $\mathscr{P}$.
+                </p>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la démonstration (ROC)</button>
+                <button>Cacher la démonstration</button>
+                Notons $\vec{u}$, $\vec{v}$ et $\vec{d}$ des vecteurs directeurs pour $\Delta$, $\Delta'$ et $\mathscr{D}$
+                et $O$ l'intersection de $\Delta$ avec $\Delta'$.
+                <div class="centre"><div class="figure"><canvas id="graphe7" height="180", width="320">Balise canvas non supportée</canvas></div></div>
+                <script>
+                    var graphe = calibre3D("graphe7", -2, 2, -1.5, 1.5, -0.5, 1);
+                    var O = point(0,0,0);
+                    var I = point(1,0,0);
+                    var J = point(0,1,0);
+                    var K = point(0,0,1);
+                    graphe.lineWidth = 0.5;
+                    ligne(point(0,0,-2),point(0,0,0));
+                    graphe.fillStyle = '#0098f8';
+                    remplir(point(-2,-1.6,0),point(2,-1.6,0),point(2,1.6,0),point(-2,1.6,0));
+                    ligne(point(0,0,0),point(0,0,2));
+                    ligne(point(-1.5,0,0),point(1.5,0,0));
+                    ligne(point(0,-1.5,0),point(0,1.5,0));
+                    ligne(point(-1.5,-1.3,0),point(1.5,-0.7,0));
+                    graphe.lineWidth = 1.5;
+                    fleche(O,I);
+                    fleche(O,J);
+                    fleche(O,K);
+                    fleche(point(-1,-1.2,0),point(-1,-1.2,1));
+                    fleche(point(-1,-1.2,0),point(-0.5,-1.1,0));
+                    graphe.setLineDash([]);
+                    graphe.lineWidth = 1;
+                    graphe.setLineDash([]);
+                    ligne(point(0.25,0,0),point(0.25,0,0.25),point(0,0,0.25));
+                    ligne(point(0,0.25,0),point(0,0.25,0.25),point(0,0,0.25));
+                    ligne(point(-0.75,-1.15,0),point(-0.75,-1.15,0.25),point(-1,-1.2,0.25));
+                    ecrit("$\\mathscr{D}$ perpendiculaire à $\\mathscr{P}$",0.1,1.8);
+                    ecrit("$\\vec d$",0.1,1);
+                    ecrit("$\\vec d$",-1.65,0.6);
+                    ecrit("$\\mathscr{P}$",2.2,0.5);
+                    ecrit("$\\vec u$",1,0.3);
+                    ecrit("$\\Delta$",1.6,0.15);
+                    ecrit("$\\vec v$",0.7,0.5);
+                    ecrit("$\\Delta'$",1,0.8);
+                    ecrit("$O$",-0.1,-0.05);
+                    ecrit("$\\vec {d'}$",-1.2,0);
+                </script><ul>
+                    <li>&laquo; $\mathscr{D}$ orthogonale à $\Delta$ et $\Delta'$ &raquo; se traduit par : $\vec{u}.\vec{d}=0$ et $\vec{v}.\vec{d}=0$<br />
+                    </li><li>&laquo; $\Delta$ et $\Delta'$ sécantes contenues dans $\mathscr{P}$ &raquo; se traduit par : $(O;\vec{u},\vec{v})$ est un repère de $\mathscr{P}$.
+                </li></ul>
+                Toute droite de $\mathscr{P}$ admet alors un vecteur directeur $\vec{d'}$ qui se décompose : $\vec{d'} = x \vec{u} + y \vec{v}$.<br />
+                On peut alors calculer $\vec{d}.\vec{d'} = \vec{d}.(x \vec{u} + y \vec{v}) = x \times \vec{d}.\vec{u} + y \times \vec{d}.\vec{v}=0$.<br />
+                Donc $\mathscr{D}$ est orthogonale à toute droite de  $\mathscr{P}$ : elle est perpendiculaire à  $\mathscr{P}$ .
+            </section>
+        </article>
+
+        <article>
+            <header>
+                <h2><span class="cadre">Exercice 5</span> Droite perpendiculaire à un plan</h2>
+                <p> On considère ci-dessous le cube $ABCDEFGH$.</p>
+                <div class="centre"><div class="figure"><canvas id="graphe8" height="180", width="320">Balise canvas non supportée</canvas></div></div>
+                <script>
+                    var graphe = calibre3D("graphe8", -1.25, 1.25, -1.25, 1.25, -1.25, 1.25);
+                    var A = point(-1,-1,-1);
+                    var B = point(1,-1,-1);
+                    var C = point(1,1,-1);
+                    var D = point(-1,1,-1);
+                    var E = point(-1,-1,1);
+                    var F = point(1,-1,1);
+                    var G = point(1,1,1);
+                    var H = point(-1,1,1);
+                    graphe.fillStyle = '#ffe4b7';
+                    remplir(E,B,G,"hachure");
+                    ligne(A,B,C,G,H,E,A);
+                    ligne(E,F,B);
+                    ligne(F,G);
+                    graphe.strokeStyle = '#0098f8';
+                    ligne(F,combinaison(-0.2,D,1.2,F));
+                    graphe.setLineDash([5,5]);
+                    ligne(combinaison(1.2,D,-0.2,F),F);
+                    graphe.setLineDash([5,5]);
+                    graphe.strokeStyle = 'black';
+                    graphe.lineWidth = 2;
+                    fleche(D,A);
+                    fleche(D,C);
+                    fleche(D,H);
+                    ecrit("$A$",-2,-1.25);
+                    ecrit("$B$",0.75,-1.25);
+                    ecrit("$D$",-0.8,-0.5);
+                    ecrit("$C$",1.8,-0.5);
+                    ecrit("$E$",-2,0.7);
+                    ecrit("$F$",0.75,0.7);
+                    ecrit("$H$",-0.8,1.45);
+                    ecrit("$G$",1.8,1.45);
+                </script>
+                <p>On se place dans le repère $\left(D\,;\overrightarrow{DA}\,,\overrightarrow{DC}\,,\overrightarrow{DH}\right)$</p>
+                <p>Démontrer que la droites $(DF)$est perpendiculaire au plan $(EBG)$.</p>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la solution</button>
+                <button>Cacher la solution</button>
+                Comme $(EG)$ et $(BG)$ sont dans $(EBG)$ et sécantes (en $G$) alors il suffit de démontrer que $(DF)$ est orthogonale à $(EG)$ et à $(BG)$.<br />
+                Dans le repère orthonormé proposé, on peut déterminer :<br />
+                $\overrightarrow{DF} \left(\begin{smallmatrix}1\\1\\1\end{smallmatrix}\right)$,
+                $\overrightarrow{EG} \left(\begin{smallmatrix}-1\\1\\0\end{smallmatrix}\right)$ et
+                $\overrightarrow{BG} \left(\begin{smallmatrix}-1\\0\\1\end{smallmatrix}\right)$ <br />
+                puis cacluler : $\overrightarrow{EG} . \overrightarrow{DF} = (-1)\times 1 + 1\times1+0\times1 =0$ <br />
+                et $\overrightarrow{BG} . \overrightarrow{DF} = (-1)\times 1 + 0\times1+1\times1 =0$<br />
+                $\overrightarrow{DF}$ est donc bien orthogonal à $\overrightarrow{EG}$ et à $\overrightarrow{BG}$<br />
+                $(DF)$ est donc bien orthogonale à $(EG)$ et à $(BG)$<br />
+                $(DF)$ est donc bien perpendiculaire $(EBG)$<br />
+                (Il n'y a pas besoin de vérifier que $(DF)$ est sécante $(EBG)$ comme on le ferait pour deux droites.)
+            </section>
+        </article>

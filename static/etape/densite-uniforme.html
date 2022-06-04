@@ -1,0 +1,134 @@
+<article>
+            <header><h2><span class="cadre">Théorème</span> Densité constante</h2>
+            <p>Pour $I=[a\,;b]$ et $X$ une varaible aléatoire sur $I$, les deux énoncés suivants sont équivalents :
+               <ul><li>$X$ suit la loi de densité constante : $f:x\mapsto\dfrac{1}{b-a}$.</li>
+                   <li>$P(X\in J)$ est proportionnelle à la longueur de $J$.</li>
+               </ul>
+            </p>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la démonstration</button>
+                <button>Cacher la démonstration</button>
+                Notons $c$ et $d$ les bornes de $J$.
+                <ul><li>$X$ suit la loi de densité $f:x\mapsto\dfrac{1}{b-a}$ signifie :
+                        $\displaystyle P( X \in J)= P(c\leqslant X \leqslant d)=\int_c^d \dfrac{1}{b-a}\text{d}x=\left[\dfrac{x}{b-a}\right]_c^d=\dfrac{d-c}{b-a}$.</li>
+                    <li> $P(X\in J)$ est proportionnelle à la longueur de $J$ signifie que le tableau suivant est un tableau de proportionnalité :
+                        <table>
+                            <tr><th>Longueur</th><td style="border-right:1px solid black">$b-a$</td><td>$d-c$</td></tr>
+                            <tr><th>Probabilité</th><td style="border-right:1px solid black">$1$</td><td>$P(X\in J)$</td></tr>
+                        </table>
+                        C'est à dire $\displaystyle P( X \in J)=\dfrac{d-c}{b-a}$.
+                </li></ul>
+                Les deux énoncés définissent bien la même valeur pour $P(X\in J)$.
+            </section>
+        </article>
+
+        <article>
+            <header><h2><span class="cadre">Définition</span> Loi uniforme</h2>
+            <p>On dit qu'une variable aléatoire vérifiant les énoncés précédents
+               suit une loi uniforme sur $I$ et on note : $X \hookrightarrow \mathscr{U}(I)$.
+            </p>
+            <p>On retiendra alors que, pour $c$ et $d$ dans $I=[a\,;b]$ avec $c\leqslant d$:
+            <div class="centre">$P(c \leqslant  X \leqslant d) = \dfrac{d-c}{b-a}$</div></p>
+            </header>
+            <section>
+                <h3>Exemple :</h3>
+                La loi normale centrée réduite $\mathscr{N}(0,1)$ est une loi de densité :<br />
+                $\displaystyle P(a\leqslant X \leqslant b)=\int_a^b \frac{1}{\sqrt{2\pi}}\mathrm{e}^{-\frac{x^2}{2}}\text{d}x$<br />
+                Sa fonction de densité la fonction de Laplace-Gauss définie sur $\mathbb{R}$ par $f(x)=\frac{1}{\sqrt{2\pi}}\mathrm{e}^{-\frac{x^2}{2}}$.
+            </section>
+        </article>
+
+        <article>
+            <header><h2><span class="cadre">Théorème</span> Espérence pour une loi uniforme</h2>
+            <p>Si $X\hookrightarrow\mathscr{U}([a\,;b])$ alors : $E(X)=\dfrac{a+b}{2}$</p>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la démonstration</button>
+                <button>Cacher la démonstration</button>
+                Rappel : Si $X$ suit une loi de densité $f$ sur $[a\,;b]$ alors $E(X)=\int_{a}^b x f(x)\text{d}x$.<br />
+                $\displaystyle E(X)=\int_{a}^b x \frac{1}{b-a}\text{d}x$
+                $\displaystyle =\left[ \frac{x^2}{2(b-a)}\right]_a^b$
+                $\displaystyle =\frac{b^2-a^2}{2(b-a)}$
+                $\displaystyle =\frac{(b-a)(b+a)}{2(b-a)}$
+                $\displaystyle =\frac{a+b}{2}$
+            </section>
+        </article>
+
+        <article>
+            <header><h2><span class="cadre">Exercice 2 (E32)</span> Calculs en loi uniforme</h2>
+            <p>$X$ est une variable aléatoire suivant de la loi uniforme sur $[0;1]$.</p>
+            <p>Donner la probabilité des événements suivants :
+                <ol>
+                    <li>$P(0,4&lt;X&lt;0,6)$</li>
+                    <li>$P(X&gt;0,35)$</li>
+                    <li>$P(X\in[\frac{1}{3}\,;\frac{1}{2}])$</li>
+                    <li>$P(X=0,5)$</li>
+                </ol>
+            </p>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la solution</button>
+                <button>Cacher la solution</button>
+                <ol>
+                    <li>$P(0,4&lt;X&lt;0,6)$ $=\dfrac{0,6-0,4}{1-0}$ $=0,2$ </li>
+                    <li>$P(X&gt;0,35)$ $=P(0,35&lt;X&lt;1)$ $=\dfrac{1-0,35}{1-0}$ $=0,65$ </li>
+                    <li>$P(X\in[\frac{1}{3}\,;\frac{1}{2}])$ $=P(\frac{1}{3}&lt;X&lt;\frac{1}{2})$ $=\dfrac{\frac{1}{2}-\frac{1}{3}}{1-0}$ $=\dfrac{1}{6}$ </li>
+                    <li>$P(X=0,5)=0$</li>
+                </ol>
+            </section>
+        </article>
+
+
+        <article>
+            <header><h2><span class="cadre">Exercice</span> Nouvelle-Calédonie & Wallis et Futuna - BAC S - novembre 2017</h2>
+            <p>Sofia souhaite se rendre au cinéma.</p>
+            <p>En utilisant le bus, la durée du trajet entre son domicile et le cinéma (exprimée en minutes)
+               est modélisée par la variable aléatoire T qui suit la loi uniforme sur $[12\,; 15]$.
+            </p>
+            <ol>
+                <li>Démontrer que la probabilité que Sofia mette entre 12 et 14 minutes est de $\frac{2}{3}$.</li>
+                <li>Donner la durée moyenne du trajet.</li>
+            </ol>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la solution</button>
+                <button>Cacher la solution</button>
+            <ol>
+                <li>La probabilité que Sofia mette entre 12 et 14 minutes est de
+                    $P(12&lt;T&lt;14)$ $=\dfrac{14-12}{15-12}$ $=\dfrac{2}{3}$.</li>
+                <li>La durée moyenne du trajet est $\text{E}(T)=\dfrac{12+15}{2}=13,5$ minutes.</li>
+            </ol>
+            </section>
+        </article>
+
+        <article>
+            <header><h2><span class="cadre">Exercice 3 (E32)</span> Un livreur</h2>
+            <p>Un livreur a promis de passer chez un client entre 10h et 11h.</p>
+            <p>On suppose que la probabilité de son passage est uniformément répartie.</p>
+            <ol>
+                <li>Quelle est la probabilité qu'il arrive avant 10h10 ?</li>
+                <li>Quelle est la probabilité qu'il arrive entre 10h20 et 10h40 ?</li>
+                <li>Sachant que le client a attendu le livreur 15 minutes, quelle est la probabilité qu'il arrive dans les dix prochaines minutes ?</li>
+                <li>En moyenne, à combien peut-on estimer le temps d'attente des clients pour lesquels le livreur promet de passer entre 10h et 11h ?</li>
+            </ol>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la solution</button>
+                <button>Cacher la solution</button>
+            <p>Notons $T\hookrightarrow\mathscr{U}([0\,;60])$ le nombre de minutes après 10h donnant l'heure de passage.</p>
+            <ol>
+                <li>La probabilité qu'il arrive avant 10h10 est $P(T&lt;10)$ $=\dfrac{10-0}{60-0}$ $=\dfrac{1}{6}$</li>
+                <li>La probabilité qu'il arrive entre 10h20 et 10h40 est $P(20&lt;T&lt;40)$ $=\dfrac{40-20}{60-0}$ $=\dfrac{1}{3}$</li>
+                <li>Sachant que le client a attendu le livreur 15 minutes, la probabilité qu'il arrive dans les dix prochaines minutes est
+                    $P_{(T&gt;15)}(T&lt;15+10)$ $=\dfrac{P((T&gt;15)\cap(T&lt;25))}{P(T&gt;15)}$
+                    $=\dfrac{P(15&lt;T&lt;25)}{P(T&gt;15)}$
+                    $=\dfrac{25-15}{60-15}$
+                    $=\dfrac{10}{45}$
+                    $=\dfrac{2}{9}$</li>
+                <li>En moyenne, on peut estimer le temps d'attente des clients pour lesquels le livreur promet de passer entre 10h et 11h a
+                    $\text{E}(T)=\dfrac{0+60}{2}=30$ minutes.</li>
+            </ol>
+            </header>
+            </section>
+        </article>

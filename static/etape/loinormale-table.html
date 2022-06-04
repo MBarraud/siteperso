@@ -1,0 +1,187 @@
+<article>
+            <header><h2><span class="cadre">Table de calcul</span> Loi normale centrée réduite</h2>
+            <p>Les calculs de probabilité pour $Z\hookrightarrow\mathscr{N}(0,1)$ se reportent
+                à un tableau donnant les valeurs de
+                $\displaystyle P(Z \leqslant z)=\int_{-\infty}^z \frac{1}{\sqrt{2\pi}}\mathrm{e}^{-\frac{x^2}{2}}\text{d}x$
+                pour différentes valeurs de $z$.</p>
+            <div class="centre"><div class="figure"><canvas id="graphe1" height="180" width="320">Balise canvas non supportée</canvas></div></div>
+            <script>
+                var graphe = calibre("graphe1", -4, 4, -0.1, 0.5,5);
+                var f = x => Math.exp(-x*x/2)/Math.sqrt(2*Math.PI);
+                graphe.fillStyle = '#0098f8';
+                integrale(f,xmin,1.5);
+                axes(1,5);
+                graphe.lineWidth = 1;
+                trace(f,xmin,xmax);
+                graphe.lineWidth = 1;
+                graphe.setLineDash([3,3]);
+                ecrit("$P(Z \\leqslant z)$",1.2,0.3,'#0098f8');
+                ecrit("$z$",1.4,-0.02,'#0098f8');
+                ecrit("$1$",0.9,-0.02);
+                ecrit("$0.2$",-0.6,0.22);
+            </script>
+            <div class="centre"><style type="text/css">
+            #loinormale {
+                border : 1px solid black;
+                border-collapse: collapse;
+                font-size : 75%;
+            }
+            #loinormale thead{
+                font-weight : bold;
+            }
+            #loinormale tr {
+                border : 0px;
+            }
+            #loinormale th {
+                border : 0px;
+                border-right : 1px solid black;
+            }
+            #loinormale td {
+                border : 0px;
+                border-right : 1px solid #aaaaaa;
+                padding :1px;
+            }
+            .grispaire {
+                background-color : #eeeeee;
+            }
+            </style>
+            <table id="loinormale">
+            <thead>
+                <tr><th>z</th><td>0</td><td>0,01</td><td>0,02</td><td>0,03</td><td>0,04</td><td>0,05</td><td>0,06</td><td>0,07</td><td>0,08</td><td>0,09</tr>
+            </thead>
+            <tbody>
+                <tr  class="grispaire" style="border-top:1px black solid;"><th>0</th><td>0,5000</td><td>0,5040</td><td>0,5080</td><td>0,5120</td><td>0,5160</td><td>0,5199</td><td>0,5239</td><td>0,5279</td><td>0,5319</td><td>0,5359</tr>
+                <tr><th>0,1</th><td>0,5398</td><td>0,5438</td><td>0,5478</td><td>0,5517</td><td>0,5557</td><td>0,5596</td><td>0,5636</td><td>0,5675</td><td>0,5714</td><td>0,5753</tr>
+                <tr class="grispaire"><th>0,2</th><td>0,5793</td><td>0,5832</td><td>0,5871</td><td>0,5910</td><td>0,5948</td><td>0,5987</td><td>0,6026</td><td>0,6064</td><td>0,6103</td><td>0,6141</tr>
+                <tr><th>0,3</th><td>0,6179</td><td>0,6217</td><td>0,6255</td><td>0,6293</td><td>0,6331</td><td>0,6368</td><td>0,6406</td><td>0,6443</td><td>0,6480</td><td>0,6517</tr>
+                <tr class="grispaire"><th>0,4</th><td>0,6554</td><td>0,6591</td><td>0,6628</td><td>0,6664</td><td>0,6700</td><td>0,6736</td><td>0,6772</td><td>0,6808</td><td>0,6844</td><td>0,6879</tr>
+                <tr><th>0,5</th><td>0,6915</td><td>0,6950</td><td>0,6985</td><td>0,7019</td><td>0,7054</td><td>0,7088</td><td>0,7123</td><td>0,7157</td><td>0,7190</td><td>0,7224</tr>
+                <tr class="grispaire"><th>0,6</th><td>0,7257</td><td>0,7291</td><td>0,7324</td><td>0,7357</td><td>0,7389</td><td>0,7422</td><td>0,7454</td><td>0,7486</td><td>0,7517</td><td>0,7549</tr>
+                <tr><th>0,7</th><td>0,7580</td><td>0,7611</td><td>0,7642</td><td>0,7673</td><td>0,7704</td><td>0,7734</td><td>0,7764</td><td>0,7794</td><td>0,7823</td><td>0,7852</tr>
+                <tr class="grispaire"><th>0,8</th><td>0,7881</td><td>0,7910</td><td>0,7939</td><td>0,7967</td><td>0,7995</td><td>0,8023</td><td>0,8051</td><td>0,8078</td><td>0,8106</td><td>0,8133</tr>
+                <tr><th>0,9</th><td>0,8159</td><td>0,8186</td><td>0,8212</td><td>0,8238</td><td>0,8264</td><td>0,8289</td><td>0,8315</td><td>0,8340</td><td>0,8365</td><td>0,8389</tr>
+                <tr class="grispaire" style="border-top:1px black solid;"><th>1</th><td>0,8413</td><td>0,8438</td><td>0,8461</td><td>0,8485</td><td>0,8508</td><td>0,8531</td><td>0,8554</td><td>0,8577</td><td>0,8599</td><td>0,8621</tr>
+                <tr><th>1,1</th><td>0,8643</td><td>0,8665</td><td>0,8686</td><td>0,8708</td><td>0,8729</td><td>0,8749</td><td>0,8770</td><td>0,8790</td><td>0,8810</td><td>0,8830</tr>
+                <tr class="grispaire"><th>1,2</th><td>0,8849</td><td>0,8869</td><td>0,8888</td><td>0,8907</td><td>0,8925</td><td>0,8944</td><td>0,8962</td><td>0,8980</td><td>0,8997</td><td>0,9015</tr>
+                <tr><th>1,3</th><td>0,9032</td><td>0,9049</td><td>0,9066</td><td>0,9082</td><td>0,9099</td><td>0,9115</td><td>0,9131</td><td>0,9147</td><td>0,9162</td><td>0,9177</tr>
+                <tr class="grispaire"><th>1,4</th><td>0,9192</td><td>0,9207</td><td>0,9222</td><td>0,9236</td><td>0,9251</td><td>0,9265</td><td>0,9279</td><td>0,9292</td><td>0,9306</td><td>0,9319</tr>
+                <tr><th>1,5</th><td>0,9332</td><td>0,9345</td><td>0,9357</td><td>0,9370</td><td>0,9382</td><td>0,9394</td><td>0,9406</td><td>0,9418</td><td>0,9429</td><td>0,9441</tr>
+                <tr class="grispaire"><th>1,6</th><td>0,9452</td><td>0,9463</td><td>0,9474</td><td>0,9484</td><td>0,9495</td><td>0,9505</td><td>0,9515</td><td>0,9525</td><td>0,9535</td><td>0,9545</tr>
+                <tr><th>1,7</th><td>0,9554</td><td>0,9564</td><td>0,9573</td><td>0,9582</td><td>0,9591</td><td>0,9599</td><td>0,9608</td><td>0,9616</td><td>0,9625</td><td>0,9633</tr>
+                <tr class="grispaire"><th>1,8</th><td>0,9641</td><td>0,9649</td><td>0,9656</td><td>0,9664</td><td>0,9671</td><td>0,9678</td><td>0,9686</td><td>0,9693</td><td>0,9699</td><td>0,9706</tr>
+                <tr><th>1,9</th><td>0,9713</td><td>0,9719</td><td>0,9726</td><td>0,9732</td><td>0,9738</td><td>0,9744</td><td>0,9750</td><td>0,9756</td><td>0,9761</td><td>0,9767</tr>
+                <tr class="grispaire" style="border-top:1px black solid;"><th>2</th><td>0,9772</td><td>0,9778</td><td>0,9783</td><td>0,9788</td><td>0,9793</td><td>0,9798</td><td>0,9803</td><td>0,9808</td><td>0,9812</td><td>0,9817</tr>
+                <tr><th>2,1</th><td>0,9821</td><td>0,9826</td><td>0,9830</td><td>0,9834</td><td>0,9838</td><td>0,9842</td><td>0,9846</td><td>0,9850</td><td>0,9854</td><td>0,9857</tr>
+                <tr class="grispaire"><th>2,2</th><td>0,9861</td><td>0,9864</td><td>0,9868</td><td>0,9871</td><td>0,9875</td><td>0,9878</td><td>0,9881</td><td>0,9884</td><td>0,9887</td><td>0,9890</tr>
+                <tr><th>2,3</th><td>0,9893</td><td>0,9896</td><td>0,9898</td><td>0,9901</td><td>0,9904</td><td>0,9906</td><td>0,9909</td><td>0,9911</td><td>0,9913</td><td>0,9916</tr>
+                <tr class="grispaire"><th>2,4</th><td>0,9918</td><td>0,9920</td><td>0,9922</td><td>0,9925</td><td>0,9927</td><td>0,9929</td><td>0,9931</td><td>0,9932</td><td>0,9934</td><td>0,9936</tr>
+                <tr><th>2,5</th><td>0,9938</td><td>0,9940</td><td>0,9941</td><td>0,9943</td><td>0,9945</td><td>0,9946</td><td>0,9948</td><td>0,9949</td><td>0,9951</td><td>0,9952</tr>
+                <tr class="grispaire"><th>2,6</th><td>0,9953</td><td>0,9955</td><td>0,9956</td><td>0,9957</td><td>0,9959</td><td>0,9960</td><td>0,9961</td><td>0,9962</td><td>0,9963</td><td>0,9964</tr>
+                <tr><th>2,7</th><td>0,9965</td><td>0,9966</td><td>0,9967</td><td>0,9968</td><td>0,9969</td><td>0,9970</td><td>0,9971</td><td>0,9972</td><td>0,9973</td><td>0,9974</tr>
+                <tr class="grispaire"><th>2,8</th><td>0,9974</td><td>0,9975</td><td>0,9976</td><td>0,9977</td><td>0,9977</td><td>0,9978</td><td>0,9979</td><td>0,9979</td><td>0,9980</td><td>0,9981</tr>
+                <tr><th>2,9</th><td>0,9981</td><td>0,9982</td><td>0,9982</td><td>0,9983</td><td>0,9984</td><td>0,9984</td><td>0,9985</td><td>0,9985</td><td>0,9986</td><td>0,9986</tr>
+                <!--<tr class="grispaire" style="border-top:1px black solid;"><th>3</th><td>0,99865</td><td>0,99869</td><td>0,99874</td><td>0,99878</td><td>0,99882</td><td>0,99886</td><td>0,99889</td><td>0,99893</td><td>0,99896</td><td>0,99900</tr>
+                <tr><th>3,1</th><td>0,99903</td><td>0,99906</td><td>0,99910</td><td>0,99913</td><td>0,99916</td><td>0,99918</td><td>0,99921</td><td>0,99924</td><td>0,99926</td><td>0,99929</tr>
+                <tr class="grispaire"><th>3,2</th><td>0,99931</td><td>0,99934</td><td>0,99936</td><td>0,99938</td><td>0,99940</td><td>0,99942</td><td>0,99944</td><td>0,99946</td><td>0,99948</td><td>0,99950</tr>
+                <tr><th>3,3</th><td>0,99952</td><td>0,99953</td><td>0,99955</td><td>0,99957</td><td>0,99958</td><td>0,99960</td><td>0,99961</td><td>0,99962</td><td>0,99964</td><td>0,99965</tr>
+                <tr class="grispaire"><th>3,4</th><td>0,99966</td><td>0,99968</td><td>0,99969</td><td>0,99970</td><td>0,99971</td><td>0,99972</td><td>0,99973</td><td>0,99974</td><td>0,99975</td><td>0,99976</tr>
+                <tr><th>3,5</th><td>0,99977</td><td>0,99978</td><td>0,99978</td><td>0,99979</td><td>0,99980</td><td>0,99981</td><td>0,99981</td><td>0,99982</td><td>0,99983</td><td>0,99983</tr>
+                <tr class="grispaire"><th>3,6</th><td>0,99984</td><td>0,99985</td><td>0,99985</td><td>0,99986</td><td>0,99986</td><td>0,99987</td><td>0,99987</td><td>0,99988</td><td>0,99988</td><td>0,99989</tr>
+                <tr><th>3,7</th><td>0,99989</td><td>0,99990</td><td>0,99990</td><td>0,99990</td><td>0,99991</td><td>0,99991</td><td>0,99992</td><td>0,99992</td><td>0,99992</td><td>0,99992</tr>
+                <tr class="grispaire"><th>3,8</th><td>0,99993</td><td>0,99993</td><td>0,99993</td><td>0,99994</td><td>0,99994</td><td>0,99994</td><td>0,99994</td><td>0,99995</td><td>0,99995</td><td>0,99995</tr>
+                <tr><th>3,9</th><td>0,99995</td><td>0,99995</td><td>0,99996</td><td>0,99996</td><td>0,99996</td><td>0,99996</td><td>0,99996</td><td>0,99996</td><td>0,99997</td><td>0,99997</tr>-->
+            </tbody>
+            </table></div>
+            </header>
+            <section>
+                <h3>Exemples</h3>
+                <ul>
+                    <li>$P(Z\leqslant0)=0,5$. C'est la première valeur du tableau.<br />
+                        On peut la justifier : l'aire totale sous la courbe doit faire 1 car cela correspond à la probabilité totale et
+                        la courbe est symétrique par rapport à l'axe des abscisses (la fonction étant paire). La moitier vaut donc bien 0,5.</li>
+                    <li>$P(Z>0)=1-P(Z\leqslant0)=0,5$. (Probabilité de l'événement contraire.)</li>
+                    <li>$P(Z\geqslant0)=P(Z>0)=0,5$ car $P(Z=0)=0$.</br>
+                        En effet $\displaystyle P(Z=0)=P(0\leqslant Z\leqslant0)=\int_{0}^0 \frac{1}{\sqrt{2\pi}}\mathrm{e}^{-\frac{x^2}{2}}\text{d}x = F(0)-F(0)=0$ est l'aire d'une surface de largeur nulle.
+                        (C'est la probabilité d'une valeur particulière sur une infinité de valeur.)</li>
+                    <li>$P(Z\leqslant0.25)\approx0,5987$. A l'intersection de la ligne $0.2$ avec la colonne $0.05$.</li>
+                    <li>$P(0\leqslant Z\leqslant0.25)=P(Z\leqslant0.25)-P(Z\leqslant0)\approx0,0987$.<br />
+                        Attention : ici chaque inégalité peut être stricte ou large sans que cela change les valeurs
+                        (car la probabilité pour une valeur précise est nulle), mais ce ne serait pas le cas d'un calcul
+                        avec une loi binomiale par exemple...</li>
+                </ul>
+            </section>
+        </article>
+
+        <article>
+            <header>
+                <h2><span class="cadre">Exercice de cours</span> Table de la loi normale centrée rréduite</h2>
+                <p> Déterminer $P(Z \leqslant 1,53)$ et $P(Z \leqslant 0,02)$. </p>
+                <p> En déduire $P(Z \geqslant 1,53)$, $P(Z \leqslant -1,53)$, $P(Z \geqslant -1,53)$ et $P(0,02 \leqslant Z \leqslant 1,53)$.
+            </header>
+            <section class="ouvrable">
+                <button>Voir la solution</button>
+                <button>Cacher la solution</button>
+                <ul>
+                    <li>$\displaystyle P(Z \leqslant 1,53)\approx 0,937$ à l'intersection de la ligne $1,5$ et de la colonne $0,03$.</li>
+                    <li>$\displaystyle P(Z \leqslant 0,02)\approx 0,508$ à l'intersection de la ligne $0$ et de la colonne $0,02$.</li>
+                    <li>$\displaystyle P(Z \geqslant 1,53)=1-P(Z \leqslant 1,53)\approx 0,063$</li>
+                    <li>$\displaystyle P(Z \leqslant -1,53)=P(Z \geqslant 1,53)\approx 0,063$</li>
+                    <li>$\displaystyle P(Z \geqslant -1,53)=P(Z \leqslant 1,53)\approx  0,937$</li>
+                    <li>$\displaystyle P(0,02 \leqslant Z \leqslant 1,53)=P(Z \leqslant 1,53)-P(Z \leqslant 0,02)\approx 0,429$	</li>
+                </ul>
+            </section>
+        </article>
+
+        <article>
+            <header>
+                <h2><span class="cadre">Exercice 1 (E25)</span> Calcul en loi normale centrée réduite</h2>
+                <p>Soit $T\hookrightarrow\mathscr{N}(0,1)$.</p>
+                <ol>
+                    <li>Calculer :
+                        <ol>
+                            <li>$P(T&lt;1,8)$</li>
+                            <li>$P(T&lt;-1,8)$</li>
+                            <li>$P(T&gt;2,58)$</li>
+                            <li>$P(-1,21&lt;T&lt;1,44)$</li>
+                        </ol>
+                    </li><li>Calculer le nombre réel $u$ tel que :
+                        <ol>
+                            <li>$P(T&lt;u)=0,14$</li>
+                            <li>$P(T&gt;u)=0,25$</li>
+                            <li>$P(0&lt;T&lt;u)=0,4$</li>
+                        </ol>
+                    </li>
+                </ol>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la solution</button>
+                <button>Cacher la solution</button>
+                <ol>
+                    <li>
+                        <ol>
+                            <li>$P(T&lt;1,8)\approx 0,9641$ (colonne 0)</li>
+                            <li>$P(T&lt;-1,8)=P(T&gt;1,8)$ $=1-P(T&lt;1,8)$ $\approx 1-0,9641$ $\approx 0,0359$</li>
+                            <li>$P(T&gt;2,58)=1-P(T&lt;2,58)$ $\approx 1-0,9951$ $\approx 0,0049$</li>
+                            <li>$P(-1,21&lt;T&lt;1,44)=P(T&lt;1,44)-P(T&lt;-1,21)$
+                                $=P(T&lt;1,44)-(1-P(T&lt;1,21))$
+                                $=P(T&lt;1,44)+P(T&lt;1,21)-1$
+                                $\approx 0,9251 + 0,8869 - 1$
+                                $\approx 0,812$</li>
+                        </ol>
+                    </li><li> Comme $\displaystyle P(Z \leqslant z)=\int_{-\infty}^z \frac{1}{\sqrt{2\pi}}\mathrm{e}^{-\frac{x^2}{2}}\text{d}x$ est
+                        l'expression d'une primitive d'une fonction positive et continue, elle définit une fonction croissante et continue
+                        pour laquelle le corollaire au théorème des valeurs intermédiaires s'applique. Il suffit donc de trouver
+                        le bon encadrement dans le talbeau.
+                        <ol>
+                            <li>$P(T&lt;u)=0,14 \Leftrightarrow P(T&lt;-u)=0,86$.<br />
+                                Or le tableau donne $P(T&lt;1,08)\approx 0,8599$ et $P(T&lt;1,09)\approx0,8621$<br />
+                                Donc $-u\approx1,08$ et : $u\approx-1,08$</li>
+                            <li>$P(T&gt;u)=0,25 \Leftrightarrow P(T&lt;u)=0,75$<br />
+                                Le tableau donne alors : $u\approx 0,68$</li>
+                            <li>$P(0&lt;T&lt;u)=0,4 \Leftrightarrow P(T&lt;u)=0,9$<br />
+                                D'où $u\approx1,28$</li>
+                        </ol>
+                    </li>
+                </ol>
+            </section>
+        </article>

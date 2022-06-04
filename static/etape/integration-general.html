@@ -1,0 +1,137 @@
+        <article>
+            <header>
+                <h2><span class="cadre">Théorème 1</span> Primitive d'une fonction continue.</h2>
+                <p>Toute fonction continue sur un intervalle $I$ admet une primitive sur $I$.</p>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la démonstration dans le cas où lintervalle est fermé (ROC)</button>
+                <button>Cacher la démonstration</button>
+                Si $I=[a\,;b]$ alors $f$ admet un minimum $m$.<br />
+                (Sinon, on pourrait construire une limite vers $-\infty$ en un réel $x_0$ dans $[a;b]$ et $f$ ne serait alors pas continue en $x_0$).<br />
+                Notons alors $g$ la fonction définie sur [a;b] par $g(x)=f(x)-m$.<br />
+
+                <div class="centre">
+                    <div class="figure"><canvas id="graphe1" height="180", width="320">Balise canvas non supportée</canvas></div>
+                </div>
+                <script>
+                    var graphe = calibre("graphe1",-2.5,5.5,-2.5,4.5,2/3);
+                    axes();
+                    /* les courbes */
+                    var f = x => (x-2)*(x-2)-2;
+                    graphe.lineWidth=1;
+                    graphe.strokeStyle = "#0098f8";
+                    trace(f,1,4);
+                    graphe.strokeStyle = "#000000";
+                    graphe.setLineDash([5,5]);
+                    trace(x => f(x)+2,1,4);
+                    /* les segments */
+                    graphe.strokeStyle = "#0098f8";
+                    graphe.setLineDash([3,3]);
+                    segment(2,f(2),0,f(2));
+                    graphe.strokeStyle = "#000000";
+                    segment(2.5,f(2.5),2.5,f(2.5)+2);
+                    /* la flèche */
+                    graphe.setLineDash([]);
+                    graphe.beginPath();
+                    graphe.moveTo(xpx(2.5)-3,ypx(f(2.5)+2)+5);
+                    graphe.lineTo(xpx(2.5),ypx(f(2.5)+2));
+                    graphe.lineTo(xpx(2.5)+3,ypx(f(2.5)+2)+5);
+                    graphe.stroke();
+                    /* Les textes*/
+                    ecrit('$\\mathscr{C}_f$',4,1.5,'#0098f8');
+                    ecrit('$m$',-0.75,-1.5,'#0098f8');
+                    ecrit('$-m$',1.5,-0.5);
+                    ecrit('$\\mathscr{C}_g$',4,3.5);
+                </script>
+                $g$ est continue comme $f$ mais positive ($f(x)\geqslant m \Rightarrow  f(x)-m\geqslant 0$)<br />
+                Donc $g$ admet une primitive $G$ sur $[a\,;b]$ (Définie par exemple par une intégrale).<br />
+                Notons alors $F$ la fonction définie sur $[a\,;b]$ par $F(x)=G(x)+mx$.<br />
+                On vérifie : $F'(x)=G'(x)+m=g(x)+m=f(x)-m+m=f(x)$.
+            </section>
+        </article>
+
+        <article>
+            <header>
+                <h2><span class="cadre">Théorème 2</span> Primitives et unicité.</h2>
+                Soit $f$ une fonction continue sur un intervalle $I$ et $F$ une primitive de $f$ sur $I$.
+                <ul><li> Toute primitive de $f$ est de la forme $x\mapsto F(x)+C$, $C\in\mathbb{R}$.</li>
+                    <li> Il existe une unique primitive $F_0$ de $f$ vérifiant $F_0(x_0)=y_0$.</li>
+                </ul>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la démonstration</button>
+                <button>Cacher la démonstration</button>
+                <ul><li> Si $F_1'(x)=f(x)$ alors $(F_1-F)'=f-f=0$ donc $F_1-F$ est constante.<br />
+                  On peut donc écrire $F_1-F=C$ et donc $F_1=F+C$.</li>
+                  <li> La fonction $F_0$ définie par $F_0(x)=F(x)+(y_0-F(x_0))$ convient.<br />
+                       Si $F_1$ convient également alors $F_1=F_0+C$ et $F_1(x_0)=F_0(x_0)+C=y_0+C$ donc $C=0$.
+                       On a donc bien l'unicité : $F_1=F_0$.</li>
+                </ul>
+            </section>
+        </article>
+
+        <article>
+            <header>
+                <h2><span class="cadre">Définition</span> Intégrale d'une fonction continue</h2>
+                L'intégrale de $f$ de $a$ à $b$ est, par prolongement de la formule :
+                <div class="centre">$\displaystyle\int_a^b f(x)\text{d}x=F(b)-F(a)$</div>
+                où $F$ est une primitive de $f$ sur $[a\,;b]$.
+            </header>
+            <section>
+                <h3>Exemple</h3>
+                <p>$\displaystyle \int_{-2}^3 (1-2x) \text{d}x=\left[x-x^2\right]_{-2}^3=(3-9)-(-2-4)=0$.</p>
+            </section>
+        </article>
+
+
+
+        <article>
+            <header>
+                <h2><span class="cadre">Exercice d'application 1</span> Calcul d'intégrales par primitives</h2>
+                Calculer $\displaystyle \int_0^{{\frac{\pi}{2}}} \sin(x) \text{d}x$, $\displaystyle \int_{0}^{{\frac{\pi}{2}}} \sin(x) \text{d}t$ et $\displaystyle \int_{-\frac{\pi}{2}}^{\frac{\pi}{2}} \sin(x) \text{d}x$</li>
+                </ol>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la solution</button>
+                <button>Cacher la solution</button>
+
+                <ul>
+                    <li>$\displaystyle \int_0^{\frac{\pi}{2}} \sin(x) \text{d}x$ est l'intégrale de $0$ à ${\frac{\pi}{2}}$ de la fonction $f$ définie par $f(x)=\sin(x)$.<br />
+                        On peut représenter la situation (sans autre calcul formel) par l'aire de la surface hachurée ci-dessous :
+                        <div class="centre"><div class="figure"><canvas id="graphe2" height="180", width="320">Balise canvas non supportée</canvas></div></div>
+                        <script>
+                            var graphe = calibre("graphe2",-2,3,-1.5,1.5,1);
+                            axes();
+                            /* les courbes */
+                            var f = x => Math.sin(x);
+                            graphe.fillStyle = "#0098f8";
+                            integrale(f,0,Math.PI/2,"hachure60")
+                            graphe.lineWidth=1;
+                            graphe.strokeStyle = "#0098f8";
+                            trace(f,xmin,xmax);
+                            graphe.strokeStyle = "#000000";
+                            /* les segments */
+                            graphe.setLineDash([3,3]);
+                            segment(Math.PI/2,ymin,Math.PI/2,ymax);
+                            /* Les textes*/
+                            ecrit('$\\mathscr{C}_f$',-0.5,-0.5,'#0098f8');
+                            ecrit('$\\displaystyle x = \\frac{\\pi}{2}$',1.4,-0.5);
+                        </script>
+                        Une primitive $F$ de $f$ peut s'écrire : $F(x) = -\cos(x)$ donc $\displaystyle \int_0^{\frac{\pi}{2}} \sin(x) \text{d}x = \left[-\cos(x)\right]_0^{{\frac{\pi}{2}}}$<br />
+                        $\left[ \ldots \right]_a^b$ est un racourci pour exprimer la soustraction de l'image en $b$ par celle en $a$.<br />
+                        Autrement dit : $\displaystyle \int_0^{{\frac{\pi}{2}}} \sin(x) \text{d}x $ $= (-\cos({\frac{\pi}{2}}))-(-\cos(0)) = $ <span class="cadre">$1$</span><br />
+                        Cela raprésente graphiquement 1 u.a. / une unité d'aire / la surface d'un carré unité de base.
+                    </li>
+                    <li>$\displaystyle \int_{0}^{\frac{\pi}{2}} \sin(x) \text{d}t$ est l'intégrale de $0$ à ${\frac{\pi}{2}}$ de la fonction $f$ définie par $f(t)=\sin(x)$.<br />
+                        Il est important ici de voir la différence entre la variable $x$ utilisée pour exprimer la fonction et celle $t$ de l'intégration : ce n'est pas la même ! Cela signifie que $f$ est une fonction constante par rapport à la variable $t$ donc une primitive $F$ de $f$ par rapport à cette varaible peut s'écrire : $F(t) = \sin(x)t$.<br />
+                        Alors : $\displaystyle \int_{0}^{\frac{\pi}{2}} \sin(x) \text{d}t = \left[ \sin(x)t \right]_{t=0}^{t=\frac{\pi}{2}}$ où l'on est obligé de préciser la variable dans les bornes car, si la notation intégrale permet de la préciser par le &Lang; $\text{d}t$ &Rang;, ce n'est pas le cas dans la notation crochet.<br />
+                        Finalement : $\displaystyle \int_{0}^{\frac{\pi}{2}} \sin(x) \text{d}t =$<span class="cadre">$ \frac{\pi}{2}\sin(x)$</span></li>
+                    <li>$\displaystyle \int_{-\frac{\pi}{2}}^{\pi} \sin(x) \text{d}x$ est l'intégrale de ${-\frac{\pi}{2}}$ à $\frac{\pi}{2}$ de la fonction $f$ définie par $f(x)=\sin(x)$.<br />
+                        Même si cette fonction n'est plus positive, la même primitive, les mêmes notations et les mêmes cacluls s'appliquent que pour la première intégrale.<br />
+                        Autrement dit : $\displaystyle \int_{-\frac{\pi}{2}}^{{\frac{\pi}{2}}} \sin(x) \text{d}x $ $= \left[-\cos(x)\right]_{-\frac{\pi}{2}}^{{\frac{\pi}{2}}} $ $  = (-\cos({\frac{\pi}{2}}))-(-\cos({-\frac{\pi}{2}})) =$<span class="cadre">$ 0$</span><br />
+                        On verra, dans la suite du cours comment interpréter ce résultat.</li>
+
+
+                </ul>
+            </section>
+        </article>

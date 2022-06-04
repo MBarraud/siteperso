@@ -1,0 +1,85 @@
+
+        <article>
+            <header>
+                <h2><span class="cadre">Théorème 1</span> Les primitives</h2>
+                <p>Soit $f$ une fonction définie sur un intervalle $I$ et de primiteve $F$ sur $I$ :</p>
+                <p>Toutes les primitives $P$ de $f$ sur $I$ peuvent s'écrire : $P(x) = F(x) + C$ où $C$ est une constante.</p>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la démonstration</button>
+                <button>Cacher la démonstration</button>
+                Comme $(P-F)'=P'-F'=f-f=0$, $P-F$ est une primitive de $0$, donc constante.<br />
+                D'où $P-F = C$ puis $P= F + C$, où $C$ est une constante.
+            </section>
+            <section>
+                <h3>Exemple</h3>
+                Si $f(x)=2x$ sur $\mathbb{R}$, ses primitives sont de la forme $F(x) = x^2 + C$, avec $C \in\mathbb{R}$<br />
+                Dans la pratique, si on demande &laquo les &raquo primitives d'une fonction, il ne faut pas oublier le &laquo $ +C $  &raquo dans la formule.
+            </section>
+        </article>
+
+        <article>
+            <header>
+                <h2><span class="cadre">Théorème 2</span> Primitives des monômes et inverses</h2>
+                <p>Si $n\in\mathbb{Z}$ avec $n\neq-1$ et $f(x)=x^n$, alors $F(x)=\dfrac{x^{n+1}}{n+1}$ définit une primitive de $f$ sur n'importe quel intervalle de son ensemble de définition.</p>
+                <p>Ce qui se réécrit pour $n<-1$, en posant $N = -n>1$ : $f(x)=\dfrac{1}{x^N}$, alors $F(x)=\dfrac{-1}{(N-1)x^{N-1}}$</p>
+            </header>
+            <section>
+                <h3>Exemples</h3>
+                <div class="double">
+                    <ul>
+                        <li>$f(x) = 1$ donne $F(x)=x$</li>
+                        <li>$f(x) = x$ donne $F(x)=\dfrac{x^2}{2}$</li>
+                        <li>$f(x) = x^2$ donne $F(x)=\dfrac{x^3}{3}$</li>
+                        <li>$f(x) = \dfrac{1}{x}$ ne donne rien avec ce théorème...</li>
+                        <li>$f(x)=\dfrac{1}{x^2}$ donne $F(x) = \dfrac{-1}{x}$</li>
+                        <li>$f(x)=\dfrac{1}{x^3}$ donne $F(x) = \dfrac{-1}{2x^2}$</li>
+                    </ul>
+                </div>
+                ( Pour la dernière par exemple : $\dfrac{1}{x^3}=x^{-3}$ donne  $\dfrac{x^{-3+1}}{-3+1}=\dfrac{x^{-2}}{-2}=\dfrac{-1}{2x^{2}}$ )
+            </section>
+        </article>
+
+        <article>
+            <header>
+                <h2><span class="cadre">Exercice 1</span> Primitives des monômes et inverses</h2>
+                <p>Vérifier les exemples du théorème précédant en dérivant, à chaque fois, la fonction $F$.</p>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la solution</button>
+                <button>Cacher la solution</button>
+                <p>Dériver une primitive pour la vérifier est un réflexe qu'il faut prendre pour vérifier ses résultats.</p>
+                <ul>
+                    <li>Pour $F(x)=x$, $F'(x)=1=f(x)$. (Fonction de référence.)</li>
+                    <li>Pour $F(x)=\dfrac{x^2}{2} = \dfrac{1}{2}x^2$, comme $(\lambda \times u)' = \lambda u'$ alors $F'(x) = \dfrac{1}{2}2x = x = f(x)$.</li>
+                    <li>De même pour $F(x)=\dfrac{x^3}{3}$ : $F'(x) = \dfrac{1}{3}3x^2 = x^2 = f(x)$.</li>
+                    <li>Pour $F(x) = \dfrac{-1}{x} = (- 1) \times \dfrac{1}{x}$, on a $F'(x) = (- 1) \times \dfrac{-1}{x^2}=\dfrac{1}{x^2}=f(x)$.</li>
+                    <li>Pour $F(x) = -\dfrac{1}{2x^2}$ on peut procéder de même ou utiliser la formule $\left(\dfrac{1}{u}\right)'=\dfrac{-u'}{u^2}$, ce
+                        qui donne $F'(x) = -\dfrac{-2\times 2x}{(2x^2)^2}= \dfrac{4x}{4x^4}= \dfrac{1}{x^3}=f(x)$.</li>
+                </ul>
+            </section>
+        </article>
+
+
+
+        <article>
+            <header>
+                <h2><span class="cadre">Théorème 3</span> Primitives des fonctions de référence</h2>
+                <p>(Tableau complet de niveau fin de Terminale.)</p>
+                <table>
+                    <thead>
+                        <tr><td>$f(x)$</td><td>$I$</td><td>$F(x)$</td></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>$0$</td><td>$\mathbb{R}$</td><td>$C$ constante</td></tr>
+                        <tr><td>$x^n$, avec $n\in\mathbb{N}$</td><td>$\mathbb{R}$</td><td>$\dfrac{x^{n+1}}{n+1}$</td></tr>
+                        <tr><td>$\dfrac{1}{x^n}$, avec $\left\lbrace\begin{matrix}n\in\mathbb{N}\\n>1\end{matrix}\right.$</td><td>$]-\infty\,;0[$ ou $]0\,;+\infty[$</td><td>$\dfrac{-1}{(n-1)x^{n-1}}$</td></tr>
+                        <tr><td>$\dfrac{1}{x}$</td><td>$\begin{matrix}]0\,;+\infty[\\]-\infty\,;0[\end{matrix}$</td><td>$\begin{matrix}\ln(x)\\\ln(-x)\end{matrix}$</td></tr>
+                        <tr><td>$\dfrac{1}{\sqrt{x}}$</td><td>$]0\,;+\infty[$</td><td>$2\,\sqrt{x}$</td></tr>
+                        <tr><td>$\cos(x)$</td><td>$\mathbb{R}$</td><td>$\sin(x)$</td></tr>
+                        <tr><td>$\sin(x)$</td><td>$\mathbb{R}$</td><td>$-\cos(x)$</td></tr>
+                        <tr><td>$\mathrm{e}^x$</td><td>$\mathbb{R}$</td><td>$\mathrm{e}^x$</td></tr>
+                    </tbody>
+                </table>
+            </header>
+        </article>

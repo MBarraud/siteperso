@@ -1,0 +1,306 @@
+<article>
+            <header>
+                <h2><span class="cadre">Propriété 1</span> Linéarité</h2>
+                <p>$f$ et $g$ désignent deux fonctions continues sur $[a\,;b]$ :</p>
+                <ul>
+                    <li>$\displaystyle \int_a^b (f(x)+g(x)) \text{d}x= \int_a^b f(x)\text{d}x+ \int_a^b g(x)\text{d}x$.
+                        <div class="centre">
+                            <div class="figure">
+                                <canvas id="graphe1" height="180" width="320">Balise canvas non supportée</canvas><br />
+                                <button onclick='joue("graphe1")'>Jouer l'animation</button><br />
+                            </div>
+                        </div>
+                        <script>
+                            var graphe = calibre("graphe1",-0.5,5.5,-0.5,3.5,2/3);
+                            var f = x => Math.sin(x)+1.5;
+                            var g = x => x*x/20+1;
+                            /* la surface de l'intégrale */
+                            graphe.fillStyle = 'AliceBlue';
+                            integrale(x=>f(x)+g(x),1,5);
+                            graphe.fillStyle = '#0098f8';
+                            integrale(f,1,5,"hachure");
+                            graphe.fillStyle = '#f89800';
+                            integrale(g,1,5,"hachure-45");
+                            axes();
+                            /* la courbes */
+                            graphe.lineWidth=1;
+                            graphe.strokeStyle = "#000000";
+                            trace(f,1,5);
+                            trace(g,1,5);
+                            trace(x=>f(x)+g(x),1,5);
+                            /* Les textes*/
+                            ecrit("$\\mathscr{C}_f$",0.5,1.25);
+                            ecrit("$\\mathscr{C}_g$",0.5,2.5);
+                            ecrit("$\\mathscr{C}_{f+g}$",0.5,3.5);
+
+                        var dessine = {"graphe1" : t => {
+                            if (t/laps<=0.45) {
+                                var graphe = calibre("graphe1",-0.5,5.5,-0.5,3.5,2/3);
+                                var f = x => Math.sin(x)+1.5;
+                                var g = x => x*x/20+1;
+                                /* la surface de l'intégrale */
+                                graphe.clearRect(0, 0, 320, 180);
+                                graphe.fillStyle = 'AliceBlue';
+                                integrale(x=>f(x)+g(x),1,5);
+                                graphe.fillStyle = '#0098f8';
+                                integrale(x=>f(x)+g(x)*t/(0.45*laps),1,5,"hachure");
+                                graphe.fillStyle = 'AliceBlue';
+                                integrale(x=>g(x)*t/(0.45*laps),1,5);
+                                graphe.fillStyle = '#f89800';
+                                integrale(g,1,5,"hachure-45");
+                                axes();
+                                /* la courbes */
+                                graphe.lineWidth=1;
+                                graphe.strokeStyle = "#000000";
+                                trace(f,1,5);
+                                trace(g,1,5);
+                                trace(x=>f(x)+g(x),1,5);
+                                trace(x=>f(x)+g(x)*t/(0.45*laps),1,5);
+                                trace(x=>g(x)*t/(0.45*laps),1,5);
+                            }
+                            if (t/laps>0.55) {
+                                var graphe = calibre("graphe1",-0.5,5.5,-0.5,3.5,2/3);
+                                var f = x => Math.sin(x)+1.5;
+                                var g = x => x*x/20+1;
+                                /* la surface de l'intégrale */
+                                graphe.clearRect(0, 0, 320, 180);
+                                graphe.fillStyle = 'AliceBlue';
+                                integrale(x=>f(x)+g(x),1,5);
+                                graphe.fillStyle = '#0098f8';
+                                integrale(x=>f(x)+g(x)*(1-t/laps)/0.45,1,5,"hachure");
+                                graphe.fillStyle = 'AliceBlue';
+                                integrale(x=>g(x)*(1-t/laps)/0.45,1,5);
+                                graphe.fillStyle = '#f89800';
+                                integrale(g,1,5,"hachure-45");
+                                axes();
+                                /* la courbes */
+                                graphe.lineWidth=1;
+                                graphe.strokeStyle = "#000000";
+                                trace(f,1,5);
+                                trace(g,1,5);
+                                trace(x=>f(x)+g(x),1,5);
+                                trace(x=>f(x)+g(x)*(1-t/laps)/0.45,1,5);
+                                trace(x=>g(x)*(1-t/laps)/0.45,1,5);
+                            }
+                        }}
+                        </script>
+                    </li>
+                    <li>Si $\lambda\in\mathbb{R}$, $\displaystyle \int_a^b \lambda f(x) \text{d}x= \lambda \int_a^b f(x)\text{d}x$.
+                        <div class="centre">
+                            <div class="figure"><canvas id="graphe2" height="180" width="320">Balise canvas non supportée</canvas></div>
+                        </div>
+                        <script>
+                            var graphe = calibre("graphe2",-0.75,5.75,-0.1,3.9,2/3);
+                            var f = x => x*x/20+1;
+                            /* la surface de l'intégrale */
+                            graphe.fillStyle = 'rgb(255,226,179)';
+                            integrale(x => 2*f(x),1,5);
+                            graphe.fillStyle = '#f89800';
+                            integrale(f,1,5,"hachure-45");
+                            axes();
+                            /* la courbes */
+                            graphe.lineWidth=1;
+                            graphe.strokeStyle = "#000000";
+                            trace(f,1,5);
+                            trace(g,1,5);
+                            trace(x=>f(x)+g(x),1,5);
+                            /* Les textes*/
+                            ecrit("$\\mathscr{C}_f$",0.5,1.25);
+                            ecrit("$\\mathscr{C}_{2f}$",0.5,2.5);
+                            ecrit("Aire double avec $\\lambda=2$",0.5,3.75);
+                        </script>
+                    </li>
+                </ul>
+            </ul>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la démonstration</button>
+                <button>Cacher la démonstration</button>
+                <ul>
+                    <li>Comme $f$ et $g$ sont continues, elles admettent des primitives $F$ et $G$ et une primitive de $f+g$ est $F+G$, donc :<br />
+                        $\displaystyle \int_{a}^b (f(x)+g(x)) \text{d}x$
+                        $\displaystyle = (F(b)+G(b))-(F(a)+G(a))$
+                        $\displaystyle = (F(b)-F(a))+(G(b)-G(a))$
+                        $\displaystyle = \int_{a}^b f(x) \text{d}x + \int_{a}^b g(x) \text{d}x$.
+                    </li>
+                    <li>De même :<br />
+                        $\displaystyle \int_{a}^b \lambda f(x) \text{d}x$
+                        $\displaystyle = \lambda F(b)-\lambda F(a)$
+                        $\displaystyle = \lambda(F(b)-F(a))$
+                        $\displaystyle = \lambda\int_{a}^b f(x) \text{d}x $.
+
+                    </li>
+                </ul>
+            </section>
+            <section><h3>Exemples</h3>
+                <ul>
+                    <li>La somme peut permettre de simplifier :<br />
+                        $\displaystyle \int_{0}^1 x^2 \text{d}x + \int_{0}^1 (1-x^2) \text{d}x$
+                        $\displaystyle = \int_{0}^1 (x^2 + 1-x^2) \text{d}x$
+                        $\displaystyle = \int_{0}^1 1 \text{d}x$
+                        $ = \left[x\right]_{0}^1$
+                        $ = 1 - 0 = 1$.
+                    </li>
+                    <li>Les constantes peuvent être factorisées :<br />
+                        $\displaystyle \int_{0}^1 \frac{4}{3}x \text{d}x$
+                        $\displaystyle = \int_{0}^1 \frac{2}{3}\times2x \text{d}x$
+                        $\displaystyle = \frac{2}{3}\times\int_{0}^1 2x \text{d}x$
+                        $\displaystyle = \frac{2}{3}\left[x^2\right]_{0}^1$
+                        $\displaystyle = \frac{2}{3}(1 - 0) = \frac{2}{3}$.
+                    </li>
+                </ul>
+            </section>
+        </article>
+
+        <article>
+            <header>
+                <h2><span class="cadre">Propriété 2</span> Conservation de l'ordre</h2>
+                <p>Soient $f$ et $g$ deux fonctions continues sur $[a\,;b]$, si $f(x)\leqslant g(x)$ sur $[a\,;b]$, alors :</p>
+                <div class="centre">$\displaystyle \int_a^b f(x)\text{d}x \leqslant \int_a^b g(x)\text{d}x$</div>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la démonstration</button>
+                <button>Cacher la démonstration</button>
+                <p>Si $f(x)\leqslant g(x)$ alors $0\leqslant g(x)-f(x)$ et donc $\displaystyle 0 \leqslant \int_a^b (g(x)-f(x))\text{d}x$<br />
+                    Or, par linéarité, $\displaystyle \int_a^b (g(x)-f(x))\text{d}x = \int_a^b g(x)\text{d}x- \int_a^b f(x)\text{d}x$<br />
+                    Donc $\displaystyle 0 \leqslant \int_a^b g(x)\text{d}x -\int_a^b f(x)\text{d}x$ et on a bien $\displaystyle \int_a^b f(x)\text{d}x \leqslant \int_a^b g(x)\text{d}x$</p>
+            </section>
+        </article>
+
+        <article>
+            <header>
+                <h2><span class="cadre">Propriété 3</span> Relation de Chasles</h2>
+                <p>Soit $f$ une fonction continue sur $[a\,;b]$ et $c \in [a\,;b]$, alors :</p>
+                <div class="centre">$\displaystyle \int_a^b f(x)\text{d}x = \int_a^c f(x)\text{d}x+ \int_c^b f(x)\text{d}x$.</div>
+                <div class="centre">
+                    <div class="figure"><canvas id="graphe4" height="180" width="320">Balise canvas non supportée</canvas></div>
+                </div>
+                <script>
+                    var graphe = calibre("graphe4",-0.75,5.75,-1,3,2/3);
+                    var f = x => 2*(x*x/10+2)/3;
+                    /* la surface de l'intégrale */
+                    graphe.fillStyle = '#f89800';
+                    integrale(f,1,3,"hachure");
+                    integrale(f,3,5,"hachure-45");
+                    axes();
+                    /* la courbes */
+                    graphe.lineWidth=1;
+                    graphe.strokeStyle = "#000000";
+                    trace(f,1,5);
+                    graphe.lineWidth=2;
+                    graphe.setLineDash([5,5]);
+                    segment(1,ymin,1,ymax);
+                    segment(3,ymin,3,ymax);
+                    segment(5,ymin,5,ymax);
+                    /* Les textes*/
+                    ecrit("$\\mathscr{C}_f$",1.2,2);
+                    ecrit("$x=a$",0.7,-0.7);
+                    ecrit("$x=c$",2.7,-0.7);
+                    ecrit("$x=b$",4.7,-0.7);
+                </script>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la démonstration</button>
+                <button>Cacher la démonstration</button>
+                <p>Il suffit de faire le calcul avec une primitive $F$ de $f$ :<br />
+                    $\displaystyle = \int_a^c f(x)\text{d}x+ \int_c^b f(x)\text{d}x$
+                    $\displaystyle = \left[ F(x)\right]_a^c+ \left[ F(x)\right]_c^b$
+                    $\displaystyle = F(c) - F(a) + F(b) - F(c)$
+                    $\displaystyle = F(b) - F(a)$
+                    $\displaystyle = \int_a^b f(x)\text{d}x$
+                    </p>
+            </section>
+        </article>
+
+        <article>
+            <header>
+                <h2><span class="cadre">Propriété 4</span> Interprétation graphique d'intégrales</h2>
+                Soit $f$ une fonction continue sur un intervalle $[a\,;b]$ et $\mathscr{C}_f$ sa courbe dans un repère orthogonal.<br />
+                Les droites d'équations $x=a$ et $x=b$, l'axe des abscisses et $\mathscr{C}_f$ limitent un domaine du plan.</br >
+                <div class="centre">
+                    <div class="figure"><canvas id="graphe5" height="180" width="320">Balise canvas non supportée</canvas></div>
+                </div>
+                <script>
+                    var graphe = calibre("graphe5",-0.5,6.5,-2.5,4.5,2/3);
+                    var f = x => 2*Math.sin(x)+0.5;
+                    /* la surface de l'intégrale */
+                    graphe.fillStyle = '#0098f8';
+                    integrale(f,1,5);
+                    axes();
+                    /* la courbes */
+                    graphe.lineWidth=1;
+                    graphe.strokeStyle = "#000000";
+                    trace(f,1,5);
+                    /* Les textes*/
+                    ecrit("$+$",1.5,1.75);
+                    ecrit("$-$",4.3,-0.25);
+                    ecrit("$\\mathscr{C}_f$",1,3.2);
+                </script>
+                $\displaystyle \int_a^b f(x) \text{d}x$ est la mesure algébrique (en u.a.), de l'aire de ce domaine, en comptant négativement les parties au-dessous de l'axe des abscisses.
+            </header>
+            <section class="ouvrable">
+                <button>Voir la démonstration</button>
+                <button>Cacher la démonstration</button>
+                Comme $f$ est continue, elle est positive ou négative sur des intervalles, que l'on peut considérer les uns après les autres en utilisant la relation de Chasles.<br />
+                <ul><li>Sur un intervalle où $f$ est positive l'intégrale correspond bien à l'aire sous la courbe.</li>
+                    <li>Sur un intervalle où $f$ est négative alors $-f$ est positive et sa courbe est la symétrique de celle de $f$ par rapport à l'axe des abscisses.<br />
+                        <div class="centre">
+                            <div class="figure"><canvas id="graphe6" height="180" width="320">Balise canvas non supportée</canvas></div>
+                        </div>
+                        <script>
+                            var graphe = calibre("graphe6",-0.5,6.5,-3.5,3.5,2/3);
+                            var f = x => 2*Math.sin(x)+0.5;
+                            /* la surface de l'intégrale */
+                            graphe.fillStyle = '#0098f8';
+                            integrale(f,1,5);
+                            integrale(x=>-f(x),3.3943,5,"hachure-45");
+                            axes();
+                            /* la courbes */
+                            graphe.lineWidth=1;
+                            graphe.strokeStyle = "#000000";
+                            trace(f,1,5);
+                            graphe.setLineDash([3,3]);
+                            trace(x=>-f(x),3.3943,5);
+                            graphe.lineWidth=2;
+                            graphe.setLineDash([5,5]);
+                            segment(1,ymin,1,ymax);
+                            segment(3.3943,ymin,3.3943,ymax);
+                            segment(5,ymin,5,ymax);
+                            /* Les textes*/
+                            ecrit("$+$",1.5,1.75);
+                            ecrit("$-$",4.3,-0.25);
+                            ecrit("$\\mathscr{C}_f$",4,-1.8);
+                            ecrit("$\\mathscr{C}_{-f}$",4,2.4);
+                        </script>
+                    Donc $\displaystyle \int_?^? f(x)\text{d}x = -\int_?^? (-f(x))\text{d}x$ (par linéarité) est l'aire au-dessus de la courbe de $f$, comptée négativement.
+            </section>
+            <section>
+                <h3>Corollaire</h3>
+                <p>Si $f \leqslant g$ sur $[a\,;b]$, alors $\displaystyle \int_a^b (g(x)-f(x))\text{d}x$ est l'aire du domaine compris entre les courbes de $f$ et de $g$ sur l'intervalle $[a\,;b]$.
+                <div class="centre"><div class="figure"><canvas id="graphe7" height="180" width="320">Balise canvas non supportée</canvas></div></div>
+                <script>
+                    var graphe = calibre("graphe7",-0.5,7.5,-0.5,2.5,1);
+                    var f = x => (x*x-4*x+12)/8;
+                    var g = x => -0.075*(x + 1)*(x - 10);
+                    /* la surface de l'intégrale */
+                    graphe.fillStyle = '#0098f8';
+                    integrale(g,xmin,xmax);
+                    graphe.fillStyle = '#ffffff';
+                    integrale(f,xmin,xmax);
+                    axes();
+                    /* la courbes */
+                    graphe.lineWidth=1;
+                    graphe.strokeStyle = "#000000";
+                    trace(f,xmin,xmax);
+                    trace(g,xmin,xmax);
+                    graphe.lineWidth=2;
+                    graphe.setLineDash([5,5]);
+                    segment(0.7287,ymin,0.7287,ymax);
+                    segment(5.1463,ymin,5.1463,ymax);
+                    /* Les textes*/
+                    ecrit("$\\mathscr{C}_f$",4,1.3);
+                    ecrit("$\\mathscr{C}_g$",4,2.7);
+                    ecrit("$x=a$",0.8,-0.7);
+                    ecrit("$x=b$",5.2,-0.7);
+                </script>
+        </article>

@@ -1,0 +1,165 @@
+        <article>
+            <header>
+                <h2><span class="cadre">Définition</span> Entrée/sortie</h2>
+                <p>On appelle instruction d'<em>entrée</em> une instruction qui,
+                à l'exécution, donne la possibilité à l'utilisateur d'entrée une
+                valeur (au clavier, à la souris, avec son doigt sur un écran
+                tactile...)</p>
+                <p>On appelle instruction de <em>sortie</em> une instruction qui,
+                à l'exécution, produit un signal reconnaissable par l'utilisateur
+                (sur un écran, par des haut-parleurs,...) </p>
+            </header>
+        </article>
+
+        <article>
+            <header>
+                <h2><span class="cadre">Exercice 3.1</span></h2>
+                <p>Tester les petits programmes suivants :</p>
+                <ol class="question">
+                    <li> Pour afficher du texte, il faut l'écrire entre
+                        <code class="language-python">'</code> ou
+                        <code class="language-python">"</code> :
+                        <pre class="line-numbers"><code class="language-python">print('Bonjour')
+print("Au revoir")</code></pre>
+                    </li><li> On peut en afficher plusieurs. Chacun sera séparé du suivant par un espace :
+                        <pre class="line-numbers"><code class="language-python">print('Bonjour', 'Au revoir')</code></pre>
+                    </li><li> On peut afficher des nombres ou la valeur d'une variable :
+                        <pre class="line-numbers"><code class="language-python">somme = 12 + 21
+print(12,'+',21,'=',somme)</code></pre>
+                    </li><li> Pour modifier le séparateur, on peut redéfinir le paramètre <code class="language-python">sep</code> :
+                        <pre class="line-numbers"><code class="language-python">somme = 12 + 21
+print(12,'+',21,'=',somme, sep='')</code></pre>
+                    </li><li> La fonction ajoute automatiquement un passage à la ligne.
+                        <pre class="line-numbers"><code class="language-python">print('Bonjour')
+    print()
+    print('Au revoir')</code></pre>
+                    </li><li> On peut supprimer le passage à la ligne en modifiant le paramètre <code class="language-python">end</code> :
+                        <pre class="line-numbers"><code class="language-python">print('Bonjour', end = '.')
+    print('Au revoir', end='.../n')\</code></pre>
+                    </li>
+                </ol>
+            </header>
+        </article>
+
+        <article>
+            <header>
+                <h2><span class="cadre">Exercice 3.2</span></h2>
+                <p>On considère le programme suivant :</p>
+                <pre class="line-numbers"><code class="language-python">def affiche(n):
+    for i in range(n):
+        print(n)
+
+affiche(3)</code></pre>
+                <ol class="question">
+                    <li> Recopier et tester ce programme.</li>
+                    <li> Le modifier pour que l'affichage se fasse sur une seule ligne, avec tout de même un passage à la ligne à la fin.</li>
+                    <li> Le modifier, pour qu'au lieu de n'afficher que le même nombre plusieurs fois, il affiche tous les entier positifs plus petits que ce nombre.</li>
+                    <li> Le modifier encore pour que l'affichage se fasse dans l'ordre décroissant.</li>
+                </ol>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la solution</button>
+                <button>Cacher la solution</button>
+
+            </section>
+        </article>
+
+        <article>
+            <header>
+                <h2><span class="cadre">Exercice 3.2</span></h2>
+                <p>Écrire un programme permettant l'affichage suivant, en n'utilisant qu'une seule fois le caractère <code class="language-python">*</code> dans votre code.</p>
+                <pre class="line-numbers"><code class="language-python">* ** *** **** ***** ****** *******</code></pre>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la solution</button>
+                <button>Cacher la solution</button>
+
+            </section>
+        </article>
+
+        <article>
+            <header>
+                <h2><span class="cadre">Exercice 3.2</span></h2>
+                <p>Tester les petits programmes suivants :</p>
+
+                <ol class="question">
+                    <li> Pour utiliser la réponse plus tard dans le programme, on utilise une variable :
+                        <pre class="line-numbers"><code class="language-python">nom = input('Entrer votre nom : ')
+print('Bonjour,',nom, end='./n')</code></pre>
+                    </li><li> Comme l'entrée est une chaine de caractère, si on veux obtenir un entier, il faut explicitement changer le type de la réponse :
+                        <pre class="line-numbers"><code class="language-python">reponse = input('Entrer votre age : ')
+age = int(reponse)
+print('L\'année prochaine',end=' ')
+print('vous aurez',age+1,'ans.')</code></pre>
+                    </li>
+                </ol>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la solution</button>
+                <button>Cacher la solution</button>
+
+            </section>
+        </article>
+
+        <article>
+            <header>
+                <h2><span class="cadre">Exercice 3.2</span></h2>
+                <p>En s'inspirant du programme de l'exercice précédent, en écrire un qui demande l'age de l'utilisateur et :</p>
+
+                <ol class="question">
+                    <li> lui dit s'il est majeur ou non.</li>
+                    <li> lui souhaite la bienvenue s'il est majeur, ou lui dit dans combien d'années revenir sinon.</li>
+                    <li>lui souhaite la bienvenue s'il est majeur, ou lui redemande son age tant qu'il ne l'est pas.</li>
+                </ol>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la solution</button>
+                <button>Cacher la solution</button>
+
+            </section>
+        </article>
+
+        <article>
+            <header>
+                <h2><span class="cadre">Exercice 3.2</span>  Le Chifoumi</h2>
+                <p>On propose le programme suivant :</p>
+<pre class="line-numbers"><code class="language-python">from random import randint
+PIERRE, FEUILLE, CISEAU = 1, 2, 3
+JOUEUR, ORDINATEUR = 1, 2
+
+def gagne(joueur,ordinateur):
+    resultat = 0
+    if joueur == PIERRE:
+        if ordinateur == FEUILLE:
+            resultat = ORDINATEUR
+        elif ordinateur == CISEAU:
+            resultat = JOUEUR
+    return resultat
+
+score_o, score_j = 0, 0
+
+for i in range(10):
+    joueur = int(input("Choisissez 1:Pierre 2:Feuille 3:Ciseau : "))
+    ordinateur = randint(1,3)
+    gg = gagne(joueur,ordinateur)
+    if gg == JOUEUR:
+        print("Gagné !")
+        score_j = score_j + 1
+    if gg == ORDINATEUR:
+        score_o = score_o + 1
+        print("Perdu !")
+
+print("Score final :")
+print("Joueur :",score_j, "Ordinateur :",score_o)</code></pre>
+                <ol class="question">
+                    <li> Compléter la fonction <code class="language-python">gagne</code> pour qu'elle traite bien de toutes les situations de jeu possibles.</li>
+                    <li> Modifier la boucle principale de jeu pour qu'il s'arrête dès qu'un joueur atteint le score de 3.</li>
+                    <li> Ajouter un affichage de ce que joue l'ordinateur.</li>
+                </ol>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la solution</button>
+                <button>Cacher la solution</button>
+
+            </section>
+        </article>

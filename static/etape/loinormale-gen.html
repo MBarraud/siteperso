@@ -1,0 +1,573 @@
+<article>
+            <header><h2><span class="cadre">Théorème</span> Espérance et écart-type</h2>
+            <p>Soit $X\hookrightarrow\mathscr{N}(0,1)$.<br />
+               Alors $E(X)=0$ ; $V(X)=1$ ; et donc $\sigma(X)=1$.
+            </p>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la démonstration</button>
+                <button>Cacher la démonstration</button>
+                Rappelons que pour une variable aléatoire $X$ suivant une loi inomiale de paramètres $n$ et $p$,
+                l'espérance représente la moyenne vers laquelle ses valeurs tendent après de nombreuses répétitions de l'expériance associée.
+                Elle se calcule donc par la somme de ses valeurs, pondérées par les probabilités associées :
+                $\displaystyle E(X) =\sum_{k=0}^n k \times P(X=k)$ (se qui se simplie et donne : $n\times p$).<br />
+                Ici, $X\hookrightarrow\mathscr{N}(0,1)$. Ses valeurs sont les réels et la somme discrête devient continue :
+                $\displaystyle E(X)=\int_{-\infty}^{+\infty}t\times \frac{1}{\sqrt{2\pi}}\mathrm{e}^{-\frac{t^2}{2}}\text{d}t$.<br />
+                Cette intégrale se calcule comme la somme de deux limites :
+                $\displaystyle E(X)=\lim_{x\to-\infty}\int_{x}^{0}t\frac{1}{\sqrt{2\pi}}\mathrm{e}^{-\frac{t^2}{2}}\text{d}t+\lim_{x\to+\infty}\int_{0}^{x}t\frac{1}{\sqrt{2\pi}}\mathrm{e}^{-\frac{t^2}{2}}\text{d}t$.<br />
+                Or $\displaystyle \int_{0}^{x}t\frac{1}{\sqrt{2\pi}}\mathrm{e}^{-\frac{t^2}{2}}\text{d}t$
+                $=\displaystyle \left[-\frac{1}{\sqrt{2\pi}}\mathrm{e}^{-\frac{t^2}{2}}\right]_{0}^{x}$
+                $=-\frac{1}{\sqrt{2\pi}}\mathrm{e}^{-\frac{x^2}{2}}+\frac{1}{\sqrt{2\pi}}$.<br />
+                Donc par composition des limites, $\displaystyle \lim_{x\to+\infty}\frac{-x^2}{2}=-\infty$ donne
+                $\displaystyle \lim_{x\to+\infty}\mathrm{e}^{-\frac{x^2}{2}}=0$ donc
+                $\displaystyle \lim_{x\to+\infty}\int_{0}^{x}t\frac{1}{\sqrt{2\pi}}\mathrm{e}^{-\frac{t^2}{2}}\text{d}t=\frac{1}{\sqrt{2\pi}}$
+                et de même : $\displaystyle \lim_{x\to-\infty}\int_{x}^{0}t\frac{1}{\sqrt{2\pi}}\mathrm{e}^{-\frac{t^2}{2}}\text{d}t=-\frac{1}{\sqrt{2\pi}}$<br />
+                On a donc bien : $E(X)=0$.<br />
+                Le résultat pour la variance est admis : $V(X)=1$<br />
+                L'écart-type s'en déduit : $\sigma(X)=\sqrt{V(X)}=1$
+            </section>
+        </article>
+
+        <article>
+            <header>
+                <h2><span class="cadre">Définition</span> Loi normale</h2>
+                Une variable aléatoire $X$ suit une loi normale de paramètres $\mu$ et $\sigma^2$ si la variable aléatoire
+                définie par $\dfrac{X-\mu}{\sigma}$ suit la loi normale centrée réduite :
+                <div class="centre">$\displaystyle X\hookrightarrow\mathscr{N}(\mu,\sigma^2) \quad \Leftrightarrow \quad \frac{X-\mu}{\sigma}\hookrightarrow\mathscr{N}(0,1)$</div>
+            </header>
+            <section><h3>Précision importante</h3>
+            Dans l'écriture $\displaystyle X\hookrightarrow\mathscr{N}(\mu,\sigma^2)$, c'est bien la variance $\sigma^2$ qui est utilisée, donc
+            il faut penser à en prendre la racine carrée pour écrire $\displaystyle \frac{X-\mu}{\sigma}$.
+            Mais dans les sujets de BAC, l'habitude est de décrire la situation par une phrase et c'est directement l'écart-type $\sigma$ qui est donné.
+            </section>
+        </article>
+
+        <article>
+            <header>
+                <h2><span class="cadre">Propriétés</span> Espérance et écart-type</h2>
+                <p>Si $\displaystyle X\hookrightarrow\mathscr{N}(\mu,\sigma^2)$, alors $E(X)=\mu$ et $\sigma(X)=\sigma$.
+                </p>
+                <div class="centre">
+                    <div class="figure">
+                        <canvas id="graphe1" height="180" width="320">Balise canvas non supportée</canvas><br />
+                        <div class="slidecontainer">
+                            <input type="range" min="-40" max="40" value="0" class="slider" id="mu">
+                        </div>
+                        $\mu=$<span id="outputmu"></span>
+                        <div class="slidecontainer">
+                            <input type="range" min="1" max="40" value="0" class="slider" id="sigma">
+                        </div>
+                        $\sigma=$<span id="outputsigma"></span>
+                    </div>
+                </div>
+                <style>
+                    .slidecontainer {
+                      width: 100%; /* Width of the outside container */
+                    }
+
+                    /* The slider itself */
+                    .slider {
+                      -webkit-appearance: none;  /* Override default CSS styles */
+                      appearance: none;
+                      width: 100%; /* Full-width */
+                      height: 5px; /* Specified height */
+                      background: #d3d3d3; /* Grey background */
+                      outline: none; /* Remove outline */
+                      opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+                      -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+                      transition: opacity .2s;
+                      margin-top : 15px;
+                      margin-bottom : 15px;
+                    }
+
+                    /* Mouse-over effects */
+                    .slider:hover {
+                      opacity: 1; /* Fully shown on mouse-over */
+                    }
+
+                    /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+                    .slider::-webkit-slider-thumb {
+                      -webkit-appearance: none; /* Override default look */
+                      appearance: none;
+                      width: 25px; /* Set a specific slider handle width */
+                      height: 25px; /* Slider handle height */
+                      border-radius: 50%;
+                      background: #0098f8; /* Green background */
+                      cursor: pointer; /* Cursor on hover */
+                    }
+
+                    .slider::-moz-range-thumb {
+                      width: 15px; /* Set a specific slider handle width */
+                      height: 15px; /* Slider handle height */
+                      border-radius: 50%;
+                      background: #0098f8; /* Green background */
+                      cursor: pointer; /* Cursor on hover */
+                    }
+                </style>
+                <script>
+                    var slidermu = document.getElementById("mu");
+                    var slidersigma = document.getElementById("sigma");
+                    var outputmu = document.getElementById("outputmu");
+                    slidermu.value = 0;
+                    outputmu.innerHTML = slidermu.value/10;
+                    var outputsigma = document.getElementById("outputsigma");
+                    slidersigma.value = 10;
+                    outputsigma.innerHTML = slidersigma.value/10;
+
+                    slidermu.oninput = function() {
+                      outputmu.innerHTML = this.value/10;
+                      dessine["graphe1"](this.value/10,slidersigma.value/10);
+                    }
+                    slidersigma.oninput = function() {
+                      outputsigma.innerHTML = this.value/10;
+                      dessine["graphe1"](slidermu.value/10,this.value/10);
+                    }
+
+                    dessine["graphe1"] = (mu,sigma) => {
+                        var graphe = calibre("graphe1", -4, 4, -0.1, 0.5,5);
+                        graphe.clearRect(0, 0, 320, 180);
+                        var f = x => Math.exp(-(x-mu)*(x-mu)/(2*sigma*sigma))/(sigma*Math.sqrt(2*Math.PI));
+                        graphe.setLineDash([]);
+                        graphe.strokeStyle = '#000000';
+                        axes(1,5);
+                        trace(f,xmin,xmax);
+                        graphe.setLineDash([3,3]);
+                        graphe.strokeStyle = '#0098f8';
+                        segment(mu,ymin,mu,ymax);
+                        segment(mu-sigma,ymin,mu-sigma,ymax);
+                        segment(mu+sigma,ymin,mu+sigma,ymax);
+                    }
+
+                    dessine["graphe1"](slidermu.value/10,slidersigma.value/10);
+                    ecrit("$1$",0.9,-0.02);
+                    ecrit("$0.2$",-0.6,0.22);
+                </script>
+            </header>
+        </article>
+
+        <article>
+            <header>
+                <h2><span class="cadre">Valeurs remarquables</span> Illustration dans le cas général</h2>
+                <p>Si $Z\hookrightarrow\mathscr{N}(0,1)$ alors :</p>
+                <ul>
+                    <li>$P(X\in\mathbb{R})=1$
+                        <div class="centre">
+                            <div class="figure"><canvas id="graphe2" height="180" width="320">Balise canvas non supportée</canvas></div>
+                        </div>
+                        <script>
+                            var graphe = calibre("graphe2", 1, 9, -0.1, 0.5,5);
+                            var f = x => Math.exp(-(x-5)*(x-5)/2)/Math.sqrt(2*Math.PI);
+                            graphe.setLineDash([]);
+                            graphe.strokeStyle = '#000000';
+                            graphe.fillStyle = '#0098f8';
+                            integrale(f,xmin,xmax);
+                            axes(1,5);
+                            trace(f,xmin,xmax);
+                            ecrit("$1$",4.9,0.2);
+                            ecrit("$\\mu$",4.9,-0.02);
+                            ecrit("$\\mu+\\sigma$",5.5,-0.02);
+                            ecrit("$\\mu-\\sigma$",3.5,-0.02);
+                        </script>
+                    </li>
+                    <li>$P(X\geqslant\mu)=P(\frac{X-\mu}{\sigma}\geqslant0)=0,5$
+                        <div class="centre">
+                            <div class="figure"><canvas id="graphe3" height="180" width="320">Balise canvas non supportée</canvas></div>
+                        </div>
+                        <script>
+                            var graphe = calibre("graphe3", 1, 9, -0.1, 0.5,5);
+                            var f = x => Math.exp(-(x-5)*(x-5)/2)/Math.sqrt(2*Math.PI);
+                            graphe.setLineDash([]);
+                            graphe.strokeStyle = '#000000';
+                            graphe.fillStyle = '#0098f8';
+                            integrale(f,5,xmax);
+                            axes(1,5);
+                            trace(f,xmin,xmax);
+                            graphe.setLineDash([3,3]);
+                            graphe.strokeStyle = '#0098f8';
+                            segment(5,ymin,5,ymax);
+                            ecrit("$0,5$",5.4,0.2);
+                            ecrit("$\\mu$",4.9,-0.02);
+                            ecrit("$\\mu+\\sigma$",5.5,-0.02);
+                            ecrit("$\\mu-\\sigma$",3.5,-0.02);
+                        </script>
+                    </li>
+                    <li>$P(X\leqslant\mu)=P(\frac{X-\mu}{\sigma}\leqslant0)=0,5$
+                        <div class="centre">
+                            <div class="figure"><canvas id="graphe4" height="180" width="320">Balise canvas non supportée</canvas></div>
+                        </div>
+                        <script>
+                            var graphe = calibre("graphe4", 1, 9, -0.1, 0.5,5);
+                            var f = x => Math.exp(-(x-5)*(x-5)/2)/Math.sqrt(2*Math.PI);
+                            graphe.setLineDash([]);
+                            graphe.strokeStyle = '#000000';
+                            graphe.fillStyle = '#0098f8';
+                            integrale(f,xmin,5);
+                            axes(1,5);
+                            trace(f,xmin,xmax);
+                            graphe.setLineDash([3,3]);
+                            graphe.strokeStyle = '#0098f8';
+                            segment(5,ymin,5,ymax);
+                            ecrit("$0,5$",4,0.2);
+                            ecrit("$\\mu$",4.9,-0.02);
+                            ecrit("$\\mu+\\sigma$",5.5,-0.02);
+                            ecrit("$\\mu-\\sigma$",3.5,-0.02);
+                        </script>
+                    </li>
+                    <li>$P(\mu-\sigma\leqslant X\leqslant\mu+\sigma)=P(-1\leqslant\frac{X-\mu}{\sigma}\leqslant1)\approx0,683$
+                        <div class="centre">
+                            <div class="figure"><canvas id="graphe5" height="180" width="320">Balise canvas non supportée</canvas></div>
+                        </div>
+                        <script>
+                            var graphe = calibre("graphe5", 1, 9, -0.1, 0.5,5);
+                            var f = x => Math.exp(-(x-5)*(x-5)/2)/Math.sqrt(2*Math.PI);
+                            graphe.setLineDash([]);
+                            graphe.strokeStyle = '#000000';
+                            graphe.fillStyle = '#0098f8';
+                            integrale(f,4,6);
+                            axes(1,5);
+                            trace(f,xmin,xmax);
+                            graphe.setLineDash([3,3]);
+                            graphe.strokeStyle = '#0098f8';
+                            segment(4,ymin,4,ymax);
+                            segment(6,ymin,6,ymax);
+                            ecrit("$0,683$",4.5,0.2);
+                            ecrit("$\\mu$",4.9,-0.02);
+                            ecrit("$\\mu+\\sigma$",5.5,-0.02);
+                            ecrit("$\\mu-\\sigma$",3.5,-0.02);
+                        </script>
+                    </li>
+                    <li>$P(\mu-2\sigma\leqslant X\leqslant\mu+2\sigma)=P(-2\leqslant\frac{X-\mu}{\sigma}\leqslant2)\approx0,954$
+                        <div class="centre">
+                            <div class="figure"><canvas id="graphe6" height="180" width="320">Balise canvas non supportée</canvas></div>
+                        </div>
+                        <script>
+                            var graphe = calibre("graphe6", 1, 9, -0.1, 0.5,5);
+                            var f = x => Math.exp(-(x-5)*(x-5)/2)/Math.sqrt(2*Math.PI);
+                            graphe.setLineDash([]);
+                            graphe.strokeStyle = '#000000';
+                            graphe.fillStyle = '#0098f8';
+                            integrale(f,3,7);
+                            axes(1,5);
+                            trace(f,xmin,xmax);
+                            graphe.setLineDash([3,3]);
+                            graphe.strokeStyle = '#0098f8';
+                            segment(3,ymin,3,ymax);
+                            segment(7,ymin,7,ymax);
+                            ecrit("$0,954$",4.5,0.2);
+                            ecrit("$\\mu$",4.9,-0.02);
+                            ecrit("$\\mu+\\sigma$",5.5,-0.02);
+                            ecrit("$\\mu-\\sigma$",3.5,-0.02);
+                        </script>
+                    </li>
+                    <li>$P(\mu-3\sigma\leqslant X\leqslant\mu+3\sigma)=P(-3\leqslant\frac{X-\mu}{\sigma}\leqslant3)\approx0,997$
+                        <div class="centre">
+                            <div class="figure"><canvas id="graphe7" height="180" width="320">Balise canvas non supportée</canvas></div>
+                        </div>
+                        <script>
+                            var graphe = calibre("graphe7", 1, 9, -0.1, 0.5,5);
+                            var f = x => Math.exp(-(x-5)*(x-5)/2)/Math.sqrt(2*Math.PI);
+                            graphe.setLineDash([]);
+                            graphe.strokeStyle = '#000000';
+                            graphe.fillStyle = '#0098f8';
+                            integrale(f,2,8);
+                            axes(1,5);
+                            trace(f,xmin,xmax);
+                            graphe.setLineDash([3,3]);
+                            graphe.strokeStyle = '#0098f8';
+                            segment(2,ymin,2,ymax);
+                            segment(8,ymin,8,ymax);
+                            ecrit("$0,997$",4.5,0.2);
+                            ecrit("$\\mu$",4.9,-0.02);
+                            ecrit("$\\mu+\\sigma$",5.5,-0.02);
+                            ecrit("$\\mu-\\sigma$",3.5,-0.02);
+                        </script>
+                    </li>
+                    <li>$u_{0,05}\approx 1,96$ : $P(\mu-1,96\sigma\leqslant X\leqslant\mu+1,96\sigma)\approx 0,95$
+                        <div class="centre">
+                            <div class="figure"><canvas id="graphe8" height="180" width="320">Balise canvas non supportée</canvas></div>
+                        </div>
+                        <script>
+                            var graphe = calibre("graphe8", 1, 9, -0.1, 0.5,5);
+                            var f = x => Math.exp(-(x-5)*(x-5)/2)/Math.sqrt(2*Math.PI);
+                            graphe.setLineDash([]);
+                            graphe.strokeStyle = '#000000';
+                            graphe.fillStyle = '#0098f8';
+                            integrale(f,3.04,6.96);
+                            axes(1,5);
+                            trace(f,xmin,xmax);
+                            graphe.setLineDash([3,3]);
+                            graphe.strokeStyle = '#0098f8';
+                            segment(6.96,ymin,6.96,ymax);
+                            segment(3.04,ymin,3.04,ymax);
+                            ecrit("$0,95$",4.5,0.2);
+                            ecrit("$\\mu$",4.9,-0.02);
+                            ecrit("$\\mu+\\sigma$",5.5,-0.02);
+                            ecrit("$\\mu-\\sigma$",3.5,-0.02);
+                            ecrit("$\\mu+1,96\\sigma$",6.5,-0.12);
+                            ecrit("$\\mu-1,96\\sigma$",2.5,-0.12);
+                        </script>
+                    </li>
+                    <li>$u_{0,01}\approx 2,58$ : $P(\mu-2,58\sigma\leqslant X\leqslant\mu+2,58\sigma)\approx 0,99$
+                        <div class="centre">
+                            <div class="figure"><canvas id="graphe9" height="180" width="320">Balise canvas non supportée</canvas></div>
+                        </div>
+                        <script>
+                            var graphe = calibre("graphe9", 1, 9, -0.1, 0.5,5);
+                            var f = x => Math.exp(-(x-5)*(x-5)/2)/Math.sqrt(2*Math.PI);
+                            graphe.setLineDash([]);
+                            graphe.strokeStyle = '#000000';
+                            graphe.fillStyle = '#0098f8';
+                            integrale(f,2.46,7.58);
+                            axes(1,5);
+                            trace(f,xmin,xmax);
+                            graphe.setLineDash([3,3]);
+                            graphe.strokeStyle = '#0098f8';
+                            segment(7.58,ymin,7.58,ymax);
+                            segment(2.46,ymin,2.46,ymax);
+                            ecrit("$0,99$",4.5,0.2);
+                            ecrit("$\\mu$",4.9,-0.02);
+                            ecrit("$\\mu+\\sigma$",5.5,-0.02);
+                            ecrit("$\\mu-\\sigma$",3.5,-0.02);
+                            ecrit("$\\mu+2.58\\sigma$",7,-0.12);
+                            ecrit("$\\mu-2.58\\sigma$",2,-0.12);
+                        </script>
+                    </li>
+                </ul>
+            </header>
+        </article>
+
+        <article>
+            <header>
+                <h2><span class="cadre">Exercice 1 (E26)</span> Polynésie - BAC S - juin 2015</h2>
+                <p>Dans un pays, la taille en centimètres des femmes de 18 à 65 ans peut être modélisée par une
+                    variable aléatoire $X_1$ suivant la loi normale d'espérance $\mu_1 = 165$cm et d'écart-type $\sigma_1 = 6$cm,
+                    et celle des hommes de 18 à 65 ans, par une variable aléatoire $X_2$ suivant la loi normale
+                    d'espérance $\mu_2 = 175$cm et d'écart-type $\sigma_2 = 11$cm.
+                </p>
+                <p>Dans cet exercice tous les résultats seront arrondis à $10^{-2}$ près.</p>
+                <ol>
+                    <li>Quelle est la probabilité qu'une femme choisie au hasard dans ce pays mesure entre
+                        1,53 mètre et 1,77 mètre ?
+                    </li>
+                    <li>
+                        <ol>
+                            <li>Déterminer la probabilité qu'un homme choisi au hasard dans ce pays mesure
+                                plus de 1,70 mètre.
+                            </li>
+                            <li>De plus, on sait que dans ce pays les femmes représentent 52% de la population
+                                des personnes dont l'âge est compris entre 18 et 65 ans. On choisit au hasard
+                                une personne qui a entre 18 et 65 ans. Elle mesure plus de $1,70$m. Quelle est la
+                                probabilité que cette personne soit une femme ?
+                            </li>
+                        </ol>
+                    </li>
+                </ol>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la solution</button>
+                <button>Cacher la solution</button>
+                <ol>
+                    <li>C'est une valeur remarquable :<br />
+                        $P(153 \leqslant X_1 \leqslant 177)$ $=P(165-2\times6 \leqslant X_1 \leqslant 165+2\times6)$ $\approx 0,95$.</li>
+                    <li>
+                        <ol>
+                            <li>La calculatrice avec $X_2 \hookrightarrow\mathscr{N}(175,11^2)$ donne : $P(X_2 \geqslant 170)$ $\approx 0,68$ </li>
+                            <li>Pour une personne, dans ce pays, dont l'âge est compris entre 18 et 65 ans, choisi au hasard, notons $F$
+                                le fait d'être une femme et M de mesurer plus de $1,70$m :<br />
+                                <div class="centre">
+                            <div class="figure"><canvas id="graphe10" height="180" width="320">Balise canvas non supportée</canvas></div>
+                        </div>
+                        <script>
+                            var graphe = calibre("graphe10", 0, 320, 0, 180,1);
+                            graphe.setLineDash([]);
+                            graphe.strokeStyle = '#000000';
+                            graphe.fillStyle = '#0098f8';
+                            segment(40,90,130,126);
+                            segment(40,90,130,54);
+                            segment(150,126,240,144);
+                            segment(150,126,240,108);
+                            segment(150,54,240,72);
+                            segment(150,54,240,36);
+                            ecrit("0,52",75,120);
+                            ecrit("$F$",132,130);
+                            ecrit("$\\overline{F}$",132,60);
+                            ecrit("$\\small P(X_1\\geqslant170)$",150,155);
+                            ecrit("0,68",180,70);
+                            ecrit("$M$",242,148);
+                            ecrit("$\\overline{M}$",242,118);
+                            ecrit("$M$",242,76);
+                            ecrit("$\\overline{M}$",242,48);
+                        </script>
+                        La calculatrice permet de compléter : $P(X_1\geqslant170)\approx 0,2$<br />
+                        On cherche $P_M(F)$ $=\dfrac{P(F\cap M)}{P(M)}$
+                        $\approx \dfrac{0,52\times0,2}{0,52\times0,2+(1-0,52)\times0,68}$
+                        $\approx 0,24$
+                        </li>
+                        </ol>
+                    </li>
+                </ol>
+            </section>
+        </article>
+
+        <article>
+            <header>
+                <h2><span class="cadre">Exercice 2 (E26)</span> Pondichéry - BAC S - avril 2015 (Partie A)</h2>
+                <p> Des études statistiques ont permis de modéliser la durée de vie, en mois, d'un type de lave-vaisselle
+                    par une variable aléatoire $X$ suivant une loi normale $\mathcal{N}\left(\mu,~ \sigma^2\right)$
+                    de moyenne $\mu = 84$ et d'écart-type $\sigma$. De plus, on a $P(X \leqslant 64) = 0,16$.</p>
+                <p> La représentation graphique de la fonction densité de probabilité de $X$ est donnée ci-dessous.
+                        <div class="centre">
+                            <div class="figure"><canvas id="graphe11" height="180" width="320">Balise canvas non supportée</canvas></div>
+                        </div>
+                        <script>
+                            var graphe = calibre("graphe11", 10, 150, -0.0047, 0.02,2000);
+                            var f = x => Math.exp(-(x-84)*(x-84)/(2*20.1*20.1))/(20.1*Math.sqrt(2*Math.PI));
+                            graphe.setLineDash([]);
+                            graphe.strokeStyle = '#000000';
+                            graphe.fillStyle = '#0098f8';
+                            integrale(f,xmin,64);
+                            axes(0.1,200);
+                            trace(f,xmin,xmax);
+                            graphe.setLineDash([3,3]);
+                            graphe.strokeStyle = '#0098f8';
+                            segment(64,ymin,64,ymax);
+                            ecrit("$64$",61.5,-0.005,'#0098f8');
+                            ecrit("$16$%",52,0.005);
+                            for (k=20;k<100;k=k+10) {
+                                ecrit("$\\small"+k+"$",k-2.5,-0.002);
+                            }
+                            for (k=100;k<150;k=k+10) {
+                                ecrit("$\\small"+k+"$",k-3,-0.002);
+                            }
+                        </script>
+                </p>
+                <ol>
+                    <li>
+                        <ol>
+                            <li>En exploitant le graphique, déterminer $P(64 \leqslant X \leqslant 104)$.</li>
+                            <li>Quelle valeur approchée entière de $\sigma$ peut-on proposer ?</li>
+                        </ol>
+                    </li>
+                    <li>On note $Z = \dfrac{X - 84}{\sigma}$.
+                        <ol>
+                            <li>Quelle est la loi de probabilité suivie par $Z$ ?</li>
+                            <li>Justifier que $P(X \leqslant 64) = P \left(Z \leqslant \dfrac{- 20}{\sigma}\right)$.</li>
+                            <li>En déduire la valeur de $\sigma$, arrondie à $10^{-3}$.</li>
+                        </ol>
+                    </li>
+                    <li>Dans cette question, on considère que $\sigma = 20,1$.<br />
+                        Les probabilités demandées seront arrondies à $10^{-3}$.
+                        <ol>
+                            <li>Calculer la probabilité que la durée de vie du lave-vaisselle soit comprise entre 2 et 5 ans.</li>
+                            <li>Calculer la probabilité que le lave-vaisselle ait une durée de vie supérieure à 10 ans.</li>
+                        </ol>
+                    </li>
+                </ol>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la solution</button>
+                <button>Cacher la solution</button>
+                <ol>
+                    <li>
+                        <ol>
+                            <li>$P(X \leqslant 84 - 20) = P(X \leqslant 64) =  0,16$
+                                donc par symétrie $P(X \geqslant 84 + 20) = P(X \geqslant 104) =  0,16$.
+                                <div class="centre">
+                                    <div class="figure"><canvas id="graphe12" height="180" width="320">Balise canvas non supportée</canvas></div>
+                                </div>
+                                <script>
+                                    var graphe = calibre("graphe12", 10, 150, -0.0047, 0.02,2000);
+                                    var f = x => Math.exp(-(x-84)*(x-84)/(2*20.1*20.1))/(20.1*Math.sqrt(2*Math.PI));
+                                    graphe.setLineDash([]);
+                                    graphe.strokeStyle = '#000000';
+                                    graphe.fillStyle = '#0098f8';
+                                    integrale(f,xmin,64);
+                                    integrale(f,104,xmax,"hachure");
+                                    axes(0.1,200);
+                                    trace(f,xmin,xmax);
+                                    graphe.setLineDash([3,3]);
+                                    segment(84,ymin,84,ymax);
+                                    graphe.strokeStyle = '#0098f8';
+                                    segment(64,ymin,64,ymax);
+                                    segment(104,ymin,104,ymax);
+                                    ecrit("$64$",61.5,-0.005,'#0098f8');
+                                    ecrit("$84$",81.5,-0.005);
+                                    ecrit("$104$",100,-0.005,'#0098f8');
+                                    ecrit("$16$%",52,0.005);
+                                    ecrit("$16$%",104,0.005);
+                                    for (k=20;k<100;k=k+10) {
+                                        ecrit("$\\small"+k+"$",k-2.5,-0.002);
+                                    }
+                                    for (k=100;k<150;k=k+10) {
+                                        ecrit("$\\small"+k+"$",k-3,-0.002);
+                                    }
+                                </script>
+                                Finalement $P(64 \leqslant X \leqslant 104)$
+                                $= 1 - P(X \leqslant 64)-P(X \geqslant 104)$
+                                $= 0,68$.</li>
+                            <li>$P(64 \leqslant X \leqslant 104)= 0,68$ se réécrit
+                                $P(84-20 \leqslant X \leqslant 84+20)= 0,68$. On reconnait
+                                la valeur remarquable $P(\mu-\sigma \leqslant X \leqslant \mu+\sigma)\approx 0,68$.
+                                On peut donc estimer : $\sigma \approx 20$.</li>
+                        </ol>
+                    </li>
+                    <li>
+                        <ol>
+                            <li>$Z$ suit une loi normale centrée réduite.</li>
+                            <li>$(X \leqslant 64)$ $= \left(X -84 \leqslant -20\right)$
+                                $= \left(\dfrac{X - 84}{\sigma} \leqslant\dfrac{- 20}{\sigma}\right)$
+                                $= \left(Z \leqslant \dfrac{- 20}{\sigma}\right)$.</li>
+                            <li>$P\left(Z \leqslant \dfrac{- 20}{\sigma}\right)=0,16$ donne par calcul inverse avec la calculatrice :
+                                $\dfrac{- 20}{\sigma}\approx -0,9944579$
+                                donc $\sigma \approx \dfrac{-20}{-0,9944579} \approx 20,111$.</li>
+                        </ol>
+                    </li>
+                    <li>À la calculatrice pour $X \hookrightarrow\mathscr{N}(84\,;20,1^2)$.
+                        <ol>
+                            <li>$P(2\times12 \leqslant X \leqslant 5\times12)\approx0,115$.</li>
+                            <li>$P(X \geqslant 10\times12)\approx0,037$.</li>
+                        </ol>
+                    </li>
+                </ol>
+            </section>
+        </article>
+
+        <article>
+            <header>
+                <h2><span class="cadre">Exercice 3 (E26)</span> Amérique du nord - BAC S - juin 2015</h2>
+                <p>Une entreprise fabrique des tablettes de chocolat de 100 grammes.
+                    Le service de contrôle qualité effectue plusieurs types de contrôle.
+                </p>
+                <h3>Partie A Contrôle avant la mise sur le marché</h3>
+                <p> Une tablette de chocolat doit peser 100 grammes avec une tolérance de deux grammes en plus ou en moins.
+                    Elle est donc mise sur le marché si sa masse est comprise entre 98 et 102 grammes.
+                    La masse (exprimée en grammes) d'une tablette de chocolat peut être modélisée par une variable aléatoire
+                    $X$ suivant la loi normale d'espérance $\mu = 100$ et d'écart-type $\sigma = 1$.
+                    Le réglage des machines de la chaîne de fabrication permet de modifier la valeur de $\sigma$.
+                </p>
+                <ol>
+                    <li>Calculer la probabilité de l'évènement $M$ : &laquo; la tablette est mise sur le marché &raquo;.</li>
+                    <li>On souhaite modifier le réglage des machines de telle sorte que la probabilité de cet évènement atteigne 0,97.<br />
+                        Déterminer la valeur de $\sigma$ pour que la probabilité de l'évènement &laquo; la tablette est mise sur le marché&raquo; soit égale à $0,97$.
+                    </li>
+                </ol>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la solution</button>
+                <button>Cacher la solution</button>
+                <h3>Partie A</h3>
+                <ol>
+                    <li>C'est une valeur remarquable :<br />
+                        $P(M)=P(98 \leqslant X \leqslant 102)$
+                        $=P(\mu - 2\sigma \leqslant X \leqslant \mu + 2\sigma)$
+                        $\approx 0,954$.</li>
+                    <li>$P(M)=P(98 \leqslant X \leqslant 102)=0,97$
+                        $\Leftrightarrow P(M)=P(-2 \leqslant X - \mu \leqslant 2)=0,97$
+                        $\Leftrightarrow P(M)=P\left(\dfrac{-2}{\sigma} \leqslant \dfrac{X - \mu}{\sigma} \leqslant \dfrac{2}{\sigma}\right)=0,97$.<br />
+                        Or le cours permet décrire : $\dfrac{X - \mu}{\sigma}\hookrightarrow\mathscr{N}(0,1)$.<br />
+                        On peut donc utiliser le calcul inverse, et la calculatrice donne :  $\dfrac{2}{\sigma}\approx 2,17$.
+                        D'où $\sigma\approx\dfrac{2}{2,17}\approx0,922$.
+                    </li>
+                </ol>
+            </section>
+        </article>

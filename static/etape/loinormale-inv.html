@@ -1,0 +1,269 @@
+<article>
+            <header><h2><span class="cadre">Théorème</span> Calcul inverse par une loi normale centrée réduite</h2>
+            <p>Soit $X\hookrightarrow\mathscr{N}(0,1)$.<br />
+               Pour tout $\alpha\in]0,1[$, il existe un unique réel positif $u_\alpha$ tel que :
+               $P(-u_\alpha\leqslant X \leqslant u_\alpha) = 1-\alpha$
+            </p>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la démonstration (ROC)</button>
+                <button>Cacher la démonstration</button>
+                Par symétrie de la courbe de Gauss, pour tout $x\in \mathbb{R}$ :
+                $P(-x\leqslant X \leqslant x) = 2 P(0 \leqslant X \leqslant x)$.<br />
+                Or la fonction définie par
+                $\displaystyle x\mapsto P(0 \leqslant X \leqslant x)=\int_0^x \frac{1}{2\pi}\mathrm{e} ^{-\frac{t^2}{2}}\text{d}t$
+                est
+                <ul><li>continue comme primitive d'une fonction continue sur $\mathbb{R}$</li>
+                    <li>et strictement croissante, car $\frac{1}{2\pi}\mathrm{e} ^{-\frac{x^2}{2}}>0$.</li>
+                </ul>
+                et de plus,
+                <ul><li>$P(0 \leqslant X \leqslant 0)=0$ ;  $P(0 \leqslant X)=0,5$ et $0 &lt; \alpha &lt; 1 \Rightarrow 0 &lt; \dfrac{1-\alpha}{2}&lt; 0,5$.</li></ul>
+                D'après le corolaire au théorème des valeurs intermédiaires :
+                <div class="centre">l'équation $P(0 \leqslant X \leqslant x)=\dfrac{1-\alpha}{2}$ admet une unique solution $u_\alpha\in]0\,;+\infty[$.</div>
+                Donc : Il existe bien un unique $u_\alpha>0$ tel que $P(-u_\alpha\leqslant X \leqslant u_\alpha) = 2 P(0 \leqslant X \leqslant u_\alpha)=1-\alpha$.
+            </section>
+        </article>
+
+        <article>
+            <header>
+                <h2><span class="cadre">Avec la calculatrice</span> Calculs sous la loi normale centrée rréduite</h2>
+                <ul><li>Avec une Numworks : dans l'application Probabilité, choisir Normale.
+                    <ul><li> Entrer $\mu=0$ (espérance nulle car centrée)  et $\sigma=1$ (écart-type 1 car réduite). </li>
+                        <li>Modifier un paramètre de la ligne calcule alors automatiquement les autres.</li>
+                    </ul>
+                </li><li>Avec une Casio : dans le menu STAT, choisir DIST puis NORM
+                    <ul><li> Pour faire un calcul de probabilité, choisir Ncd. Pour un calcul inverse, choisir InvN.</li>
+                        <li> Régler $\mu=0$ (espérance nulle car centrée) et $\sigma=1$ (écart-type 1 car réduite).</li>
+                        <li> Choisir Data : Variable, puis modifier les autres paramètres selon les besoins.</li>
+                    </li></ul>
+                </li><li>Avec une TI, les fonctions se trouvent dans le menu distrib :
+                    <ul><li> normalFRép(a,b) avec des valeurs pour a et b calcule la probabilité sur l'intervalle.</li>
+                        <li> FracNormal(p) avec une probabilité pour p, fait le calcul inverse</li>
+                </li></ul>
+            </header>
+        </article>
+
+        <article>
+            <header>
+                <h2><span class="cadre">Valeurs remarquables</span> À connaitre par coeur</h2>
+                <p>Si $Z\hookrightarrow\mathscr{N}(0,1)$ alors :</p>
+                <ul>
+                    <li>$P(Z\leqslant 0) = 0,5$</li>
+                    <li>$P(-1 \leqslant Z \leqslant 1) \approx 0,683$</li>
+                    <li>$P(-2 \leqslant Z \leqslant 2) \approx 0,954$</li>
+                    <li>$P(-3 \leqslant Z \leqslant 3) \approx 0,997$</li>
+                    <li>$u_{0,05}\approx 1,96$, c'est à dire : $P(-1,96 \leqslant Z \leqslant 1,96) \approx 0,95$</li>
+                    <li>$u_{0,01}\approx 2,58$, c'est à dire : $P(-2,58 \leqslant Z \leqslant 2,58) \approx 0,99$</li>
+                </ul>
+            </header>
+        </article>
+
+        <article>
+            <header>
+                <h2><span class="cadre">Exercice 1 (E25)</span> Calcul en loi normale centrée réduite</h2>
+                <strong>Vérifier les résultats de l'exercice 1 avec la calculatrice</strong>
+                <p>Soit $T\hookrightarrow\mathscr{N}(0,1)$.</p>
+                <ol>
+                    <li>Calculer :
+                        <ol>
+                            <li>$P(T&lt;1,8)$</li>
+                            <li>$P(T&lt;-1,8)$</li>
+                            <li>$P(T&gt;2,58)$</li>
+                            <li>$P(-1,21&lt;T&lt;1,44)$</li>
+                        </ol>
+                    </li><li>Calculer le nombre réel $u$ tel que :
+                        <ol>
+                            <li>$P(T&lt;u)=0,14$</li>
+                            <li>$P(T&gt;u)=0,25$</li>
+                            <li>$P(0&lt;T&lt;u)=0,4$</li>
+                        </ol>
+                    </li>
+                </ol>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la solution</button>
+                <button>Cacher la solution</button>
+                <ol>
+                    <li>
+                        <ol>
+                            <li>On trouve $0,9640697$ ($\approx 0,9641$ ok)</li>
+                            <li>On trouve $0,03593032$ ($\approx 0,0359$ ok)</li>
+                            <li>On trouve $0,004940016$ ($\approx 0,0049$ ok)</li>
+                            <li>On trouve $0,811926$ ($\approx  0,812$ ok)</li>
+                        </ol>
+                    </li><li><ol>
+                            <li>On trouve $-1.080319$ ($\approx -1,08$ ok)</li>
+                            <li>On trouve $0,6744898$ ($\approx  0,68$ un peu moins précis)</li>
+                            <li>On doit chosir inverse centrée pour une probabilité de $0,8$.<br />
+                                On trouve $1,281552$  $\approx  1,28$ ok)</li>
+                        </ol>
+                    </li>
+                </ol>
+            </section>
+        </article>
+
+
+
+        <article>
+            <header>
+                <h2><span class="cadre">Exercice 1 (E25)</span> Calcul en loi normale centrée réduite</h2>
+                <strong>Vérifier les résultats de l'exercice 1 avec la calculatrice</strong>
+                <p>Soit $T\hookrightarrow\mathscr{N}(0,1)$.</p>
+                <ol>
+                    <li>Calculer :
+                        <ol>
+                            <li>$P(T&lt;1,8)$</li>
+                            <li>$P(T&lt;-1,8)$</li>
+                            <li>$P(T&gt;2,58)$</li>
+                            <li>$P(-1,21&lt;T&lt;1,44)$</li>
+                        </ol>
+                    </li><li>Calculer le nombre réel $u$ tel que :
+                        <ol>
+                            <li>$P(T&lt;u)=0,14$</li>
+                            <li>$P(T&gt;u)=0,25$</li>
+                            <li>$P(0&lt;T&lt;u)=0,4$</li>
+                        </ol>
+                    </li>
+                </ol>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la solution</button>
+                <button>Cacher la solution</button>
+                <ol>
+                    <li>
+                        <ol>
+                            <li>On trouve $0,9640697$ ($\approx 0,9641$ ok)</li>
+                            <li>On trouve $0,03593032$ ($\approx 0,0359$ ok)</li>
+                            <li>On trouve $0,004940016$ ($\approx 0,0049$ ok)</li>
+                            <li>On trouve $0,811926$ ($\approx  0,812$ ok)</li>
+                        </ol>
+                    </li><li><ol>
+                            <li>On trouve $-1.080319$ ($\approx -1,08$ ok)</li>
+                            <li>On trouve $0,6744898$ ($\approx  0,68$ un peu moins précis)</li>
+                            <li>On doit chosir inverse centrée pour une probabilité de $0,8$.<br />
+                                On trouve $1,281552$  $\approx  1,28$ ok)</li>
+                        </ol>
+                    </li>
+                </ol>
+            </section>
+        </article>
+
+
+
+        <article>
+            <header>
+                <h2><span class="cadre">Exercice 2 (E25)</span> Deux autres calculs inverses</h2>
+                <p>Une variable aléatoire $T$ suit la loi normale centrée réduite.<br />
+                   Dans chaque cas, déterminer l’arrondi au millième du nombre $u$ tel que :</p>
+                <ol>
+                    <li>$P(-u &lt; T &lt; u)=0,915$</li>
+                    <li>$P(-u &lt; T &lt; u)=0,732$</li>
+                </ol>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la solution</button>
+                <button>Cacher la solution</button>
+                <ol>La calculatrice donne
+                    <li>$u \approx 1,722$</li>
+                    <li>$u \approx 1,108$</li>
+                </ol>
+            </section>
+        </article>
+
+
+
+        <article>
+            <header>
+                <h2><span class="cadre">Exercice 3 (E25)</span> Notes à un concours</h2>
+                <p>Lors d’un concours, la moyenne des notes est 8.<br />
+                   $T$ est la variable aléatoire qui donne l’écart $t − 8$ où t est la note obtenue par le candidat.
+                   On suppose que $T$ suit la loi normale centrée réduite.</p>
+                <ol>
+                    <li>A combien faut-il fixer la note d’admission de ce concours pour que 60% des candidats soient reçu ?<br />
+                        Donner l’arrondi au centième.</li>
+                    <li>Dans quel intervalle de notes (autour de la moyenne) se trouvent 80% des candidats ?</li>
+                </ol>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la solution</button>
+                <button>Cacher la solution</button>
+                <ol>
+                    <li>Un calcul inverse avec la loi normale centrée réduite donne $P(T&gt;-0.25)\approx 60\text{%}$,
+                        il faudrait donc fixer la note t d'admission par $t-8=-0.25$ donc à $t=7,75$.</li>
+                    <li>Un calcul inverse avec la loi normale centrée réduite donne $P(-1,28&lt;T&lt;1,28)\approx 80\text{%}$,
+                        la réponse est donc l'intervalle $[6.72\,;9,28]$</li>
+                </ol>
+            </section>
+        </article>
+
+
+
+        <article>
+            <header>
+                <h2><span class="cadre">Exercice 4 (E25)</span> Températures en Janvier</h2>
+                <p>La température $T$ relevée en janvier, en milieu de journée, suit une loi normale centrée réduite.</p>
+                <ol>
+                    <li>Donner la valeur de l’espérance de T et l’interpréter dans ce contexte.</li>
+                    <li>Justifier que dans plus de 95% des cas, la température relevée est entre -2°C et +2°C.</li>
+                    <li>Quelle est la fourchette (centrée) de températures dans laquelle on trouve les températures relevées dans 99% des cas ?</li>
+                    <li>Donner une estimation de la probabilité d’avoir, un jour de janvier, une température supérieure à +2°C, puis vérifier à la calculatrice.</li>
+                </ol>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la solution</button>
+                <button>Cacher la solution</button>
+                <ol>
+                    <li>Comme la loi est centrée, l'espérance est égale à 0 : cela correspond à la température moyenne.</li>
+                    <li>On sait (valeurs remarquables) que $P(-2 \leqslant T \leqslant 2) \approx 0,954 &gt; 0,95$.</li>
+                    <li>On sait (valeurs remarquables) que $P(-2,58 \leqslant Z \leqslant 2,58) \approx 0,99$.
+                        La fourchette est alors l'intervalle $[-2,58\,;2,58]$.</li>
+                    <li>On sait que $P(-2 \leqslant T \leqslant 2) \approx 0,954$
+                        <div class="centre"><div class="figure"><canvas id="graphe1" height="180" width="320">Balise canvas non supportée</canvas></div></div>
+                        <script>
+                            var graphe = calibre("graphe1", -4, 4, -0.1, 0.5,5);
+                            var f = x => Math.exp(-x*x/2)/Math.sqrt(2*Math.PI);
+                            graphe.fillStyle = '#0098f8';
+                            integrale(f,-2,2);
+                            axes(1,5);
+                            graphe.lineWidth = 1;
+                            trace(f,xmin,xmax);
+                            graphe.lineWidth = 1;
+                            graphe.setLineDash([3,3]);
+                            ecrit("$0,954$",-0.55,0.2);
+                        </script>
+                        Par symétrie, on peut en déduire : $P(0 \leqslant T \leqslant 2)$ $=\frac{1}{2}P(-2 \leqslant T \leqslant 2)$ $ \approx 0,477$
+                        <div class="centre"><div class="figure"><canvas id="graphe2" height="180" width="320">Balise canvas non supportée</canvas></div></div>
+                        <script>
+                            var graphe = calibre("graphe2", -4, 4, -0.1, 0.5,5);
+                            var f = x => Math.exp(-x*x/2)/Math.sqrt(2*Math.PI);
+                            graphe.fillStyle = '#0098f8';
+                            integrale(f,0,2);
+                            axes(1,5);
+                            graphe.lineWidth = 1;
+                            trace(f,xmin,xmax);
+                            graphe.lineWidth = 1;
+                            graphe.setLineDash([3,3]);
+                            ecrit("$0,477$",0.1,0.2);
+                        </script>
+                        Donc : $P(T \leqslant 2)$ $=P(T \leqslant 0)+P(0 \leqslant T \leqslant 2)$ $ \approx 0,977$
+                        <div class="centre"><div class="figure"><canvas id="graphe3" height="180" width="320">Balise canvas non supportée</canvas></div></div>
+                        <script>
+                            var graphe = calibre("graphe3", -4, 4, -0.1, 0.5,5);
+                            var f = x => Math.exp(-x*x/2)/Math.sqrt(2*Math.PI);
+                            graphe.fillStyle = '#0098f8';
+                            integrale(f,xmin,0,"hachure");
+                            integrale(f,0,2);
+                            axes(1,5);
+                            graphe.lineWidth = 1;
+                            trace(f,xmin,xmax);
+                            graphe.lineWidth = 1;
+                            graphe.setLineDash([3,3]);
+                            ecrit("$0,477$",0.1,0.2);
+                            ecrit("$\\small P(X\\leqslant0)=0,5$",-3.8,0.3,'#0098f8');
+                        </script>
+                        On en déduit la probabilité complémentaire : $P(T \geqslant 2)=1-P(T \leqslant 2)$
+                        $\approx 0,023$<br />
+                        La calculatrice donne : $0,02275013$.</li>
+                </ol>
+            </section>
+        </article>

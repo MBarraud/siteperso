@@ -1,0 +1,265 @@
+<article>
+            <header>
+                <h2><span class="cadre">Définition</span> Vecteur normal</h2>
+                <p>Soient $\vec n$ un vecteur et $\mathscr{P}$ un plan dans l'espace.</p>
+                <p>$\vec n$ est un vecteur normal à $\mathscr{P}$ si c'est un vecteur directeur d'une droite $\mathscr{D}$ perpendiculaire à $\mathscr{P}$.<br />
+                   (C'est à dire s'il est orthogonal à tout vecteur définissable dans $\mathscr{P}$.)</p>
+                <div class="centre"><div class="figure"><canvas id="graphe1" height="180", width="320">Balise canvas non supportée</canvas></div></div>
+                <script>
+                    var graphe = calibre3D("graphe1", -2, 2, -1.5, 1.5, -0.5, 1);
+                    var O = point(0,0,0);
+                    var I = point(1,0,0);
+                    var J = point(0,1,0);
+                    var K = point(0,0,1);
+                    graphe.lineWidth = 0.5;
+                    ligne(point(0,0,-2),point(0,0,0));
+                    graphe.fillStyle = '#0098f8';
+                    remplir(point(-2,-1.6,0),point(2,-1.6,0),point(2,1.6,0),point(-2,1.6,0));
+                    ligne(point(0,0,0),point(0,0,2));
+                    ligne(point(-1.5,0,0),point(1.5,0,0));
+                    ligne(point(0,-1.5,0),point(0,1.5,0));
+                    ligne(point(-1.5,-1.3,0),point(1.5,-0.7,0));
+                    graphe.lineWidth = 1.5;
+                    fleche(O,K);
+                    fleche(point(-1,-1.2,0),point(-1,-1.2,1));
+                    fleche(point(-1,-1.2,0),point(-0.5,-1.1,0));
+                    graphe.setLineDash([]);
+                    graphe.lineWidth = 1;
+                    graphe.setLineDash([]);
+                    ligne(point(0.25,0,0),point(0.25,0,0.25),point(0,0,0.25));
+                    ligne(point(0,0.25,0),point(0,0.25,0.25),point(0,0,0.25));
+                    ligne(point(-0.75,-1.15,0),point(-0.75,-1.15,0.25),point(-1,-1.2,0.25));
+                    ecrit("$\\mathscr{D}$ perpendiculaire à $\\mathscr{P}$",0.1,1.8);
+                    ecrit("$\\mathscr{P}$",2.2,0.5);
+                    ecrit("$\\vec n$ : vecteur normal à $\\mathscr{P}$",0.1,1);
+                    ecrit("$\\vec n$",-1.65,0.6);
+                </script>
+            </header>
+        </article>
+
+        <article>
+            <header>
+                <h2><span class="cadre">Exercice 6</span> vecteur normal ?</h2>
+                <p> Dans un repère orthonormé de l'espace, on donne :<br />
+                    $A(0\,;1\,;-1)$, $B(3\,;-2\,;0)$, $C(-3\,;-2\,;2)$ et $\vec n \left(\begin{smallmatrix}1\\2\\3\end{smallmatrix}\right)$.
+                </p>
+                <ol><li>Vérifier que $A$, $B$ et $C$ ne sont pas alignés.</li>
+                    <li>Le vecteur $\vec n$ est-il normal au plan $(ABC)$ ?</li>
+                </ol>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la solution</button>
+                <button>Cacher la solution</button>
+                <ol><li>On calcule : $\overrightarrow{AB}\left(\begin{smallmatrix}3\\-3\\1\end{smallmatrix}\right)$ et  $\overrightarrow{AC}\left(\begin{smallmatrix}-3\\-3\\3\end{smallmatrix}\right)$.<br />
+                        Comme alors $2\times(-3)-(-3)\times(-3)\neq0$, alors $\overrightarrow{AB}$ et  $\overrightarrow{AC}$ ne sont pas colinéaires.<br />
+                        Donc $A$, $B$ et $C$ ne sont pas alignés.</li>
+                    <li>$\vec{n}.\overrightarrow{AB} = 1\times3+2\times(-3)+3\times1 = 0$ et<br />
+                        $\vec{n}.\overrightarrow{AC} = 1\times(-3)+2\times(-3)+3\times3 = 0$.<br />
+                        $\vec n$ est orthogonal à deux vecteurs non colinéaires de $(ABC)$. Il est donc normal à $(ABC)$.</li>
+                </ol>
+            </section>
+        </article>
+
+        <article>
+            <header>
+                <h2><span class="cadre">Exercice 7</span> vecteur normal ?<sup>bis</sup></h2>
+                <p> Dans un repère orthonormé de l'espace, on donne :<br />
+                    $A(0\,;3\,;-6)$, $B(2\,;0\,;-1)$, $C(1\,;1\,;-3)$ et $\vec n \left(\begin{smallmatrix}-1\\1\\1\end{smallmatrix}\right)$.
+                </p>
+                <ol><li>Vérifier que $A$, $B$ et $C$ ne sont pas alignés.</li>
+                    <li>Le vecteur $\vec n$ est-il normal au plan $(ABC)$ ?</li>
+                </ol>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la solution</button>
+                <button>Cacher la solution</button>
+                <ol><li>On calcule : $\overrightarrow{AB}\left(\begin{smallmatrix}2\\-3\\5\end{smallmatrix}\right)$ et  $\overrightarrow{AC}\left(\begin{smallmatrix}1\\-2\\3\end{smallmatrix}\right)$.<br />
+                        Comme alors $2\times(-2)-(-3)\times1\neq0$, alors $\overrightarrow{AB}$ et  $\overrightarrow{AC}$ ne sont pas colinéaires.<br />
+                        Donc $A$, $B$ et $C$ ne sont pas alignés.</li>
+                    <li>$\vec{n}.\overrightarrow{AB} = -1\times2+1\times(-3)+1\times5 = 0$ et<br />
+                        $\vec{n}.\overrightarrow{AC} = -1\times1+1\times(-2)+1\times3 = 0$.<br />
+                        $\vec n$ est orthogonal à deux vecteurs non colinéaires de $(ABC)$. Il est donc normal à $(ABC)$.</li>
+                </ol>
+            </section>
+        </article>
+
+
+        <article>
+            <header>
+                <h2><span class="cadre">Définition</span> Plans perpendiculaires</h2>
+                <p>Soient $\mathscr{P}$ et $\mathscr{P}'$ deux plans dans l'espace.</p>
+                <p>$\mathscr{P}$ et $\mathscr{P}'$ sont dits perpendiculaires si les vecteurs normaux à $\mathscr{P}$ sont orthogonaux aux vecteurs normaux à $\mathscr{P}$</p>
+                <div class="centre"><div class="figure"><canvas id="graphe6" height="180", width="320">Balise canvas non supportée</canvas></div></div>
+                <script>
+                    var graphe = calibre3D("graphe6", -4, 2, -1.5, 1.5, -1.5, 2);
+                    var O = point(0,0,0);
+                    var I = point(1,0,0);
+                    var J = point(0,1,0);
+                    var K = point(0,0,1);
+                    graphe.fillStyle = '#0098f8';
+                    remplir(point(-4,-1.6,0),point(-2,-1.6,0),point(-2,1.6,0),point(-4,1.6,0));
+                    graphe.fillStyle = '#f89800';
+                    remplir(point(-2,-1.6,2),point(-2,1.6,2),point(-2,1.6,-1.5),point(-2,-1.6,-1.5));
+                    graphe.fillStyle = '#0098f8';
+                    remplir(point(-2,-1.6,0),point(2,-1.6,0),point(2,1.6,0),point(-2,1.6,0));
+                    ligne(point(-1.3,0,0),point(1.3,0,0));
+                    ligne(point(0,-1.3,0),point(0,1.3,0));
+                    ligne(point(-2,0,0.25),point(-2,0,1.75));
+                    ligne(point(-2,-1.3,1),point(-2,1.3,1));
+                    graphe.lineWidth = 1.5;
+                    fleche(O,K);
+                    fleche(point(-2,0,1),point(-0.5,0,1));
+                    fleche(point(-2,-1.6,0),point(-0.5,-1.6,0));
+                    fleche(point(-2,-1.6,0),point(-2,-1.6,1));
+                    graphe.lineWidth = 1;
+                    ligne(point(0.25,0,0),point(0.25,0,0.25),point(0,0,0.25));
+                    ligne(point(0,0.25,0),point(0,0.25,0.25),point(0,0,0.25));
+                    ligne(point(-1.75,0,1),point(-1.75,0.25,1),point(-2,0.25,1));
+                    ligne(point(-1.75,0,1),point(-1.75,0,0.75),point(-2,0,0.75));
+                    ligne(point(-1.75,-1.6,0),point(-1.75,-1.6,0.25),point(-2,-1.6,0.25));
+                    ligne(point(-1.75,-1.6,0),point(-1.75,-1.35,0),point(-2,-1.35,0));
+                    ligne(point(-2,-1.35,0),point(-2,-1.35,0.25),point(-2,-1.6,0.25));
+                    ecrit("$\\vec{n}$",0.1,1.3);
+                    ecrit("$\\mathscr{P}$",2,0.5);
+                    ecrit("$\\vec{n}'$",-0.6,1.5);
+                    ecrit("$\\mathscr{P}'$",-1.6,2.1);
+                    ecrit("$\\vec{n}.\\vec{n}'=0$",-4,-0.75);
+                </script>
+            </header>
+        </article>
+
+        <article>
+            <header>
+                <h2><span class="cadre">Théorème </span> Condition suffisante de perpendicularité de deux plans</h2>
+                <p>Pour que deux plans $\mathscr{P}$ et $\mathscr{P}'$ soient perpendiculaires, il suffit qu’un vecteur
+                   normal à $\mathscr{P}$  et un vecteur normal à $\mathscr{P}'$  soient orthogonaux..
+                </p>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la démonstration</button>
+                <button>Cacher la démonstration</button>
+                Notons $\vec n$ un vecteur normal à $\mathscr{P}$ et $(\vec u , \vec v)$ une base orthonormée de $\mathscr{P}$
+                alors $(\vec u, \vec v, \vec n)$ est une base de l'espace constituée de vecteurs deux à deux orthogonaux.<br />
+                Soit $\vec m$ un autre vecteur normal à $\mathscr{P}$. On peut décomposer : $\vec m = x \vec u + y \vec v + z \vec n$.<br />
+                Or par définition, $\vec m . \vec u = 0$, mais  $\vec m . \vec u = (x \vec u + y \vec v + z \vec n).\vec u = x$ donc $x=0$.<br />
+                De même $\vec n . \vec v = 0$ donne $y=0$ et donc $\vec m$ est colinéaire à $\vec n$.
+                <div class="centre"><span class="cadre">Deux vecteurs normaux au même plan sont colinéaires</span></div>
+                Le calcul : $(\lambda \vec n).(\lambda' \vec n')= \lambda \lambda' \times \vec n.\vec n'=0$ permet de conclure.
+            </section>
+            <section><h3>Exemple</h3>
+                Deux faces sécantes d'un cube définissent des plans perpendiculaires.
+            </section>
+        </article>
+
+        <article>
+            <header>
+                <h2><span class="cadre">Exercice 5'</span> Question subsidiaire à l'exercice 5</h2>
+                <p> On considère ci-dessous le cube $ABCDEFGH$.</p>
+                <div class="centre"><div class="figure"><canvas id="graphe8" height="180", width="320">Balise canvas non supportée</canvas></div></div>
+                <script>
+                    var graphe = calibre3D("graphe8", -1.25, 1.25, -1.25, 1.25, -1.25, 1.25);
+                    var A = point(-1,-1,-1);
+                    var B = point(1,-1,-1);
+                    var C = point(1,1,-1);
+                    var D = point(-1,1,-1);
+                    var E = point(-1,-1,1);
+                    var F = point(1,-1,1);
+                    var G = point(1,1,1);
+                    var H = point(-1,1,1);
+                    graphe.setLineDash([5,5]);
+                    graphe.strokeStyle = 'black';
+                    graphe.lineWidth = 2;
+                    fleche(D,A);
+                    fleche(D,C);
+                    fleche(D,H);
+                    graphe.setLineDash([]);
+                    graphe.fillStyle = '#b7e4ff';
+                    remplir(B,D,H,F);
+                    graphe.fillStyle = '#ffe4b7';
+                    remplir(E,B,G);
+                    graphe.fillStyle = '#b7e4ff';
+                    remplir(B,F,combinaison(0.5,F,0.5,H));
+                    graphe.lineWidth = 1;
+                    ligne(A,B,C,G,H,E,A);
+                    ligne(E,F,B);
+                    ligne(F,G);
+                    ecrit("$A$",-2,-1.25);
+                    ecrit("$B$",0.75,-1.25);
+                    ecrit("$D$",-0.8,-0.5);
+                    ecrit("$C$",1.8,-0.5);
+                    ecrit("$E$",-2,0.7);
+                    ecrit("$F$",0.75,0.7);
+                    ecrit("$H$",-0.8,1.45);
+                    ecrit("$G$",1.8,1.45);
+                </script>
+                <p>On se place dans le repère $\left(D\,;\overrightarrow{DA}\,,\overrightarrow{DC}\,,\overrightarrow{DH}\right)$</p>
+                <p>On a délà démontré dans l'exercice 5 que la droites $(DF)$ est perpendiculaire au plan $(EBG)$.</p>
+                <p>Démontrer que les plans $(EBG)$ et $(DBF)$ sont perpendiculaires.</p>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la solution</button>
+                <button>Cacher la solution</button>
+                L'exercice 5 donne $\overrightarrow{DF}$ vecteur normal à $(EBG)$.<br />
+                Dans le repère orthonormé proposé, on peut encore déterminer :<br />
+                $\overrightarrow{EG} \left(\begin{smallmatrix}-1\\1\\0\end{smallmatrix}\right)$,
+                $\overrightarrow{HF} \left(\begin{smallmatrix}1\\1\\0\end{smallmatrix}\right)$  et
+                $\overrightarrow{FB} \left(\begin{smallmatrix}0\\0\\-1\end{smallmatrix}\right)$ <br />
+                puis cacluler : $\overrightarrow{EG} . \overrightarrow{HF} = (-1)\times 1 + 1\times1+0\times0 =0$ <br />
+                et $\overrightarrow{EG} . \overrightarrow{FB} = (-1)\times 0 + 1\times0+0\times(-1) =0$<br />
+                $\overrightarrow{EG}$ est donc bien orthogonal à $\overrightarrow{HF}$ et à $\overrightarrow{FB}$<br />
+                $\overrightarrow{EG}$ est donc normal à $(DBF)$<br />
+                Or $\overrightarrow{EG} . \overrightarrow{DF} = (-1)\times 1 + 1\times1+0\times1 =0$<br />
+                Donc les vecteurs normaux sont orthogonaux et donc les deux plans sont perpendiculaires.
+            </section>
+        </article>
+
+        <article>
+            <header>
+                <h2><span class="cadre">Théorème </span> Plans parallèles</h2>
+                <p>Deux plans sont parallèle, si et seulement si leurs vecteurs normaux sont colinéaires.
+                </p>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la démonstration</button>
+                <button>Cacher la démonstration</button>
+                <ul><li>Si $\mathscr{P}$ et $\mathscr{P}'$ de vecteurs normaux $\vec n$ et $\vec n'$ sont parallèles, alors
+                        toute droite de $\mathscr{P}$ est parallèle à $\mathscr{P}'$ donc de vecteur directeur représentable dans $\mathscr{P}'$
+                        donc orthogonal à $\vec n'$. Donc $\vec n'$ est un vecteur normal à $\mathscr{P}$.
+                        $\vec n'$ est donc colinéaire à $\vec n$.
+                    </li>
+                    <li> Réciproquement, si $\vec n'$ est colinéaire à $\vec n$. Toute droite $\mathscr{D}$ de $\mathscr{P}$ admet un vecteur directeur
+                        orthogonal à $\vec n$ donc à  $\vec n'$ (par linéarité) et définit donc dans $\mathscr{P}'$ une droite parallèle à $\mathscr{D}$.
+                        En appliquant ce raisonnement à deux droites non parallèles de $\mathscr{P}$, on démontre bien que $\mathscr{P}$ et $\mathscr{P}'$
+                        sont parallèles.
+                    </li>
+                </ul>
+            </section>
+        </article>
+
+        <article>
+            <header>
+                <h2><span class="cadre">Théorème </span> Droite parallèle à un plan</h2>
+                <p>Une droite $\mathscr{D}$ est parallèle à un plan $\mathscr{P}$, si et seulement si un vecteur directeur $\mathscr{D}$ est orthogonal à un vecteur normal à $\mathscr{P}$.
+                </p>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la démonstration</button>
+                <button>Cacher la démonstration</button>
+
+                <ul><li>Soient $A$ et $B$ deux points distincts de $\mathscr{D}$ ; $O$ un point de $\mathscr{P}$ et $\vec n$ un vecteur normal à $\mathscr{P}$.<br/ >
+                        Si $\mathscr{D}$ est parallèle à $\mathscr{P}$ alors $A$, $B$ et $O$ ne sont pas alignés (sinon $\mathscr{D}$ et $\mathscr{P}$
+                        auraient le point $O$ en commun). $(ABO)$ est donc un plan sécant à $\mathscr{P}$, et ces deux plans se coupent selon une droite
+                        $\Delta$ passant par $O$, coplanaire et sans point commun avec $\mathscr{D}$ donc parallèle à $\mathscr{D}$.<br />
+                        Par définition, un vecteur directeur de cette droite d'intersection est orthogonale à $\vec n$.<br />
+                        C'est donc un vecteur directeur de $\mathscr{D}$ orthogonal à un vecteur normal à $\mathscr{P}$.
+                    </li>
+                    <li>Réciproquement, soit un vecteur directeur $\vec d$ de $\mathscr{D}$ orthogonal à un vecteur normal $\vec n$ à $\mathscr{P}$<br />
+                        Si $\mathscr{D}$ et $\mathscr{P}$ n'ont pas de point commun alors $\mathscr{D}$ est strictement parallèle à $\mathscr{P}$.<br />
+                        Sinon, notons $I$ ce point commun et notons $J$ et $K$ les points définis par $\overrightarrow{IJ}=\vec d$ et $\overrightarrow{IK}=\vec n$.<br />
+                        Le plan $(IJK)$ coupe $\mathscr{P}$ selon une droite perpendiculaire à $(IK)$ passant par $I$<br />
+                        Dans ce plan, c'est exactement la définition de $(IJ)$. Donc $(IJ)$ est incluse dans  $\mathscr{P}$ et parallèle à $\mathscr{D}$. Donc $\mathscr{D}$ est paralllèle à $\mathscr{P}$.<br/ >
+
+                    </li>
+                </ul>
+            </section>
+        </article>

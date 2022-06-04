@@ -1,0 +1,118 @@
+<article>
+            <header><h2><span class="cadre">Définition</span> Loi de probabilité à densité</h2>
+            <p>S'il existe une fonction $f$ définie sur $I$, continue et positive telle que :
+               <div class="centre">Pour $[a;b]\subset I$, $\displaystyle P(a\leqslant X \leqslant b)=\int_a^b f(x)\text{d}x$</div>
+               on dit que $X$ suit une loi à densité et on appelle $f$ sa fonction de densité.</p>
+            </header>
+            <section>
+                <h3>Exemple :</h3>
+                La loi normale centrée réduite $\mathscr{N}(0,1)$ est une loi de densité :<br />
+                $\displaystyle P(a\leqslant X \leqslant b)=\int_a^b \frac{1}{\sqrt{2\pi}}\mathrm{e}^{-\frac{x^2}{2}}\text{d}x$<br />
+                Sa fonction de densité la fonction de Laplace-Gauss définie sur $\mathbb{R}$ par $f(x)=\frac{1}{\sqrt{2\pi}}\mathrm{e}^{-\frac{x^2}{2}}$.
+            </section>
+        </article>
+
+        <article>
+            <header><h2><span class="cadre">Conditions suffisantes</span> Fonction de densité</h2>
+            <p>On appelle fonction de densité sur un intervalle $I$, toute fonction $f$ vérifiant :
+               <ul><li>$f$ est continue sur $I$.</li>
+                   <li>$f$ est positive sur $I$.</li>
+                   <li>$\displaystyle \int_I f(x)\text{d}x=1$</li>
+               </ul>
+            </p>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la justification</button>
+                <button>Cacher la justification</button>
+                La continuité assure de pouvoir calculer l'intégrale ; <br />
+                la positivité assure que les probabilités soient positives ; <br />
+                L'intégrale égale à 1 assure que la probabilité de l'événement certain soit égale à 1 ; <br />
+                La relation de Chasles sur l'intégration assure que la probabilité d'événements disjoints s'ajoute.
+            </section>
+            <section><h3>Exemple :</h3>
+                Pour quelle valeur du réel $A$, la fonction $f$ définie par $f(x)=A-x^2$ est-elle une fonction de densité sur l'intervalle $[0\,;1]$ ?<br />
+               <ul><li>$f$ est bien continue (car polynomiale) sur $[0\,;1]$.</li>
+                   <li>$f$ est dérivable sur $[0\,;1]$ et $f'(x)=-2x\leqslant0$ donne $f$ décroissante.
+                       Or $f(1)=A-1$ donc $f$ est positive si et seulement si $A\geqslant1$.</li>
+                   <li>$\displaystyle \int_{0}^1 (A-x^2)\text{d}x = 1$
+                       $\displaystyle  \Leftrightarrow \left[Ax-\frac{x^3}{3}\right]_{0}^1 = 1$
+                       $\Leftrightarrow (A-\frac{1}{3})-0 = 1$
+                       $\Leftrightarrow  A=\frac{4}{3}$
+                   </li>
+               </ul>
+               Conclusion : seul $A=\frac{4}{3}$ fait de $f$ une fonction de densité.
+            </section>
+        </article>
+
+        <article>
+            <header><h2><span class="cadre">Exercice</span> Complément de l'exemple.</h2>
+            <p>Montrer qu'aucun réel $A$ ne peut faire de la fonction $f$ définie par $f(x)=A-x^2$ une fonction de densité sur l'intervalle $[-1\,;1]$.</p>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la solution</button>
+                <button>Cacher la solution</button>
+               <ul><li>$f$ est bien continue (car polynomiale) sur $[-1\,;1]$.</li>
+                   <li>$f$ est dérivable sur $[-1\,;1]$ et l'étude du signe de $f'(x)=-2x$ donne $f$ croissante sur $[-1\,;0]$ puis décroissante sur $[0\,;1]$.
+                       Or $f(-1)=f(1)=A-1$ donc $f$ est positive si et seulement si $A\geqslant1$.</li>
+                   <li>$\displaystyle \int_{-1}^1 (A-x^2)\text{d}x = 1$
+                       $\displaystyle  \Leftrightarrow \left[Ax-\frac{x^3}{3}\right]_{-1}^1 = 1$
+                       $\Leftrightarrow (A-\frac{1}{3})-(-A+\frac{1}{3}) = 1$
+                       $\Leftrightarrow  2A=\frac{5}{3}$
+                       $\Leftrightarrow  A=\frac{5}{6}$
+                   </li>
+               </ul>
+               Or on ne peut pas avoir $A\geqslant1$ et $A=\frac{5}{6}$,
+               donc aucun réel $A$ ne peut faire de $f$ une fonction de densité sur l'intervalle $[-1\,;1]$.
+            </section>
+        </article>
+
+        <article>
+            <header><h2><span class="cadre">Exercice 1 (E32)</span> Densité linéaire.</h2>
+            <p>On considère la fonction $f$ définie sur $[0;2]$ par $f(x)=\dfrac{1}{2}x$.</p>
+            <ol>
+                <li>Montrer que $f$ est une fonction de densité sur $[0;2]$.</li>
+                <li>Soit $X$ une variable aléatoire suivant la loi de densité $f$. Calculer :
+                    <ol>
+                        <li>$P(0,5\leqslant X\leqslant1,5)$</li>
+                        <li>$P(X\leqslant1)$</li>
+                        <li>$P(X>1)$</li>
+                        <li>$P(0\leqslant X\leqslant2)$</li>
+                    </ol>
+                </li>
+            </ol>
+            </p>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la solution</button>
+                <button>Cacher la solution</button>
+            <ol>
+                <li>
+                    <ul><li>$f$ est bien continue (car polynomiale) sur $0\,;2]$.</li>
+                        <li>$f$ est dérivable sur $[0\,;2]$ et $f'(x)=\frac{1}{2}&gt;0$ donne $f$ croissante sur $[0\,;2]$.
+                            Or $f(0)=0$ donc $f$ est positive sur $[0\,;2]$</li>
+                        <li>$\displaystyle \int_{0}^2 \frac{1}{2}x \text{d}x$
+                            $\displaystyle  = \left[\frac{1}{4}x^2\right]_{0}^2 = 1$
+                            $ = \frac{1}{4}\times 2^2 - 0$ $ = 1$
+                        </li>
+                    </ul>Donc $f$ est bien une fonction de densité sur $[0;2]$.</li>
+                <li>
+                    <ol>
+                        <li>$\displaystyle P(0,5\leqslant X\leqslant1,5)=\int_{0,5}^{1,5}\dfrac{1}{2}x\text{d}x$
+                            $\displaystyle  = \left[\frac{1}{4}x^2\right]_{\frac{1}{2}}^{\frac{3}{2}}$
+                            $ = \frac{1}{4}\times \left(\frac{3}{2}\right)^2 -  \frac{1}{4}\times \left(\frac{1}{2}\right)^2$
+                            $ = \frac{9-1}{16}$
+                            $ = \frac{8}{16}$
+                            $ = \frac{1}{2}$</li>
+                        <li>$P(X\leqslant1)$ $= P(0\leqslant X\leqslant1)$
+                            $\displaystyle = \int_{0}^{1}\dfrac{1}{2}x\text{d}x$
+                            $\displaystyle  = \left[\frac{1}{4}x^2\right]_{0}^{1}$
+                            $ = \frac{1}{4} -  0$
+                            $ = \frac{1}{4}$</li>
+                        <li>$P(X>1)$ $=1-P(X\leqslant1)$ $=1-\frac{1}{4}$ $=\frac{3}{4}$</li>
+                        <li>$P(0\leqslant X\leqslant2)=1$ (recquis pour une probabilité sur $[0\,;2]$ !)</li>
+                    </ol>
+                </li>
+            </ol>
+            </section>
+        </article>
+        </article>

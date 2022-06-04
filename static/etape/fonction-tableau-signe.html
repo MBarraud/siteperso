@@ -1,0 +1,159 @@
+        <article>
+            <header>
+                <h2><span class="cadre">Théorème </span> Signes des fonctions affines</h2>
+                $f$ désigne une fonction affine définie sut $\mathbb{R}$ par $f(x)=ax+b$ où $a$ et $b$ sont deux réels et $a\neq0$.
+                $f$ s'annulle en $\frac{-b}{a}$ et est du signe de $a$ à droite de cette valeur.
+                <ul><li>Si $a<0$ :<br/>
+                <table>
+                    <thead>
+                        <tr><th>$x$</th><td>$-\infty$</td><td></td><td colspan=2>$1$</td><td></td><td>$+\infty$</td></tr>
+                    </thead>
+                    <tbody>
+                        <tr><th>$\underset{\text{avec }a<0}{ax+b}$</th>
+                        <td>&nbsp;</td><td>$+$</td><td colspan=2>$0$</td><td>$-$</td><td>&nbsp;</td></tr>
+                    </tbody>
+                </table></li>
+                <li>Si $a>0$ :<br/>
+                <table>
+                    <thead>
+                        <tr><th>$x$</th><td>$-\infty$</td><td></td><td colspan=2>$1$</td><td></td><td>$+\infty$</td></tr>
+                    </thead>
+                    <tbody>
+                        <tr><th>$\underset{\text{avec }a<0}{ax+b}$</th>
+                        <td>&nbsp;</td><td>$-$</td><td colspan=2>$0$</td><td>$+$</td><td>&nbsp;</td></tr>
+                    </tbody>
+                </table></li>
+                </ul>
+            </header>
+        </article>
+
+
+
+        <article>
+            <header>
+                <h2><span class="cadre">Exemple d'utilisation</span> Inéquation produit</h2>
+                Résoudre l'inéquation $(1 - x)(2x + 1) &gt; 0$
+            </header>
+            <section class="ouvrable">
+                <button>Voir la solution</button>
+                <button>Cacher la solution</button>
+                <ol>
+                    <li>On repère une inéquation de la forme produit comparé à $0$. On peut dresser un tableau de signes pour la résoudre à l'aide de la règle des signes :<br/>
+                    <table>
+                    <thead>
+                        <tr><th>$x$</th>
+                            <td>$-\infty$</td><td></td><td colspan=2>?</td><td></td><td colspan=2>?</td><td></td><td>$+\infty$</td></tr>
+                    </thead>
+                    <tbody>
+                        <tr><th>$1-x$</th>
+                        <td>&nbsp;</td><td>?</td><td style="border-right:solid 1px black;"></td><td></td><td>?</td><td style="border-right:solid 1px black;"></td><td></td><td>?</td><td>&nbsp;</td></tr>
+                        <tr><th>$2x+1$</th>
+                        <td>&nbsp;</td><td>?</td><td style="border-right:solid 1px black;"></td><td></td><td>?</td><td style="border-right:solid 1px black;"></td><td></td><td>?</td><td>&nbsp;</td></tr>
+                        <tr><th>$(1-x)(2x+1)$</th>
+                        <td>&nbsp;</td><td>?</td><td style="border-right:solid 1px black;"></td><td></td><td>?</td><td style="border-right:solid 1px black;"></td><td></td><td>?</td><td>&nbsp;</td></tr>
+                    </tbody>
+                    </table></li>
+                    <li>On cherche la position des zéros :
+                    <ul><li>$1-x=0$ $\Leftrightarrow 1=x$</li>
+                        <li>$2x+1=0$ $\Leftrightarrow 2x=-1$ $\Leftrightarrow x=-\frac{1}{2}$</li>
+                    </ul>
+                    Donc :<br/>
+                    <table>
+                    <thead>
+                        <tr><th>$x$</th>
+                            <td>$-\infty$</td><td></td><td colspan=2>$-\frac{1}{2}$</td><td></td><td colspan=2>$1$</td><td></td><td>$+\infty$</td></tr>
+                    </thead>
+                    <tbody>
+                        <tr><th>$1-x$</th>
+                        <td>&nbsp;</td><td>?</td><td style="border-right:solid 1px black;"></td><td></td><td>?</td><td colspan=2>$0$</td><td>?</td><td>&nbsp;</td></tr>
+                        <tr><th>$2x+1$</th>
+                        <td>&nbsp;</td><td>?</td><td colspan=2>$0$</td><td>?</td><td style="border-right:solid 1px black;"></td><td></td><td>?</td><td>&nbsp;</td></tr>
+                        <tr><th>$(1-x)(2x+1)$</th>
+                        <td>&nbsp;</td><td>?</td><td colspan=2>$0$</td><td>?</td><td colspan=2>$0$</td><td>?</td><td>&nbsp;</td></tr>
+                    </tbody>
+                    </table></li>
+                    <li>On cherche la position de chaque signe. Comme on reconnait deux fonctions affines, on peut soit résoudre les inéquations $1-x&gt;0$ et $2x+1&gt;0$ ou utiliser le théorème précédent, $-1$ étant négatif et $2$ positif :
+                    <br/>
+                <table>
+                    <thead>
+                        <tr><th>$x$</th>
+                            <td>$-\infty$</td><td></td><td colspan=2>$-\frac{1}{2}$</td><td></td><td colspan=2>$1$</td><td></td><td>$+\infty$</td></tr>
+                    </thead>
+                    <tbody>
+                        <tr><th>$1-x$</th>
+                        <td>&nbsp;</td><td>$+$</td><td style="border-right:solid 1px black;"></td><td></td><td>$+$</td><td colspan=2>$0$</td><td>$-$</td><td>&nbsp;</td></tr>
+                        <tr><th>$2x+1$</th>
+                        <td>&nbsp;</td><td>$-$</td><td colspan=2>$0$</td><td>$+$</td><td style="border-right:solid 1px black;"></td><td></td><td>$+$</td><td>&nbsp;</td></tr>
+                        <tr><th>$(1-x)(2x+1)$</th>
+                        <td>&nbsp;</td><td>$-$</td><td colspan=2>$0$</td><td>$+$</td><td colspan=2>$0$</td><td>$-$</td><td>&nbsp;</td></tr>
+                    </tbody>
+                </table>
+                    </li>
+                    <li>On peut alors lire les solutions : $]-\frac{1}{2};1[$</li>
+                </ol>
+            </section>
+        </article>
+
+
+
+        <article>
+            <header>
+                <h2><span class="cadre">Exercice 6.19</span> </h2>
+                Résoudre en suivant l'exemple précédent l'inéquation $(2x-4)(3+x) &gt; 0$
+            </header>
+            <section class="ouvrable">
+                <button>Voir la solution</button>
+                <button>Cacher la solution</button>
+
+            </section>
+        </article>
+
+
+
+        <article>
+            <header>
+                <h2><span class="cadre">Exercice 6.20</span> </h2>
+                Sur le même modèle, résoudre :
+                <ol><li>$(9x - 1)(4 - x) &lt; 0$</li>
+                    <li>$(3 + 2x)(4x-8) \geqslant 0$</li>
+                    <li>$(x^2 + 1)(3-x) \leqslant 0$</li>
+                    <li>$(3x + 1)(5x-7)(6-x) &gt; 0$</li>
+                </ol>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la solution</button>
+                <button>Cacher la solution</button>
+
+            </section>
+        </article>
+
+
+
+        <article>
+            <header>
+                <h2><span class="cadre">Exercice 6.21</span> </h2>
+                Soit $f$ la fonction définie sur $\mathbb{R}$ par $f(x) = 2x^2-4x-6$
+                <ol><li>Montrer que $f(x) = 2(x-3)(x + 1)$ sur $\mathbb{R}$.</li>
+                    <li>Dresser et justifier le tableau de signes de $f$.</li>
+                </ol>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la solution</button>
+                <button>Cacher la solution</button>
+
+            </section>
+        </article>
+
+
+
+        <article>
+            <header>
+                <h2><span class="cadre">Exercice 6.22</span> </h2>
+                Comparer $x$ et $x^2$.
+            </header>
+            <section class="ouvrable">
+                <button>Voir la solution</button>
+                <button>Cacher la solution</button>
+
+            </section>
+        </article>

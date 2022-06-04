@@ -1,0 +1,91 @@
+<article>
+            <header>
+                <h2><span class="cadre">Exercice 5 (E25)</span> Une boulangerie industrielle</h2>
+                <p>Une boulangerie industrielle fabrique des baguettes dont la masse théorique est 200g.
+                $X$ est la variable aléatoire qui à une baguette associe sa masse en grammes.
+                On pose $Y=\dfrac{X-200}{4}$ et on admet que $Y$ suit la loi normale centrée réduite.
+                Une baguette doit avoir une masse supérieure à 190 g pour être commercialisable.</p>
+                <p>On choisit une baguette au hasard dans la production.</p>
+                <ol>
+                    <li>Quelle est la probabilité que la baguette choisie au hasard ne soit pas commercialisable ?</li>
+                    <li>Sachant que la baguette est commercialisable, quelle est la probabilité qu'elle pèse plus de 200g ?</li>
+                </ol>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la solution</button>
+                <button>Cacher la solution</button>
+                <ol>
+                    <li>La probabilité que la baguette choisie au hasard ne soit pas commercialisable est $P(X &lt; 190)$.<br />
+                        On peut réécrire l'événement $(X &lt; 190) $ $= (X-200 &lt; -10) $ $= (\frac{X-200}{4} &lt; -2,5)$
+                        $=(Y &lt; -2,5)$<br />
+                        Comme $Y$ suit une loi normale centrée réduite, on peut calculer :
+                        $P(X &lt; 190)$ $=P(Y &lt; -2,5)$ $\approx 0,0062$ environ $0,6$%.</li>
+                    <li>On cherche donc à calculer la probabilité conditionnelle $P_{(X&gt;190)}(X&gt;200)$
+                        $=\dfrac{P((X&gt;190)\cap(X&gt;200))}{P(X&gt;190)}$
+                        $=\dfrac{P(X&gt;200)}{1-P(X&lt;190)}$<br />
+                        Or $P(X&gt;200)=P(Y&gt;0)=0,5$ donc $P_{(X&gt;190)}(X&gt;200)\approx\dfrac{0,5}{1-0,0062}\approx 0,503$  </li>
+                </ol>
+            </section>
+        </article>
+
+
+
+        <article>
+            <header>
+                <h2><span class="cadre">Exercice 7 (E25)</span> Pondichéry - BAC S - avril 2013</h2>
+                <p>On considère une entreprise qui emploie 220 salariés durant une période d'épidémie.
+                On admet que la probabilité pour qu'un salarié soit malade une semaine donnée durant cette période
+                est égale à $p = 0,05$. On suppose que l'état de santé d'un salarié ne dépend pas de l'état de santé de ses collègues.
+                On désigne par $X$ la variable aléatoire qui donne le nombre de salariés malades une semaine donnée.
+                <ol>
+                    <li>Justifier que la variable aléatoire $X$ suit une loi binomiale dont on donnera les paramètres.<br />
+                        Calculer l'espérance mathématique $\mu$ et l'écart type $\sigma$ de la variable aléatoire $X$.
+                    </li>
+                    <li>On admet que l'on peut approcher la loi de la variable aléatoire $\frac{X - \mu}{\sigma}$
+                        par la loi normale centrée réduite c'est-à-dire de paramètres $0$ et $1$.
+                        Le tableau suivant donne les probabilités de l'évènement $Z &lt; x$ pour une variable aléatoire
+                        $Z$ suivant la loi normale centrée réduite et quelques valeurs du nombre réel $x$.<br />
+                        <table>
+                            <tr><th>$x$</th><td>$-1,55$</td><td>$-1,24$</td><td>$-0,93$</td><td>$- 0,62$</td><tr>
+                            <tr><th>$P(Z &lt; x)$</th><td>$0,061$</td><td>$0,108$</td><td>$0,177$</td><td>$0,268$</td><tr>
+                        </table><br />
+                        <table>
+                            <tr><th>$x$</th><td>$- 0,31$</td><td>$0,00$</td><td>$0,31$</td><td>$0,62$</td><tr>
+                            <tr><th>$P(Z &lt; x)$</th><td>$0,379$</td><td>$0,500$</td><td>$0,621$</td><td>$0,732$</td><tr>
+                        </table><br />
+                        <table>
+                            <tr><th>$x$</th><td>$0,93$</td><td>$1,24$</td><td>$1,55$</td><tr>
+                            <tr><th>$P(Z &lt; x)$</th><td>$0,823$</td><td>$0,892$</td><td>$0,939$</td><tr>
+                        </table>
+                        Calculer, au moyen de l'approximation proposée en question 2., une valeur approchée à $10^{-2}$ près
+                        de la probabilité de l'évènement : &laquo; le nombre de salariés absents dans l'entreprise au cours d'une
+                        semaine donnée est supérieur ou égal  à 7 et inférieur ou égal à 15 &raquo;.
+                    </li>
+                </ol>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la solution</button>
+                <button>Cacher la solution</button>
+                <ol>
+                    <li>L'épreuve de Bernoulli correspond à déterminer pour un salarié donné s'il est malade (succès de probabilité $p=0,05$) ou non<br />
+                        Comme &laquo; l'état de santé d'un salarié ne dépend pas de l'état de santé de ses collègues &raquo; alors tester
+                        les uns après les autres les 220 salariés de l'entreprise construit un shéma de Bernoulli à $n=220$ répétitions<br />
+                        Enfin, $X$ compte bien le nombre de succès dans ce shéma. Elle suit donc bien une loi binomiale.<br />
+                        $X\hookrightarrow\mathscr{B}(220\,;0,05)$.<br />
+                        D'où $\mu=220\times0,05=11$ et $\sigma=\sqrt{220\times0.05\times0.95}\approx3,23$.
+                    </li>
+                    <li>On cherche à calculer $P(7\leqslant X \leqslant 15)$.<br />
+                        On peut réécrire $(7\leqslant X \leqslant 15) $ $= (-4\leqslant X -11 \leqslant 4)$
+                        $= (\frac{-4}{3,23}\leqslant \frac{X -11}{3,23} \leqslant \frac{4}{3,23})$.<br />
+                        Comme on peut approcher la loi de la variable aléatoire $\frac{X - \mu}{\sigma}\approx \frac{X -11}{3,23}$
+                        par la loi normale centrée réduite alors $P(7\leqslant X \leqslant 15)$
+                        $\approx P(\frac{-4}{3,23}\leqslant Z \leqslant \frac{4}{3,23}))$
+                        $\approx P(-1,24\leqslant Z \leqslant 1,24)$
+                        $= P(Z \leqslant 1,24)-P(Z \leqslant -1,24)$
+                        $\approx 0,892 - 0,108$
+                        $= 0,784$.<br />
+                        D'où : $P(7\leqslant X \leqslant 15)\approx 0,78$
+                    </li>
+                </ol>
+            </section>
+        </article>

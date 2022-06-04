@@ -1,0 +1,482 @@
+/*** Mes couleurs
+:root {
+  --main-bg-color: AliceBlue;
+}
+***/
+/**** Structure générale ****/
+body {
+  margin : 0px;
+  background-color : AliceBlue;/*var(--main-bg-color,red);*/
+  color : rgb(0,0,200);
+  font-family: Georgia, 'Computer Modern Serif';
+  font-size:17px;
+}
+p {
+    margin : 0em;
+}
+body > header{
+    position: relative;
+    align-items: center;
+    justify-content : center;
+  max-width : 767px;
+  margin-left : auto;
+  margin-right : auto;
+    display : grid;
+    grid-template-columns: 150px 600px;
+}
+body > header > img {
+    grid-column-start: 1;
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
+#menu {
+    position: absolute;
+    top : 1px;
+    left :130px;
+    display : block;
+    font-size : 0.8em;
+}
+#menu, #menu ul{
+    padding:0;
+    margin:0;
+    list-style:none;
+    text-align:left;
+}
+#menu li {
+    display:inline-block;
+    position:relative;
+    text-align:center;
+    text-transform: uppercase;
+}
+#menu ul li {
+    display:inherit;
+
+}
+#menu > li a{
+    height : calc(22px - 6.8px);
+    max-height : calc(22px - 6.8px);
+    margin-left : 10px;
+}
+#menu > li > a:after, #menu > li > a:before{
+	top: 0px;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+}
+#menu > li > a:before {
+	left: 0px;
+    border-color: blue;
+	border-left-color: transparent;
+	border-right : 0px;
+	border-width: 11px;
+    z-index : 1;
+}
+#menu > li > a:after {
+	left: 100%;
+	border-left-color: blue;
+	border-width: 11px;
+}
+#menu > li > ul > li a{
+    border-left : 1px solid rgb(150,150,255);
+    border-right : 1px solid rgb(150,150,255);
+    border-top : 1px solid rgb(150,150,255);
+}
+#menu > li > ul > li:last-child a{
+    border-bottom : 1px solid rgb(150,150,255);
+    border-radius:0 0 8px 8px;
+}
+#menu > li > ul > li:first-child a{
+    border-radius: 0 8px 0 0;
+}
+#menu ul{
+    position:absolute;
+    width:180px;
+    z-index: 3;
+    max-height:0;
+    left: 0;
+    right: 0;
+    overflow:hidden;
+    -moz-transition:  all .8s;
+    -webkit-transition:  all .8s;
+    transition:  all .8s;
+}
+#menu li:hover ul{
+    max-height:15em;
+}
+#menu li a{
+    background-color : blue;
+}
+#menu li a{
+    text-decoration:none;
+    display:block;
+    padding:0.25em 0.25em;
+    color:#fff;
+    font-weight : bold;
+}
+#menu > li a:hover{
+    background-color : rgb(150,150,255);
+    -moz-transition:  all .3s;
+    -webkit-transition:  all .3s;
+    transition:  all .3s;
+}
+#menu > li a:hover:after{
+    border-left-color : rgb(150,150,255);
+    -moz-transition:  all .3s;
+    -webkit-transition:  all .3s;
+    transition:  all .3s;
+}
+#menu > li a:hover:before{
+    border-top-color : rgb(150,150,255);
+    border-bottom-color : rgb(150,150,255);
+    border-right-color : rgb(150,150,255);
+    -moz-transition:  all .3s;
+    -webkit-transition:  all .3s;
+    transition:  all .3s;
+}
+#menu > li > ul > li a{
+    /*width : 300px;*/
+}
+#menu > li > ul > li a:hover{
+    background-color : rgb(150,150,255);
+    -moz-transition:  all .3s;
+    -webkit-transition:  all .3s;
+    transition:  all .3s;
+}
+
+main {
+  max-width : 767px;
+  margin-left : auto;
+  margin-right : auto;
+  margin-bottom : 2em;
+}
+.double {
+  -webkit-column-count:2; /* Opera, Safari, Google Chrome */
+  -moz-column-count: 2; /* Firefox */
+  column-count: 2; /* Internet Explorer */
+}
+
+/**** Progression ****/
+nav:last-child {
+    margin : auto;
+    display : flex;
+    font-size : 2em;
+}
+nav:last-child > ul > li{
+    font-size : 17px;
+}
+nav:last-child > ul:nth-child(2) > li > a{
+    text-decoration : none;
+    color : white;
+    display : block;
+    background-image: linear-gradient(to bottom, #0098f8 0%, blue 50%, #0098f8 100%);
+    width : 6.5em;
+    height : 6.5em;
+    max-width : 6.5em;
+    max-height : 6.5em;
+    border-radius : 50%;
+    text-align: center;
+    padding : 0px;
+    border-width: 3px;
+    border-style: double;
+    border-color: #99a0ff;
+}
+nav:last-child > ul:nth-child(2) > li > a:hover{
+    background-image: linear-gradient(to bottom, #99a0ff 0%, blue 50%, #99a0ff 100%);
+    cursor : pointer;
+}
+nav:last-child > ul:nth-child(2) > li > a:active{
+    background-image: linear-gradient(to bottom, #DDAAf8 0%, blue 50%, #DDAAf8 100%);
+}
+nav:last-child > ul:nth-child(2) > li > a > div {
+    margin-top : 50%;
+    -o-transform : translate(0,-50%);
+    -moz-transform : translate(0,-50%);
+    -webkit-transform : translate(0,-50%);
+    transform : translate(0,-50%);
+    width : 6.5em;
+    max-width : 6.5em;
+}
+nav:last-child > ul {
+    padding : 0px;
+    margin-top : auto;
+    margin-bottom : auto;
+    margin-left : 0px;
+}
+nav:last-child > ul:nth-child(1) {
+    text-align : right;
+}
+nav:last-child > ul:nth-child(3) {
+    margin-right : auto;
+}
+nav:last-child > ul > li, nav > ul > li {
+     list-style-type: none;
+}
+nav:last-child > ul:nth-child(1) > li > a, nav > ul:nth-child(3) > li > a {
+     text-decoration: none;
+     color : rgb(0,0,200);
+}
+nav:last-child > ul:nth-child(2) > li > a {
+    text-decoration: none;
+    color : white;
+}
+nav:last-child > ul:nth-child(1) > li > a:hover, nav > ul:nth-child(3) > li > a:hover {
+     text-decoration: underline;
+     color : rgb(0,0,180);
+}
+
+/**** principal ****/
+section {
+    margin-right : 1em;
+    margin-left : 1em;
+    margin-bottom : 1em;
+}
+section.ouvrable {
+    margin : 0;
+    padding-right : 0.2em;
+    padding-left : 0.2em;
+    padding-bottom : 0.2em;
+}
+/* titre */
+#avant{
+    font-size : 0.8em;
+}
+#avant a{
+    color : rgb(0,0,200);
+    text-decoration : none;
+}
+main > header {
+  border-color : rgb(0,0,200);
+  border-style : solid;
+  text-align : center;
+  margin : 0em;
+  padding : 0em;
+}
+h1 {
+  font-weight : normal;
+  text-align : center;
+  font-size : 2em; /* ou px ou em*/
+  margin-top : 0em;
+  margin-bottom : 0em;
+}
+#apres{
+    font-size : 0.8em;
+    text-align : right;
+}
+#apres a{
+    color : rgb(0,0,200);
+    text-decoration : none;
+}
+/* contenu encadré */
+main > article > header {
+  padding : 0.5em;
+  background-color : white;
+  color : black;
+  border : solid black 1px;
+  margin-top : 1em;
+  display : block;
+  text-align : left;
+}
+h2{
+  font-weight : bold;
+  text-align : left;
+  font-size : 1em;
+  margin-top : 0em;
+  margin-bottom : 0.5em;
+}
+h3{
+  font-weight : bold;
+  text-align : left;
+  font-size : 1em;
+  margin-top : 0em;
+  margin-bottom : 0.25em;
+}
+.ouvrable {
+  border-left : 1px black solid;
+  border-bottom : 1px black solid;
+}
+article  button {
+  background-color : white;
+  border : 1px solid black;
+  border-top : 0px;
+  cursor : pointer;
+  display : block;
+  padding : 1px;
+}
+.cadre {
+    display: inline-block;
+    border-style : solid;
+    border-width : 1.5px;
+    padding-right : 0.25em;
+    padding-left : 0.25em;
+    padding-top : 0.15em;
+    padding-bottom : 0.15em;
+}
+/* contenu vidéo*/
+video {
+     width : 90%;
+}
+/* contenu graphique*/
+.figure {
+    position: relative;
+    padding : 0px;
+    display: inline-block;
+    line-height: 0px;
+}
+.figure > button {
+    float: left;
+    margin-right : 3px;
+    border-radius : 0 0 4px 4px;
+}
+canvas {
+    border : 1px solid black;
+    background-color : white;
+}
+/* tableau de signe/variations*/
+table {
+    border : 1px solid black;
+    border-collapse: collapse;
+    color : black;
+    background-color  :white;
+    margin: auto;
+}
+tr {
+    border : 1px solid black;
+}
+th {
+    text-align : center;
+    padding-right : 0.5em;
+    padding-left : 0.5em;
+    padding-top : 0.25em;
+    padding-bottom : 0.25em;
+    border : 1px solid black;
+}
+td {
+    text-align : center;
+    padding-right : 0.5em;
+    padding-left : 0.5em;
+    padding-top : 0.25em;
+    padding-bottom : 0.25em;
+}
+.variation > th {
+    height : 50px;
+}
+.croissante {
+    width: 0;
+    height: 0;
+    position: relative;
+    width: 75px;
+    height: 0px;
+    border-top: 1px solid black;
+    transform: rotate(-20deg);
+}
+.croissante::after {
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 0;
+    border-top: 5px solid transparent;
+    border-left: 10px solid black;
+    border-bottom: 5px solid transparent;
+    right : 0;
+    top : -6px;
+}
+.decroissante {
+    width: 0;
+    height: 0;
+    position: relative;
+    width: 75px;
+    height: 0px;
+    border-top: 1px solid black;
+    transform: rotate(20deg);
+}
+.decroissante::after {
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 0;
+    border-top: 5px solid transparent;
+    border-left: 10px solid black;
+    border-bottom: 5px solid transparent;
+    right : 0;
+    top : -6px;
+}
+/* Pour les exercices */
+article > p {
+    margin-top : 0.25em;
+    margin-bottom : 0em;
+}
+article  ol, article  ul{
+    margin-top : 0.5em;
+    margin-bottom : 0em;
+    margin-left : 1.5em;
+    margin-right : 0em;
+    padding : 0px;
+}
+article  ul  ul, article  ol  ul, article  ol  ol{
+    margin-top : 0em;
+    margin-bottom : 0em;
+    margin-left : 1.5em;
+    margin-right : 0em;
+    padding : 0px;
+}
+article  ol  ol{
+    list-style-type : lower-latin;
+}
+/* encadrer un résultat*/
+.resultat {
+    display: inline-block;
+    border-style : solid;
+    border-width : 1.5px;
+    padding-right : 0.25em;
+    padding-left : 0.25em;
+    padding-top : 0.15em;
+    padding-bottom : 0.15em;
+    margin-left : 0.25em;
+    margin-right : 0.25em;
+    border : 1px solid blue;
+}
+/* centrer */
+.centre {
+    text-align : center;
+}
+
+@media (max-width: 767px) {
+
+  body {
+      margin : 0px;
+      background-color : AliceBlue;
+      color : rgb(0,0,200);
+  font-family: Georgia, 'Computer Modern Serif';
+      /*font-size:20px;
+      font-family: 'Inconsolata';*/
+  }
+
+  main {
+    /*width : 100%;*/
+    margin-left : 0.5em;
+    margin-right : 0.5em;
+    margin-bottom : 2em;
+}
+body > header{
+    position: relative;
+    align-items: center;
+    justify-content : center;
+  max-width : 767px;
+  margin-left : auto;
+  margin-right : auto;
+    display : grid;
+    grid-template-columns: 0px 600px;
+}
+body > header > img{
+    display : none;
+}
+#menu {
+    position: absolute;
+    top : 0px;
+    left :0px;
+    display : block;
+    font-size : 0.8em;
+}
+}

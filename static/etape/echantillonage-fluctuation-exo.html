@@ -1,0 +1,115 @@
+<article>
+            <header><h2><span class="cadre">Exercice</span> Métropole, La Réunion  - (QCM) BAC S - mai 2015</h2>
+            <p>On lance une pièce de monnaie bien équilibrée 100 fois
+                de suite. Lequel des intervalles ci-dessous est un intervalle
+                de fluctuation asymptotique au seuil de 95% de la fréquence
+                d’apparition de la face pile de cette pièce ?
+            </p>
+            <ol>
+                <li>$[0,371\,;0,637]$</li>
+                <li>$[0,480\,;0,523]$</li>
+                <li>$[0,402\,;0,598]$</li>
+                <li>$[0,412\,;0,695]$</li>
+            </ol>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la solution</button>
+                <button>Cacher la solution</button>
+                L'intervalle de fluctuation asymptotique au seuil de 95% est
+                $\left]p-1,96\dfrac{\sqrt{p(1-p)}}{\sqrt{n}};p+1,96\dfrac{\sqrt{p(1-p)}}{\sqrt{n}}\right[$
+                C'est à dire $\left]0,5-1,96\dfrac{\sqrt{0,5(1-0,5)}}{\sqrt{100}};0,5+1,96\dfrac{\sqrt{0,5(1-0,5)}}{\sqrt{100}}\right[$
+                $= ]0,402\,;0,598[$ : réponse 3.
+            </section>
+        </article>
+
+        <article>
+            <header><h2><span class="cadre">Exercice</span>  Amérique du Nord  - BAC S - mai 2019</h2>
+            <p>Une machine produit des tubes. Un tube est dit « conforme pour lalongueur » lorsque celle-ci,
+                en millimètres, appartient à l’intervalle $[298\,;302]$. Le cahier des charges établit que,
+                dans la production de ces tubes, une proportion de 2% de tubes non « conformes pour la longueur »
+                est acceptable.<br />
+                On souhaite décider si la machine de production doit être révisée.
+                Pour cela, on prélève au hasard dans la production de tubes un échantillon de 250 tubes dans lequel
+                10 tubes se révèlent être non « conformes pour la longueur ».
+            </p>
+            <ol>
+                <li>Donner un intervalle de fluctuation asymptotique à 95% de la fréquence des tubes non
+                    « conformes pour la longueur » dans un échantillon de 250 tubes.
+                </li>
+                <li>Décide-t-on de réviser la machine ? Justifier la réponse.</li>
+            </ol>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la solution</button>
+                <button>Cacher la solution</button>
+            <ol>
+                <li>On cherche à évaluer la non « conformité pour la longueur » fixé à $p=0,02$ par le cahier des charges.
+                L'intervalle de fluctuation asymptotique au seuil de 95% pour un échantillon de 250 tube est donc
+                $\left]0,02-1,96\dfrac{\sqrt{0,02(1-0,02)}}{\sqrt{250}};0,02+1,96\dfrac{\sqrt{0,02(1-0,02)}}{\sqrt{250}}\right[$
+                $\approx ]0,003\,;0,037[$.
+                </li>
+                <li>La fréquence observée de $\frac{10}{250}=0,04$ sort de l'intervalle $]0,003\,;0,037[$, donc une révision est souhaitable.
+                </li>
+            </ol>
+            </section>
+        </article>
+
+        <article>
+            <header><h2><span class="cadre">Exercice</span> Métropole, La Réunion - BAC S - septembre 2019</h2>
+            <p>Lors d'un examen professionnel, chaque candidat doit présenter un dossier de type A ou un
+                dossier de type B ; 60% des candidats présentent un dossier de type A, les autres présentant un
+                dossier de type B. Le jury attribue à chaque dossier une note comprise entre $0$ et $20$. Un candidat est reçu si la
+                note attribuée à son dossier est supérieure ou égale à 10.</p>
+
+            <p> On choisit au hasard un dossier.</p>
+
+            <p> On admet qu'on peut modéliser la note attribuée à un dossier de type A par une variable
+                aléatoire $X$ suivant la loi normale d'espérance $11,3$ et d'écart-type $3$, et la note attribuée à un
+                dossier de type B par une variable aléatoire $Y$ suivant la loi normale d'espérance $12,4$ et d'écart type $4,7$.</p>
+
+            <p> On pourra noter $A$ l'évènement : &laquo; le dossier est un dossier de type A &raquo;, $B$ l'évènement: &laquo; le
+                dossier est un dossier de type B &raquo;, et $R$ l'évènement: &laquo; le dossier est celui d'un candidat reçu à
+                l'examen &raquo;.</p>
+
+            <p> Les probabilités seront arrondies au centième.</p>
+
+            <ol>
+                <li>Le dossier choisi est de type A. Quelle est la probabilité que ce dossier soit celui d'un
+                    candidat reçu à l'examen ?<br />
+                    On admet que la probabilité que le dossier choisi, sachant qu'il est de type B, soit celui d'un
+                    candidat reçu est égale à $0,70$.
+                </li>
+                <li>Montrer que la probabilité, arrondie au centième, que le dossier choisi soit celui d'un
+                    candidat reçu à l'examen est égale à $0,68$.</li>
+                <li>Le jury examine $500$ dossiers choisis aléatoirement parmi les dossiers de type B. Parmi ces
+                    dossiers, 368 sont ceux de candidats reçus à l'examen.<br />
+                    Un membre du jury affirme que cet échantillon n'est pas représentatif. Il justifie son
+                    affirmation en expliquant que dans cet échantillon, la proportion de candidats reçus est trop
+                    grande.<br />
+                    Quel argument peut-on avancer pour confirmer ou contester ses propos ?
+                </li>
+            </ol>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la solution</button>
+                <button>Cacher la solution</button>
+            <ol>
+                <li>$P(X \geqslant 10)\approx 0,67$ (à l'aide de la calculatrice).<br />
+                    On admet $P(Y \geqslant 10)\approx 0,70$
+                </li>
+                <li>$P(R)=P(A)\times P_A(R)+P(B)\times P_B(R)$
+                    $=0,6\times0,67+0,4\times 0,70$ $\approx 0,68$.
+                </li>
+                <li>Les dossiers choisis représente un échantillon de taille $n=500$ et une fréquence de reçus égal à $\dfrac{368}{500}=0,736$.
+                    Mais l'énoncé n'est pas assez précis pour déterminer $p$...
+                    <ul>
+                        <li>Si on cherche à savoir si l'échantillon est représentatif parmi les dossiers de type B alors $p\approx 0,7$.</li>
+                        <li>Si on cherche à savoir si l'échantillon est représentatif parmi tous les dossiers alors $p\approx 0,68$.</li>
+                    </ul>
+                    Dans le premier cas, on trouve $0,736\in]0,660\,;0,740[$ donc représentatif de B.<br />
+                    Dans l'autre cas, on trouve $0,736\notin]0,639\,;0,721[$ donc non représentif de tous les dossiers.<br />
+                    Ce second cas ayant moins de sens (s'il en a ?) que le premier, il n'y a rien à contester.
+                </li>
+            </ol>
+            </section>
+        </article>

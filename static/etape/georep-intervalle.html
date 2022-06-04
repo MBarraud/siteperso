@@ -1,0 +1,373 @@
+        <article>
+            <header>
+                <h2><span class="cadre">Théorème</span> Résoudre l'inéquation $A(x)&lt;B(x)$</h2>
+                <p>Les solutions de l'inéquation $A(x)&lt;B(x)$ sont les abscisses (communes)
+                des points $M$ de la courbe de l'équation $y=A(x)$ d'ordonnées strictement
+                inférieures (en dessous) des points $N$ de la courbe d'équation $y=B(x)$.
+                </p>
+            </header>
+            <section>
+                <h3>Exemple : pour l'inéquation $x^2&lt;x+2$.</h3>
+                <p>On trace les courbes $\mathscr{A}$ et $\mathscr{B}$ des équations $y=x^2$ et $y=x+2$</p>
+                <div class="centre"><div class="figure"><canvas id="graphe1" height="180", width="320">Balise canvas non supportée</canvas><br />
+                                <button onclick='dessine["graphe1"]("init")'>Initialiser</button>
+                                <button onclick='joue("graphe1")'>Jouer l'animation</button><br /></div></div>
+                <script>
+                    var graphe = calibre("graphe1",-3.5,3.5,-1.5,5.5,1/2);
+                    var f = x => x*x;
+                    var g = x => x+2;
+                    axes();
+                    /* la courbes */
+                    graphe.strokeStyle = "#000000";
+                    graphe.lineWidth=2;
+                    trace(f,xmin,xmax);
+                    trace(g,xmin,xmax);
+                    /* les droites */
+                    graphe.lineWidth=2;
+                    graphe.setLineDash([5,5]);
+                    segment(-1,ymin,-1,ymax);
+                    segment(2,ymin,2,ymax);
+                    graphe.setLineDash([]);
+                    graphe.lineWidth=3;
+                    graphe.strokeStyle = "#0098f8";
+                    segment(-1,0,2,0);
+                    graphe.lineWidth=2;
+                    graphe.setLineDash([5,5]);
+                    segment(1,ymin,1,ymax);
+                    segment(1,f(1),0,f(1));
+                    segment(1,g(1),0,g(1));
+                    /* Les textes*/
+                    ecrit("$\\mathscr{A}$",-3,6);
+                    ecrit("$\\mathscr{B}$",-3,-1);
+                    ecrit("$-1$",-1.5,-0.1);
+                    ecrit("$2$",2.1,-0.1);
+                    text_x = ecrit("$x$",1,-0.1);
+                    text_A = ecrit("$x^2$",0.1,1.5);
+                    text_B = ecrit("$x+2$",0.1,3.5);
+                    var dessine = {"graphe1" : t => { laps = 8000;
+                        var graphe = calibre("graphe1",-3.5,3.5,-1.5,5.5,1/2);
+                        var f = x => x*x;
+                        var g = x => x+2;
+                        var x = xmax*t/laps+xmin*(1-t/laps);
+                        if (t=="init") {x = 1;}
+                        graphe.setLineDash([]);
+                        graphe.lineWidth=1;
+                        graphe.clearRect(0, 0, 320, 180);
+                        axes();
+                        /* la courbes */
+                        graphe.strokeStyle = "#000000";
+                        graphe.lineWidth=2;
+                        trace(f,xmin,xmax);
+                        trace(g,xmin,xmax);
+                        /* les droites */
+                        graphe.lineWidth=2;
+                        graphe.setLineDash([5,5]);
+                        segment(-1,ymin,-1,ymax);
+                        segment(2,ymin,2,ymax);
+                        if (x<=-1) {
+                            graphe.strokeStyle = "#f89800";
+                        }
+                        else if (x<2) {
+                            graphe.strokeStyle = "#0098f8";
+                            graphe.setLineDash([]);
+                            graphe.lineWidth=3;
+                            segment(-1,0,x,0);
+                        }
+                        else {
+                            graphe.strokeStyle = "#0098f8";
+                            graphe.setLineDash([]);
+                            graphe.lineWidth=3;
+                            segment(-1,0,2,0);
+                            graphe.strokeStyle = "#f89800";
+                        }
+                        graphe.lineWidth=2;
+                        graphe.setLineDash([5,5]);
+                        segment(x,ymin,x,ymax);
+                        segment(x,f(x),0,f(x));
+                        segment(x,g(x),0,g(x));
+                        graphe.setLineDash([]);
+                        graphe.lineWidth=1;
+                         text_x.style.left = (xpx(x)-text_x.offsetWidth/2)+"px";
+                         text_x.style.top = (ypx(-0.5)-text_x.offsetHeight/2)+"px";
+                         if ((f(x)>ymin)&&(f(x)<ymax)) {
+                             text_A.style.top = (ypx(f(x))-text_x.offsetHeight)+"px";
+                             text_A.style.visibility = "visible";
+                         }
+                         else {
+                             text_A.style.visibility = "hidden";
+                         }
+                         text_A.style.left = (xpx(0)-text_x.offsetWidth/2)+"px";
+                         text_B.style.left = (xpx(0)-text_x.offsetWidth/2)+"px";
+                         text_B.style.top = (ypx(g(x))-text_x.offsetHeight)+"px";
+                    }}
+                </script>
+                <p>Pour $x=1$ sur le graphique : le point $A(x,y_A)$ sur $\mathscr{A}$ est sous le point $B(x,y_B)$ de même abscisse $x$ sur $\mathscr{B}$, c'est à dire $y_A&lt;y_B$ donc $x^2&lt;x+2$.</p>
+                <p>Donc $1$ est une solution de l'inéquation.</p>
+                <p>C'est le cas de tous les réels entre $-1$ et $2$.</p>
+            </section>
+        </article>
+
+        <article>
+            <header>
+                <h2><span class="cadre">Définition</span> Intervalle</h2>
+                <p>Un <em>intervalle</em> est l'ensemble des réels compris entre deux bornes (finies ou non).</p>
+                <div class="centre"><div class="figure"><canvas id="graphe2" height="180", width="320">Balise canvas non supportée</canvas></div></div>
+                <script>
+                     var graphe = calibre("graphe2",-5.5,5.5,-1,1,1);
+                       var pasx = 1;
+                       graphiquecanvas.lineWidth="1";
+                       /* la graduation */
+                       graphiquecanvas.beginPath();
+                       graphiquecanvas.lineWidth="1";
+                       graphiquecanvas.strokeStyle="black";
+                       for (var k = pasx+1; Math.floor(xmin) + k < xmax-1; k = k + pasx) {
+                           graphiquecanvas.moveTo(xpx(Math.floor(xmin) + k),ypx(0)-3);
+                           graphiquecanvas.lineTo(xpx(Math.floor(xmin) + k),ypx(0)+3);
+                       }
+                       graphiquecanvas.stroke();
+                       /* l'axe des abscisses */
+                       graphiquecanvas.moveTo(xpx(xmin+1),ypx(0));
+                       graphiquecanvas.lineTo(xpx(xmax-1),ypx(0));
+                       graphiquecanvas.moveTo(xpx(xmax-1)-5,ypx(0)-3);
+                       graphiquecanvas.lineTo(xpx(xmax-1),ypx(0));
+                       graphiquecanvas.moveTo(xpx(xmax-1)-5,ypx(0)+3);
+                       graphiquecanvas.lineTo(xpx(xmax-1),ypx(0));
+                       graphiquecanvas.stroke();
+
+                            graphe.strokeStyle = "#0098f8";
+                            graphe.setLineDash([]);
+                            graphe.lineWidth=3;
+                            segment(-2,0,3,0);
+                            xA = xpx(-2);
+                            xB = xpx(3);
+                            y0 = ypx(0);
+                            ligne([xA+5,y0-10],[xA,y0-10],[xA,y0+10],[xA+5,y0+10]);
+                            ligne([xB+5,y0-10],[xB,y0-10],[xB,y0+10],[xB+5,y0+10]);
+                    ecrit("$a$",-2.2,-0.5,"#0098f8");
+                    ecrit("$b$",2.9,-0.5,"#0098f8");
+                    text = ecrit("intervalle",0,0.75,"#0098f8");
+                    text.style.left = (xpx(0.5)-text.offsetWidth/2)+"px";
+                    text = ecrit("borne inférieure",0,1.5,"#0098f8");
+                    text.style.left = (xpx(-2)-text.offsetWidth/2)+"px";
+                    text = ecrit("borne supérieure",0,1.5,"#0098f8");
+                    text.style.left = (xpx(3)-text.offsetWidth/2)+"px";
+
+                    ecrit("$-\\infty$",xmin,0.2);
+                    ecrit("$+\\infty$",xmax-1,0.2);
+
+                    text = ecrit("(sur l'axe des réels)",0,-1.5);
+                    text.style.left = (xpx((xmin+xmax)/2)-text.offsetWidth/2)+"px";
+                </script>
+            </header>
+            <section>
+                <h3>Liste des intervalles possibles.</h3>
+                <ul><li>Les intervalles bornés<br />
+                <table><tr><td>$a \leqslant x \leqslant b$</td><td>$a< x \leqslant b$</td><td>$a < x < b$</td><td>$a \leqslant x < b$</td></tr>
+                       <tr><td>$x\in\left[a\text{;}b\right]$</td><td>$x\in\left]a\text{;}b\right]$</td><td>$x\in\left]a\text{;}b\right[$</td><td>$x\in\left[a\text{;}b\right[$</td></tr>
+                       <tr><td>(fermé)</td><td>(ouvert à gauche)</td><td>(ouvert)</td><td>(ouvert à droite)</td></tr>
+                </table>
+                <p>Autre notation : Pour un intervalle ouvert, si $a=b$, on dit que l'intervalle est vide : $\emptyset$.</p></li>
+                <li>Les intervalles non bornés<br />
+                <table><tr><td>$a \leqslant x $</td><td>$a< x $</td><td>$ x < b$</td><td>$ x \leqslant b$</td></tr>
+                       <tr><td>$x\in\left[a\text{;}+\infty\right[$</td><td>$x\in\left]a\text{;}+\infty\right[$</td><td>$x\in\left]-\infty\text{;}b\right[$</td><td>$x\in\left]-\infty\text{;}b\right]$</td></tr>
+                </table>
+                <p>Dans le cas où aucune borne n'existe, on note $\mathbb{R}$ plutôt que $\left]-\infty\text{;}+\infty\right[$.</p>
+                </li>
+                </ul>
+            </section>
+        </article>
+
+        <article>
+            <header>
+                <h2><span class="cadre">Définition</span> Réunion</h2>
+                <p>Une partie de $\mathbb{R}$ correspondant à plusieurs intervalles est appelé
+                l'<em>union</em> ou la <em>réunion</em> de ces intervalles et noté en intercalant
+                le symbole $\cup$ entre chaque intervalle.</p>
+            </header>
+
+            <section class="ouvrable">
+                <button>Voir un exemple</button>
+                <button>Cacher l'exemple</button>
+                <p>D'après le graphique d'introduction, les solutions de l'inéquation $x^2&lt;x+2$ sont les réels de l'intervalle $]-1;2[$</p>
+                <p>L'ensemble solution de l'inéquation $x^2\geqslant x+2$ est alors $]-\infty;-1]\cup[2;+\infty[$</p>
+            </section>
+        </article>
+
+        <article>
+            <header>
+                <h2><span class="cadre">Exercices</span> 52 à 62 p.28 et 29</h2>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la solution</button>
+                <button>Cacher la solution</button>
+                <p><h3>52 p.28.</h3> Réponse (3)</p>
+                <p><h3>53 p.28</h3>
+                    <ol style="list-style-type : lower-latin;">
+                        <li> (3)</li>
+                        <li> (2)</li>
+                        <li> (1)</li>
+                        <li> (1)</li>
+                    </ol></p>
+                <p><h3>54 p.28</h3>
+                    <ol  style="list-style-type : lower-latin;"><li> Vrai</li>
+                        <li> Faux</li>
+                        <li> Vrai</li>
+                        <li> Faux</li>
+                    </ol></p>
+                <p><h3>55 p.28</h3>
+                    <ol  style="list-style-type : lower-latin;"><li> $x\in [3;7]$</li>
+                        <li> $x\in]-\infty;5[$</li>
+                        <li> $x\in ]1;8]$</li>
+                        <li> $x\in ]-\infty;2]\cup[3;+\infty[$</li>
+                    </ol></p>
+                <p><h3>56 p.28</h3>
+                    <ol  style="list-style-type : lower-latin;"><li> $x\in [-1;6[$</li>
+                        <li> $x\in]0,4;+\infty[$</li>
+                        <li> $x\in]3,9;+\infty[$</li>
+                        <li> $x\in ]7,1;11,2[$</li>
+                        <li> $x\in ]-\infty;-\frac{2}{7}]$</li>
+                        <li> $x\in[5;+\infty[$</li>
+                    </ol></p>
+                <p><h3>57 p.28</h3>
+                    <ol  style="list-style-type : lower-latin;"><li> $-2 \leqslant x &lt; 6$</li>
+                        <li> $x \leqslant 3$</li>
+                        <li> $4 \leqslant x \leqslant 12$</li>
+                        <li> $ x \geqslant 5$</li>
+                    </ol></p>
+                <p><h3>58 p.28</h3>
+                    <ol  style="list-style-type : lower-latin;"><li> $x \geqslant -1$</li>
+                        <li> $-5 &lt; x &lt; 8$</li>
+                        <li> $4 &lt; x \leqslant 10,5$</li>
+                        <li> $ x \leqslant -2$</li>
+                    </ol></p>
+                <p><h3>59 p.28</h3>
+                    <ol  style="list-style-type : lower-latin;"><li> $x \leqslant 0$ ou $x &gt; 2$</li>
+                        <li> $x &lt; 5$ ou $x &gt; 5$</li>
+                        <li> $x &lt; -4$ ou $x &gt; 7$</li>
+                        <li> $x &lt; -2$ ou $-2 &lt; x &lt; 0$ ou $x &gt; 0$</li>
+                    </ol></p>
+                <p><h3>60 p.28</h3>
+                    <ol  style="list-style-type : lower-latin;"><li> $]2;6[$</li>
+                        <li> $]3;+\infty[$</li>
+                        <li> $]-\infty;17]$</li>
+                        <li> $]-\infty;-1]\cup[2;+\infty[$</li>
+                    </ol></p>
+                <p><h3>61 p.28</h3>
+                    <ol  style="list-style-type : lower-latin;"><li> $-2,5 \in [-3;5]$</li>
+                        <li> $\frac{\pi}{2}\in]-3;3[$</li>
+                        <li> $-7\notin]-6;-3[$</li>
+                        <li> $1\in[1;6]$</li>
+                        <li> $0\notin]0;+\infty[$</li>
+                        <li> $10^{-1}\notin]-\infty;0]$</li>
+                        <li> $1,3\notin[-5;0[\cup]2;+\infty[$</li>
+                        <li> $-4\notin[-3;+\infty[$</li>
+                    </ol></p>
+                <p><h3>62 p.28</h3>
+                    <ol  style="list-style-type : lower-latin;"><li> $[8;+\infty[$</li>
+                        <li> $[0;+\infty[$</li>
+                        <li> $]-\infty;-4[$</li>
+                        <li> $]-\pi;2\pi[$</li>
+                        <li> $]-\infty;5[\cup]10;+\infty[$</li>
+                    </ol></p>
+            </section>
+        </article>
+
+        <article>
+            <header>
+                <h2><span class="cadre">Exercices 3.25</span> </h2>
+                Résoudre graphiquement : $A(x)&lt;B(x)$.
+                <div class="centre"><div class="figure"><canvas id="graphe3" height="180", width="320">Balise canvas non supportée</canvas></div></div>
+                <script>
+                    var graphe = calibre("graphe3",-4,5,-3,1,1);
+                    var f = x => 2*x*x-2;
+                    var g = x => (x-2)*(x+2)/4-1;
+                    var h = x => -x/3-1/3;
+                    axes();
+                    /* la courbes */
+                    graphe.strokeStyle = "#000000";
+                    graphe.lineWidth=2;
+                    trace(f,xmin,0);
+                    trace(g,0,xmax);
+                    trace(h,xmin,xmax);
+                    /* Les textes*/
+                    ecrit("$y=A(x)$",-0.5,-2.1);
+                    ecrit("$y=B(x)$",2.1,-1.6);
+                    ecrit("$0$",0,-0.1);
+                    ecrit("$2$",2.1,-0.1);
+                    ecrit("$-2$",-0.7,-1.9);
+                </script>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la solution</button>
+                <button>Cacher la solution</button>
+                <div class="centre"><div class="figure"><canvas id="graphe4" height="180", width="320">Balise canvas non supportée</canvas></div></div>
+                <script>
+                    var graphe = calibre("graphe4",-4,5,-3,1,1);
+                    var f = x => 2*x*x-2;
+                    var g = x => (x-2)*(x+2)/4-1;
+                    var h = x => -x/3-1/3;
+                    axes();
+                    /* la courbes */
+                    graphe.strokeStyle = "#000000";
+                    graphe.lineWidth=2;
+                    trace(f,xmin,0);
+                    trace(g,0,xmax);
+                    trace(h,xmin,xmax);
+                    /* les droites */
+                    graphe.lineWidth=2;
+                    graphe.setLineDash([5,5]);
+                    segment(-1,ymin,-1,ymax);
+                    segment(2,ymin,2,ymax);
+                    graphe.setLineDash([]);
+                    graphe.lineWidth=3;
+                    graphe.strokeStyle = "#0098f8";
+                    segment(-1,0,2,0);
+                    /* Les textes*/
+                    ecrit("$y=A(x)$",-0.5,-2.1);
+                    ecrit("$y=B(x)$",2.1,-1.6);
+                    ecrit("$0$",0,-0.1);
+                    ecrit("$2$",2.1,-0.1);
+                    ecrit("$-2$",-0.7,-1.9);
+                </script>
+
+                Solutions : $]-1;2[$
+            </section>
+        </article>
+
+        <article>
+            <header>
+                <h2><span class="cadre">Exercices 3.26</span> </h2>
+                Pour les valeurs de $x$ dans $[-1,5;2]$ :
+                <div class="centre"><div class="figure"><canvas id="graphe5" height="180", width="320">Balise canvas non supportée</canvas></div></div>
+                <script>
+                    var graphe = calibre("graphe5",-2,2.5,-2,0.5,1);
+                    var f = x => Math.cos(((x+0.5)/2)*Math.PI)-1;
+                    var g = x => Math.cos(x*Math.PI)/2-1;
+                    axes(2,2);
+                    /* la courbes */
+                    graphe.strokeStyle = "#000000";
+                    graphe.lineWidth=2;
+                    trace(f,-1.5,0.5);
+                    trace(g,0.5,2);
+                    graphe.beginPath();
+                    graphe.arc(xpx(-1.5), ypx(-1), 3, 0, 2 * Math.PI);
+                    graphe.fill();
+                    graphe.beginPath();
+                    graphe.arc(xpx(2), ypx(-0.5), 3, 0, 2 * Math.PI);
+                    graphe.fill();
+                    /* Les textes*/
+                    ecrit("$y=A(x)$",1.1,-1.6);
+                    ecrit("$0$",0,-0.1);
+                    ecrit("$-1$",-1.15,-0.1);
+                    ecrit("$1$",0.95,-0.1);
+                    ecrit("$-1$",-0.35,-0.95);
+                </script>
+                Résoudre graphiquement $A(x)&gt;-1$ puis $A(x)\leqslant -1$.
+            </header>
+            <section class="ouvrable">
+                <button>Voir la solution</button>
+                <button>Cacher la solution</button>
+                Solutions pour $A(x)&gt;-1$ : $]-1,5 ; 0,5[\cup]1,5 ; 2]$<br />
+                Solutions pour $A(x)\leqslant -1$ : $\lbrace-1,5\rbrace\cup[0,5;1,5]$
+
+            </section>

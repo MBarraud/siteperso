@@ -1,0 +1,45 @@
+{% extends "commun.html" %}
+
+{% block header %}
+    {{ super() }}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/sommaire.css') }}"/>
+{% endblock %}
+
+{% block main %}
+    <main class="sommaire">
+    {% if id_matiere is defined %}
+      {% if id_niveau is defined %}
+        {% if id_cours is defined %}
+        <header><h1>Étapes de ce cours</h1></header>
+        {% endif %}
+      {% endif %}
+    {% endif %}
+        <article>
+            <section>
+                <ul>
+                {% if id_matiere is defined %}
+                  {% if id_niveau is defined %}
+                    {% if id_cours is defined %}
+                    {% for eta in etape %}
+                    <li><a href="/cours/{{id_cours}}/{{eta[0]}}">{{ eta[2] }}</a></li>
+                    {% endfor %}
+                    {% else %}
+                    {% for cou in cours %}
+                    <li><a href="/cours/{{cou[0]}}">{{ cou[1] }}</a></li>
+                    {% endfor %}
+                    {% endif %}
+                  {% else %}
+                    {% for niv in niveau %}
+                    <li><a href="/index/{{id_matiere}}/{{niv[0]}}">{{ niv[1] }} ({{ niv[2] }})</a></li>
+                    {% endfor %}
+                  {% endif %}
+                {% else %}
+                    {% for mat in matiere %}
+                    <li><a href="/index/{{mat[0]}}">{{ mat[1] }}</a></li>
+                    {% endfor %}
+                {% endif %}
+                </ul>
+            </section>
+        </article>
+    </main>
+{% endblock %}

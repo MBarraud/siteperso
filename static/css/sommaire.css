@@ -1,0 +1,43 @@
+.sommaire {
+    padding-top : 1em;
+}
+ 
+.sommaire ul {
+    padding: 0;
+    padding-top : 1em;
+    margin: 0;
+}
+ 
+.sommaire ul li {
+    font-size : 1.5em;
+    list-style: none;
+    padding: 0px;
+    border: 0px;
+    margin: 0px;
+    text-align  :center;
+}
+ 
+.sommaire ul li a {
+    display : block;
+  border-style : solid;
+  border-color : transparent;
+    text-decoration: none;
+    padding: auto;
+    color: blue;
+    background: transparent;
+    -moz-transition: all .5s; 
+    -webkit-transition: all .5s; 
+    -o-transition: all .5s; 
+    transition: all .5s;
+}
+ 
+ 
+.sommaire ul li a:hover,  .sommaire ul li a:focus{
+    border-color : rgb(0,0,200);
+    background: #0098f8;
+    color :white;
+    -moz-transition: all .5s; 
+    -webkit-transition: all .5s; 
+    -o-transition: all .5s; 
+    transition: all .5s;
+}

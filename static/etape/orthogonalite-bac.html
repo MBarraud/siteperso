@@ -1,0 +1,454 @@
+<article>
+            <header>
+                <h2><span class="cadre">Exercice 1</span> Pondichéry - BAC S - avril 2016</h2>
+                <p>$ABCDEFGH$ désigne un cube de côté 1.
+                <div class="centre"><div class="figure"><canvas id="graphe1" height="180", width="320">Balise canvas non supportée</canvas></div></div>
+                <script>
+                    var graphe = calibre3D("graphe1", -1.25, 1.25, -1.25, 1.25, -1.25, 1.25);
+                    var B = point(-1,-1,-1);
+                    var C = point(1,-1,-1);
+                    var D = point(1,1,-1);
+                    var A = point(-1,1,-1);
+                    var F = point(-1,-1,1);
+                    var G = point(1,-1,1);
+                    var H = point(1,1,1);
+                    var E = point(-1,1,1);
+                    var I = combinaison(0.5,B,0.5,F);
+                    var J = combinaison(0.5,B,0.5,C);
+                    var K = combinaison(0.5,C,0.5,D);
+                    graphe.setLineDash([5,5]);
+                    graphe.strokeStyle = 'black';
+                    ligne(B,A,D);
+                    ligne(A,E);
+                    graphe.setLineDash([]);
+                    ligne(E,F,G,H,D,C,B,F);
+                    ligne(E,H);
+                    ligne(C,G);
+                    marque(I,J,K)
+                    ecrit("$B$",-2,-1.25);
+                    ecrit("$C$",0.6,-1.25);
+                    ecrit("$A$",-0.8,-0.5);
+                    ecrit("$D$",1.8,-0.5);
+                    ecrit("$F$",-2,0.7);
+                    ecrit("$G$",0.6,0.7);
+                    ecrit("$E$",-0.8,1.45);
+                    ecrit("$H$",1.8,1.45);
+                    ecrit("$I$",-2,-0.25);
+                    ecrit("$J$",-0.7,-1.45);
+                    ecrit("$K$",1.3,-0.9);
+                </script>
+                <p>Le point I est le milieu du segment [BF].</p>
+                <p>Le point J est le milieu du segment [BC].</p>
+                <p>Le point K est le milieu du segment [CD].</p>
+                <h3>Partie A</h3>
+                <p><strong>Dans cette partie, on ne demande aucune justification.</strong></p>
+                <p>On admet que les droites (IJ) et (CG) sont sécantes en un point L.
+                    Construire, sur la figure, en laissant apparents les traits de
+                    construction :
+                </p>
+                <ul>
+                    <li>le point L ;</li>
+                    <li>l'intersection $\mathcal{D}$ des plans (IJK) et (CDH) ;</li>
+                    <li>la section du cube par le plan (IJK).</li>
+                </ul>
+                <h3>Partie B</h3>
+                <p>L'espace est rapporté au repère $\left(\text{A}\,;\overrightarrow{\text{AB}},\overrightarrow{\text{AD}},\overrightarrow{\text{AE}}\right)$.</p>
+                <ol>
+                    <li>Donner les coordonnées de A, G, I, J et K dans ce repère.</li>
+                    <li><ol>
+                            <li>Montrer que le vecteur $\overrightarrow{\text{AG}}$ est normal au plan (IJK).</li>
+                            <li>En déduire une équation cartésienne du plan (IJK).</li>
+                        </ol>
+                    </li>
+                    <li>On désigne par $M$ un point du segment [AG] et $t$ le réel de l'intervalle $[0\,;1]$ tel que
+                        $\overrightarrow{\text{A}M} = t\overrightarrow{\text{AG}}$.
+                        <ol>
+                            <li>Démontrer que $M\text{I}^2 = 3t^2 - 3t + \dfrac{5}{4}$.</li>
+                            <li>Démontrer que la distance $M\text{I}$ est minimale pour le point $\text{N}\left(\dfrac{1}{2}\,;\dfrac{1}{2}\,;\dfrac{1}{2}\right)$.</li>
+                        </ol>
+                    </li>
+                    <li>Démontrer que pour ce point $\text{N}\left(\dfrac{1}{2}\,;\dfrac{1}{2}\,;\dfrac{1}{2}\right)$ :
+                        <ol>
+                            <li>N appartient au plan (IJK).</li>
+                            <li>La droite (IN) est perpendiculaire aux droites (AG) et (BF).</li>
+                        </ol>
+                    </li>
+                </ol>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la solution</button>
+                <button>Cacher la solution</button>
+                <h3>Partie A</h3>
+                <ul>
+                    <li>Pour le point L, il suffit de prolonger (IJ) et (CG).</li>
+                    <li>$\mathcal{D}$ est la droite (LK) car L et K appartiennent bien aux deux plans.</li>
+                    <li>la section du cube par le plan (IJK) passe par I, J, K et l'intersection de $\mathcal{D}$ avec (HD) et
+                        coupe les faces opposées du cube selon des droites parallèles.</li>
+                </ul>
+                <div class="centre"><div class="figure"><canvas id="graphe2" height="180", width="320">Balise canvas non supportée</canvas></div></div>
+                <script>
+                    var graphe = calibre3D("graphe2", -1.25, 1.25, -1.25, 1.25, -2.25, 1.25);
+                    var B = point(-1,-1,-1);
+                    var C = point(1,-1,-1);
+                    var D = point(1,1,-1);
+                    var A = point(-1,1,-1);
+                    var F = point(-1,-1,1);
+                    var G = point(1,-1,1);
+                    var H = point(1,1,1);
+                    var E = point(-1,1,1);
+                    var I = combinaison(0.5,B,0.5,F);
+                    var J = combinaison(0.5,B,0.5,C);
+                    var K = combinaison(0.5,C,0.5,D);
+                    var L = combinaison(1.5,C,-0.5,G);
+                    graphe.setLineDash([5,5]);
+                    ligne(B,A,D);
+                    ligne(A,E);
+                    graphe.fillStyle = '#f80098D0';
+                    remplir(I,J,K,combinaison(0.5,D,0.5,H),combinaison(0.5,E,0.5,H),combinaison(0.5,E,0.5,F));
+                    graphe.setLineDash([]);
+                    ligne(E,F,G,H,D,C,B,F);
+                    ligne(E,H);
+                    ligne(C,G);
+                    marque(I,J,K)
+                    graphe.strokeStyle = '#0098f8';
+                    ligne(combinaison(1.2,I,-0.2,J),combinaison(-1.2,I,2.2,J));
+                    ligne(combinaison(1.2,G,-0.2,C),combinaison(-1.2,G,2.2,C));
+                    graphe.strokeStyle = '#f89800';
+                    ligne(combinaison(1.2,L,-0.2,K),combinaison(-1.2,L,2.2,K));
+                    ecrit("$B$",-2,-1.25);
+                    ecrit("$C$",0.6,-1.25);
+                    ecrit("$A$",-0.8,-0.5,'#00000020')
+                    ecrit("$D$",1.8,-0.5);
+                    ecrit("$F$",-2,0.7);
+                    ecrit("$G$",0.6,0.7);
+                    ecrit("$E$",-0.8,1.45);
+                    ecrit("$H$",1.8,1.45);
+                    ecrit("$I$",-2,-0.25);
+                    ecrit("$J$",-0.7,-1.45);
+                    ecrit("$K$",1.3,-0.9);
+                    ecrit("$L$",0,-2.3,'#0098f8');
+                    ecrit("$\\mathcal{D}$",0.7,-1.7,'#f89800');
+                </script>
+                <h3>Partie B</h3>
+                <ol>
+                    <li>A$(0\,;0\,;0)$, G$(1\,;1\,;1)$, I$(1\,;0\,;\frac{1}{2})$, J$(1\,;\frac{1}{2}\,;0)$ et K$(\frac{1}{2}\,;1\,;0)$.</li>
+                    <li><ol>
+                            <li>$\overrightarrow{\text{AG}}\left(\begin{smallmatrix}1\\1\\1\end{smallmatrix}\right)$,
+                                $\overrightarrow{\text{JI}}\left(\begin{smallmatrix}0\\-\frac{1}{2}\\\frac{1}{2}\end{smallmatrix}\right)$ et
+                                $\overrightarrow{\text{JK}}\left(\begin{smallmatrix}-\frac{1}{2}\\\frac{1}{2}\\0\end{smallmatrix}\right)$
+                                avec $\overrightarrow{\text{JI}}$ et $\overrightarrow{\text{JK}}$ non colinéaires dans (IJK).<br />
+                                De plus $\overrightarrow{\text{AG}}.\overrightarrow{\text{JI}}=0-\frac{1}{2}+\frac{1}{2}=0$ et
+                                $\overrightarrow{\text{AG}}.\overrightarrow{\text{JK}}=-\frac{1}{2}+\frac{1}{2}+0=0$.<br />
+                                Donc $\overrightarrow{\text{AG}}$ est normal au plan (IJK).
+                            </li>
+                            <li>
+                                Une équation de (IJK) est donc $x+y+z+d=0$ et comme I est sur le plan : $1+0+\frac{1}{2}+d=0$ donc $d=-\frac{3}{2}$.
+                                Une équation est donc $x+y+z-\frac{3}{2}=0$.
+                            </li>
+                        </ol>
+                    </li>
+                    <li><ol>
+                            <li>
+                                Les coordonnées de $\overrightarrow{\text{A}M}$ sont celles de $M$ car A est l'origine du repère.<br />
+                                Or $\overrightarrow{\text{A}M} = t\overrightarrow{\text{AG}}\left(\begin{smallmatrix}t\times1\\t\times1\\t\times1\end{smallmatrix}\right)$
+                                donc $M(t\,;t\,;t)$.<br />
+                                Or I$(1\,;0\,;\frac{1}{2})$ donc $M\text{I}^2=(1-t)^2+(0-t)^2+(\frac{1}{2}-t)^2$
+                                $ = 1 - 2t + t^2 + t^2 + \frac{1}{4}-t+t^2$
+                                $ = 3t^2-3t+\frac{5}{4}$
+                            </li>
+                            <li>$3t^2-3t+\frac{5}{4}$ est un trinôme de coefficient dominant positif ($a>0$) donc admet un minimum
+                                en $t=\frac{-b}{2a}=\frac{1}{2}$. En substituant, on obtient $M(\frac{1}{2}\,;\frac{1}{2}\,;\frac{1}{2})$
+                                <br />Solution alternative : étude des variations par dérivation de la fonction de variable $t$.
+                            </li>
+                        </ol>
+                    </li>
+                    <li>
+                        <ol>
+                            <li>$x+y+z-\frac{3}{2}=0$ est une équation de (IJK) et $\text{N}\left(\dfrac{1}{2}\,;\dfrac{1}{2}\,;\dfrac{1}{2}\right)$<br />
+                                Le calcul : $\dfrac{1}{2}+\dfrac{1}{2}+\dfrac{1}{2}-\frac{3}{2}=0$ pourve donc que N est sur (IJK).</li>
+                            <li>Comme I et N sont sur (IJK) et que $\overrightarrow{\text{AG}}$ est normal à (IJK), alors $\overrightarrow{\text{IN}}$
+                                est orthogonal à $\overrightarrow{\text{AG}}$ donc (IN) et (AG) sont orthogonales.<br />
+                                De plus N est sur (AG) (car $\overrightarrow{\text{AN}}=\frac{1}{2}\overrightarrow{\text{AG}}$) donc (IN) et (AG) sont perpendiculaires.<br />
+                                Comme on connait les coordonnées de chaque point, on peut calculer
+                                $\overrightarrow{\text{BF}}.\overrightarrow{\text{IN}}=0\times\frac{-1}{2}+0\times\frac{1}{2}+1\times0 = 0$
+                                donc (IN) et (BF) sont orthogonales.<br />
+                                Comme de plus I est sur (BF) alors (IN) et (BF) sont perpendiculaires.
+                            </li>
+                        </ol>
+                    </li>
+                </ol>
+            </section>
+        </article>
+
+        <article>
+            <header>
+                <h2><span class="cadre">Exercice 2</span>Polynésie - BAC S - juin 2015</h2>
+                <p>On considère le pavé droit $ABCDEFGH$ ci-dessous, pour lequel : $AB = 6$, $AD = 4$ et $AE = 2$.</p>
+                <p>I, J et K sont les points tels que : $\overrightarrow{\text{AI}} = \dfrac{1}{6}$
+                    $\overrightarrow{\text{AB}}$, $\overrightarrow{\text{AJ}} = \dfrac{1}{4} \overrightarrow{\text{AD}}$
+                    et $\overrightarrow{\text{AK}} = \dfrac{1}{2} \overrightarrow{\text{AE}}$.
+                </p>
+                <div class="centre"><div class="figure"><canvas id="graphe3" height="180", width="320">Balise canvas non supportée</canvas></div></div>
+                <script>
+                    var graphe = calibre3D("graphe3", -0.25, 6.25, -0.25, 4.25, -0.25, 2.25);
+                    var A = point(0,0,0);
+                    var B = point(6,0,0);
+                    var C = point(6,4,0);
+                    var D = point(0,4,0);
+                    var E = point(0,0,2);
+                    var F = point(6,0,2);
+                    var G = point(6,4,2);
+                    var H = point(0,4,2);
+                    var I = point(1,0,0);
+                    var J = point(0,1,0);
+                    var K = point(0,0,1);
+                    graphe.setLineDash([5,5]);
+                    graphe.strokeStyle = 'black';
+                    ligne(A,D,C);
+                    ligne(D,H);
+                    graphe.setLineDash([]);
+                    ligne(A,B,C,G,H,E,F,G);
+                    ligne(A,E);
+                    ligne(B,F);
+                    marque(I,J,K)
+                    ecrit("$B$",5.8,-0.2);
+                    ecrit("$C$",8.2,1.3);
+                    ecrit("$A$",-0.2,-0.2);
+                    ecrit("$D$",2.3,1.3);
+                    ecrit("$F$",5.8,2.5);
+                    ecrit("$G$",8.2,3.9);
+                    ecrit("$E$",-0.2,2.5);
+                    ecrit("$H$",2.2,3.9);
+                    ecrit("$I$",0.8,-0.2);
+                    ecrit("$J$",0.6,0.9);
+                    ecrit("$K$",-0.35,1.5);
+                </script>
+                <p>On se place dans le repère $\left(\text{A}\,;\overrightarrow{\text{AI}},\overrightarrow{\text{AJ}},\overrightarrow{\text{AK}}\right)$ orthonormé.</p>
+                <ol>
+                    <li>Vérifier que $\overrightarrow{n}\left(\begin{smallmatrix}2\\2\\-9\end{smallmatrix}\right)$ est normal au plan (IJG).</li>
+                    <li>Déterminer une équation du plan (IJG).</li>
+                    <li>Déterminer les coordonnées du point d'intersection L du plan (IJG) et de la droite (BF).</li>
+                    <li>Tracer la section du pavé ABCDEFGH par le plan (IJG). On ne demande pas de justification.</li>
+                </ol>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la solution</button>
+                <button>Cacher la solution</button><ol>
+                    <li>I$(1\,;0\,;0)$, J$(0\,;1\,;0)$ et
+                        $\overrightarrow{\text{AG}}=\overrightarrow{\text{AB}}+\overrightarrow{\text{BC}}+\overrightarrow{\text{CG}}$
+                        $=\overrightarrow{\text{AB}}+\overrightarrow{\text{AD}}+\overrightarrow{\text{AE}}$
+                        $=6\overrightarrow{\text{AI}}+4\overrightarrow{\text{AJ}}+2\overrightarrow{\text{AK}}$ donc
+                        G$(6\,;4\,;2)$. D'où
+                        $\overrightarrow{\text{IJ}}\left(\begin{smallmatrix}-1\\1\\0\end{smallmatrix}\right)$ et
+                        $\overrightarrow{\text{IG}}\left(\begin{smallmatrix}5\\4\\2\end{smallmatrix}\right)$ ne sont pas colinéaires et
+                        $\vec{n}.\overrightarrow{\text{IJ}}=2\times (-1)+2\times1-9\times0=0$ et
+                        $\vec{n}.\overrightarrow{\text{IG}}=2\times 5+2\times4-9\times2=0$ donc
+                        $\vec{n}$ est normal au plan (IJG).
+                    </li>
+                    <li>Une équation du plan (IJG) est donc $2x + 2y -9z+d=0$, que doit vérifier les coordonnées de I donc
+                        $2\times1 + 2\times0 -9\times0+d=0$ d'où $d=-2$ et l'équation : $2x + 2y -9z-2=0$.</li>
+                    <li>Comme (BF) passe par B$(6\,;0\,;0)$ et est de vecteur directeur
+                        $\overrightarrow{\text{BF}}\left(\begin{smallmatrix}0\\0\\2\end{smallmatrix}\right)$,
+                        une paramétrisation de (BF) est $\left\{\begin{matrix} x = 6  \\ y = 0 \\ z=2t \end{matrix}\right.\:(t \in \mathbb{R})$.<br />
+                        L doit vérifier cette paramétrisation et l'équation de (IJG) donc :<br />
+                        $2\times 6 + 2\times0 -9\times2t-2=0$ d'où $t=\frac{5}{9}$ et L$(6\,;0\,;\frac{10}{9})$.
+                    </li>
+                    <li>Les faces du pavé ABCDEFGH définissent des plans parallèles. L'intersection de (IJG) avec le plan défini
+                        par la face EFGH est donc la droite parallèle à (IJ) passant par G.
+                        Cette droite coupe les droites (EF) et (EH) en des points qui permettent  de tracer
+                        la section demandée (et de vérifier la position de L).
+                        <div class="centre"><div class="figure"><canvas id="graphe4" height="180", width="320">Balise canvas non supportée</canvas></div></div>
+                        <script>
+                            var graphe = calibre3D("graphe4", -0.25, 6.25, -0.25, 8.5, -0.25, 2.25);
+                            var A = point(0,0,0);
+                            var B = point(6,0,0);
+                            var C = point(6,4,0);
+                            var D = point(0,4,0);
+                            var E = point(0,0,2);
+                            var F = point(6,0,2);
+                            var G = point(6,4,2);
+                            var H = point(0,4,2);
+                            var I = point(1,0,0);
+                            var J = point(0,1,0);
+                            var K = point(0,0,1);
+                            var L = point(6,0,10/9);
+                            var P = point(0,4,2/3);
+                            graphe.setLineDash([5,5]);
+                            graphe.strokeStyle = 'black';
+                            ligne(A,D,C);
+                            ligne(D,H);
+                            graphe.fillStyle = '#0098f8D0';
+                            remplir(I,J,P,G,L);
+                            graphe.setLineDash([]);
+                            ligne(A,B,C,G,H,E,F,G);
+                            ligne(A,E);
+                            ligne(B,F);
+                            marque(I,J,K,L,P)
+                            graphe.setLineDash([5,3,2,3]);
+                            ligne(F,combinaison(3,F,-2,E));
+                            ligne(H,combinaison(3,H,-2,E));
+                            graphe.strokeStyle = '#0098f8';
+                            ligne(combinaison(1,G,-10,I,10,J),combinaison(1,G,10,I,-10,J));
+                            ligne(I,combinaison(2,L,-1,I));
+                            ligne(J,combinaison(3,P,-2,J));
+                            ecrit("$B$",5.8,-0.2);
+                            ecrit("$C$",8.2,1.3);
+                            ecrit("$A$",-0.2,-0.2);
+                            ecrit("$D$",2.3,1.3,'#00000020');
+                            ecrit("$F$",5.8,2.5);
+                            ecrit("$G$",8.2,3.9);
+                            ecrit("$E$",-0.2,2.5);
+                            ecrit("$H$",2.2,3.9);
+                            ecrit("$I$",0.8,-0.2);
+                            ecrit("$J$",0.6,0.9);
+                            ecrit("$K$",-0.35,1.5);
+                            ecrit("$L$",6.1,1);
+                        </script>
+                        </li>
+                </ol>
+            </section>
+        </article>
+
+        <article>
+            <header>
+                <h2><span class="cadre">Exercice 9</span> Nouvelle-Calédonie - BAC S - mars 2015</h2>
+                <p>L'espace est rapporté au repère orthonormé $(O;\, \vec i,\vec j,\vec k)$. <br />
+                    On désigne par $\mathbb{R}$ l'ensemble des nombres réels.<br />
+                    <strong>On rappelle que deux droites de l'espace sont dites perpendiculaires si et seulement si elles sont orthogonales et sécantes.</strong>
+                </p>
+                <p>Soient $A_1(0;2;-1)$ et $\overrightarrow{u_1}\left(\begin{smallmatrix}1\\2\\3\end{smallmatrix}\right)$.
+                   On appelle $D_1$ la droite passant par $A_1$ et de vecteur directeur $\overrightarrow{u_1}$.<br />
+                   On appelle $D_2$ la droite définie par $\left\{\begin{smallmatrix} x = 1 + k \\ y = - 2k \\ z=2 \end{smallmatrix}\right.\:(k \in \mathbb{R}).$<br />
+                   Le but de l'exercice est de prouver l'existence d'une droite perpendiculaire à la fois à $D_1$ et $D_2$.
+                </p>
+                <ol>
+                    <li>
+                        <ol>
+                            <li>Donner une représentation paramétrique de $D_1$.</li>
+                            <li>Donner un vecteur directeur (noté $\overrightarrow{u_2}$) de $D_2$.</li>
+                            <li>Le point $A_2(-1;4;2)$ appartient-il à $D_2$ ?</li>
+                        </ol>
+                    </li>
+                    <li>Démontrer que $D_1$ et $D_2$ sont non coplanaires.</li>
+                    <li>Soit le vecteur $\overrightarrow{v}\left(\begin{smallmatrix}-6\\-3\\4\end{smallmatrix}\right)$. On définit la droite $\Delta_1$ passant par $A_1$
+                        et de vecteur directeur $\overrightarrow{v}$ et la droite $\Delta_2$ passant par $A_2$ et parallèle à $\Delta_1$.<br .>
+                        Justifier que $D_1$ et $\Delta_1$ sont perpendiculaires.<br />
+                        <strong>On admettra que $D_2$ et $\Delta_2$ sont perpendiculaires.</strong></li>
+                    <li>Soit $P_1$ le plan défini par les droites $D_1$ et $\Delta_1$ et $P_2$ le plan défini par les droites $D_2$ et $\Delta_2$.
+                        <ol>
+                            <li>Vérifier que $\overrightarrow{n}\left(\begin{smallmatrix}17\\-22\\9\end{smallmatrix}\right)$ est un vecteur normal à $P_1$.</li>
+                            <li>Montrer que $P_1$ et $P_2$ ne sont pas parallèles.</li>
+                        </ol>
+                    </li>
+                    <li>Soit $\Delta$ la droite d'intersection de $P_1$ et $P_2$.
+                        On admettra que $\overrightarrow{v}$ est un vecteur directeur de $\Delta$.<br />
+                        Utiliser les questions précédentes pour prouver qu'il existe une droite de l'espace
+                        perpendiculaire à la fois à $D_1$ et à $D_2$.</li>
+                </ol>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la solution</button>
+                <button>Cacher la solution</button>
+                <ol>
+                    <li>
+                        <ol>
+                            <li>$D_1 : \left\{\begin{matrix} x = t  \\ y = 2+2t \\ z=-1+3t \end{matrix}\right.\:(t \in \mathbb{R})$..</li>
+                            <li>$\overrightarrow{u_2}\left(\begin{smallmatrix}1\\-2\\0\end{smallmatrix}\right)$.</li>
+                            <li>Oui pour $k=-2$ dans la paramétrisation de $D_2$, on retrouve les coordonnées de $A_2$</li>
+                        </ol>
+                    </li>
+                    <li>$\overrightarrow{u_1}$ et $\overrightarrow{u_2}$ ne sont pas colinéaires donc $D_1$ et $D_2$ sont soit sécantes, soit non coplanaires.
+                        Si elles étaient sécantes, les coordonnées du point d'intersection devrait vérifier les deux paramétrisations pour un réel $t$ et un réel $k$, donc le système
+                        $S : \left\lbrace\begin{matrix}t = 1+k\\2+2t=-2k\\-1+3t=2\end{matrix}\right.$ devrait avoir une unique solution.<br />
+                        La troisième équation donne $t=1$ donc la première $k=0$ mais la seconde ne peut plus être vérifiée $4\neq0$.
+                        Il n'y a donc pas de solution au système, donc $D_1$ et $D_2$ ne sont pas sécantes. $D_1$ et $D_2$ sont donc non coplanaires.
+                    </li>
+                    <li>$\overrightarrow{v}.\overrightarrow{u_1}=-6\times1-3\times2+4\times3=0$ donc $\Delta_1$ et $D_1$ sont orthogonales.
+                        Comme elles ont le point $A_1$ en commun, elles sont donc bien perpendiculaires.
+                    <li>
+                        <ol>
+                            <li>$\overrightarrow{n}.\overrightarrow{u_1}=17\times1-22\times2+9\times3=0$
+                                et $\overrightarrow{n}.\overrightarrow{v}=17\times(-6)-22\times(-3)+9\times4=0$
+                                et $\overrightarrow{u_1}$ et $\overrightarrow{u_1}$ ne sont pas colinéaires donc $\overrightarrow{n}$
+                                est un vecteur normal à $P_1$.</li>
+                            <li>Si $P_1$ et $P_2$ étaient parallèles, leurs vecteurs normaux devraient êtres colinéaire.
+                                En particulier, $\overrightarrow{n}$ devrait être un vecteur normal à $P_2$.
+                                Or $\overrightarrow{n}.\overrightarrow{u_2}=17\times1-22\times(-2)+9\times0\neq0$ donc
+                                $P_1$ et $P_2$ ne sont pas parallèles.
+                            </li>
+                        </ol>
+                    </li>
+                    <li>Comme $\Delta_1$ et $\Delta_2$ ont le même vecteur directeur $\vec v$, elles sont parallèles.
+                        Or $\Delta_1$ est incluse dans $P_1$ et $\Delta_2$ dans $P_2$. D'après le théorème du toit, la
+                        droite $\Delta$ d'intersection de $P_1$ avec $P_2$ est donc parallèle à $\Delta_1$ et $\Delta_2$,
+                        ce qui justifie (ce n'était pas demandé ici) que $\vec v$ est bien un vecteur directeur de $\Delta$.<br />
+                        Comme $\Delta_1$ et $\Delta_2$ sont respectivement perpendiculaires à $D_1$ et $D_2$, alors $\Delta$
+                        est orthogonale à la fois à $D_1$ et à $D_2$.<br />
+                        Commme, de plus, $\Delta$ et $D_1$ sont coplanaires (dans $P_1$) elles sont perpendiculaires.<br />
+                        Commme, de plus, $\Delta$ et $D_2$ sont coplanaires (dans $P_2$) elles sont perpendiculaires.<br />
+                        $\Delta$ est donc perpendiculaire à la fois à $D_1$ et à $D_2$.
+                        <div class="centre"><div class="figure"><canvas id="graphe5" height="180", width="320">Balise canvas non supportée</canvas></div></div>
+                        <script>
+                            var graphe = calibre3D("graphe5", -7.25, 1.25, -1.25, 5.5, -0.5, 6.25);
+                            var O = point(0,0,0);
+                            var I = point(1,0,0);
+                            var J = point(0,1,0);
+                            var K = point(0,0,1);
+                            var A1 = point(0,2,-1);
+                            var Au1 = point(1,4,2);
+                            var Av1 = point(0-6,2-3,-1+4);
+                            var A2 = point(-1,4,2);
+                            var Au2 = point(0,2,2);
+                            var Av2 = point(-1-6,4-3,2+4);
+                            var It = point(-27/61,176/61,2);
+                            var Itv = point(-27/61-6,176/61-3,2+4);
+                            var It1 = point(45/61,222/61,74/61);
+                            var Itv1 = point(45/61-6,222/61-3,74/61+4);
+                            graphe.lineWidth = 1.5;
+                            graphe.fillStyle = '#f89800';
+                            remplir(combinaison(1,A2,-10,Au2,10,A2),Au2,combinaison(1,Au2,1,Av2,-1,A2),combinaison(1,Av2,-10,Au2,10,A2));
+                            ligne(combinaison(-14,A2,15,Au2),combinaison(16,A2,-15,Au2));
+                            ligne(combinaison(-4,A2,5,Av2),combinaison(6,A2,-5,Av2));
+                            fleche(A2,Av2);
+                            fleche(A2,Au2);
+                            graphe.fillStyle = '#0098f8';
+                            remplir(combinaison(1,A1,-10,Au1,10,A1),combinaison(1,A1,10,Au1,-10,A1),combinaison(1,Au1,1,Av1,-1,A1,10,Au1,-10,A1),combinaison(1,Au1,1,Av1,-1,A1,-10,Au1,10,A1));
+                            ligne(combinaison(-4,A1,5,Au1),combinaison(6,A1,-5,Au1));
+                            ligne(combinaison(-4,A1,5,Av1),combinaison(6,A1,-5,Av1));
+                            fleche(A1,Au1);
+                            fleche(A1,Av1);
+                            graphe.strokeStyle = '#f80098';
+                            ligne(combinaison(-4,It,5,Itv),combinaison(6,It,-5,Itv));
+                            graphe.fillStyle = '#f89800';
+                            remplir(combinaison(1,Au2,10,Au2,-10,A2),It,combinaison(1,It,1,Av2,-1,A2),combinaison(1,Au2,1,Av2,-1,A2,10,Au2,-10,A2));
+                            ligne(combinaison(1,It,1,Au2,-1,A2),combinaison(1,It,1,Au2,-1,A2,0.1,Av2,-0.1,A2),combinaison(1,It,0.1,Av2,-0.1,A2));
+                            ligne(combinaison(1,It1,0.18,Au1,-0.18,A1),combinaison(1,It1,0.18,Au1,-0.18,A1,0.1,Av1,-0.1,A1),combinaison(1,It1,0.1,Av1,-0.1,A1));
+                            graphe.strokeStyle = 'black';
+                            ligne(combinaison(1,A1,0.18,Au1,-0.18,A1),combinaison(1,A1,0.18,Au1,-0.18,A1,0.1,Av1,-0.1,A1),combinaison(1,A1,0.1,Av1,-0.1,A1));
+                            ligne(It,combinaison(-14,A2,15,Au2));
+                            fleche(It,Au2);
+                            graphe.lineWidth = 0.5;
+                            graphe.setLineDash([3,3]);
+                            ligne(combinaison(1,A2,-1,Au2,1,A2),combinaison(1,A2,-1,Au2,1,A2,0.1,Av2,-0.1,A2),combinaison(1,A2,0.1,Av2,-0.1,A2));
+                            ligne(It,combinaison(16,A2,-15,Au2));
+                            ligne(combinaison(-4,A2,5,Av2),combinaison(6,A2,-5,Av2));
+                            ligne(combinaison(-4,A1,5,Av1),combinaison(6,A1,-5,Av1));
+                            fleche(A1,Au1);
+                            fleche(A1,Av1);
+
+                            ecrit("$A_1$",1.5,0.25);
+                            ecrit("$D_1$",3.5,6);
+                            ecrit("$\\Delta_2$",-9,8);
+                            ecrit("$\\vec{v}$",-6,7);
+                            ecrit("$\\vec{u_1}$",3.5,3.5);
+                            ecrit("$\\vec{u_2}$",1.3,3);
+                            ecrit("$\\Delta$",-9,6.5,'#f80098');
+                            ecrit("$D_2$",-0.4,2);
+                            ecrit("$\\Delta_1$",-9,3.2);
+                            ecrit("$A_2$",1.7,4.3,'#00000030');
+                            ecrit("$\\vec{v}$",-6,3.2,'#00000030');
+                        </script>
+                    </li>
+                </ol>
+            </section>
+        </article>

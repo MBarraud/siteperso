@@ -1,0 +1,523 @@
+        <article>
+            <header>
+                <h2><span class="cadre">Définition</span> Fonction croissante</h2>
+                <p>Si $f$ est une fonction et $I\subset \mathscr{D}_f$ un intervalle, $f$ est dite <em>croissante</em> sur $I$ si pour tout $u\in I$ et $v\in I$ on a : $u\leqslant v \Rightarrow f(u)\leqslant f(v)$.
+                <div class="centre"><div class="figure"><canvas id="graphe1" height="180", width="320">Balise canvas non supportée</canvas></div></div>
+                <script>
+                    var graphe = calibre("graphe1",-1,11,-100,700,0.01);
+                    var f = x => x*(20-2*x)*(20-2*x);
+                    axes(1,0.01);
+                    /* la courbes */
+                    graphe.strokeStyle = "#000000";
+                    graphe.lineWidth=1.5;
+                    trace(f,0,10);
+                    graphe.strokeStyle = "#0098f8";
+                    graphe.lineWidth=2;
+                    trace(f,0,10/3);
+                    /* Les textes*/
+                    ecrit("$u$",0.8,-30);
+                    ecrit("$\\leqslant$",1.55,-20);
+                    ecrit("$v$",2.3,-30);
+                    ecrit("$f(u)$",-1.5,f(1)+40);
+                    ecrit("$f(v)$",-1.5,f(2.5)+40);
+                    ecrit("<div style='transform: rotate(-90deg);'>$\\leqslant$</div>",-1,(f(1)+f(2.5))/2+40);
+                    ecrit("<div style='transform: rotate(-60deg);'>$-$Croissante$\\to$</div>",-0.5,350,"#0098f8");
+                    /* les droites */
+                    graphe.setLineDash([5,5]);
+                    segment(1,0,1,f(1));
+                    fleche(point(1,f(1)),point(0,f(1)));
+                    segment(2.5,0,2.5,f(2.5));
+                    fleche(point(2.5,f(2.5)),point(0,f(2.5)));
+                </script></p>
+            </header>
+        </article>
+
+        <article>
+            <header>
+                <h2><span class="cadre">Définition</span> Fonction décroissante</h2>
+                <p>Si $f$ est une fonction et $I\subset \mathscr{D}_f$ un intervalle, $f$ est dite <em>décroissante</em> sur $I$ si pour tout $u\in I$ et $v\in I$ on a : $u\leqslant v \Rightarrow f(u)\geqslant f(v)$.
+                <div class="centre"><div class="figure"><canvas id="graphe2" height="180", width="320">Balise canvas non supportée</canvas></div></div>
+                <script>
+                    var graphe = calibre("graphe2",-1,11,-100,700,0.01);
+                    var f = x => x*(20-2*x)*(20-2*x);
+                    axes(1,0.01);
+                    /* la courbes */
+                    graphe.strokeStyle = "#000000";
+                    graphe.lineWidth=1.5;
+                    trace(f,0,10);
+                    graphe.strokeStyle = "#f89800";
+                    graphe.lineWidth=2;
+                    trace(f,10/3,10);
+                    /* Les textes*/
+                    ecrit("$u$",4.8,-30);
+                    ecrit("$\\leqslant$",5.8,-20);
+                    ecrit("$v$",6.8,-30);
+                    ecrit("$f(u)$",-1.5,f(5)+40);
+                    ecrit("$f(v)$",-1.5,f(7)+40);
+                    ecrit("<div style='transform: rotate(-90deg);'>$\\leqslant$</div>",-1,(f(5)+f(7))/2+40);
+                    ecrit("<div style='transform: rotate(50deg);'>$-$Décroissante$\\to$</div>",4,(f(5)+f(7))/2+40,"#f89800");
+                    /* les droites */
+                    graphe.setLineDash([5,5]);
+                    segment(5,0,5,f(5));
+                    fleche(point(5,f(5)),point(0,f(5)));
+                    segment(7,0,7,f(7));
+                    fleche(point(7,f(7)),point(0,f(7)));
+                </script></p>
+            </header>
+        </article>
+
+        <article>
+            <header>
+                <h2><span class="cadre">Définition</span> Tableau de variations</h2>
+                <p>La première ligne d'un tableau de variations donne, dans l'ordre croissant, les intervalles et la seconde les variations.
+
+                On complète par les valeurs images des bornes de ces intervalles dites <em>maximum</em> (local ou global) et <em>minimum</em> (local ou global).
+                <table>
+                    <thead>
+                        <tr><th>$x$</th><td>$0$</td><td></td><td>$\dfrac{10}{3}$</td><td></td><td>$10$</td></tr>
+                    </thead>
+                    <tbody>
+                        <tr class="variation"><th>$f(x)$</th>
+                        <td style="vertical-align: bottom;">$0$</td>
+                        <td><div class='croissante'></div>
+                        </td><td style="vertical-align: top;">$\approx 592,6$</td>
+                        <td><div class='decroissante'></div>
+                        <td style="vertical-align: bottom;">$0$</td>
+                        </tr>
+                    </tbody>
+                </table>
+                </p>
+            </header>
+        </article>
+
+
+        <article>
+            <header>
+                <h2><span class="cadre">Exercices</span> Sens de variation d'une fonction</h2>
+                <p>18, 19 et 20 p.240</p>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la solution</button>
+                <button>Cacher la solution</button>
+            <h3>Exercice 18p.240</h3>
+            <ol class="question" type='a'>
+              <li> On obtient la courbe :<br />
+
+                <div class="centre"><div class="figure"><canvas id="graphe3" height="180", width="320">Balise canvas non supportée</canvas></div></div>
+                   <script>
+                    var graphe = calibre("graphe3",-3,3,-3,11,6/14*9/16);
+                    var f = x => x*x+x-2;
+                    axes();
+                    /* la courbes */
+                    graphe.strokeStyle = "#0098f8";
+                    graphe.lineWidth=2;
+                    trace(f,xmin,xmax);
+                   </script>
+              </li>
+              <li>La fonction semble donc décroissante sur $[-2;-0.5]$ puis croissante sur $[-0.5,3]$.
+               </li>
+            </ol>
+            <h3>Exercice 19p.240</h3>
+            On obtient la courbe :<br />
+
+                <div class="centre"><div class="figure"><canvas id="graphe4" height="180", width="320">Balise canvas non supportée</canvas></div></div>
+                   <script>
+                    var graphe = calibre("graphe4",-2,5,-30,5,7/35*9/16);
+                    var f = x => x*x*x-5*x*x;
+                    axes(1,1/5);
+                    /* la courbes */
+                    graphe.strokeStyle = "#0098f8";
+                    graphe.lineWidth=2;
+                    trace(f,xmin,xmax);
+                   </script>
+                La calculatrice trouve alors un minimum local pour $x\approx 3,333$, ce qui laisse supposer que :
+                <ul> <li>La fonction est croissante sur $[-2;0]$.</li>
+                     <li>La fonction est décroissante sur $[0;\frac{10}{3}]$.</li>
+                     <li>La fonction est croissante sur $[\frac{10}{3};5]$.</li>
+                </ul>
+            <h3>Exercice 20p.240</h3>
+            <ol class="question" type='a'>
+              <li> $g$ semble croissante sur $[-4;4]$</li>
+              <li>On obtient pourtant :<br/>
+              <div class="centre"><div class="figure"><canvas id="graphe5" height="180", width="320">Balise canvas non supportée</canvas></div></div>
+                   <script>
+                    var graphe = calibre("graphe5",-0.5,0.5,-0.01,0.01,1/0.02*9/16);
+                    var f = x => x*x*x/3+0.1*x*x;
+                    axes(10,1000);
+                    /* la courbes */
+                    graphe.strokeStyle = "#0098f8";
+                    graphe.lineWidth=2;
+                    trace(f,xmin,xmax,0.001);
+                   </script>
+                </li>
+                     <li>On remarque que la fonction est en fait décroissante sur $[-0,2;0]$.</li>
+                </ol>
+            </section>
+        </article>
+
+        <article>
+            <header>
+                <h2><span class="cadre">Exercices</span> Tableau de variations d'une fonction</h2>
+                <p>23 à 27 p.240 et 241</p>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la solution</button>
+                <button>Cacher la solution</button>
+            <h3>Exercice 23p.240</h3>
+                <table>
+                    <thead>
+                        <tr><th>$x$</th><td>$0$</td><td></td><td>$2$</td><td></td><td>$4$</td></tr>
+                    </thead>
+                    <tbody>
+                        <tr class="variation"><th>$f(x)$</th>
+                        <td style="vertical-align: bottom;">$5$</td>
+                        <td><div class='croissante'></div>
+                        </td><td style="vertical-align: top;">$10$</td>
+                        <td><div class='decroissante'></div>
+                        <td style="vertical-align: bottom;">$5$</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            <h3>Exercice 24p.240</h3>
+
+            La courbe de $f$ est $\mathscr{C}_2$, celle de $g$ est $\mathscr{C}_1$ (valeurs de $x$ en abscisse et images $f(x)$ en ordonnée).
+
+            <h3>Exercice 25p.241</h3>
+                <table>
+                    <thead>
+                        <tr><th>$x$</th><td>$-1$</td><td></td><td>$0$</td><td></td><td>$2$</td><td></td><td>$5$</td></tr>
+                    </thead>
+                    <tbody>
+                        <tr class="variation"><th>$f(x)$</th>
+                        <td style="vertical-align: bottom;">$-3$</td>
+                        <td><div class='croissante'></div>
+                        </td><td style="vertical-align: top;">$1$</td>
+                        <td><div class='decroissante'></div>
+                        <td style="vertical-align: bottom;">$-5$</td>
+                        <td><div class='croissante'></div>
+                        <td style="vertical-align: top;">$-3$</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            <h3>Exercice 26p.241</h3>
+            <ol class="question" type='a'>
+              <li>On obtient pour $x\in[-2;4]$ et $y\in[-10;6]$ avec des pas de $1$ :<br/>
+              <div class="centre"><div class="figure"><canvas id="graphe6" height="180", width="320">Balise canvas non supportée</canvas></div></div>
+                   <script>
+                    var graphe = calibre("graphe6",-2,4,-10,6,6/16*9/16);
+                    var f = x => 5-2*(x-1)*(x-1);
+                    axes();
+                    /* la courbes */
+                    graphe.strokeStyle = "#0098f8";
+                    graphe.lineWidth=2;
+                    trace(f,xmin,xmax);
+                   </script></li>
+              <li>(Astuce : le nombre de variations maximum correspond à la puissance de $x$ dans le calcul.)
+                <table>
+                    <thead>
+                        <tr><th>$x$</th><td>$-\infty$</td><td></td><td>$1$</td><td></td><td>$+\infty$</td></tr>
+                    </thead>
+                    <tbody>
+                        <tr class="variation"><th>$f(x)$</th>
+                        <td style="vertical-align: bottom;">&nbsp;</td>
+                        <td><div class='croissante'></div>
+                        </td><td style="vertical-align: top;">$5$</td>
+                        <td><div class='decroissante'></div>
+                        <td style="vertical-align: bottom;">&nbsp;</td>
+                        </tr>
+                    </tbody>
+                </table>
+              </li>
+            </ol>
+
+            <h3>Exercice 27p.241</h3>
+                <table>
+                    <thead>
+                        <tr><th>$x$</th><td>$0$</td><td></td><td>$\pi$</td></tr>
+                    </thead>
+                    <tbody>
+                        <tr class="variation"><th>$f(x)$</th>
+                        <td style="vertical-align: top;">$2$</td>
+                        <td><div class='decroissante'></div>
+                        </td><td style="vertical-align: bottom;">$0$</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+&nbsp;
+
+                <table>
+                    <thead>
+                        <tr><th>$x$</th><td>$0$</td><td></td><td>$\pi$</td></tr>
+                    </thead>
+                    <tbody>
+                        <tr class="variation"><th>$g(x)$</th>
+                        <td style="vertical-align: bottom;">$0$</td>
+                        <td><div class='croissante'></div>
+                        </td><td style="vertical-align: top;">$2$</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </article>
+
+        <article>
+            <header>
+                <h2><span class="cadre">Exercices</span> Exploitation d'un tableau de variations</h2>
+                <p>30 à 35 p.241</p>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la solution</button>
+                <button>Cacher la solution</button>
+            <h3>Exercice 30p.241</h3>
+
+                Correction en classe
+
+            <h3>Exercice 31p.241</h3>
+
+                Correction en classe
+
+            <h3>Exercice 32p.241</h3>
+            <ol class="question">
+                <li>L'ensemble de définition de $f$ est $[-4;1]$.</li>
+                <li><ol class="question" type='a'>
+                <li>De $-3$ à $-2$, $f$ est croissante donc $f(-3)\leqslant f(-2)$.</li>
+                <li>$f(-1)=1$ et $f(0)=-5$ donc $f(-1)>f(0)$.</li>
+                <li>De $0$ à $-3$, $f$ subit deux variations, on ne peut donc rien affirmer.</li>
+                <li>De $-0,5$ à $0,5$, $f$ subit deux variations, on ne peut donc rien affirmer.</li>
+                </ol></li>
+            </ol>
+
+            <h3>Exercice 33p.241</h3>
+            <ol class="question" type='a'>
+                <li>Sans savoir si les variations sont strictes, on ne peut pas répondre.</li>
+                <li>Faux ($f$ est croissante de $-4$ à $-2$).</li>
+                <li>Faux ($f(2)$ n'existe pas).</li>
+                <li>Faux ($f(1)=3$)</li>
+                <li>Vrai ($f(-2)=4>1$).</li>
+                <li>On ne peut pas savoir.</li>
+            </ol>
+
+            <h3>Exercice 34p.241</h3>
+            <ol class="question" type='a'>
+                <li>Comme $-2\leqslant 0 \leqslant 4$ et que $f$ est croissante sur $[-2;4]$, alors $f(-2)\leqslant f(0) \leqslant f(4)$, c'est à dire : $-1\leqslant f(0) \leqslant 0$</li>
+                <li>$-1$ a au moins 2 antécédents par $f$ (le réel $-2$ et un autre entre $4$ et $6$).</li>
+                <li>$0$ a au moins 2 antécédents par $f$ (le réel $4$ et un autre entre $-6$ et $-2$).</li>
+            </ol>
+
+            <h3>Exercice 35p.241</h3>
+            $f(x)$ est positif entre $-2$ et $2$ puis négatif entre $2$ et $3$.
+            </section>
+        </article>
+
+        <article>
+            <header>
+                <h2><span class="cadre">Exercices</span> Extremums</h2>
+                <p>47 à 51 p.242 et 243</p>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la solution</button>
+                <button>Cacher la solution</button>
+            <h3>Exercice 47p.242</h3>
+            <ol class="question" type='a'>
+                <li>Le maximum de $f$ sur $[-2;4]$ est $6$.</li>
+                <li>Le minimum de $f$ sur $[-2;4]$ est $1$.</li>
+                <li><ul><li>Pour tout nombre réel $x$ de $[-2;1]$, $1\leqslant f(x) \leqslant 6$.</li>
+                        <li>Pour tout nombre réel $x$ de $[-1;4]$, $1\leqslant f(x) \leqslant 6$.</li></ul></li>
+            </ol>
+
+            <h3>Exercice 48p.243</h3>
+            On peut s'aider en dressant le tableau de variations correspondant à l'énoncé :
+                <table>
+                    <thead>
+                        <tr><th>$x$</th><td>$-2$</td><td></td><td>$0$</td><td></td><td>$3$</td></tr>
+                    </thead>
+                    <tbody>
+                        <tr class="variation"><th>$f(x)$</th>
+                        <td style="vertical-align: top;">$3$</td>
+                        <td><div class='decroissante'></div>
+                        </td><td style="vertical-align: bottom;">$-1$</td>
+                        <td><div class='croissante'></div>
+                        <td style="vertical-align: top;">$6$</td>
+                        </tr>
+                    </tbody>
+                </table>
+            <ol class="question" type='a'>
+                <li>Le maximum de $f$ sur $[-2;3]$ est $6$.</li>
+                <li>Pour tout nombre réel $x$ de $[-2;3]$, $-1\leqslant f(x) \leqslant 6$.</li>
+                <li>Pour tout nombre réel $x$ de $[-2;0]$, $-1\leqslant f(x) \leqslant 3$.</li>
+            </ol>
+
+            <h3>Exercice 49p.243</h3>
+            <ol class="question" type='a'>
+                <li>Sur $[-4;5]$, le minimum de $f$ est $-1$ et il est atteint en $-1$, $3$ et $5$.<br/>
+                    Il suffit donc de garder aun moins une de ces valeurs dans l'intervalle. Par exemple, sur $[-2;0]$, le minimum de $f$ est $-1$ et il est atteint en $-1$.</li>
+                <li>$2$ n'étant pas le maximum global il faut faire plus attention.<br/>
+                Sur $[-1;3]$, le maximum de $f$ est bien $2$ et il est atteint en $1$.<br/>
+
+                Si on note $a$ l'antécédent de $2$ compris entre $-3$ et $-2$, on peut aussi dire que sur $[a;0]$, le maximum de $f$ est bien $2$ et il est atteint en $a$.</li>
+            </ol>
+
+            <h3>Exercice 50p.243</h3>
+
+            On obtient le tableau de valeurs suivant :
+
+            <table><tr><td>$x$</td><td style='border-left:solid 1pt;'>0</td>
+                <td style='border-left:solid 1pt;'>0.1</td>
+                <td style='border-left:solid 1pt;'>0.2</td>
+                <td style='border-left:solid 1pt;'>0.3</td>
+                <td style='border-left:solid 1pt;'>0.4</td>
+                <td style='border-left:solid 1pt;'>0.5</td>
+                <td style='border-left:solid 1pt;'>0.6</td>
+                <td style='border-left:solid 1pt;'>0.7</td>
+                <td style='border-left:solid 1pt;'>0.8</td>
+                <td style='border-left:solid 1pt;'>0.9</td>
+                <td style='border-left:solid 1pt;'>1</td>
+                </tr>
+                <tr><td>$f(x)$</td><td style='border-left:solid 1pt;'>0</td>
+                <td style='border-left:solid 1pt;'>-0,007975</td>
+                <td style='border-left:solid 1pt;'>...</td>
+                <td style='border-left:solid 1pt;'>...</td>
+                <td style='border-left:solid 1pt;'>-0,0256</td>
+                <td style='border-left:solid 1pt;'>0,015625</td>
+                <td style='border-left:solid 1pt;'>...</td>
+                <td style='border-left:solid 1pt;'>...</td>
+                <td style='border-left:solid 1pt;'>...</td>
+                <td style='border-left:solid 1pt;'>...</td>
+                <td style='border-left:solid 1pt;'>1,25</td></tr>
+                    </table>
+
+                    Certaines images (pour $x$ proche de 0) sont négatives. Donc $0$ ne peut pas être le minimum de $f$ sur $[0;3]$.
+
+            <h3>Exercice 51p.243</h3>
+            <ol class="question" type='a'>
+                <li>On obtient en particulier :
+                <table><tr><td>$x$</td><td style='border-left:solid 1pt;'>-2</td>
+                <td style='border-left:solid 1pt;'>...</td>
+                <td style='border-left:solid 1pt;'>-1.4</td>
+                <td style='border-left:solid 1pt;'>-1.3</td>
+                <td style='border-left:solid 1pt;'>-1.2</td>
+                <td style='border-left:solid 1pt;'>...</td>
+                <td style='border-left:solid 1pt;'>1.2</td>
+                <td style='border-left:solid 1pt;'>1.3</td>
+                <td style='border-left:solid 1pt;'>1.4</td>
+                <td style='border-left:solid 1pt;'>...</td>
+                <td style='border-left:solid 1pt;'>2</td>
+                </tr>
+                <tr><td>$f(x)$</td><td style='border-left:solid 1pt;'>9</td>
+                <td style='border-left:solid 1pt;'>...</td>
+                <td style='border-left:solid 1pt;'>11.256</td>
+                <td style='border-left:solid 1pt;'>11.303</td>
+                <td style='border-left:solid 1pt;'>11.272</td>
+                <td style='border-left:solid 1pt;'>...</td>
+                <td style='border-left:solid 1pt;'>2.728</td>
+                <td style='border-left:solid 1pt;'>2.697</td>
+                <td style='border-left:solid 1pt;'>2.744</td>
+                <td style='border-left:solid 1pt;'>...</td>
+                <td style='border-left:solid 1pt;'>5</td></tr>
+                    </table></li>
+                <li>On peut donc faire la conjecture : $1,2 \leqslant x_0 \leqslant 1,4$ et  $-1,4 \leqslant x_1 \leqslant -1,2$</li>
+            </ol>
+            </section>
+        </article>
+
+        <article>
+            <header>
+                <h2><span class="cadre">Exercices</span> Fonctions de référence</h2>
+                <p>54 à 58 p.243</p>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la solution</button>
+                <button>Cacher la solution</button>
+            <h3>Exercice 54p.245</h3>
+            <ol class="question" type='a'>
+                <li>Carré croissante sur $[2,03;2,3]$ donc $2,03^2 \leqslant 2,3^2$</li>
+                <li>Carré décroissante sur $[-1,99;-1,88]$ donc $(-1,99)^2 \geqslant (-1,88)^2$</li>
+                <li>Inverse décroissante sur $[7;8]$ donc $\frac{1}{7} \geqslant \frac{1}{8}$</li>
+                <li>Inverse décroissante sur $[-5;-4]$ donc $\frac{1}{-5} \geqslant \frac{1}{-4}$</li>
+                <li>Cube croissante sur  $[-4,75;-4,7]$ donc $(-4;76)^3 \leqslant (-4,7)^3$</li>
+                <li>Racine carrée croissante sur $[0,55;5,5]$ donc $\sqrt{0,55} \leqslant \sqrt{5,5}$</li>
+            </ol>
+
+            <h3>Exercice 55p.243</h3>
+            <ol class="question" type='a'>
+                <li>Si $x&gt;5$ alors $0<\frac{1}{x}&lt;\frac{1}{5}$</li>
+                <li>Si $x&lt;-4$ alors $\frac{1}{-4}&lt;\frac{1}{x}<0$</li>
+                <li>Si $6&lt;x&lt;7$ alors $\frac{1}{7}&lt;\frac{1}{x}&lt;\frac{1}{6}$</li>
+            </ol>
+
+            <h3>Exercice 56p.243</h3>
+            <ol class="question" type='a'>
+                <li><table>
+                    <thead>
+                        <tr><th>$x$</th><td>$-2$</td><td></td><td>$0$</td><td></td><td>$4$</td></tr>
+                    </thead>
+                    <tbody>
+                        <tr class="variation"><th>$x^2$</th>
+                        <td style="vertical-align: top;">$4$</td>
+                        <td><div class='decroissante'></div>
+                        </td><td style="vertical-align: bottom;">$0$</td>
+                        <td><div class='croissante'></div>
+                        <td style="vertical-align: top;">$16$</td>
+                        </tr>
+                    </tbody>
+                </table><br/></li>
+                <li><table>
+                    <thead>
+                        <tr><th>$x$</th><td>$-5$</td><td></td><td colspan=2>$0$</td><td></td><td>$5$</td></tr>
+                    </thead>
+                    <tbody>
+                        <tr class="variation"><th>$\dfrac{1}{x}$</th>
+                        <td style="vertical-align: top;">$-\frac{1}{5}$</td>
+                        <td><div class='decroissante'></div>
+                        </td><td></td><td style='border-left-width:3pt;border-left-style: double'></td>
+                        <td><div class='decroissante'></div>
+                        <td style="vertical-align: bottom;">$\frac{1}{5}$</td>
+                        </tr>
+                    </tbody>
+                </table><br/></li>
+                <li><table>
+                    <thead>
+                        <tr><th>$x$</th><td>$-1$</td><td></td><td>$10$</td></tr>
+                    </thead>
+                    <tbody>
+                        <tr class="variation"><th>$x^3$</th>
+                        </td><td style="vertical-align: bottom;">$-1$</td>
+                        <td><div class='croissante'></div>
+                        <td style="vertical-align: top;">$1000$</td>
+                        </tr>
+                    </tbody>
+                </table><br/></li>
+                <li><table>
+                    <thead>
+                        <tr><th>$x$</th><td>$0$</td><td></td><td>$16$</td></tr>
+                    </thead>
+                    <tbody>
+                        <tr class="variation"><th>$\sqrt{x}$</th>
+                        </td><td style="vertical-align: bottom;">$0$</td>
+                        <td><div class='croissante'></div>
+                        <td style="vertical-align: top;">$4$</td>
+                        </tr>
+                    </tbody>
+                </table></li>
+            </ol>
+
+            <h3>Exercice 57p.243</h3>
+            <ol class="question" type='a'>
+                <li>$\pi-5&lt;\pi-4&lt;0$ donc par décroissance du carré : $(\pi-5)^2&gt;(\pi-4)^2$</li>
+                <li>$-5&lt;-3&lt;0$ donc par décroissance de l'inverse : $-\frac{1}{5}&gt;\frac{1}{-3}$</li>
+                <li>$0&lt;40&lt;49$ donc par croissance de racine carrée : $\sqrt{40}&lt;7$</li>
+                <li>$(-0,4)^3&lt;0&lt;0,4^3$</li>
+            </ol>
+
+            <h3>Exercice 58p.243</h3>
+            <ol class="question" type='a'>
+                <li>Si $-4&lt;x&lt;-1$ alors $1&lt;x^2&lt;16$</li>
+                <li>Si $2 \leqslant x \leqslant 5$ alors $4 \leqslant x^2 \leqslant 25$</li>
+                <li>Si $-1&lt;x&lt;2$ alors $0 \leqslant x^2 &lt; 4$</li>
+                <li>Si $-4&lt;x \leqslant 5$ alors $0 \leqslant x^2 \leqslant 25$</li>
+            </ol>
+            </section>
+        </article>

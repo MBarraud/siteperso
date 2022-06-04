@@ -1,0 +1,115 @@
+<article>
+            <header><h2><span class="cadre">Théorème</span> Intervalle de confiance</h2>
+            <p>Si $X_n\hookrightarrow\mathscr{B}(n,p)$ avec $p\in]0\,;1[$ fixé et $F_n=\frac{X_n}{n}$,
+            l'intervalle $\displaystyle \left]F_n-\dfrac{1}{\sqrt{n}};F_n+\dfrac{1}{\sqrt{n}}\right[$
+            contient, pour n assez grand, la proportion $p$ avec une probabilité au moins égale à $0,95$.
+            </p>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la démonstration (ROC)</button>
+                <button>Cacher la démonstration</button>
+                Pour $n\geqslant30$ et sous les conditions : $np\geqslant5$ et $n(1-p)\geqslant5$, c'est à dire
+                pour $n$ assez grand ($p$ étant fixé), on sait que
+                $\displaystyle P\left(F_n \in I_n\right)\approx 0,95$ avec
+                $I_n = \left]p-1,96\dfrac{\sqrt{p(1-p)}}{\sqrt{n}};p+1,96\dfrac{\sqrt{p(1-p)}}{\sqrt{n}}\right[$.
+                On a vu que cet intervalle est strictement compris dans $\left]p-\dfrac{1}{\sqrt{n}};p+\dfrac{1}{\sqrt{n}}\right[$,
+                (En effet, $p(1-p)\leqslant0,25$ puis $1,95\times\sqrt{0,25}=0,975&lt;1$).
+                D'où : $\displaystyle P\left(F_n \in \left]p-\dfrac{1}{\sqrt{n}};p+\dfrac{1}{\sqrt{n}}\right[\right)\geqslant 0,95$<br />
+                Or cet événement peut se réécrire  $\left(p-\dfrac{1}{\sqrt{n}}&lt;F_n&lt;p+\dfrac{1}{\sqrt{n}}\right)$
+                $\Leftrightarrow \left(p-\dfrac{1}{\sqrt{n}}&lt;F_n\right)\cap\left(F_n&lt;p+\dfrac{1}{\sqrt{n}}\right)$
+                $\Leftrightarrow \left(p&lt;F_n+\dfrac{1}{\sqrt{n}}\right)\cap\left(F_n-\dfrac{1}{\sqrt{n}}&lt;p\right)$
+                $\Leftrightarrow \left(F_n-\dfrac{1}{\sqrt{n}}&lt;p&lt;F_n+\dfrac{1}{\sqrt{n}}\right)$<br />
+                Finalement : $\displaystyle P\left(p \in \left]F_n-\dfrac{1}{\sqrt{n}};F_n+\dfrac{1}{\sqrt{n}}\right[\right)\geqslant 0,95$
+            </section>
+        </article>
+
+
+        <article>
+            <header><h2><span class="cadre">Définition</span> Intervalle de confiance au seuil de 95%</h2>
+            Pour $n\geqslant30$ et sous les conditions : $np\geqslant5$ et $n(1-p)\geqslant5$,
+            $f$ désignant la fréquence observée sur un échantillon de taille $n$, alors $p$ est un
+            élément de $\left]f-\dfrac{1}{\sqrt{n}};f+\dfrac{1}{\sqrt{n}}\right[$ avec un niveau de
+            confiance de 95%.<br />
+
+            On dit que cet intervalle est un intervalle de confiance au seuil de 95%.
+            </header>
+            <section>
+                <h3>Exemple</h3>
+                Lors d'un sondage sur un vote à la majorité, un candidat a obtenu 45% d'intentions
+                de vote : a-t-il des chances d'être élu ?<br />
+                On ne peut répondre à cette question QUE si l'on connait le nombre de sondés.
+                <ul>
+                    <li>Sur $n = 250$ sondés, l'intervalle de confiance au seuil de 95% est
+                    $\left]0,45-\dfrac{1}{\sqrt{250}};0,45+\dfrac{1}{\sqrt{250}}\right[$
+                    $\approx \left]0,39\,;0,51\right[$. Le résultat du vote ayant 95% de chances
+                    d'être dans cet intervalle, un vote majoritaire en faveur du candidat est tout
+                    à fait possible.</li>
+                    <li>Sur $n = 1000$ sondés, l'intervalle de confiance au seuil de 95% est
+                    $\left]0,45-\dfrac{1}{\sqrt{1000}};0,45+\dfrac{1}{\sqrt{1000}}\right[$
+                    $\approx \left]0,42\,;0,48\right[$. Le résultat du vote ayant 95% de chances
+                    d'être dans cet intervalle, un vote majoritaire en faveur du candidat est tout
+                    à fait improbable.</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Plus précisément</h3>
+                On peut démontrer (mais pas ici) que
+                $\left]f-1,96\dfrac{\sqrt{f(1-f)}}{\sqrt{n}};f+1,96\dfrac{\sqrt{f(1-f)}}{\sqrt{n}}\right[$
+                est un intervalle de confiance au seuil de 95% plus précis.
+            </section>
+        </article>
+
+        <article>
+            <header><h2><span class="cadre">Exercice</span> Antilles-Guyane  - BAC S - septembre 2019</h2>
+            <p>Depuis plusieurs années, les associations distribuant des produits frais à leurs
+                adhérents se développent dans tout le pays et connaissent un succès grandissant.
+                Lors d’une émission de radio consacrée à ce sujet, un journaliste annonce que 88%
+                des adhérents de ces associations sont satisfaits.<br />
+                Un auditeur intervient dans l’émission pour contester le pourcentage avancé par le
+                journaliste. À l’appui de son propos, l’auditeur déclare avoir réalisé un sondage
+                auprès de 120 adhérents de ces associations et avoir constaté que, parmi eux,
+                seuls 100 ont indiqué être satisfaits.<br />
+                La contestation de l’auditeur est-elle fondée?
+            </p>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la solution</button>
+                <button>Cacher la solution</button>
+                La proportion d’adhérents satisfaits est supposée être $p=0,88$.<br />
+                Le sondage a été fait sur $n=120$ adhérents de ces associations.<br />
+                La fréquence des satifaits pour cet échantillon est $f = \frac{100}{120} \approx 0,833$<br />
+                Comme une valeur de $p$ est donnée, on peut utiliser un intervalle de fluctuation au seuil de 95%.
+                On trouve $]0,822\,;0,938[$ qui contient bien $0,833$ donc la contestation n'est pas fondée.<br />
+                Comme par ailleurs, on parle de sondage, on peut utiliser un intervalle de confiance au niveau de 95%.
+                C'est à dire $\left] \dfrac{100}{120}-\dfrac{1}{\sqrt{120}}\,;\dfrac{100}{120}+\dfrac{1}{\sqrt{120}}\right[$
+                $\approx ]0,742\,;0,925[$ qui contient bien $0,88$.
+            </section>
+        </article>
+
+        <article>
+            <header><h2><span class="cadre">Exercice</span>  Métropole - La Réunion  - BAC S - septembre 2017</h2>
+            <p>À propos d'un médicament qu'il produit, un laboratoire annonce que 30% des patients qui
+            l’utilisent présentent des effets secondaires.
+            Pour estimer la proportion d’utilisateurs de ce médicament
+            présentant des effets secondaires, un organisme indépendant réalise une étude basée
+            sur un intervalle de confiance au niveau de confiance 95%.
+            Cette étude aboutit à une fréquence observée de 37% de patients présentant des
+            effets secondaires, et à un intervalle de confiance qui ne contient pas la fréquence 30%.<br />
+            Quel est l’effectif minimal de l’échantillon de cette étude?
+            </header>
+            <section class="ouvrable">
+                <button>Voir la solution</button>
+                <button>Cacher la solution</button>
+                L'intervalle de confiance au niveau de confiance 95% est ici $\left]0,37-\dfrac{1}{\sqrt{n}}\,;0,37+\dfrac{1}{\sqrt{n}}\right[$
+                où $n$ désigne l'effectif de l'échantillon de cette étude. On cherche donc la valeur minimale de $n$ pour que
+                $0,3\notin\left]0,37-\dfrac{1}{\sqrt{n}}\,;0,37+\dfrac{1}{\sqrt{n}}\right[$.<br />
+                Comme on a toujours $0,3 &lt; 0,37+\dfrac{1}{\sqrt{n}}$, la contrainte se réécrit :
+                $0,3 \leqslant 0,37-\dfrac{1}{\sqrt{n}}$
+                $\Leftrightarrow -0,07 \leqslant -\dfrac{1}{\sqrt{n}}$
+                $\Leftrightarrow 0,07\sqrt{n} \geqslant 1$
+                $\Leftrightarrow \sqrt{n} \geqslant \frac{1}{0,07}$
+                $\Leftrightarrow n \geqslant \frac{1}{0,07^2} \approx 204,1$<br />
+                L’effectif minimal de l’échantillon de cette étude est donc de 205.
+
+            </section>
+        </article>

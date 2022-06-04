@@ -1,0 +1,275 @@
+<article>
+            <header>
+                <h2><span class="cadre">Définition</span> Produit scalaire</h2>
+                <p>Soient $\vec u$ et $\vec v$ deux vecteurs dans l'espace dont on s'est donné une unité graphique de mesure.<br />
+                   Partant de n'importe quel point $O$ de l'espace, $(O\,; \vec{u}\,, \vec{v})$ définit un plan dans lequel le produit scalaire $\vec{u} . \vec{v}$ est déjà défini.
+                   Comme cette définition ne dépend pas du choix de $O$, elle définit également le produit scalaire $\vec{u} . \vec{v}$ dans l'espace.
+                <ul>
+                    <li>Si $\vec u$ et $\vec v$ sont colinéaires de même sens, alors $\vec u . \vec v =\Vert \vec u \Vert \times \Vert\vec v\Vert$</li>
+                    <li>Si $\vec u$ et $\vec v$ sont colinéaires de sens opposés, alors $\vec u . \vec v = - \Vert \vec u \Vert \times \Vert\vec v\Vert$</li>
+                    <li>Dans le cas général, l'expression dépend de l'angle entre les deux vecteurs : <div class="centre"><span class="cadre">$\vec u . \vec v = \Vert \vec u \Vert \times \Vert\vec v\Vert \times \cos(\widehat{\vec{u}\,; \vec{v}})$</span></div></li>
+                </ul>
+            </header>
+            <section class="ouvrable">
+                <button>Voir une représentation graphique</button>
+                <button>Cacher la réprésentation graphique</button>
+                <div class="centre"><div class="figure"><canvas id="graphe1" height="180" width="320">Balise canvas non supportée</canvas></div></div>
+                <script>
+                    var graphe = calibre("graphe1",1,17,0.75,9.75,1);
+                    /*axes();*/
+                    fleche(point(3,7),point(7,9));
+                    fleche(point(3,8),point(5,9));
+                    ecrit("$\\vec u$", 3.5,9.5);
+                    ecrit("$\\vec v$", 5,8);
+                    ecrit("$\\vec u . \\vec v =\\Vert \\vec u \\Vert \\times \\Vert\\vec v\\Vert$", 2,6.9);
+                    /*  */
+                    fleche(point(11,7),point(15,9));
+                    fleche(point(13,9),point(11,8));
+                    ecrit("$\\vec u$", 11.5,9.5);
+                    ecrit("$\\vec v$", 13,8);
+                    ecrit("$\\vec u . \\vec v =-\\Vert \\vec u \\Vert \\times \\Vert\\vec v\\Vert$", 9.5,6.9);
+                    /*  */
+                    fleche(point(7,4),point(11,2));
+                    fleche(point(7,4),point(9,5));
+                    graphe.beginPath();
+                    graphe.arc(xpx(7),ypx(4),30, -0.4636, 0.4636);
+                    graphe.lineTo(xpx(8.25),ypx(3.75));
+                    graphe.stroke();
+                    graphe.beginPath();
+                    graphe.arc(xpx(7),ypx(4),30, 0.4, 0.4636);
+                    graphe.lineTo(xpx(8.7),ypx(3.5));
+                    graphe.stroke();
+                    ecrit("$\\vec u$", 7.5,5.5);
+                    ecrit("$\\vec v$", 8,3);
+                    ecrit("$(\\widehat{\\vec{u}\,; \\vec{v}})$", 9,4.9);
+                    ecrit("$\\vec u . \\vec v = \\Vert \\vec u \\Vert \\times \\Vert\\vec v\\Vert \\times \\cos(\\widehat{\\vec{u}\\,; \\vec{v}})$", 3.8,2.2);
+                </script>
+            </section>
+            <section>
+                <h3>Exemple</h3>
+                Dans un tétraèdre $ABCD$ régulier le côté $a$ :
+                <div class="centre"><div class="figure"><canvas id="graphe2" height="180" width="320">Balise canvas non supportée</canvas></div></div>
+                <script>
+                    var graphe = calibre3D("graphe2", -0.5, 0.5, -0.5, 1, -0.25, 1);
+                    var A = point(-0.5,0,0);
+                    var B = point(0.5,0,0);
+                    var D = point(0,Math.sqrt(3)/6,Math.sqrt(2/3));
+                    var C = point(0,Math.sqrt(3)/2,0);
+                    graphe.lineWidth = 1;
+                    graphe.fillStyle = '#0098f8';
+                    ligne(B,D,C,B);
+                    graphe.lineWidth = 2;
+                    fleche(A,B);
+                    fleche(A,D);
+                    graphe.lineWidth = 1;
+                    graphe.setLineDash([3,3]);
+                    ligne(A,C);
+                    ecrit("$A$",-0.6,-0.1);
+                    ecrit("$B$",0.5,-0.1);
+                    ecrit("$C$",0.6,0.4);
+                    ecrit("$D$",0.09,1.1);
+                </script>
+                $\overrightarrow{AB}.\overrightarrow{AD} = AB \times AD \times  \cos(\widehat{\overrightarrow{AB}\,;\overrightarrow{AD}})$
+                $= a \times a \times  \cos(\frac{\pi}{3})$
+                $= \frac{1}{2} a^2$.
+            </section>
+        </article>
+
+        <article>
+            <header>
+                <h2><span class="cadre">Propriété</span> Calcul par projection</h2>
+                <p> Si $\vec u = \overrightarrow{AB}$, $\vec v = \overrightarrow{AC}$ et si $H$ est le pied de la hauteur de $ABC$ issue de C, on dit que $\overrightarrow{AH}$ est la projection orthogonale de $\overrightarrow{AC}$ sur $(AB)$, et :
+                <div class="centre"><div class="figure"><canvas id="graphe3" height="180" width="320">Balise canvas non supportée</canvas></div></div>
+                <script>
+                    var graphe = calibre("graphe3",1,17,1,9,1);
+                    /*axes();*/
+                    fleche(point(2,8),point(7,8));
+                    fleche(point(2,5),point(5,7));
+                    fleche(point(8,4),point(13,4));
+                    fleche(point(8,4),point(11,6));
+                    ligne(point(10.5,4),point(10.5,4.5),point(11,4.5));
+                    graphe.setLineDash([4,2]);
+                    ligne(point(11,6),point(11,4));
+                    ecrit("$\\vec u$",4,9);
+                    ecrit("$\\vec v$",3,7);
+                    ecrit("$A$",7,4);
+                    ecrit("$B$",13.3,4);
+                    ecrit("$C$",11.2,6.5);
+                    ecrit("$H$",10.7,3.7);
+                </script>
+                <div class="centre"><span class="cadre">$\vec u . \vec v = \overrightarrow{AB} . \overrightarrow{AC} = \overrightarrow{AB} . \overrightarrow{AH}$</span></div></p>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la démonstration</button>
+                <button>Cacher la démonstration</button>
+                Dans le cas particulier de la figure, où   $0<\left( \widehat{\vec u \,; \vec v}\right)<\frac{\pi}{2}$, il suffit de se placer dans le triangle $AHC$ rectangle en $H$ pour pouvoir écrire
+                $\cos(\widehat{\vec{u}\,; \vec{v}}) = \frac{AH}{AC}$ donc $AH = AC \times \cos(\widehat{\vec{u}\,; \vec{v}})$.<br />
+                Alors  $\vec u . \vec v = \Vert \vec u \Vert \times \Vert\vec v\Vert \times \cos(\widehat{\vec{u}\,; \vec{v}})$
+                $ =  AB \times AC \times \cos(\widehat{\vec{u}\,; \vec{v}})$
+                $ =  AB \times AH$
+                $ =  \overrightarrow{AB} . \overrightarrow{AH}$ car ils sont colinéaires de même sens.<br />
+                Passer en revue les différents cas de figure permet de conclure.
+            </section>
+            <section>
+                <h3>Exemple</h3>
+                Dans un tétraèdre $ABCD$ régulier le côté $a$ :
+                <div class="centre"><div class="figure"><canvas id="graphe4" height="180" width="320">Balise canvas non supportée</canvas></div></div>
+                <script>
+                    var graphe = calibre3D("graphe4", -0.5, 0.5, -0.5, 1, -0.25, 1);
+                    var A = point(-0.5,0,0);
+                    var B = point(0.5,0,0);
+                    var D = point(0,Math.sqrt(3)/6,Math.sqrt(2/3));
+                    var C = point(0,Math.sqrt(3)/2,0);
+                    var I = combinaison(0.5,A,0.5,B);
+                    var R1 = combinaison(1,I,0.1,B,-0.1,A);
+                    var R2 = combinaison(1,I,0.1,B,-0.1,A,0.1,D,-0.1,I);
+                    var R3 = combinaison(1,I,0.1,D,-0.1,I);
+                    graphe.lineWidth = 1;
+                    graphe.fillStyle = '#0098f8';
+                    ligne(B,D,C,B);
+                    graphe.lineWidth = 2;
+                    fleche(A,B);
+                    fleche(A,D);
+                    graphe.lineWidth = 1;
+                    graphe.setLineDash([3,3]);
+                    ligne(A,C);
+                    graphe.setLineDash([1,1]);
+                    ligne(I,D);
+                    ligne(R1,R2,R3);
+                    ecrit("$A$",-0.6,-0.1);
+                    ecrit("$B$",0.5,-0.1);
+                    ecrit("$I$",-0.05,-0.1);
+                    ecrit("$C$",0.6,0.4);
+                    ecrit("$D$",0.09,1.1);
+                </script>
+                Notons $I$ le pied de la hauteur de $ABD$ issue de $D$ : <br />
+                $\overrightarrow{AB}.\overrightarrow{AD} = \overrightarrow{AB}.\overrightarrow{AI} = AB \times AI$<br />
+                Or $ABC$ est équilatéral. La hauteur $DI$ est donc aussi une médiane et $AI =\frac{1}{2} AB $.<br />
+                Finalement, $\overrightarrow{AB}.\overrightarrow{AD} = \frac{1}{2} AB^2 = \frac{1}{2} a^2$.
+            </section>
+        </article>
+
+        <article>
+            <header>
+                <h2><span class="cadre">Exercice 1</span> Calcul dans un cube</h2>
+                <p> On considère ci-dessous le cube $ABCDEFGH$ de côté $a$.</p>
+                <div class="centre"><div class="figure"><canvas id="graphe5" height="180", width="320">Balise canvas non supportée</canvas></div></div>
+                <script>
+                    var graphe = calibre3D("graphe5", -1.25, 1.25, -1.25, 1.25, -1.25, 1.25);
+                    var A = point(-1,-1,-1);
+                    var B = point(1,-1,-1);
+                    var C = point(1,1,-1);
+                    var D = point(-1,1,-1);
+                    var E = point(-1,-1,1);
+                    var F = point(1,-1,1);
+                    var G = point(1,1,1);
+                    var H = point(-1,1,1);
+                    var I = combinaison(0.5,E,0.5,G);
+                    ligne(A,B,C,G,H,E,F,B);
+                    ligne(A,E,G);
+                    ligne(F,G);
+                    ligne(combinaison(0.4,H,0.6,F),combinaison(0.6,H,0.4,F));
+                    graphe.setLineDash([3,3]);
+                    ligne(A,D,C);
+                    ligne(D,H);
+                    ecrit("$A$",-2,-1.25);
+                    ecrit("$B$",0.75,-1.25);
+                    ecrit("$D$",-0.8,-0.5);
+                    ecrit("$C$",1.8,-0.5);
+                    ecrit("$E$",-2,0.7);
+                    ecrit("$F$",0.75,0.7);
+                    ecrit("$H$",-0.8,1.45);
+                    ecrit("$G$",1.8,1.45);
+                    ecrit("$I$",0,1.25);
+                </script>
+                <p>On note $I$ le milieu du segment $[EG]$.</p>
+                <ol>
+                    <li>Calculer par la formule de votre choix :
+                        <div class="double">
+                            <ol>
+                                <li>$\overrightarrow{AB} . \overrightarrow{DG}$</li>
+                                <li>$\overrightarrow{AB} . \overrightarrow{EG}$</li>
+                                <li>$\overrightarrow{AB} . \overrightarrow{CG}$</li>
+                                <li>$\overrightarrow{AB} . \overrightarrow{HG}$</li>
+                                <li>$\overrightarrow{AB} . \overrightarrow{FG}$</li>
+                                <li>$\overrightarrow{AB} . \overrightarrow{BG}$</li>
+                            </ol>
+                        </div>
+                    </li>
+                    <li>Déterminer et justifier la nature du triangle $DCI$.<br />
+                        En déduire $\overrightarrow{AB} . \overrightarrow{DI}$
+                    </li>
+                </ol>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la solution</button>
+                <button>Cacher la solution</button>
+                <ol>
+                    <li>
+                        <ol>
+                            <li>$\overrightarrow{DG} = \overrightarrow{AF}$ et le projeté de $F$ sur $(AB)$ est $B$ donc : <br />
+                                $\overrightarrow{AB} . \overrightarrow{DG} = \overrightarrow{AB} . \overrightarrow{AF} = \overrightarrow{AB} . \overrightarrow{AB} = a^2$.</li>
+                            <li>$\overrightarrow{EG} = \overrightarrow{AC}$ et le projeté de $C$ sur $(AB)$ est $B$ donc : <br />
+                                $\overrightarrow{AB} . \overrightarrow{EG} = \overrightarrow{AB} . \overrightarrow{AC} = \overrightarrow{AB} . \overrightarrow{AB} = a^2$.</li>
+                            <li>$\overrightarrow{CG} = \overrightarrow{AE}$ et l'angle entre $(AB)$ et $(AE)$ est droit donc :
+                                $\overrightarrow{AB} . \overrightarrow{CG} = \overrightarrow{AB} . \overrightarrow{AE} = a \times a \times \cos(\frac{\pi}{2}) = 0$</li>
+                            <li>$\overrightarrow{HG} = \overrightarrow{AB}$ donc $\overrightarrow{AB} . \overrightarrow{HG} = a^2$</li>
+                            <li>$\overrightarrow{FG} = \overrightarrow{AD}$ et l'angle entre $(AB)$ et $(AD)$ est droit donc :
+                                $\overrightarrow{AB} . \overrightarrow{FG} = \overrightarrow{AB} . \overrightarrow{AD} = a \times a \times \cos(\frac{\pi}{2}) = 0$</li>
+                            <li>Calculer $\overrightarrow{AB} . \overrightarrow{BG}$ est plus difficile si on ne &laquo; voit &raquo; pas que l'angle en B est droit : $\overrightarrow{AB} . \overrightarrow{BG} = 0$. La suite du cours est justement là pour préciser cette question.</li>
+                        </ol>
+                    </li>
+                    <li>Les sommets du cube sont symétriques par rapport au plan parallèle aux faces $BCGF$ et $ADHE$ le coupant en deux donc passant par $I$. Donc $DCI$ est isocèle de sommet $I$.<br />
+                        <div class="centre"><div class="figure"><canvas id="graphe6" height="180", width="320">Balise canvas non supportée</canvas></div></div>
+                        <script>
+                            var graphe = calibre3D("graphe6", -1.25, 1.25, -1.25, 1.25, -1.25, 1.25);
+                            var A = point(-1,-1,-1);
+                            var B = point(1,-1,-1);
+                            var C = point(1,1,-1);
+                            var D = point(-1,1,-1);
+                            var E = point(-1,-1,1);
+                            var F = point(1,-1,1);
+                            var G = point(1,1,1);
+                            var H = point(-1,1,1);
+                            var I = combinaison(0.5,E,0.5,G);
+                            var J = combinaison(0.5,D,0.5,C);
+                            graphe.lineWidth = 1;
+                            ligne(A,B,C,G,H,E,F,B);
+                            ligne(A,E,G);
+                            ligne(F,G);
+                            ligne(combinaison(0.4,H,0.6,F),combinaison(0.6,H,0.4,F));
+                            graphe.setLineDash([3,3]);
+                            ligne(A,D,C);
+                            ligne(D,H);
+                            graphe.strokeStyle = '#f89800';
+                            ligne(J,I,C);
+                            graphe.lineWidth = 2;
+                            fleche(D,C);
+                            fleche(D,I);
+                            graphe.lineWidth = 1;
+                            graphe.strokeStyle = '#0098f8';
+                            ligne(combinaison(0.5,A,0.5,B),J,combinaison(0.5,H,0.5,G));
+                            graphe.setLineDash([]);
+                            ligne(combinaison(0.5,A,0.5,B),combinaison(0.5,E,0.5,F),combinaison(0.5,H,0.5,G));
+                            graphe.strokeStyle = '#f89800';
+                            ligne(combinaison(1,J,0.1,C,-0.1,D),combinaison(1,J,0.1,C,-0.1,D,0.1,I,-0.1,J),combinaison(1,J,0.1,I,-0.1,J));
+                            ecrit("$A$",-2,-1.25);
+                            ecrit("$B$",0.75,-1.25);
+                            ecrit("$D$",-0.8,-0.5);
+                            ecrit("$C$",1.8,-0.5);
+                            ecrit("$E$",-2,0.7);
+                            ecrit("$F$",0.75,0.7);
+                            ecrit("$H$",-0.8,1.45);
+                            ecrit("$G$",1.8,1.45);
+                            ecrit("$I$",0,1.25);
+                            ecrit("$J$",0.6,-0.7);
+                        </script>
+                        Le projeté de $I$ sur $(DC)$ est donc le milieu $J$ de $[DC]$ et :
+                        $\overrightarrow{AB} . \overrightarrow{DI} = \overrightarrow{DC} . \overrightarrow{DI}$
+                        $ = \overrightarrow{DC} . \overrightarrow{DJ}$
+                        $ = DC \times  \frac{1}{2}DC$
+                        $ = \frac{1}{2} a^2$
+                    </li>
+                </ol>
+            </section>
+        </article>

@@ -1,0 +1,95 @@
+        <article>
+            <header>
+                <h2><span class="cadre">Définition</span> Liste en compréhension</h2>
+                <p>L'idée est de simplifier la construction d'une liste en rapprochant son expression du langage naturel.</p>
+                <p>La syntaxe est la suivante :
+                    <pre class="line-numbers"><code class="language-python">[fonction(item) for item in liste if condition(item)]</code></pre>
+                </p>
+            </header>
+            <section><h3>Exemples</h3>
+                <ul><li>&laquo; La liste des images $f(x)$ pour $x$ entier allant de $0$ à $9$ &raquo;  :
+                        <pre class="line-numbers"><code class="language-python">[f(x) for x in range(10)]</code></pre>
+                    </li><li>&laquo; La liste des multiples de 3 jusqu'à 30 &raquo;  :
+                        <pre class="line-numbers"><code class="language-python">[3*n for n in range(11)]</code></pre>
+                    </li><li>&laquo; La liste des lettres majuscules (codes ASCII 65 à 90) &raquo;  :
+                        <pre class="line-numbers"><code class="language-python">[chr(n) for n in range(65,91)]</code></pre>
+                    </li><li>&laquo; La liste des voyelles et celle des consonnes &raquo;  :
+                        <pre class="line-numbers"><code class="language-python">voyelle = ['A', 'E', 'I', 'O', 'U', 'Y'] # On a pas trop le choix...
+            consonne = [chr(n) for n in range(65,91) if chr(n) not in voyelle]</code></pre>
+                    </li><li>&laquo; La liste des multiples de 3 dans une autre liste donnée &raquo;  :
+                        <pre class="line-numbers"><code class="language-python">autre = [1, 7, 9, 2, 3, 12]
+            [valeur for valeur in autre if valeur%3==0]</code></pre>
+                    </li>
+                </ul>
+            </section>
+        </article>
+
+        <article>
+            <header>
+                <h2><span class="cadre">Exercice</span> Termes d'une suite récurente simple.</h2>
+                <p>On donne la suite $(u_n)$ définie par $u_0=0$ et, pour tout entier naturel $n$, $u_{n+1}=2u_n+1$.<br />
+                   On veut afficher la liste des $100$ premiers termes à l'aide de Python.</p>
+                <ol class="question">
+                    <li> Avec une liste définie en compréhension.
+                        <ol>
+                            <li> Écrire une fonction Python qui renvoie le terme de rang $N$ de la suite $(u_n)$.</li>
+                            <li> Écrire une liste définie en compréhension qui contient les 100 premiers termes de cette suite.</li>
+                        </ol>
+                    </li>
+                    <li> Avec une liste en extension.
+                        <ol>
+                            <li> Recopier et compléter le script suivant.
+                            <pre class="line-numbers"><code class="language-python">def liste_termes(N):
+    L=[0]
+    for i in range(1,N):
+        L.append(...)
+    return L</code></pre>
+                            </li>
+                            <li> Quelle instruction écrire dans la console pour obtenir la liste des 100 premiers termes de la suite $(u_n)$ ?</li>
+                        </ol>
+                    </li>
+                </ol>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la solution</button>
+                <button>Cacher la solution</button>
+                <ol class="question">
+                    <li> Avec une liste définie en compréhension.
+                        <ol>
+                            <li> Une fonction Python qui renvoie le terme de rang $N$ de la suite $(u_n)$ :
+                            <pre class="line-numbers"><code class="language-python">def terme(N):
+    u=0
+    for i in range(1,N):
+        u = 2*u+1
+    return u</code></pre>
+                            </li>
+                            <li> Une liste définie en compréhension qui contient les 100 premiers termes de cette suite :
+                                <pre class="line-numbers"><code class="language-python">termes = [terme(n) for n in range(100)]</code></pre>
+                                (Ce n'est pas super malin de faire comme ça ici. On répète trop de fois les mêmes calculs)
+                            </li>
+                        </ol>
+                    </li>
+                    <li> Avec une liste en extension.
+                        <ol>
+                            <li> Je pense que le sujet amène à écrive:
+                            <pre class="line-numbers"><code class="language-python">def liste_termes(N):
+    L=[0]
+    for i in range(1,N):
+        L.append(terme[i])
+    return L</code></pre>
+                            ce qui n'est pas plus malin que le précédent.<br />
+                            Je pense que la "bonne" solution serait :
+                            <pre class="line-numbers"><code class="language-python">def liste_termes(N):
+    L=[0]
+    for i in range(N-1):
+        L.append(2*L[i]+1)
+    return L</code></pre>
+                            </li>
+                            <li> Dans la console pour obtenir la liste des 100 premiers termes :
+                                <pre class="line-numbers"><code class="language-python">liste_termes(100)</code></pre>
+                            </li>
+                        </ol>
+                    </li>
+                </ol>
+            </section>
+        </article>

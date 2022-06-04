@@ -1,0 +1,74 @@
+<article>
+            <header>
+                <h2><span class="cadre">Définition</span> Codage d'une donnée </h2>
+                Le codage d'une donnée, est la façon dont cette donnée a été numérisée, c'est à dire représentée sous la forme d'un nombre (donc une suite de bits).<br />
+
+            </header>
+            <section>Il est important de connaitre le codage employé quand on veut manipuler une donnée car un même code représente de nombreuses données différentes.
+                <ul>
+                    <li> <code class="language-python">0b01000001</code> code l'entier <code class="language-python">65</code></li>
+                    <li> <code class="language-python">0b01000001</code> code la lettre <code class="language-python">"A"</code></li>
+                    <li> <code class="language-python">0b01000001</code> code une couleur avec environ 25%  d'intensité.</li>
+                    <li> ...</li>
+                </ul>
+            </section>
+        </article>
+
+        <article>
+            <header>
+                <h2><span class="cadre">Exercice 1</span> Codage d'une lettre</h2>
+                Si 65 code la lettre <code class="language-python">"A"</code>, quel entier est le code de la lettre <code class="language-python">"a"</code> ?<br />
+                Pistes de recherche :
+                <ol>
+                    <li> Sur internet avec le mot clé : ASCII</li>
+                    <li> Avec un script python en sachant que <code class="language-python">ord("A")</code> donne 65.</li>
+                </ol>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la solution</button>
+                <button>Cacher la solution</button>
+                La réponse est 97.
+            </section>
+        </article>
+
+        <article>
+            <header>
+                <h2><span class="cadre">Définition</span> Format d'un fichier </h2>
+                Le format d'un fichier est la façon d'y organiser des données (avec un codage spécifique).
+            </header>
+            <section><p>
+                Beaucoup de formats sont identifiables par l'extention dédiée, associée au nom du fichier :
+                <ul>
+                    <li> Un fichier de textes peut être au format "TXT", "RTF", "ODT", ...</li>
+                    <li> Un fichier image peut être au format "PNG", "JPEG", "GIF", ...</li>
+                    <li> Un fichier vidéo peut être au format "MPEG", "MKV", "OGG", ...</li>
+                </ul></p>
+            </section>
+        </article>
+
+        <article>
+            <header>
+                <h2><span class="cadre">Exercice 2</span> Format d'un fichier texte</h2>
+                Créer un nouveau fichier <code class="language-txt">bonjour.txt</code> et, à l'aide d'un éditeur de texte simple (type Bloc-note), y enregistrer le texte :
+                <pre><code class="language-txt">Bonjour !</code></pre>
+                Ouvrir ce fichier avec un traitement de texte (type LibreOffice) et, sans le modifier, l'enregistrer sous l'extention <code class="language-txt">.rtf</code>.<br />
+                <ol>
+                    <li> Quelle est la taille de chaque fichier ?</li>
+                    <li>Pourquoi cette différence ?</li>
+                </ol>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la solution</button>
+                <button>Cacher la solution</button>
+                <ol>
+                    <li> Le fichier <code class="language-txt">bonjour.txt</code> fait exactement 9 octets.<br />
+                         Le fichier <code class="language-txt">bonjour.rtf</code> (enregistré avec LibreOffice) pèse 2 277 octets.</li>
+                    <li> Le format "TXT" n'ajoute aucune information : il y a 9 caractères (espace compris) donc 9 octets.<br />
+                         Le format "RTF" ajoute des informations : la police de caractère, la couleur, les marges...
+                </ol>
+            </section>
+            <section>
+                Toute entreprise ou particulier qui monte un projet informatique pourrait inventer son propre format de fichier pour répondre à ses besoins. On risquerait vite de ne plus s'y retrouver !
+                Pour l'éviter, on préfère le plus souvent utiliser des formats génériques qui structurent ces données en tables.
+            </section>
+        </article>

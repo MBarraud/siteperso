@@ -1,0 +1,83 @@
+<!DOCTYPE HTML>
+<html lang = "fr">
+<head>
+{% block header %}
+    <meta property="og:title" content="Cours de M Barraud au lycée de Lattre de Tassigny">
+    <meta property="og:description" content="Cours et exercices corrigés en mathématiques, SNT et NSI au lycée">
+    <meta property="og:image" content="http://barraud.pythonanywhere.com/static/img/profil_.png">
+    <meta property="og:url" content="http://barraud.pythonanywhere.com">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset = "utf-8" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='fonts/Serif/cmun-serif.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}"/>
+    <title>Au lycée</title>
+{% endblock %}
+</head>
+<body>
+    {% block nav %}
+    <header>
+        <img src="{{ url_for('static', filename='img/profil.png') }}" width="100px"/>
+        <nav>
+            <ul id="menu">
+                <li><a href="/">&#8962;</a></li>
+                {% if id_matiere is defined %}
+                <li><a href="/index/{{ id_matiere }}">{{ nom_matiere }}</a>
+                    <ul>
+                    {% for mat in matiere %}
+                    {% if mat[0] != id_matiere %}
+                        <li><a href="/index/{{ mat[0] }}">{{ mat[1] }}</a></li>
+                    {% endif %}
+                    {% endfor %}
+                    </ul>
+                </li>
+                {% if id_niveau is defined %}
+                <li><a href="/index/{{ id_matiere }}/{{ id_niveau }}">{{ nom_niveau }}</a>
+                    <ul>
+                    {% for niv in niveau %}
+                    {% if niv[0] != id_niveau %}
+                        <li><a href="/index/{{ id_matiere }}/{{ niv[0] }}">{{ niv[1] }}</a></li>
+                    {% endif %}
+                    {% endfor %}
+                    </ul>
+                </li>
+                {% endif %}
+                {% endif %}
+            </ul>
+        </nav>
+        <nav>
+        {% if id_cours is defined %}
+            <ul>
+            {% for pre in prerequis %}
+                <li><a href="/cours/{{pre[0]}}">{{ pre[1] }} &rarr;</a></li>
+            {% endfor %}
+            </ul>
+            <ul>
+                <li><a href="/cours/{{id_cours}}"><div>{{titre_cours}}</div></a></li>
+            </ul>
+            <ul>
+                {% for cor in corollaire %}
+                <li><a href="/cours/{{cor[0]}}">&rarr; {{ cor[1] }}</a></li>
+                {% endfor %}
+            </ul>
+
+        {% else %}
+            <ul>
+            {% if id_matiere is defined %}
+               {% if id_niveau is defined %}
+                &laquo; Choisissez un cours &raquo;
+                {% else %}
+                &laquo; Choisissez un niveau &raquo;
+                {% endif %}
+            {% else %}
+                &laquo; Choisissez une discipline &raquo;
+            {% endif %}
+            </ul>
+        {% endif %}
+        </nav>
+    </header>
+    {% endblock %}
+    {% block main %}
+    {% endblock %}
+</body>
+</html>

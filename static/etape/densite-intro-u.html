@@ -1,0 +1,357 @@
+<article>
+            <header><h2><span class="cadre">Mise en situation</span> Hasard à 360°</h2>
+            <p>On suppose dans cette page disposer d'un disque en rotation autour de son centre et dont la circonférence est graduée en degrés.
+            on laisse les frottements du dispositif ralentir la rotation et une flèche indique le résultat de l'expérience lorsque la rotation s'arrête.</p>
+            <div class="centre">
+                <div class="figure">
+                    <canvas id="graphe1" height="180" width="320">Balise canvas non supportée</canvas><br />
+                    <button onclick='dessine["graphe1"](0)'>Initialise</button>
+                    <button onclick='tfinal=(1+Math.random())*2*Math.PI;joue("graphe1")'>Jouer l'animation</button><br />
+                </div>
+            </div>
+            <script>
+                var graphe = calibre("graphe1", 0, 320, 0, 180, 1);
+
+                dessine["graphe1"] = t => {
+                    var graphe = calibre("graphe1", 0, 320, 0, 180, 1);
+                    var angle = tfinal*(1-Math.exp(-t/300));
+                    graphe.setLineDash([]);
+                    graphe.strokeStyle = '#000000';
+                    graphe.fillStyle = '#ffffff';
+                    graphe.fillRect(0,0,320,180);
+                    graphe.beginPath();
+                    graphe.ellipse(160, 90, 80, 80, 0, angle,  angle+2 * Math.PI);
+                    <!--graphe.lineTo(160,90);-->
+                    graphe.fill();
+                    graphe.stroke();
+                    graphe.fillStyle = '#000000';
+                    graphe.textAlign = "center";
+                    graphe.textBaseline = "middle";
+                    for (var k=0;k<360;k=k+30) {
+                        ligne([160+80*Math.cos(angle-k*Math.PI/180), 90+80*Math.sin(angle-k*Math.PI/180)],
+                              [160+75*Math.cos(angle-k*Math.PI/180), 90+75*Math.sin(angle-k*Math.PI/180)])
+                        graphe.fillText(""+k,160+65*Math.cos(angle-k*Math.PI/180), 90+65*Math.sin(angle-k*Math.PI/180));
+                    }
+                    fleche([260,90],[240,90]);
+                    graphe.fillText(""+((angle*180/Math.PI)%360).toFixed(2),280, 90);
+                }
+                var tfinal=(1+Math.random())*2*Math.PI;
+                dessine["graphe1"](0);
+            </script>
+            <p>On suppose que le résultat de l'expérience ne dépend que du hasard et que la roue a autant de chance de s'arrêter dans n'importe quelle position.</p>
+            </header>
+        </article>
+
+        <article>
+            <header><h2><span class="cadre">Cas discret</span> Équiprobabilité</h2>
+            On découpe le disque en $n$ secteurs angulaires égaux. On obtient $n$ résultats équiprobables (numérotés de $1$ à $n$) :
+                <div class="centre">
+                    <div class="figure">
+                        <canvas id="graphe2" height="180" width="320">Balise canvas non supportée</canvas><br />
+                        <button onclick='init2(6)'>Initialise</button>
+                        <button onclick='tfinal=(2+Math.random())*2*Math.PI;joue("graphe2")'>Jouer l'animation</button><br />
+                        <div class="slidecontainer">
+                            <input type="range" min="1" max="36" value="4" class="slider" id="ns">
+                        </div>
+                        nombre de secteurs angulaires $n=$ <span id="outputns"></span>
+                    </div>
+                </div>
+                <style>
+                    .slidecontainer {
+                      width: 100%; /* Width of the outside container */
+                    }
+
+                    /* The slider itself */
+                    .slider {
+                      -webkit-appearance: none;  /* Override default CSS styles */
+                      appearance: none;
+                      width: 100%; /* Full-width */
+                      height: 5px; /* Specified height */
+                      background: #d3d3d3; /* Grey background */
+                      outline: none; /* Remove outline */
+                      opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+                      -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+                      transition: opacity .2s;
+                      margin-top : 15px;
+                      margin-bottom : 15px;
+                    }
+
+                    /* Mouse-over effects */
+                    .slider:hover {
+                      opacity: 1; /* Fully shown on mouse-over */
+                    }
+
+                    /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+                    .slider::-webkit-slider-thumb {
+                      -webkit-appearance: none; /* Override default look */
+                      appearance: none;
+                      width: 25px; /* Set a specific slider handle width */
+                      height: 25px; /* Slider handle height */
+                      border-radius: 50%;
+                      background: #0098f8; /* Green background */
+                      cursor: pointer; /* Cursor on hover */
+                    }
+
+                    .slider::-moz-range-thumb {
+                      width: 15px; /* Set a specific slider handle width */
+                      height: 15px; /* Slider handle height */
+                      border-radius: 50%;
+                      background: #0098f8; /* Green background */
+                      cursor: pointer; /* Cursor on hover */
+                    }
+                </style>
+                <script>
+                    var slider = document.getElementById("ns");
+                    var output = document.getElementById("outputns");
+                    slider.value = 6;
+                    output.innerHTML = slider.value;
+                    var n = slider.value;
+
+                    function init2(val) {
+                        slider.value = val;
+                        output.innerHTML = val;
+                        n = val;
+                        dessine["graphe2"](0);
+                    }
+
+                    slider.oninput = function() {
+                      init2(this.value);
+                    }
+                    var graphe = calibre("graphe2", 0, 320, 0, 180, 1);
+                    function HSLToRGB(h,s,l) {
+                    s /= 100;
+                    l /= 100;
+
+                    let c = (1 - Math.abs(2 * l - 1)) * s,
+                        x = c * (1 - Math.abs((h / 60) % 2 - 1)),
+                        m = l - c/2,
+                        r = 0,
+                        g = 0,
+                        b = 0;
+
+                    if (0 <= h && h < 60) {
+                        r = c; g = x; b = 0;
+                    } else if (60 <= h && h < 120) {
+                        r = x; g = c; b = 0;
+                    } else if (120 <= h && h < 180) {
+                        r = 0; g = c; b = x;
+                    } else if (180 <= h && h < 240) {
+                        r = 0; g = x; b = c;
+                    } else if (240 <= h && h < 300) {
+                        r = x; g = 0; b = c;
+                    } else if (300 <= h && h < 360) {
+                        r = c; g = 0; b = x;
+                    }
+                    r = Math.round((r + m) * 255).toString(16);
+                    g = Math.round((g + m) * 255).toString(16);
+                    b = Math.round((b + m) * 255).toString(16);
+
+                    if (r.length == 1) r = "0" + r;
+                    if (g.length == 1) g = "0" + g;
+                    if (b.length == 1) b = "0" + b;
+
+                    return "#" + r + g + b;
+                    }
+
+                    dessine["graphe2"] = t => {
+                        var graphe = calibre("graphe2", 0, 320, 0, 180, 1);
+                        var angle = tfinal*(1-Math.exp(-t/300));
+                        var couleur = [];
+                        for (k=0;k<360;k=k+360/n) {
+                            couleur.push(HSLToRGB(k,100,70));
+                        }
+                        graphe.setLineDash([]);
+                        graphe.fillStyle = '#ffffff';
+                        graphe.fillRect(0,0,320,180);
+                        graphe.strokeStyle = '#000000';
+                        graphe.fillStyle = '#ffffff';
+                        graphe.beginPath();
+                        graphe.ellipse(160, 90, 80, 80, 0, angle,  angle+2 * Math.PI);
+                        graphe.fill();
+                        graphe.stroke();
+                        for (k=0;k<n;k=k+1) {
+                        graphe.fillStyle = couleur[(n-k-1)%couleur.length] ;
+                            graphe.beginPath();
+                            graphe.ellipse(160, 90, 80, 80, 0, angle+2*k*Math.PI/n,  angle+2*(k+1)*Math.PI/n);
+                            graphe.lineTo(160,90);
+                            graphe.fill();
+                        }
+                        graphe.fillStyle = '#000000';
+                        graphe.textAlign = "center";
+                        graphe.textBaseline = "middle";
+                        for (var k=0;k<360;k=k+30) {
+                            ligne([160+80*Math.cos(angle-k*Math.PI/180), 90+80*Math.sin(angle-k*Math.PI/180)],
+                                  [160+75*Math.cos(angle-k*Math.PI/180), 90+75*Math.sin(angle-k*Math.PI/180)])
+                            graphe.fillText(""+k,160+65*Math.cos(angle-k*Math.PI/180), 90+65*Math.sin(angle-k*Math.PI/180));
+                        }
+                        fleche([260,90],[240,90]);
+                        var nc = Math.floor(((angle*180/Math.PI)%360)/(360/n));
+                        graphe.fillStyle = couleur[nc%couleur.length];
+                        graphe.fillRect(260, 80, 40,20);
+                        graphe.fillStyle = '#000000';
+                        graphe.fillText(""+(nc+1),280, 90);
+                    }
+                    var tfinal=(1+Math.random())*2*Math.PI;
+                    dessine["graphe2"](0);
+                </script>
+                <p style="margin-top:1em;">Pour $n=6$ on peut réprésenter cette loi de probabilité par le diagramme à barres suivant :</p>
+                <div class="centre">
+                    <div class="figure"><canvas id="graphe3" height="180" width="320">Balise canvas non supportée</canvas></div>
+                </div>
+                <script>
+                    var graphe = calibre("graphe3", -1, 7, -0.1, 0.25,11);
+                    var f = x => Math.exp(-(x-5)*(x-5)/2)/Math.sqrt(2*Math.PI);
+                    graphe.setLineDash([]);
+                    graphe.strokeStyle = '#000000';
+                    graphe.fillStyle = '#0098f8';
+                    axes(1,0);
+                    ecrit("$\\frac{1}{6}$",-0.5,0.19);
+                    graphe.fillStyle = '#000000';
+                    graphe.textAlign = "center";
+                    graphe.textBaseline = "middle";
+                    graphe.lineWidth=4;
+                    for (var k=1;k<7;k=k+1) {
+                        graphe.fillText(""+k,xpx(k), ypx(0)+10);
+                        graphe.strokeStyle = HSLToRGB((k-1)*360/6,100,70);
+                        segment(k,0,k,1/6);
+                    }
+                    graphe.setLineDash([3,3]);
+                    graphe.lineWidth=1;
+                    graphe.strokeStyle = '#000000';
+                    segment(0,1/6,6,1/6);
+                </script>
+                <p style="margin-top:1em;">Si on fait correspondre en abscisse chaque secteur angulaire à l'intervalle en degrés correspondant, on peut
+                faire une réprésentation sous la forme d'un histogramme :</p>
+                <div class="centre">
+                    <div class="figure"><canvas id="graphe4" height="180" width="320">Balise canvas non supportée</canvas></div>
+                </div>
+                <script>
+                    var graphe = calibre("graphe4", -30, 390, -0.0005, 0.003,40000);
+                    axes(1/30,0);
+                    for (var k=0;k<360;k=k+60) {
+                        graphe.fillStyle = HSLToRGB(k,100,70);
+                        graphe.fillRect(xpx(k),ypx(0),xpx(k+60)-xpx(k),ypx(1/360)-ypx(0));
+                    }
+                    axes(0,0);
+                    graphe.setLineDash([]);
+                    graphe.strokeStyle = '#000000';
+                    graphe.fillStyle = '#0098f8';
+                    ecrit("$\\frac{1}{6}$",-0.7,0.19);
+                    graphe.fillStyle = '#000000';
+                    graphe.textAlign = "center";
+                    graphe.textBaseline = "middle";
+                    for (var k=0;k<390;k=k+60) {
+                        graphe.fillText(""+k,xpx(k), ypx(0)+10);
+                    }
+                    graphe.setLineDash([3,3]);
+                    graphe.lineWidth=1;
+                    graphe.strokeStyle = '#000000';
+                    segment(0,1/360,360,1/360);
+                    ecrit("?",-10,1/360);
+                </script>
+
+                <ol>
+                    <li>Quelle est la hauteur commune à tous les rectangles de cet histogramme ?</li>
+                    <li>Dessiner l'histogramme dans le cas $n=12$ ; que remarque-t-on ?</li>
+                </ol>
+            </header>
+            <section class="ouvrable">
+                <button>Voir les réponses</button>
+                <button>Cacher les réponses</button>
+                <ol>
+                    <li>Chaque aire de rectangle représente la probabilité donc est égale à $\frac{1}{6}$. Comme leurs largeurs sont toutes égales à $60$, alors ils
+                        ont tous une hauteur de $\dfrac{\frac{1}{6}}{60}=\dfrac{1}{360}$.<br />
+                        On retrouve heureusement une aire totale de $360\times\frac{1}{360}=1$</li>
+                    <li> On remarque que la hauteur des rectangles est inchangée : $\dfrac{\frac{1}{12}}{30}=\dfrac{1}{360}$
+                        <div class="centre">
+                            <div class="figure"><canvas id="graphe5" height="180" width="320">Balise canvas non supportée</canvas></div>
+                        </div>
+                        <script>
+                            var graphe = calibre("graphe5", -30, 390, -0.0005, 0.003,40000);
+                            axes(1/30,0);
+                            for (var k=0;k<360;k=k+30) {
+                                graphe.fillStyle = HSLToRGB(k,100,70);
+                                graphe.fillRect(xpx(k),ypx(0),xpx(k+30)-xpx(k),ypx(1/360)-ypx(0));
+                            }
+                            axes(0,0);
+                            graphe.setLineDash([]);
+                            graphe.strokeStyle = '#000000';
+                            graphe.fillStyle = '#0098f8';
+                            ecrit("$\\frac{1}{6}$",-0.7,0.19);
+                            graphe.fillStyle = '#000000';
+                            graphe.textAlign = "center";
+                            graphe.textBaseline = "middle";
+                            for (var k=0;k<390;k=k+60) {
+                                graphe.fillText(""+k,xpx(k), ypx(0)+10);
+                            }
+                            graphe.setLineDash([3,3]);
+                            graphe.lineWidth=1;
+                            graphe.strokeStyle = '#000000';
+                            segment(0,1/360,360,1/360);
+                            ecrit("$\\frac{1}{360}$",-30,0.003);
+                        </script>
+                        Comme la largeur totale fait toujours $360$, la hauteur sera toujours $\frac{1}{360}$
+                    </li>
+                </ol>
+            </section>
+        </article>
+
+        <article>
+            <header><h2><span class="cadre">Cas continue</span> Loi uniforme</h2>
+            <p>Des exemples précédents, on aimerait généraliser : la probabilité d'un résultat entre deux angles $a_1$ et $a_2$ est l'aire du rectangle
+                de largeur $a_2-a_1$ et de hauteur  $\frac{1}{360}$.
+                <div class="centre">
+                    <div class="figure"><canvas id="graphe6" height="180" width="320">Balise canvas non supportée</canvas></div>
+                </div>
+                <script>
+                    var graphe = calibre("graphe6", -30, 390, -0.0005, 0.003,40000);
+                    axes(1/30,0);
+                        graphe.fillStyle = "#aaaaaa";
+                        graphe.fillRect(xpx(200),ypx(0),xpx(280)-xpx(200),ypx(1/360)-ypx(0));
+                    axes(0,0);
+                    graphe.setLineDash([]);
+                    graphe.strokeStyle = '#000000';
+                    graphe.fillStyle = '#0098f8';
+                    ecrit("$\\frac{1}{6}$",-0.7,0.19);
+                    graphe.fillStyle = '#000000';
+                    graphe.textAlign = "center";
+                    graphe.textBaseline = "middle";
+                    for (var k=0;k<390;k=k+60) {
+                        graphe.fillText(""+k,xpx(k), ypx(0)+10);
+                    }
+                    graphe.setLineDash([3,3]);
+                    graphe.lineWidth=1;
+                    graphe.strokeStyle = '#000000';
+                    segment(0,1/360,360,1/360);
+                    ecrit("$\\frac{1}{360}$",-30,0.003);
+                    ecrit("$a_1$",190,-0.0005);
+                    ecrit("$a_2$",270,-0.0005);
+                </script>
+
+
+                On en déduirait deux écritures :
+                <ul><li>$\displaystyle P(a_1 \leqslant X \leqslant a_2)= \int_{a_1}^{a_2}\dfrac{1}{360}\text{d}x$ donc il s'agirait d'une loi à densité.</li>
+                   <li>$\displaystyle  P(a_1 \leqslant X \leqslant a_2)=\dfrac{a_2-a_1}{360}$, ce qui est l'écriture d'une proportionnalité aux tailles des intervalles.</li>
+                </ul>
+            </p>
+            </header>
+        </article>
+
+
+        <article>
+            <header><h2><span class="cadre">Exercice de cours</span> Loi à densité constante</h2>
+            <p>Pour $I=[a\,;b]$, déterminer, s'il existe, l'unique réel C tel que la fonction constante égale à $C$ sur $I$ soit une fonction à densité.</p>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la solution</button>
+                <button>Fermer la solution</button>
+                Une fonction constante est continue et $f=C$ est positive n’impose que $C \geqslant 0$.<br />
+                $\displaystyle \int_a^b f(x)\text{d}x=1$
+                $\displaystyle \Leftrightarrow \int_a^b C\text{d}x=1$
+                $\displaystyle \Leftrightarrow \left[Cx\right]_a^b=1$
+                $\displaystyle \Leftrightarrow Cb-Ca=1$
+                $\displaystyle \Leftrightarrow C(b-a)=1$
+                $\displaystyle \Leftrightarrow C=\frac{1}{b-a}$
+
+            </section>
+        </article>

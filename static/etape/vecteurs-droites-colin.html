@@ -1,0 +1,323 @@
+        <article>
+            <header>
+                <h2><span class="cadre">Définition </span> Base de vecteurs</h2>
+                <p>Un vecteur $\vec u$ non nul de direction donnée par une droite $\mathscr{D}$ est appelé vecteur directeur de $\mathscr{D}$.</p>
+            </header>
+            <section><h3>Exemple :</h3>
+               .
+            </section>
+        </article>
+
+        <article>
+            <header>
+                <h2><span class="cadre">Théorème </span> Vecteurs directeurs</h2>
+                <p>Deux vecteurs $\vec u$ et $\vec v$ sont directeurs d'une même droite $\mathscr{D}$, c'est à dire ont la même direction, si et seulement s'il existe un réel $\lambda$ tel que $\vec v = \lambda \vec u$.</p>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la démonstration</button>
+                <button>Cacher la démonstration</button>
+                Soit $\vec u$ et $\vec v$ deux vecteurs directeurs d'une droite $\mathscr{D}$. Partant d'un point O quelconque sur $\mathscr{D}$, on peut écrire
+$\vec u = \overrightarrow{OA}$ et $\vec v = \overrightarrow{OB}$ avec $A$ et $B$ sur $\mathscr{D}$ puisque  $\vec u$ et $\vec v$ sont directeurs de $\mathscr{D}$.
+
+
+
+On peut alors choisir n'importe quel point $J$ en dehors de $\mathscr{D}$ pour former un vecteur $\vec j = \overrightarrow{OJ}$ et travailler dans le repère $(O; \vec u, \vec j)$. On a alors $A(1;0)$ et il existe un réel $\lambda$ tel que $B(\lambda;0)$.
+
+D'où $\vec u\begin{pmatrix}1\\0\end{pmatrix}$ et $\vec v\begin{pmatrix}\lambda\\ 0\end{pmatrix}$ et donc $\vec v = \lambda \vec u$.
+            </section>
+        </article>
+
+        <article>
+            <header>
+                <h2><span class="cadre">Définition </span> Vecteurs directeurs</h2>
+                <p>Deux vecteurs $\vec u$ et $\vec v$ pour lesquels il existe un réel $\lambda$ tel que $\vec v = \lambda \vec u$ ou $\vec u = \lambda \vec v$ sont dit colinéaires.</p>
+            </header>
+            <section>Cela revient à dire, s'ils ne sont pas nuls, qu'ils ont la même direction ; et que le vecteur nul est colinéaire à tous les autres.</section>
+        </article>
+
+        <article>
+            <header>
+                <h2><span class="cadre">Définition </span> Déterminant</h2>
+                <p>Dans une base $\mathscr{B}$ donnée, on appelle déterminant de $\vec u\begin{pmatrix}x\\y\end{pmatrix}$ et $\vec v\begin{pmatrix}x'\\y'\end{pmatrix}$ le nombre :
+                <div class="centre">$\det_\mathscr{B}(\vec u, \vec v) = \left\vert\begin{matrix}x & x' \\ y & y'\end{matrix}\right\vert = x y' - y x'$</div></p>
+            </header>
+        </article>
+
+        <article>
+            <header>
+                <h2><span class="cadre">Théorème </span> Calcul de colinéarité</h2>
+                <p>Deux vecteurs $\vec u$ et $\vec v$ sont colinéaires si et seulement si leur déterminant est nul.</p>
+            </header>
+        </article>
+
+        <article>
+            <header>
+                <h2><span class="cadre">Théorème </span> Lien avec la géométrie des figuresé</h2>
+                <p><ul><li>Deux droites $(AB)$ et $(CD)$ sont parallèles si et seulement si $\overrightarrow{AB}$ et $\overrightarrow{CD}$ sont colinéaires.</li>
+                <li>Trois point $A$, $B$ et $C$ sont alignés si et seulement si $\overrightarrow{AB}$ et $\overrightarrow{AC}$ sont colinéaires.</li></ul></p>
+            </header>
+        </article>
+
+        <article>
+            <header>
+                <h2><span class="cadre">Exercices</span> 53 à 64 p. 127 </h2>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la correction</button>
+                <button>Cacher la correction</button>
+                <p><h3>53 p.127</h3>
+                C'est Jade et Walid qui ont raison.
+                </p>
+
+                <p><h3>54 p.127</h3>
+                Comme on peut véifier que $\vec u = -4 \vec v$ alors $\vec u$ et $\vec v$ sont colinéaires.
+                </p>
+
+                <p><h3>55 p.127</h3>
+                <ol style="list-style-type: lower-alpha;">
+                       <li>$\vec v = -3\vec u$</li>
+                       <li>$\vec b = -\frac{3}{2}\vec a$</li>
+                       <li>$\vec n = 3\vec m$</li>
+                       <li>$\vec p = -2\vec m$</li>
+                       <li>$\vec w = -\frac{4}{3}\vec v$</li>
+                       <li>$\vec n = -\frac{3}{2}\vec p$</li></ol>
+                </p>
+
+                <p><h3>56 p.127</h3>
+                <ol style="list-style-type: lower-alpha;">
+                       <li>$\det_{(\vec i, \vec j)}(\vec u, \vec v) = \left\vert\begin{matrix}3 & 7 \\ -2 & 2\end{matrix}\right\vert = 3\times2 - 7 \times (-2) = 20$</li>
+                       <li>$\det_{(\vec i, \vec j)}(\vec v, \vec u) = \left\vert\begin{matrix}7 & 3 \\ 2 & -2\end{matrix}\right\vert = 7\times(-2) - 3 \times 2 = -20$</li>
+                </ol>
+                </p>
+
+                <p><h3>57 p.127</h3>
+                <ol style="list-style-type: lower-alpha;">
+                       <li>$\det_{(\vec i, \vec j)}(\vec u, \vec v) = \left\vert\begin{matrix}2 & (1-\sqrt{5}) \\(\sqrt{5}+1) & -2\end{matrix}\right\vert$ $= 2\times(-2) - (\sqrt{5}+1) \times (1-\sqrt{5})$ $ = -4 - (\sqrt{5}+1-5-\sqrt{5})$  $ = -4 +4$ $ = 0$</li>
+                       <li>Comme leur déterminant est nul, $\vec u$ et $\vec v$ sont colinéaires.</li>
+                </ol>
+                </p>
+
+                <p><h3>58 p.127</h3>
+                <ol style="list-style-type: lower-alpha;">
+                       <li>$\det_{(\vec i, \vec j)}(\vec u, \vec v) = \left\vert\begin{matrix}3 & 4 \\-1 & m\end{matrix}\right\vert$ $= 3\times m - (-1) \times 4$ $ = 3m+4$</li>
+                       <li>$\vec u$ et $\vec v$ sont colinéaires si et seulement si $3m+4=0$, c'est à dire $m=-\frac{4}{3}$.</li>
+                </ol>
+                </p>
+
+                <p><h3>59 p.127</h3>
+                On calcule $\overrightarrow{AB}\begin{pmatrix}5-2\\7-3\end{pmatrix}$ donc $\overrightarrow{AB}\begin{pmatrix}3\\4\end{pmatrix}$ et de même $\overrightarrow{AC}\begin{pmatrix}-9\\-12\end{pmatrix}$.
+
+                Comme $\overrightarrow{AC}=-3\overrightarrow{AB}$ alors  $\overrightarrow{AB}$ et  $\overrightarrow{AC}$ sont colinéaires donc $A$, $B$ et $C$ sont alignés.
+                </p>
+
+                <p><h3>60 p.127</h3>
+                <ol style="list-style-type: lower-alpha;">
+                       <li><div class="centre"><div class="figure"><canvas id="graphe59" height="180", width="320">Balise canvas non supportée</canvas></div></div>
+                <script>
+                     var graphe = calibre("graphe59",-6,5,-5,5,1);
+                     axes();
+                     function marque(x,y) {
+                         segment(x-0.2,y-0.2,x+0.2,y+0.2)
+                         segment(x-0.2,y+0.2,x+0.2,y-0.2)
+                     }
+                     marque(-1,4);
+                     marque(0.5,1);
+                     marque(3,-4);
+                     marque(-1,0);
+                     marque(0,-2);
+                     /* Les textes*/
+                     ecrit("O",-0.5,-0.5);
+                     ecrit("I",1,-0.5);
+                     ecrit("J",-0.5,1);
+                     ecrit("$A$",-1-1,4);
+                     ecrit("$B$",0.5,1+1);
+                     ecrit("$C$",3,-4);
+                     ecrit("$D$",-1-1,0);
+                     ecrit("$E$",0-1,-2);
+                </script></li>
+                       <li>On calcule $\overrightarrow{AB}\begin{pmatrix}\frac{1}{2}-(-1)\\1-4\end{pmatrix}$ donc $\overrightarrow{AB}\begin{pmatrix}\frac{3}{2}\\-3\end{pmatrix}$ et de même $\overrightarrow{AC}\begin{pmatrix}4\\-8\end{pmatrix}$.
+
+                Comme $\left\vert\begin{matrix}\frac{3}{2}& 4 \\ -3 & -8\end{matrix}\right\vert$ $ = \frac{3}{2} \times (-8) - (-3) \times 4 = 0$ alors  $\overrightarrow{AB}$ et  $\overrightarrow{AC}$ sont colinéaires donc $A$, $B$ et $C$ sont alignés.</li>
+                       <li>On a $\overrightarrow{AB}\begin{pmatrix}\frac{3}{2}\\-3\end{pmatrix}$ et on calcule $\overrightarrow{DE}\begin{pmatrix}1\\-2\end{pmatrix}$.
+
+                Comme $\overrightarrow{AB} = \frac{3}{2} \overrightarrow{DE}$ alors  $\overrightarrow{AB}$ et  $\overrightarrow{DE}$ sont colinéaires donc $(AB)$, $(DE)$ sont parallèles.</li>
+                </ol>
+                </p>
+
+                <p><h3>61 p.127</h3>
+                <ol style="list-style-type: lower-alpha;">
+                       <li><pre class="line-numbers"><code class="language-python">def Det(a,b,c,d):
+    e = a * d - b * c
+    return e</code></pre></li>
+                       <li>Pour tester son fonctionnement, on peut par exemple demander <pre>Det(1,2,3,4)</pre> qui doit renvoyer -2 ou <pre>Det(1,2,2,4)</pre> qui doit renvoyer 0.</li>
+                </ol>
+                </p>
+
+                <p><h3>62 p.127</h3>
+                <ol style="list-style-type: lower-alpha;">
+                       <li><div class="centre"><div class="figure"><canvas id="graphe62" height="180", width="320">Balise canvas non supportée</canvas></div></div>
+                <script>
+                     var graphe = calibre("graphe62",-6,5,-5,5,1);
+                     segment(-6,-3,-2,-3)
+                     segment(-2,-3,0,0)
+                     segment(0,0,-4,0)
+                     segment(-4,0,-6,-3)
+                     vecteur(-6,-3,6,3)
+                     /* Les textes*/
+                     ecrit("$A$",-7,-3);
+                     ecrit("$B$",-2,-3);
+                     ecrit("$C$",0,1);
+                     ecrit("$D$",-5,1);
+                     ecrit("$E$",6,4);
+                </script></li>
+                       <li>Dans le parallèlogramme $ABCD$, $\overrightarrow{AD}=\overrightarrow{BC}$ donc $\overrightarrow{AE}=2(\overrightarrow{AB}+\overrightarrow{AD})$
+                       $=2(\overrightarrow{AB}+\overrightarrow{BC})$
+                       $=2\overrightarrow{AC}$ donc $\overrightarrow{AE}$ et $\overrightarrow{AC}$ sont colinéaires et $A$, $C$ et $E$ sont alignés.</li>
+                </ol>
+                </p>
+
+                <p><h3>63 p.127</h3>
+                <ol style="list-style-type: lower-alpha;">
+                       <li><div class="centre"><div class="figure"><canvas id="graphe63" height="180", width="320">Balise canvas non supportée</canvas></div></div>
+                <script>
+                     var graphe = calibre("graphe63",-6,5,-5,5,1);
+                     segment(-6,-3,-2,-3)
+                     segment(-2,-3,0,0)
+                     segment(0,0,-4,0)
+                     segment(-4,0,-6,-3)
+                     function marque(x,y) {
+                         segment(x-0.2,y-0.2,x+0.2,y+0.2)
+                         segment(x-0.2,y+0.2,x+0.2,y-0.2)
+                     }
+                     marque(-2,0);
+                     vecteur(-2,-3,-2,3)
+                     /* Les textes*/
+                     ecrit("$A$",-7,-3);
+                     ecrit("$B$",-2,-3);
+                     ecrit("$C$",0,1);
+                     ecrit("$D$",-5,1);
+                     ecrit("$I$",-3,1);
+                     ecrit("$J$",-3,4);
+                </script>
+                <p>Conjecture graphique : il semble que $\overrightarrow{AJ}=2\overrightarrow{AD}$</p>
+                <p>Preuve : <ul><li>D'après la relation de Chasles : $\overrightarrow{AJ}=\overrightarrow{AB}+\overrightarrow{BJ}$</li>
+                <li> donc $\overrightarrow{AJ}=\overrightarrow{AB}+2\overrightarrow{BI}$</li>
+                <li> Or d'après la relation de Chasles : $\overrightarrow{BI}=\overrightarrow{BC}+\overrightarrow{CI}$ donc $\overrightarrow{AJ}=\overrightarrow{AB}+2\overrightarrow{BC}+2\overrightarrow{CI}$</li>
+                <li> Or $I$ est le milieu de $[DC]$ : $2\overrightarrow{CI}=\overrightarrow{CD}$ et $\overrightarrow{AJ}=\overrightarrow{AB}+2\overrightarrow{BC}+\overrightarrow{CD}$</li>
+                <li> Or $ABCD$ est un parallèlogramme donc $\overrightarrow{AB} = \overrightarrow{DC}$ et donc $\overrightarrow{AJ}=2\overrightarrow{BC}$</li>
+                <li> Enfin, toujoours parce que $ABCD$ est un parallèlogramme, $\overrightarrow{AD} = \overrightarrow{BC}$ donc $\overrightarrow{AJ}=2\overrightarrow{AD}$</li>
+                </ul>
+                $\overrightarrow{AJ}$ et $\overrightarrow{AD}$ sont donc colinéaires et $A$, $D$ et $J$ alignés.</p>
+                </li>
+                       <li>Comme $A$, $D$ et $J$ sont alignés, $(AJ)$ et $(AD)$ sont la même droite. Comme $ABCD$ est un parallélogramme, alors cette droite est bien parallèle à $(BC)$</li>
+                </ol>
+                </p>
+
+                <p><h3>64 p.127</h3>
+                <p>Une méthode similaire à celle de l'exercice précédent est possible. En voici une autre :</p>
+                <p>Un triangle étant formé de 3 points non alignés, on peut se placer dans le repère $(B, A, C)$.<p>
+                <p>On a choisit $B$ comme origine car $\overrightarrow{BD}=3\overrightarrow{BA}-2\overrightarrow{BC}$ s'écrit alors facilement $D(3;-2)$</p>
+                <p>De plus, dans ce repère, $B(0;0)$, $A(1;0)$ et $C(0,1)$ donc $\overrightarrow{AC}\begin{pmatrix}-1\\1\end{pmatrix}$</p>
+                <p>On calcule alors $\overrightarrow{AD}\begin{pmatrix}2\\-2\end{pmatrix}$ et on peut vérifier que $\overrightarrow{AD}=-2\overrightarrow{AC}$ donc $A$, $D$ et $C$ sont alignés, c'est  dire que $D$ est bien sur la droite $(AC)$.</p>
+                </p>
+
+            </section>
+        </article>
+
+        <article>
+            <header>
+                <h2><span class="cadre">Exercices</span> 92 à 100 p. 133 et 134 </h2>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la correction</button>
+                <button>Cacher la correction</button>
+
+                <p><h3>92 p.133</h3>
+                <ol style="list-style-type: lower-alpha;">
+                       <li><div class="centre"><div class="figure"><canvas id="graphe92" height="180", width="320">Balise canvas non supportée</canvas></div></div>
+                <script>
+                     var graphe = calibre("graphe92",-1,4,-2,4,1);
+                     function marque(x,y) {
+                         segment(x-0.1,y-0.1,x+0.1,y+0.1)
+                         segment(x-0.1,y+0.1,x+0.1,y-0.1)
+                     }
+                     marque(0,0);
+                     marque(2,0);
+                     marque(1,1);
+                     vecteur(2,0,3,0)
+                     vecteur(3,0,1.5,1.5)
+                     segment(0,0,2,0)
+                     segment(2,0,1,1)
+                     segment(1,1,0,0)
+                     /* Les textes*/
+                     ecrit("O",-0.5,0);
+                     ecrit("$A$",2,0);
+                     ecrit("$B$",0.5,1.5);
+                     ecrit("$C$",3,0);
+                     ecrit("$D$",1,2);
+                </script></li>
+                       <li>D'après la relation de Chasles $\overrightarrow{OD}=\overrightarrow{OA}+\overrightarrow{AC}+\overrightarrow{CD}$<br/>
+                           donc $\overrightarrow{OD}=\overrightarrow{OA}+\frac{1}{2}\overrightarrow{OA}+\frac{3}{2}\overrightarrow{AB}$<br/>
+                           C'est à dire $\overrightarrow{OD}=\frac{3}{2}\overrightarrow{OA}+\frac{3}{2}\overrightarrow{AB} = \frac{3}{2}\overrightarrow{OB} $ donc
+                            $\overrightarrow{OD}$ et $\overrightarrow{OB}$ sont colinéaires, donc $O$, $B$ et $D$ alignés.</li>
+                </ol>
+                Remarque : On peut toujours choisir un repère (par exemple $(O;\overrightarrow{OA}, \overrightarrow{OB})$) calculer les coordonnées de chaque point, etc.
+                </p>
+
+                <p><h3>93 p.133</h3>
+                <ol><li>$\overrightarrow{AM}\begin{pmatrix}x-2\\y-3\end{pmatrix}$ et $\overrightarrow{AB}\begin{pmatrix}-3\\1\end{pmatrix}$ sont colinéaires si $(x-2)\times1-(y-3)\times(-3)=0$,
+                           c'est à dire $x+3y-11=0$</li>
+                <li><ol style="list-style-type: lower-alpha;">
+                       <li> Il suffit de substituer $-4$ à $x$ dans ce qui précède : $-4+3y-11=0$ donc $y = \frac{15}{3}$</li>
+                       <li> Il suffit de substituer $7$ à $y$ dans ce qui précède : $x+3\times7-11=0$ donc $x = -10$</li>
+                    </ol></li>
+                </ol>
+                </p>
+
+                <p><h3>94 p.133</h3>
+                <ol style="list-style-type: lower-alpha;">
+                       <li><div class="centre"><div class="figure"><canvas id="graphe94" height="180", width="320">Balise canvas non supportée</canvas></div></div>
+                <script>
+                     var graphe = calibre("graphe94",-4,4,-4,4,1);
+                     axes();
+                     ecrit("O",-0.5,-0.5);
+                     ecrit("I",1,-0.5);
+                     ecrit("J",-0.5,1);
+                     function marque(x,y) {
+                         segment(x-0.1,y-0.1,x+0.1,y+0.1)
+                         segment(x-0.1,y+0.1,x+0.1,y-0.1)
+                     }
+                     marque(-1,-3/2);
+                     marque(0,1/2);
+                     marque(-2,3/2);
+                     marque(3/2,7/2);
+                     marque(1,-2);
+                     marque(3,-1);
+                     /* Les textes*/
+                     ecrit("$A$",-1,-3/2);
+                     ecrit("$B$",0,1/2);
+                     ecrit("$C$",-2,3/2);
+                     ecrit("$D$",3/2,7/2);
+                     ecrit("$E$",1,-2);
+                     ecrit("$F$",3,-1);
+                </script></li>
+                       <li>$A$, $B$ et $D$ semblent alignés, ainsi que $C$, $B$ et $F$.</li>
+                       <li><ul><li>Pour $A$, $B$ et $D$ : on calcule $\overrightarrow{AB}\begin{pmatrix}1\\2\end{pmatrix}$ et $\overrightarrow{AD}\begin{pmatrix}\frac{5}{2}\\5\end{pmatrix}$ donc $\overrightarrow{AD}=\frac{5}{2}\overrightarrow{AB}$; les vecteurs sont colinéaires donc les points alignés.</li>
+                       <li>Pour $C$, $B$ et $F$ : on calcule $\overrightarrow{CB}\begin{pmatrix}2\\-1\end{pmatrix}$ et $\overrightarrow{CF}\begin{pmatrix}5\\-\frac{5}{2}\end{pmatrix}$ donc $\overrightarrow{CF}=\frac{5}{2}\overrightarrow{CB}$; les vecteurs sont colinéaires donc les points alignés.</li>
+                       </ul></li>
+                </ol>
+                </p>
+
+                <p><h3>98 p.134</h3>
+                <ol style="list-style-type: lower-alpha;">
+                       <li> Dans le rpère $(A;\vec i, \vec j)$ : $A(0;0)$, $J(1;0)$ et $D(0;1)$. Puis $B(2;0)$, $C(2;1)$ et $I(1;1)$. Il reste à calculer $M$ et $N$.
+                       <ul><li>Pour $M$ : $\overrightarrow{DM} = \frac{1}{3}\overrightarrow{DB}$ donne en posant $M(x;y)$ : $\left\lbrace\begin{matrix}x-0=\frac{1}{3}(2-0)\\y-1=\frac{1}{3}(0-1)\end{matrix}\right.$ donc $M(\frac{2}{3};\frac{2}{3})$</li>
+                           <li>Pour $N$ : $\overrightarrow{NB} = \frac{1}{3}\overrightarrow{DB}$ donne en posant $N(x;y)$ : $\left\lbrace\begin{matrix}2-x=\frac{1}{3}(2-0)\\0-y=\frac{1}{3}(0-1)\end{matrix}\right.$ donc $N(\frac{4}{3};\frac{1}{3})$</li></ul></li>
+                       <li> On a $\overrightarrow{AM}\begin{pmatrix}\frac{2}{3}\\\frac{2}{3}\end{pmatrix}$ et $\overrightarrow{AI}\begin{pmatrix}1\\1\end{pmatrix}$ donc $\overrightarrow{AM}=\frac{2}{3}\overrightarrow{AI}$. Les vecteurs sont colinéaires, les points alignés.<br/>
+
+                            On calcule $\overrightarrow{JN}\begin{pmatrix}\frac{1}{3}\\\frac{1}{3}\end{pmatrix}$ et $\overrightarrow{JC}\begin{pmatrix}1\\1\end{pmatrix}$ donc $\overrightarrow{JN}=\frac{1}{3}\overrightarrow{JC}$. Les vecteurs sont colinéaires, les points alignés.</li>
+                       <li> On a $\overrightarrow{AI}\begin{pmatrix}1\\1\end{pmatrix}$ égal à $\overrightarrow{CJ}\begin{pmatrix}1\\1\end{pmatrix}$ (donc colinéaires) donc les droites sont parallèles.</li>
+                </ol>
+                </p>
+            </section>
+        </article>

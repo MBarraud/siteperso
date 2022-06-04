@@ -1,0 +1,796 @@
+        <article>
+            <header>
+                <h2><span class="cadre">Théorème </span> Règle d'addition dans une inégalité</h2>
+                <p>Pour trois réels $a$, $b$ et $c$ quelconques,
+                <div class="centre">$a \leqslant b \quad \Leftrightarrow \quad a + c \leqslant b + c$</div></p>
+            </header>
+            <section>On peut donc ajouter ou soustraire un même réel à chaque membre d'une inégalité ou d'une inéquation sans en changer la nature.
+            </section>
+        </article>
+
+         <article>
+            <header>
+                <h2><span class="cadre">Théorème </span> Variations des fonctions affines</h2>
+                $f$ désigne une fonction affine définie sut $\mathbb{R}$ par $f(x)=ax+b$ où $a$ et $b$ sont deux réels et $a\neq0$.
+                <ul><li>Si $a<0$ alors $f$ est est décroissante sur $\mathbb{R}$.<br/>
+                <table>
+                    <thead>
+                        <tr><th>$x$</th><td>$-\infty$</td><td></td><td>$+\infty$</td></tr>
+                    </thead>
+                    <tbody>
+                        <tr class="variation"><th>$\underset{\text{avec }a<0}{ax+b}$</th>
+                        </td><td style="vertical-align: top;">&nbsp;</td>
+                        <td><div class='decroissante'></div>
+                        <td style="vertical-align: bottom;">&nbsp;</td>
+                        </tr>
+                    </tbody>
+                </table></li>
+                <li>Si $a>0$ alors $f$ est est croissante sur $\mathbb{R}$.<br/>
+                <table>
+                    <thead>
+                        <tr><th>$x$</th><td>$-\infty$</td><td></td><td>$+\infty$</td></tr>
+                    </thead>
+                    <tbody>
+                        <tr class="variation"><th>$\underset{\text{avec }a>0}{ax+b}$</th>
+                        </td><td style="vertical-align:bottom;">&nbsp;</td>
+                        <td><div class='croissante'></div>
+                        <td style="vertical-align: top;">&nbsp;</td>
+                        </tr>
+                    </tbody>
+                </table></li>
+                </ul>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la démonstration</button>
+                <button>Cacher la démonstration</button>
+                <ul><li>On se place dans le cas $a<0$.<br/>
+                Partant de deux réels $u\leqslant v$, on doit démontrer $f(u)\geqslant f(v)$
+                <div class="centre"><div class="figure"><canvas id="graphe1" height="180", width="320">Balise canvas non supportée</canvas></div></div>
+                <script>
+                    var graphe = calibre("graphe1",-5,9,-2,7,1);
+                    var f = x => -x/2+4;
+                    axes();
+                    /* la courbes */
+                    graphe.strokeStyle = "#000000";
+                    graphe.lineWidth=1.5;
+                    trace(f,xmin,xmax);
+                    /* les segments */
+                    graphe.setLineDash([5,5]);
+                    var u = 2;
+                    segment(u,0,u,f(u));
+                    fleche(point(u,f(u)),point(0,f(u)));
+                    var v = 6;
+                    segment(v,0,v,f(v));
+                    fleche(point(v,f(v)),point(0,f(v)));
+                    /* Les textes*/
+                    var decal = 0.2;
+                    ecrit("$u$",u-decal,-decal);
+                    ecrit("$\\leqslant$",(u+v)/2-decal,-decal);
+                    ecrit("$v$",v-decal,-decal);
+                    ecrit("$f(u)$",-2,f(u)+2*decal);
+                    ecrit("$f(v)$",-2,f(v)+2*decal);
+                    ecrit("<div style='transform: rotate(-90deg);'>$\\leqslant$</div>",-1.5,(f(u)+f(v))/2+decal);
+                </script>
+                <ul><li>D'après la règle d'addition : $u\leqslant v \Leftrightarrow u - v \leqslant 0$</li>
+                    <li>D'après la règle des signe, comme on a aussi $a<0$ alors $a(u - v) \geqslant 0$</li>
+                    <li>En développant : $au - av \geqslant 0$</li>
+                    <li>D'après la règle d'addition : $au \geqslant av$</li>
+                    <li>D'après la règle d'addition : $au + b \geqslant av + b$</li>
+                </ul>
+                </li>
+                <li>On se place dans le cas $a>0$.<br/>
+                Partant de deux réels $u\leqslant v$, on doit démontrer $f(u)\leqslant f(v)$
+                <div class="centre"><div class="figure"><canvas id="graphe2" height="180", width="320">Balise canvas non supportée</canvas></div></div>
+                <script>
+                    var graphe = calibre("graphe2",-5,9,-2,7,1);
+                    var f = x => x/2+2;
+                    axes();
+                    /* la courbes */
+                    graphe.strokeStyle = "#000000";
+                    graphe.lineWidth=1.5;
+                    trace(f,xmin,xmax);
+                    /* les segments */
+                    graphe.setLineDash([5,5]);
+                    var u = 2;
+                    segment(u,0,u,f(u));
+                    fleche(point(u,f(u)),point(0,f(u)));
+                    var v = 6;
+                    segment(v,0,v,f(v));
+                    fleche(point(v,f(v)),point(0,f(v)));
+                    /* Les textes*/
+                    var decal = 0.2;
+                    ecrit("$u$",u-decal,-decal);
+                    ecrit("$\\leqslant$",(u+v)/2-decal,-decal);
+                    ecrit("$v$",v-decal,-decal);
+                    ecrit("$f(u)$",-2,f(u)+2*decal);
+                    ecrit("$f(v)$",-2,f(v)+2*decal);
+                    ecrit("<div style='transform: rotate(-90deg);'>$\\leqslant$</div>",-1.5,(f(u)+f(v))/2+decal);
+                </script>
+                <ul><li>D'après la règle d'addition : $u\leqslant v \Leftrightarrow u - v \leqslant 0$</li>
+                    <li>D'après la règle des signe, comme on a aussi $a>0$ alors $a(u - v) \leqslant 0$</li>
+                    <li>En développant : $au - av \leqslant 0$</li>
+                    <li>D'après la règle d'addition : $au \leqslant av$</li>
+                    <li>D'après la règle d'addition : $au + b \leqslant av + b$</li>
+                </ul>
+                </li>
+                </ul>
+            </section>
+        </article>
+
+
+
+         <article>
+            <header>
+                <h2><span class="cadre">Exercice 6.6 </span></h2>
+                Dresser en le justifiant le tableau de variations de la fonction $f$ affine, définie sur $\mathbb{R}$ par :
+                <ol class="question"><li>$f(x)=2x-3$</li>
+                <li>$f(x)=-2x+3$</li>
+                <li>$f(x)=x-1$</li>
+                <li>$f(x)=-(1-2x)$</li>
+                <li>$f(x)=3-2x$</li>
+                <li>$f(x)=-2+x$</li>
+                </ol>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la correction</button>
+                <button>Cacher la correction</button>
+                <ol class="question"><li>$f=2x-3$ est de la forme affine $ax+b$ avec $a=2$ et $b=-3$. Comme $2>0$ alors $f$ est croissante :
+                <table>
+                    <thead>
+                        <tr><th>$x$</th><td>$-\infty$</td><td></td><td>$+\infty$</td></tr>
+                    </thead>
+                    <tbody>
+                        <tr class="variation"><th>$2x-3$</th>
+                        </td><td style="vertical-align:bottom;">&nbsp;</td>
+                        <td><div class='croissante'></div>
+                        <td style="vertical-align: top;">&nbsp;</td>
+                        </tr>
+                    </tbody>
+                </table>
+                </li>
+                <li>$f(x)=-2x+3$ est de la forme affine $ax+b$ avec $a=-2$ et $b=3$. Comme $-2<0$ alors $f$ est décroissante :
+                <table>
+                    <thead>
+                        <tr><th>$x$</th><td>$-\infty$</td><td></td><td>$+\infty$</td></tr>
+                    </thead>
+                    <tbody>
+                        <tr class="variation"><th>$-2x+3$</th>
+                        </td><td style="vertical-align:top;">&nbsp;</td>
+                        <td><div class='decroissante'></div>
+                        <td style="vertical-align:bottom;">&nbsp;</td>
+                        </tr>
+                    </tbody>
+                </table></li>
+                <li>$f=x-1$ est de la forme affine $ax+b$ avec $a=1$ et $b=-1$. Comme $1>0$ alors $f$ est croissante :
+                <table>
+                    <thead>
+                        <tr><th>$x$</th><td>$-\infty$</td><td></td><td>$+\infty$</td></tr>
+                    </thead>
+                    <tbody>
+                        <tr class="variation"><th>$x-1$</th>
+                        </td><td style="vertical-align:bottom;">&nbsp;</td>
+                        <td><div class='croissante'></div>
+                        <td style="vertical-align: top;">&nbsp;</td>
+                        </tr>
+                    </tbody>
+                </table>
+                </li>
+                <li>$f(x)=-(1-2x)=2x-1$ est de la forme affine $ax+b$ avec $a=2$ et $b=-1$. Comme $2>0$ alors $f$ est croissante :
+                <table>
+                    <thead>
+                        <tr><th>$x$</th><td>$-\infty$</td><td></td><td>$+\infty$</td></tr>
+                    </thead>
+                    <tbody>
+                        <tr class="variation"><th>$-(1-2x)$</th>
+                        </td><td style="vertical-align:bottom;">&nbsp;</td>
+                        <td><div class='croissante'></div>
+                        <td style="vertical-align: top;">&nbsp;</td>
+                        </tr>
+                    </tbody>
+                </table>
+                </li>
+                <li>$f(x)=3-2x=-2x+3$ est de la fonction affine du 2.
+                <table>
+                    <thead>
+                        <tr><th>$x$</th><td>$-\infty$</td><td></td><td>$+\infty$</td></tr>
+                    </thead>
+                    <tbody>
+                        <tr class="variation"><th>$3-2x$</th>
+                        </td><td style="vertical-align:top;">&nbsp;</td>
+                        <td><div class='decroissante'></div>
+                        <td style="vertical-align:bottom;">&nbsp;</td>
+                        </tr>
+                    </tbody>
+                </table></li>
+                <li>$f(x)=-2+x=x-2$ est de la forme affine $ax+b$ avec $a=1$ et $b=-2$. Comme $1>0$ alors $f$ est croissante :
+                <table>
+                    <thead>
+                        <tr><th>$x$</th><td>$-\infty$</td><td></td><td>$+\infty$</td></tr>
+                    </thead>
+                    <tbody>
+                        <tr class="variation"><th>$-2+x$</th>
+                        </td><td style="vertical-align:bottom;">&nbsp;</td>
+                        <td><div class='croissante'></div>
+                        <td style="vertical-align: top;">&nbsp;</td>
+                        </tr>
+                    </tbody>
+                </table>
+                </li>
+                </ol>
+            </section>
+        </article>
+
+         <article>
+            <header>
+                <h2><span class="cadre">Exercice 6.7 </span></h2>
+                Donner l'expression d'une fonction affine compatible avec le tableau de variations suivant :
+                <table>
+                    <thead>
+                        <tr><th>$x$</th><td>$-\infty$</td><td style="position:relative;">0<div style="position:absolute;top:40px;left:40px;background-color:white;">1</div></td><td>$+\infty$</td></tr>
+                    </thead>
+                    <tbody>
+                        <tr class="variation"><th>$f(x)$</th>
+                        </td><td style="vertical-align:bottom;">&nbsp;</td>
+                        <td><div class='croissante'></div>
+                        <td style="vertical-align: top;">&nbsp;</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la correction</button>
+                <button>Cacher la correction</button>
+                $f$ est affine donc $f(x)=ax+b$ et croissante donc $a>0$.<br/>
+                La seule autre condition est $f(0)=1$ qui se réécrit $a\times 0 +b = 1$ donc $b=1$.<br/>
+                Une solution : $f(x)=2x+1$ , une autre : $f(x)=\pi x+1$, etc.
+            </section>
+        </article>
+
+         <article>
+            <header>
+                <h2><span class="cadre">Exercice 6.8 </span></h2>
+                Donner l'expression d'une fonction affine compatible avec le tableau de variations suivant :
+                <table>
+                    <thead>
+                        <tr><th>$x$</th><td>$-\infty$</td><td style="position:relative;">1<div style="position:absolute;top:40px;left:40px;background-color:white;">0</div></td><td>$+\infty$</td></tr>
+                    </thead>
+                    <tbody>
+                        <tr class="variation"><th>$g(x)$</th>
+                        </td><td style="vertical-align:top;">&nbsp;</td>
+                        <td><div class='decroissante'></div>
+                        <td style="vertical-align:bottom;">&nbsp;</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la correction</button>
+                <button>Cacher la correction</button>
+                $g$ est affine donc $g(x)=ax+b$ et décroissante donc $a<0$.<br/>
+                La seule autre condition est $g(1)=0$ qui se réécrit $a\times a +b = 1$ donc $b=-a$.<br/>
+                Une solution : $g(x)=-2x+2$ , une autre : $g(x)=-7 x+7$, etc.
+            </section>
+        </article>
+
+         <article>
+            <header>
+                <h2><span class="cadre">Exercice 6.9 </span></h2>
+                $f(x)=-\frac{x}{3}+2$ sur $\mathbb{R}$.	Justifier sans calcul que : $f(-1,7) \geqslant f(0,8)$.
+            </header>
+            <section class="ouvrable">
+                <button>Voir la correction</button>
+                <button>Cacher la correction</button>
+                $f$ est une fonction affine car $f(x)=ax+b$ avec $a=-\frac{1}{3}$ et $b=2$.<br/>
+                Comme $-\frac{1}{3}<0$ alors $f$ est décroissante.<br/>
+                Donc $-1,7 \leqslant 0,8$ donne $f(-1,7) \geqslant f(0,8)$.
+            </section>
+        </article>
+
+         <article>
+            <header>
+                <h2><span class="cadre">Exercice 6.10 </span></h2>
+                $f(x)=-2x+3$ et $g(x)=2x-1$ sur $\mathbb{R}$.
+                <ul><li>Dresser les tableaux de variations de $f$ et de $g$.</li>
+                <li>Calculer $f(1)$ et $g(1)$.</li>
+                <li>Résoudre alors l'inéquation : $f(x)>g(x)$.</li>
+                </ul>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la correction</button>
+                <button>Cacher la correction</button>
+                <ul><li>$f$ et $g$ sont affine. Comme $-2<0$ :<br/>
+                <table>
+                    <thead>
+                        <tr><th>$x$</th><td>$-\infty$</td><td></td><td>$+\infty$</td></tr>
+                    </thead>
+                    <tbody>
+                        <tr class="variation"><th>$-2x+3$</th>
+                        </td><td style="vertical-align:top;">&nbsp;</td>
+                        <td><div class='decroissante'></div>
+                        <td style="vertical-align:bottom;">&nbsp;</td>
+                        </tr>
+                    </tbody>
+                </table><br/>
+                et comme $2>0$ :<br/>
+                <table>
+                    <thead>
+                        <tr><th>$x$</th><td>$-\infty$</td><td></td><td>$+\infty$</td></tr>
+                    </thead>
+                    <tbody>
+                        <tr class="variation"><th>$2x-1$</th>
+                        </td><td style="vertical-align:bottom;">&nbsp;</td>
+                        <td><div class='croissante'></div>
+                        <td style="vertical-align: top;">&nbsp;</td>
+                        </tr>
+                    </tbody>
+                </table>
+                </li>
+                <li>$f(1)=-2\times1+3=1$ et $g(1)=2\times1-1=1$.</li>
+                <li>Si $x \leqslant 1$ :<br/>
+                    <ul><li>comme $f$ est décroissante, $f(x) \geqslant f(1)$ c'est à dire $f(x) \geqslant 1$</li>
+                        <li>comme $g$ est  croissante, $g(x) \leqslant g(1)$ c'est à dire $g(x) \leqslant 1$ </li>
+                        <li>donc $g(x) \leqslant 1 \leqslant f(x)$ </li>
+                    </ul>
+                    Si $x \geqslant 1$, on trouve par la même méthode : $f(x) \leqslant 1 \leqslant g(x)$ <br/>
+                    De plus $f(x)=g(x)$ $\Leftrightarrow -2x+3=2x-1$  $\Leftrightarrow 4=4x$  $\Leftrightarrow x=1$ <br/>
+                    Finalement l'ensemble solution de l'inéquation $f(x)>g(x)$ est $]-\infty;1[$.
+                </ul>
+            </section>
+        </article>
+
+        <article>
+            <header>
+                <h2><span class="cadre">Théorème </span> Règle de multiplication dans une inégalité</h2>
+                <p>Pour trois réels $a$, $b$ et $c$ quelconques,
+                <ul><li>Si $c < 0$, alors $\qquad$ $a \leqslant b \quad \Leftrightarrow \quad a \times c \geqslant b \times c$</li>
+                <li>Si $c > 0$, alors $\qquad$ $a \leqslant b \quad \Leftrightarrow \quad a \times c \leqslant b \times c$</li></ul></p>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la démonstration</button>
+                <button>Cacher la démonstration</button>
+                Il suffit de constater qu'on passe d'une inégalité à l'autre à l'aide de la fonction affine $x \mapsto c x$ ou $x \mapsto \frac{1}{c} x$, qui est croissante
+                donc conserve l'ordre si $c&gt;0$ et décroissante donc renverse l'ordre si $c&lt;0$.
+            </section>
+            <section>On peut donc multiplier ou diviser par un même réel non nul chaque membre d'une inégalité ou d'une inéquation à condition de changer l'ordre si ce nombre est négatif.
+            </section>
+        </article>
+
+    <article>
+            <header>
+                <h2><span class="cadre">Exerice 6.11</span> Résoudre :</h2>
+                <ol><li>$x-4 \leqslant 0$</li>
+                <li>$x+3 &gt; 0$</li>
+                <li>$2x \geqslant 8$</li>
+                <li>$-5x &lt; 2$</li>
+                <li>$\frac{x}{3} \geqslant 2$</li>
+                <li>$5 &lt; -\frac{x}{2}$</li>
+                </ol></p>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la correction</button>
+                <button>Cacher la correction</button>
+                <ol><li>$x-4 \leqslant 0$
+                <div style="display:inline-block;position:relative;">
+                    <div style="position:absolute;top:-0.75em;font-size: 2.5em;">&#10552;</div>
+                    <div style="position:absolute;top:-0.5em;left:1.5em;font-size: 0.75em;">$+4$</div>
+                    </div>
+                </div><br/>
+                $\Leftrightarrow x \leqslant 4$<br/>Solutions : $]-\infty;4]$
+                </li>
+                <li>$x+3 &gt; 0$
+                <div style="display:inline-block;position:relative;">
+                    <div style="position:absolute;top:-0.75em;font-size: 2.5em;">&#10552;</div>
+                    <div style="position:absolute;top:-0.5em;left:1.5em;font-size: 0.75em;">$-3$</div>
+                    </div>
+                </div><br/>
+                $x&gt;-3$<br/>Solutions : $]-3;+\infty[$</li>
+                <li>$2x \geqslant 8$ &nbsp;&nbsp;&nbsp;
+                <div style="display:inline-block;position:relative;">
+                    <div style="position:absolute;top:-0.75em;font-size: 2.5em;">&#10552;</div>
+                    <div style="position:absolute;top:-0.5em;left:1.5em;font-size: 0.75em;">$\div 2 \text{ avec } 2&gt;0$</div>
+                    </div>
+                </div><br/>
+                $\Leftrightarrow x \geqslant 4$<br/>Solutions : $[4;+\infty[$</li>
+                <li>$-5x &lt; 2$ &nbsp;&nbsp;&nbsp;
+                <div style="display:inline-block;position:relative;">
+                    <div style="position:absolute;top:-0.75em;font-size: 2.5em;">&#10552;</div>
+                    <div style="position:absolute;top:-0.5em;left:1.5em;font-size: 0.75em;">$\div (-5) \text{ avec } -5&lt;0$</div>
+                    </div>
+                </div><br/>
+                $\Leftrightarrow x &gt; 0,4$<br/>Solutions : $]0,4;+\infty[$</li>
+                <li>$\frac{x}{3} \geqslant 2$&nbsp;&nbsp;&nbsp;
+                <div style="display:inline-block;position:relative;">
+                    <div style="position:absolute;top:-0.75em;font-size: 2.5em;">&#10552;</div>
+                    <div style="position:absolute;top:-0.5em;left:1.5em;font-size: 0.75em;">$\times 3 \text{ avec } 3&gt;0$</div>
+                    </div>
+                </div><br/>
+                $\Leftrightarrow x \geqslant 6$<br/>Solutions : $[6;+\infty[$</li>
+                <li>$5 &lt; -\frac{x}{2}$&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <div style="display:inline-block;position:relative;">
+                    <div style="position:absolute;top:-0.75em;font-size: 2.5em;">&#10552;</div>
+                    <div style="position:absolute;top:-0.5em;left:1.5em;font-size: 0.75em;">$\times (-2) \text{ avec } -2&lt;0$</div>
+                    </div>
+                </div><br/>
+                $\Leftrightarrow -10 &gt; x$<br/>Solutions : $]-\infty;-10[$</li>
+                </ol>
+            </section>
+        </article>
+
+    <article>
+            <header>
+                <h2><span class="cadre">Exerice 6.12</span> Résoudre :</h2>
+                <ol><li>$2x-4\leqslant0$</li>
+                <li>$9-3x&gt;0$</li>
+                <li>$-x+3\geqslant8$</li>
+                <li>$2+5x<3$</li>
+                </ol>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la correction</button>
+                <button>Cacher la correction</button>
+                <ol><li>$2x-4\leqslant0$&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <div style="display:inline-block;position:relative;">
+                    <div style="position:absolute;top:-0.75em;font-size: 2.5em;">&#10552;</div>
+                    <div style="position:absolute;top:-0.5em;left:1.5em;font-size: 0.75em;">$+4$</div>
+                </div><br/>$2x\leqslant4$&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <div style="display:inline-block;position:relative;">
+                    <div style="position:absolute;top:-0.75em;font-size: 2.5em;">&#10552;</div>
+                    <div style="position:absolute;top:-0.5em;left:1.5em;font-size: 0.75em;">$\div 2 \text{ avec } 2 &gt;0$</div>
+                </div><br/>
+                $\Leftrightarrow x \leqslant 2$<br/>Solutions : $]-\infty;2]$</li>
+                <li>$9-3x&gt;0$&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <div style="display:inline-block;position:relative;">
+                    <div style="position:absolute;top:-0.75em;font-size: 2.5em;">&#10552;</div>
+                    <div style="position:absolute;top:-0.5em;left:1.5em;font-size: 0.75em;">$+3x$</div>
+                </div><br/>$9&gt;3x$&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <div style="display:inline-block;position:relative;">
+                    <div style="position:absolute;top:-0.75em;font-size: 2.5em;">&#10552;</div>
+                    <div style="position:absolute;top:-0.5em;left:1.5em;font-size: 0.75em;">$\div 3 \text{ avec } 3 &gt;0$</div>
+                </div><br/>
+                $3&gt;x$<br/>Solutions : $]-\infty;3[$</li>
+                <li>$-x+3\geqslant8$&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <div style="display:inline-block;position:relative;">
+                    <div style="position:absolute;top:-0.75em;font-size: 2.5em;">&#10552;</div>
+                    <div style="position:absolute;top:-0.5em;left:1.5em;font-size: 0.75em;">$-3$</div>
+                </div><br/>$-x\geqslant5$&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <div style="display:inline-block;position:relative;">
+                    <div style="position:absolute;top:-0.75em;font-size: 2.5em;">&#10552;</div>
+                    <div style="position:absolute;top:-0.5em;left:1.5em;font-size: 0.75em;">$\div (-1) \text{ avec } -1 &lt;0$</div>
+                </div><br/>
+                $x\leqslant-5$<br/>Solutions : $]-\infty;-5]$</li>
+                <li>$2+5x&lt;3$&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <div style="display:inline-block;position:relative;">
+                    <div style="position:absolute;top:-0.75em;font-size: 2.5em;">&#10552;</div>
+                    <div style="position:absolute;top:-0.5em;left:1.5em;font-size: 0.75em;">$-2$</div>
+                </div><br/>$5x&lt;1$&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <div style="display:inline-block;position:relative;">
+                    <div style="position:absolute;top:-0.75em;font-size: 2.5em;">&#10552;</div>
+                    <div style="position:absolute;top:-0.5em;left:1.5em;font-size: 0.75em;">$\div 5 \text{ avec } 5 &gt;0$</div>
+                </div><br/>
+                $x&lt;-0,2$<br/>Solutions : $]-\infty;-0,2[$</li>
+                </ol>
+            </section>
+        </article>
+
+
+
+    <article>
+            <header>
+                <h2><span class="cadre">Exerice 6.13</span> Résoudre :</h2>
+                <ol><li>$2x-4\leqslant3x+4$</li>
+                <li>$9-3x&gt;x+1$</li>
+                <li>$-x+3\geqslant6-x$</li>
+                <li>$2+5x&lt;6-x$</li>
+                </ol>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la correction</button>
+                <button>Cacher la correction</button>
+                <ol><li>$2x-4\leqslant3x+4$&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <div style="display:inline-block;position:relative;">
+                    <div style="position:absolute;top:-0.75em;font-size: 2.5em;">&#10552;</div>
+                    <div style="position:absolute;top:-0.5em;left:1.5em;font-size: 0.75em;">$-2x$</div>
+                </div><br/>$-4\leqslant x+4$&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <div style="display:inline-block;position:relative;">
+                    <div style="position:absolute;top:-0.75em;font-size: 2.5em;">&#10552;</div>
+                    <div style="position:absolute;top:-0.5em;left:1.5em;font-size: 0.75em;">$-4$</div>
+                </div><br/>
+                $-8\leqslant x$<br/>Solutions : $[-8;+\infty[$</li>
+                <li>$9-3x&gt;x+1$&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <div style="display:inline-block;position:relative;">
+                    <div style="position:absolute;top:-0.75em;font-size: 2.5em;">&#10552;</div>
+                    <div style="position:absolute;top:-0.5em;left:1.5em;font-size: 0.75em;">$+3x$</div>
+                </div><br/>$9&gt;4x+1$&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <div style="display:inline-block;position:relative;">
+                    <div style="position:absolute;top:-0.75em;font-size: 2.5em;">&#10552;</div>
+                    <div style="position:absolute;top:-0.5em;left:1.5em;font-size: 0.75em;">$-1$</div>
+                </div><br/>$8&gt;4x$&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <div style="display:inline-block;position:relative;">
+                    <div style="position:absolute;top:-0.75em;font-size: 2.5em;">&#10552;</div>
+                    <div style="position:absolute;top:-0.5em;left:1.5em;font-size: 0.75em;">$\div 4 \text{ avec } 4 &gt;0$</div>
+                </div><br/>
+                $2&gt;x$<br/>Solutions : $]-\infty;2[$</li>
+                <li>$-x+3\geqslant6-x$&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <div style="display:inline-block;position:relative;">
+                    <div style="position:absolute;top:-0.75em;font-size: 2.5em;">&#10552;</div>
+                    <div style="position:absolute;top:-0.5em;left:1.5em;font-size: 0.75em;">$+x$</div>
+                </div><br/>
+                $3\geqslant6$<br/>Solutions : $\emptyset$</li>
+                <li>$2+5x&lt;6-x$&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <div style="display:inline-block;position:relative;">
+                    <div style="position:absolute;top:-0.75em;font-size: 2.5em;">&#10552;</div>
+                    <div style="position:absolute;top:-0.5em;left:1.5em;font-size: 0.75em;">$+x$</div>
+                </div><br/>$2+6x&lt;6$&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <div style="display:inline-block;position:relative;">
+                    <div style="position:absolute;top:-0.75em;font-size: 2.5em;">&#10552;</div>
+                    <div style="position:absolute;top:-0.5em;left:1.5em;font-size: 0.75em;">$-2$</div>
+                </div><br/>$6x&lt;4$&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <div style="display:inline-block;position:relative;">
+                    <div style="position:absolute;top:-0.75em;font-size: 2.5em;">&#10552;</div>
+                    <div style="position:absolute;top:-0.5em;left:1.5em;font-size: 0.75em;">$\div 6 \text{ avec } 6 &gt;0$</div>
+                </div><br/>
+                $x&lt;\frac{2}{3}$<br/>Solutions : $]-\infty;\frac{2}{3}[$</li>
+                </ol>
+            </section>
+        </article>
+
+
+
+    <article>
+            <header>
+                <h2><span class="cadre">Exerice 6.14</span> Résoudre :</h2>
+                <ol><li>$\dfrac{2x-4}{3}\leqslant2x$</li>
+                <li>$\dfrac{x-2}{5}&gt;\dfrac{2-x}{3}$</li>
+                </ol>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la correction</button>
+                <button>Cacher la correction</button>
+                <ol><li>$\dfrac{2x-4}{3}\leqslant2x$&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <div style="display:inline-block;position:relative;">
+                    <div style="position:absolute;top:-0.75em;font-size: 2.5em;">&#10552;</div>
+                    <div style="position:absolute;top:-0.5em;left:1.5em;font-size: 0.75em;">$\times 3 \text{ avec } 3 &gt;0$</div>
+                </div><br/>$2x-4\leqslant6x$&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <div style="display:inline-block;position:relative;">
+                    <div style="position:absolute;top:-0.75em;font-size: 2.5em;">&#10552;</div>
+                    <div style="position:absolute;top:-0.5em;left:1.5em;font-size: 0.75em;">$-2x$</div>
+                </div><br/>$-4\leqslant4x$&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <div style="display:inline-block;position:relative;">
+                    <div style="position:absolute;top:-0.75em;font-size: 2.5em;">&#10552;</div>
+                    <div style="position:absolute;top:-0.5em;left:1.5em;font-size: 0.75em;">$\div 4 \text{ avec } 4 &gt;0$</div>
+                </div><br/>
+                $-1\leqslant x$<br/>Solutions : $[-1;+\infty[$</li>
+                <li>$\dfrac{x-2}{5}&gt;\dfrac{2-x}{3}$ $\Leftrightarrow \dfrac{3(x-2)}{15}&gt;\dfrac{5(2-x)}{15}$
+                <div style="display:inline-block;position:relative;">
+                    <div style="position:absolute;top:-0.75em;font-size: 2.5em;">&#10552;</div>
+                    <div style="position:absolute;top:-0.5em;left:1.5em;font-size: 0.75em;">$\times 15 \text{ avec } 15 &gt;0$</div>
+                </div><br/>$3x-6&gt;10-5x$&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <div style="display:inline-block;position:relative;">
+                    <div style="position:absolute;top:-0.75em;font-size: 2.5em;">&#10552;</div>
+                    <div style="position:absolute;top:-0.5em;left:1.5em;font-size: 0.75em;">$+5x+6$</div>
+                </div><br/>$8x&gt;16$&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <div style="display:inline-block;position:relative;">
+                    <div style="position:absolute;top:-0.75em;font-size: 2.5em;">&#10552;</div>
+                    <div style="position:absolute;top:-0.5em;left:1.5em;font-size: 0.75em;">$\div 8 \text{ avec } 8 &gt;0$</div>
+                </div><br/>
+                $x&gt;2$<br/>Solutions : $]2;+\infty[$</li>
+                </ol>
+            </section>
+        </article>
+
+
+
+    <article>
+            <header>
+                <h2><span class="cadre">Exerice 6.15</span> Développer et résoudre :</h2>
+                <ol><li>$x(x-3)&gt;x^2-3$</li>
+                <li>$(x+1)^2&gt;x^2$</li>
+                <li>$(2x-3)(1-6x)\leqslant -3x(4x+1)$</li>
+                </ol>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la correction</button>
+                <button>Cacher la correction</button>
+                <ol><li>$x(x-3)&gt;x^2-3$ $\Leftrightarrow x^2 - 3x &gt;x^2-3$
+                <div style="display:inline-block;position:relative;">
+                    <div style="position:absolute;top:-0.75em;font-size: 2.5em;">&#10552;</div>
+                    <div style="position:absolute;top:-0.5em;left:1.5em;font-size: 0.75em;">$-x^2$</div>
+                </div><br/>$- 3x &gt;-3$&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <div style="display:inline-block;position:relative;">
+                    <div style="position:absolute;top:-0.75em;font-size: 2.5em;">&#10552;</div>
+                    <div style="position:absolute;top:-0.5em;left:1.5em;font-size: 0.75em;">$\div (-3) \text{ avec } -3 &lt;0$</div>
+                </div><br/>
+                $x &lt;1$<br/>Solutions : $]-\infty;1[$</li>
+                <li>$(x+1)^2&gt;x^2$ $\Leftrightarrow x^2 +2x+1 &gt;x^2$
+                <div style="display:inline-block;position:relative;">
+                    <div style="position:absolute;top:-0.75em;font-size: 2.5em;">&#10552;</div>
+                    <div style="position:absolute;top:-0.5em;left:1.5em;font-size: 0.75em;">$-x^2$</div>
+                </div><br/>$2x+1 &gt;0$&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <div style="display:inline-block;position:relative;">
+                    <div style="position:absolute;top:-0.75em;font-size: 2.5em;">&#10552;</div>
+                    <div style="position:absolute;top:-0.5em;left:1.5em;font-size: 0.75em;">$-1$</div>
+                </div><br/>$2x &lt;-1$&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <div style="display:inline-block;position:relative;">
+                    <div style="position:absolute;top:-0.75em;font-size: 2.5em;">&#10552;</div>
+                    <div style="position:absolute;top:-0.5em;left:1.5em;font-size: 0.75em;">$\div 2 \text{ avec } 2 &gt;0$</div>
+                </div><br/>
+                $x &lt; \frac{-1}{2}$<br/>Solutions : $]-\infty; \frac{-1}{2}[$</li>
+                <li>$(2x-3)(1-6x)\leqslant -3x(4x+1)$ $\Leftrightarrow 2x-3-12x^2+18x\leqslant -12x^2-3x$
+                <div style="display:inline-block;position:relative;">
+                    <div style="position:absolute;top:-0.75em;font-size: 2.5em;">&#10552;</div>
+                    <div style="position:absolute;top:-0.5em;left:1.5em;font-size: 0.75em;">$+12x^2$</div>
+                </div><br/>$20x-3\leqslant -3x$&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <div style="display:inline-block;position:relative;">
+                    <div style="position:absolute;top:-0.75em;font-size: 2.5em;">&#10552;</div>
+                    <div style="position:absolute;top:-0.5em;left:1.5em;font-size: 0.75em;">$+3x+3$</div>
+                </div><br/>$23x \leqslant 3$&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <div style="display:inline-block;position:relative;">
+                    <div style="position:absolute;top:-0.75em;font-size: 2.5em;">&#10552;</div>
+                    <div style="position:absolute;top:-0.5em;left:1.5em;font-size: 0.75em;">$\div 23 \text{ avec } 23 &gt;0$</div>
+                </div><br/>
+                $x \leqslant \frac{3}{23}$<br/>Solutions : $]-\infty; \frac{3}{23}]$</li>
+                </ol>
+            </section>
+        </article>
+
+
+
+    <article>
+            <header>
+                <h2><span class="cadre">Exerice 6.16</span></h2>
+                Un club de squash propose deux tarifs :
+                <ul><li>Tarif A : 8 € par séance.</li>
+                    <li>Tarif B : achat d'une carte à 40 € pour l'année puis 5 € par séance.</li>
+                </ul>
+                Pour combien de séances le tarif A est-t-il moins cher que le tarif B ?
+            </header>
+            <section class="ouvrable">
+                <button>Voir la correction</button>
+                <button>Cacher la correction</button>
+                Notons $n$ le nombre de séances.
+                <ul><li>Le tarif A revient à $8n$ €.</li>
+                    <li>Le tarif B revient à $40+5n$ €.</li>
+                </ul>
+                Le preblème revient à résoudre :<br/>
+                $8n &lt; 40+5n$&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <div style="display:inline-block;position:relative;">
+                    <div style="position:absolute;top:-0.75em;font-size: 2.5em;">&#10552;</div>
+                    <div style="position:absolute;top:-0.5em;left:1.5em;font-size: 0.75em;">$-5n$</div>
+                </div><br/>$3n &lt; 40$&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <div style="display:inline-block;position:relative;">
+                    <div style="position:absolute;top:-0.75em;font-size: 2.5em;">&#10552;</div>
+                    <div style="position:absolute;top:-0.5em;left:1.5em;font-size: 0.75em;">$\div 3 \text{ avec } 3 &gt;0$</div>
+                </div><br/>
+                $n &lt; \frac{40}{3}$<br/>
+                Comme $\frac{40}{3} \approx 13,3$ et que $n$ est entier, on en déduit :<br/>
+                Le tarif A est moins cher que le tarif B pour 13 séances ou moins.
+            </section>
+        </article>
+
+
+
+    <article>
+            <header>
+                <h2><span class="cadre">Exerice 6.17</span></h2>
+                Sur les figures ci-dessous,
+                <ul><li>$[\text{A}\text{B}]$ mesure 3 cm,</li>
+                    <li>$[\text{A}\text{C}]$ mesure 2 cm,</li>
+                    <li>$(\text{A}\text{B})$ et $(\text{A}\text{C})$ sont perpendiculaires,</li>
+                    <li>D est un point de $[\text{A}\text{B}]$,</li>
+                    <li>ADEC est un rectangle.</li>
+                </ul>
+                <div class="centre"><div class="figure"><canvas id="graphe3" height="180", width="320">Balise canvas non supportée</canvas><br />
+                    <div class="slidecontainer"><input type="range" min="0" max="30" value="15" class="slider" id="xD"></div>
+                </div></div>
+                <style>
+                    .slidecontainer {
+                      width: 100%; /* Width of the outside container */
+                    }
+
+                    /* The slider itself */
+                    .slider {
+                      -webkit-appearance: none;  /* Override default CSS styles */
+                      appearance: none;
+                      width: 100%; /* Full-width */
+                      height: 5px; /* Specified height */
+                      background: #d3d3d3; /* Grey background */
+                      outline: none; /* Remove outline */
+                      opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+                      -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+                      transition: opacity .2s;
+                      margin-top : 15px;
+                      margin-bottom : 15px;
+                    }
+
+                    /* Mouse-over effects */
+                    .slider:hover {
+                      opacity: 1; /* Fully shown on mouse-over */
+                    }
+
+                    /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+                    .slider::-webkit-slider-thumb {
+                      -webkit-appearance: none; /* Override default look */
+                      appearance: none;
+                      width: 25px; /* Set a specific slider handle width */
+                      height: 25px; /* Slider handle height */
+                      border-radius: 50%;
+                      background: #0098f8; /* Green background */
+                      cursor: pointer; /* Cursor on hover */
+                    }
+
+                    .slider::-moz-range-thumb {
+                      width: 15px; /* Set a specific slider handle width */
+                      height: 15px; /* Slider handle height */
+                      border-radius: 50%;
+                      background: #0098f8; /* Green background */
+                      cursor: pointer; /* Cursor on hover */
+                    }
+                </style>
+                <script>
+                    var xD = document.getElementById("xD");
+                    xD.value = 15;
+                    xD.oninput = function() {
+                      dessine["graphe3"](this.value/10);
+                    }
+                    var graphe = calibre("graphe3",-1,4,-1,3,1);
+                    /* Les textes*/
+                    ecrit("A",-0.3,-0.3);
+                    ecrit("B",3.1,-0.3);
+                    ecrit("C",-0.3,2.3);
+                    texte_D = ecrit("D",0,-0.3);
+                    texte_E = ecrit("E",0,2.3);
+                    var dessine = {"graphe3" : x => {
+                        var graphe = calibre("graphe3",-1,4,-1,3,1);
+                        graphe.strokeStyle = "#000000";
+                        graphe.lineWidth=2;
+                        graphe.clearRect(0, 0, 320, 180);
+                        segment(0,0,3,0);
+                        segment(0,0,0,2);
+                        segment(0,2,x,2);
+                        segment(x,2,3,0);
+                        segment(x,2,x,0);
+                        texte_D.style.left = (xpx(x)-texte_D.offsetWidth/2)+"px";
+                        texte_E.style.left = (xpx(x)-texte_E.offsetWidth/2)+"px";
+                    }}
+                    dessine["graphe3"](xD.value/10);
+                </script>
+                Pour quelles positions du point D l'aire de ADEC est-elle plus grande que celle de DBE ?
+            </header>
+            <section class="ouvrable">
+                <button>Voir la correction</button>
+                <button>Cacher la correction</button>
+                Notons $x$ la longueur AD.<br/>
+                Alors l'aire de ADEC est $2x$ et DE mesure $3-x$ donc l'aire de DBE rectangle en D est $\frac{(3-x)\times2}{2}=3-x$.<br/>
+                Le problème revient donc à résoudre :<br/>
+                $2x&gt;3-x$
+                <div style="display:inline-block;position:relative;">
+                    <div style="position:absolute;top:-0.75em;font-size: 2.5em;">&#10552;</div>
+                    <div style="position:absolute;top:-0.5em;left:1.5em;font-size: 0.75em;">$+x$</div>
+                </div><br/>$3x &gt; 3$&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <div style="display:inline-block;position:relative;">
+                    <div style="position:absolute;top:-0.75em;font-size: 2.5em;">&#10552;</div>
+                    <div style="position:absolute;top:-0.5em;left:1.5em;font-size: 0.75em;">$\div 3 \text{ avec } 3 &gt;0$</div>
+                </div><br/>
+                $x &gt; 1$<br/>
+                l'aire de ADEC est plus grande que celle de DBE pour une position de D à plus de 1 cm de A
+            </section>
+        </article>
+
+
+
+    <article>
+            <header>
+                <h2><span class="cadre">Exerice 6.18</span></h2>
+                On cherche à résoudre l'inéquation : $2x^2-2x-4>0$
+                <ol><li>Développer l'expression $(2x-4)(x+1)$</li>
+                    <li>Résoudre l'inéquation $2x-4>0$</li>
+                    <li>Résoudre l'inéquation $x+1>0$</li>
+                    <li>Résoudre l'inéquation de départ.</li>
+                </ol>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la correction</button>
+                <button>Cacher la correction</button>
+                Recherche et correction en classe.
+            </section>
+        </article>

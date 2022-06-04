@@ -1,0 +1,52 @@
+<article>
+            <header><h2><span class="cadre">Théorème</span> Théorème de Moivre-Laplace</h2>
+            Soit $p\in]0;1[$. On suppose que, pour tout $n\in\mathbb{N}^{\star}$, $X_n\hookrightarrow\mathscr{B}(n,p)$.<br />
+            On pose $Z_n=\dfrac{X_n-np}{\sqrt{np(1 - p)}}$, variable centrée et réduite associée à $X_n$.<br />
+            Alors, pour tous réels $a$ et $b$ tels que $a \leqslant b$, on a :
+            <div class="centre">$\displaystyle\lim_{n\to+\infty}P(a\leqslant Z_n \leqslant b)=\int_a^b \frac{1}{\sqrt{2\pi}}\mathrm{e}^{-\frac{x^2}{2}}\text{d}x$</div>
+            </header>
+            <section><h3>Historique et explications du Théorème de Moivre-Laplace.</h3>
+                <div class="centre"><iframe src="https://embed.api.video/vod/viW7r9gi0NuyCkJsTahZqJ8" frameborder="0" scrolling="no" allowfullscreen=""></iframe></div>
+            </section>
+        </article>
+
+        <article>
+            <header>
+                <h2><span class="cadre">Définition</span> Loi normale</h2>
+                <p> Une variable aléatoire $X$ suit une loi normale centrée réduite si, pour tous réels $a$ et $b\geqslant a$ :</p>
+                <div class="centre">$\displaystyle P(a\leqslant X \leqslant b)=\int_a^b \frac{1}{\sqrt{2\pi}}\mathrm{e}^{-\frac{x^2}{2}}\text{d}x$</div></p>
+                <div class="centre"><div class="figure"><canvas id="graphe1" height="180" width="320">Balise canvas non supportée</canvas></div></div>
+                <script>
+                    var graphe = calibre("graphe1", -4, 4, -0.1, 0.5,5);
+                    var f = x => Math.exp(-x*x/2)/Math.sqrt(2*Math.PI);
+                    graphe.fillStyle = '#0098f8';
+                    integrale(f,-0.5,1.5);
+                    axes(1,5);
+                    graphe.lineWidth = 1;
+                    trace(f,xmin,xmax);
+                    graphe.lineWidth = 1;
+                    graphe.setLineDash([3,3]);
+                    ecrit("$P(a\\leqslant X \\leqslant b)$",1.2,0.3,'#0098f8');
+                    ecrit("$a$",-0.6,-0.02,'#0098f8');
+                    ecrit("$b$",1.4,-0.02,'#0098f8');
+                    ecrit("$1$",0.9,-0.02);
+                    ecrit("$0.2$",-0.6,0.22);
+                </script>
+                On notera : $X\hookrightarrow\mathscr{N}(0,1)$
+            </header>
+            <section>
+                <h3>Exemple</h3>
+                Supposons que l'on dispose d'un ruban de tissu d'une longueur infinie sur lequel on ait dessiné un axe gradué.
+                Une fois repéré visuellement l'origine O de cet axe, on prend une paire de ciseaux et, les yeux fermés, on essaie de couper
+                le ruban en passant par ce point.<br />
+                La probabilité de couper exactement au point choisi est nulle car il y a une infinité de point sur l'axe.
+                Mais elle est beaucoup plus importante de couper proche de ce point qu'à un kilomètre...<br />
+                En fait, on ne va pas mesurer la probabilité de couper en un point donné : elle est toujours nulle,
+                mais dans un voisinage de ce point : entre telle et telle valeur.<br />
+                Si on suppose que notre variable aléatoire X, donnant l'abscisse de la coupe, suit une
+                loi normale centrée réduite, alors la probabilité de couper exntre les abscisses $-1$ et $1$ serait :
+                $\displaystyle P(-1\leqslant X \leqslant 1)=\int_{-1}^1 \frac{1}{\sqrt{2\pi}}\mathrm{e}^{-\frac{x^2}{2}}\text{d}x$.
+                Mais comme cette intégrale à difficile à calculer (il n'existe pas de primitive simple), on se réfère à des tables de calculs
+                et, dans ce cas, on trouve : $\displaystyle P(-1\leqslant X \leqslant 1)\approx 0,68$, soit un peu plus de 2 chances sur 3.
+            </section>
+        </article>

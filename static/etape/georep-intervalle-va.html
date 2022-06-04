@@ -1,0 +1,788 @@
+        <article>
+            <header>
+                <h2><span class="cadre">Théorème</span> Lien intervalle - valeur absolue</h2>
+                <p>Si $a$ et $r$ sont deux réels avec $r>0$, alors :</p>
+                <div class='centre'>$\vert x - a \vert \leqslant r \quad \Leftrightarrow \quad x \in [a-r;a+r]$
+                </div>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la démonstration</button>
+                <button>Cacher la démonstration</button>
+                <p>On cherche à résoudre l'inéquation $\vert x - a \vert \leqslant r$ :</p>
+                <div class="centre"><div class="figure"><canvas id="graphe1" height="180", width="320">Balise canvas non supportée</canvas></div></div>
+                <script>
+                     var graphe = calibre("graphe1",-5.5,5.5,-1,1,1);
+                       var pasx = 1;
+                       graphiquecanvas.lineWidth="1";
+                       /* la graduation */
+                       graphiquecanvas.beginPath();
+                       graphiquecanvas.lineWidth="1";
+                       graphiquecanvas.strokeStyle="black";
+                       for (var k = pasx+1; Math.floor(xmin) + k < xmax-1; k = k + pasx) {
+                           graphiquecanvas.moveTo(xpx(Math.floor(xmin) + k),ypx(0)-3);
+                           graphiquecanvas.lineTo(xpx(Math.floor(xmin) + k),ypx(0)+3);
+                       }
+                       graphiquecanvas.stroke();
+                       /* l'axe des abscisses */
+                       graphiquecanvas.moveTo(xpx(xmin+1),ypx(0));
+                       graphiquecanvas.lineTo(xpx(xmax-1),ypx(0));
+                       graphiquecanvas.moveTo(xpx(xmax-1)-5,ypx(0)-3);
+                       graphiquecanvas.lineTo(xpx(xmax-1),ypx(0));
+                       graphiquecanvas.moveTo(xpx(xmax-1)-5,ypx(0)+3);
+                       graphiquecanvas.lineTo(xpx(xmax-1),ypx(0));
+                       graphiquecanvas.stroke();
+
+                            graphe.strokeStyle = "#0098f8";
+                            graphe.setLineDash([]);
+                            graphe.lineWidth=3;
+                            segment(-0.5,0,3.5,0);
+                            xA = xpx(-0.5);
+                            xB = xpx(3.5);
+                            y0 = ypx(0);
+                            ligne([xpx(1.5),y0-5],[xpx(1.5),y0+5]);
+                            ligne([xA+5,y0-10],[xA,y0-10],[xA,y0+10],[xA+5,y0+10]);
+                            ligne([xB+5,y0-10],[xB,y0-10],[xB,y0+10],[xB+5,y0+10]);
+                    text = ecrit("$a-r$",-1,1,"#0098f8");
+                    text = ecrit("$a$",1.3,0.75,"#0098f8");
+                    text = ecrit("$a+r$",3,1,"#0098f8");
+
+                    ecrit("$-\\infty$",xmin,0.2);
+                    ecrit("$+\\infty$",xmax-1,0.2);
+
+                </script>
+                <p><ul><li>Si $x \leqslant a$ alors $\vert x - a \vert = a - x$.<br />
+                           Dans ce cas :
+                           $\vert x - a \vert \leqslant r
+                           \Leftrightarrow a-x \leqslant r
+                           \Leftrightarrow a \leqslant r +x
+                           \Leftrightarrow a - r \leqslant x$ <br />
+                           D'où un premier ensemble solution :  $[a-r;a]$.
+                       </li><li>Si $x \geqslant a$ alors $\vert x - a \vert = x - a$.<br />
+                           Dans ce cas :
+                           $\vert x - a \vert \leqslant r
+                           \Leftrightarrow x-a \leqslant r
+                           \Leftrightarrow x \leqslant a+r$<br />
+                           D'où un second ensemble solution :  $[a;a+r]$.
+                       </li><li>Finalement les solutions sont $[a-r;a]\cup[a;a+r]$ donc $[a-r;a+r]$.
+                       </li></ul></p>
+            </section>
+            <section><h3>Vocabulaire</h3>
+            <ul><li>$a$ est le milieu du segment correspondant sur l'axe. On l'appelle le centre de l'intervalle.</li>
+                <li>On appelle $r$ le rayon de l'intervalle.
+        </article>
+
+        <article>
+            <header>
+                <h2><span class="cadre">Applications directes</span> 71 à 76 p.29</h2>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la solution</button>
+                <button>Cacher la solution</button>
+                <p><h3>71 p.29</h3>
+                    <ol style="list-style-type : lower-latin;">
+                        <li> $\vert x \vert \geqslant 3$ se réécrit $\vert x - 0 \vert \geqslant 3$, c'est
+                        à dire que la distance de $x$ à $0$ est plus grande que $3$.<br />
+                        <div class="centre"><div class="figure"><canvas id="graphe2" height="180", width="320">Balise canvas non supportée</canvas></div></div>
+                <script>
+                     var graphe = calibre("graphe2",-5.5,5.5,-1,1,1);
+                       /* la graduation */
+                       graphiquecanvas.beginPath();
+                       graphiquecanvas.lineWidth="1";
+                       graphiquecanvas.strokeStyle="black";
+                       var pasx = 1;
+                       for (var k = pasx; Math.floor(xmin) + k < xmax; k = k + pasx) {
+                           graphiquecanvas.moveTo(xpx(Math.floor(xmin) + k),ypx(0)-3);
+                           graphiquecanvas.lineTo(xpx(Math.floor(xmin) + k),ypx(0)+3);
+                       }
+                       graphiquecanvas.stroke();
+                       /* l'axe des abscisses */
+                       graphiquecanvas.moveTo(xpx(xmin),ypx(0));
+                       graphiquecanvas.lineTo(xpx(xmax),ypx(0));
+                       graphiquecanvas.moveTo(xpx(xmax)-5,ypx(0)-3);
+                       graphiquecanvas.lineTo(xpx(xmax),ypx(0));
+                       graphiquecanvas.moveTo(xpx(xmax)-5,ypx(0)+3);
+                       graphiquecanvas.lineTo(xpx(xmax),ypx(0));
+                       graphiquecanvas.stroke();
+                            xA = xpx(-3);
+                            xB = xpx(3);
+                            y0 = ypx(0);
+                            ligne([xpx(0),y0-5],[xpx(0),y0+5]);
+                            graphe.strokeStyle = "#0098f8";
+                            graphe.setLineDash([]);
+                            graphe.lineWidth=3;
+                            segment(xmin,0,-3,0);
+                            segment(3,0,xmax,0);
+                            ligne([xA-5,y0-10],[xA,y0-10],[xA,y0+10],[xA-5,y0+10]);
+                            ligne([xB+5,y0-10],[xB,y0-10],[xB,y0+10],[xB+5,y0+10]);
+                       graphe.lineWidth=2;
+                       fleche(point(-3,1),point(0,1));
+                       fleche(point(0,1),point(-3,1));
+                       fleche(point(3,1),point(0,1));
+                       fleche(point(0,1),point(3,1));
+
+                    text = ecrit("$3$",1.4,1.5,"#0098f8");
+                    text = ecrit("$3$",-1.6,1.5,"#0098f8");
+
+                    text = ecrit("$-3$",-3.5,-0.5,"#0098f8");
+                    text = ecrit("$0$",-0.15,-0.5);
+                    text = ecrit("$3$",2.8,-0.5,"#0098f8");
+
+                    ecrit("$-\\infty$",xmin,-0.5,"#0098f8");
+                    ecrit("$+\\infty$",xmax-1,-0.5,"#0098f8");
+                </script></li><li> $\vert x - 1\vert &lt; 0,5$ : la distance de
+                    $x$ à $1$ est strictement plus petite que $0,5$.<br />
+                        <div class="centre"><div class="figure"><canvas id="graphe3" height="180", width="320">Balise canvas non supportée</canvas></div></div>
+                <script>
+                     var graphe = calibre("graphe3",-5.5,5.5,-1,1,1);
+                       /* l'axe des abscisses */
+                       graphiquecanvas.moveTo(xpx(xmin),ypx(0));
+                       graphiquecanvas.lineTo(xpx(xmax),ypx(0));
+                       graphiquecanvas.moveTo(xpx(xmax)-5,ypx(0)-3);
+                       graphiquecanvas.lineTo(xpx(xmax),ypx(0));
+                       graphiquecanvas.moveTo(xpx(xmax)-5,ypx(0)+3);
+                       graphiquecanvas.lineTo(xpx(xmax),ypx(0));
+                       graphiquecanvas.stroke();
+                            xA = xpx(-3);
+                            xB = xpx(3);
+                            y0 = ypx(0);
+                            ligne([xpx(0),y0-5],[xpx(0),y0+5]);
+                            graphe.strokeStyle = "#0098f8";
+                            graphe.setLineDash([]);
+                            graphe.lineWidth=3;
+                            /*segment(xmin,0,-3,0);
+                            segment(3,0,xmax,0);*/
+                            segment(-3,0,3,0);
+                            ligne([xA-5,y0-10],[xA,y0-10],[xA,y0+10],[xA-5,y0+10]);
+                            ligne([xB+5,y0-10],[xB,y0-10],[xB,y0+10],[xB+5,y0+10]);
+                       graphe.lineWidth=2;
+                       fleche(point(-3,1),point(0,1));
+                       fleche(point(0,1),point(-3,1));
+                       fleche(point(3,1),point(0,1));
+                       fleche(point(0,1),point(3,1));
+
+                    text = ecrit("$0,5$",1.2,1.5,"#0098f8");
+                    text = ecrit("$0,5$",-1.6,1.5,"#0098f8");
+
+                    text = ecrit("$0,5$",-3.5,-0.5);
+                    text = ecrit("$1$",-0.15,-0.5,"#0098f8");
+                    text = ecrit("$1,5$",2.8,-0.5);
+
+                    ecrit("$-\\infty$",xmin,-0.5);
+                    ecrit("$+\\infty$",xmax-1,-0.5);
+                </script></li><li> $\vert x +4 \vert \leqslant 2$ se réécrit $\vert x - (-4) \vert \leqslant 2$: la distance de
+                    $x$ à $-4$ est plus petite que $2$.<br />
+                        <div class="centre"><div class="figure"><canvas id="graphe4" height="180", width="320">Balise canvas non supportée</canvas></div></div>
+                <script>
+                     var graphe = calibre("graphe4",-5.5,5.5,-1,1,1);
+                       /* l'axe des abscisses */
+                       graphiquecanvas.moveTo(xpx(xmin),ypx(0));
+                       graphiquecanvas.lineTo(xpx(xmax),ypx(0));
+                       graphiquecanvas.moveTo(xpx(xmax)-5,ypx(0)-3);
+                       graphiquecanvas.lineTo(xpx(xmax),ypx(0));
+                       graphiquecanvas.moveTo(xpx(xmax)-5,ypx(0)+3);
+                       graphiquecanvas.lineTo(xpx(xmax),ypx(0));
+                       graphiquecanvas.stroke();
+                            xA = xpx(-3);
+                            xB = xpx(3);
+                            y0 = ypx(0);
+                            ligne([xpx(0),y0-5],[xpx(0),y0+5]);
+                            graphe.strokeStyle = "#0098f8";
+                            graphe.setLineDash([]);
+                            graphe.lineWidth=3;
+                            /*segment(xmin,0,-3,0);
+                            segment(3,0,xmax,0);*/
+                            segment(-3,0,3,0);
+                            ligne([xA+5,y0-10],[xA,y0-10],[xA,y0+10],[xA+5,y0+10]);
+                            ligne([xB-5,y0-10],[xB,y0-10],[xB,y0+10],[xB-5,y0+10]);
+                       graphe.lineWidth=2;
+                       fleche(point(-3,1),point(0,1));
+                       fleche(point(0,1),point(-3,1));
+                       fleche(point(3,1),point(0,1));
+                       fleche(point(0,1),point(3,1));
+
+                    text = ecrit("$2$",1.2,1.5,"#0098f8");
+                    text = ecrit("$2$",-1.6,1.5,"#0098f8");
+
+                    text = ecrit("$-6$",-3.5,-0.5,"#0098f8");
+                    text = ecrit("$-4$",-0.15,-0.5,"#0098f8");
+                    text = ecrit("$-2$",2.8,-0.5,"#0098f8");
+
+                    ecrit("$-\\infty$",xmin,-0.5);
+                    ecrit("$+\\infty$",xmax-1,-0.5);
+                </script></li><li> $\vert x - 2\vert \geqslant 1$ signifie
+                        que la distance de $x$ à $2$ est plus grande que $1$.<br />
+                        <div class="centre"><div class="figure"><canvas id="graphe5" height="180", width="320">Balise canvas non supportée</canvas></div></div>
+                <script>
+                     var graphe = calibre("graphe5",-5.5,5.5,-1,1,1);
+                       /* l'axe des abscisses */
+                       graphiquecanvas.moveTo(xpx(xmin),ypx(0));
+                       graphiquecanvas.lineTo(xpx(xmax),ypx(0));
+                       graphiquecanvas.moveTo(xpx(xmax)-5,ypx(0)-3);
+                       graphiquecanvas.lineTo(xpx(xmax),ypx(0));
+                       graphiquecanvas.moveTo(xpx(xmax)-5,ypx(0)+3);
+                       graphiquecanvas.lineTo(xpx(xmax),ypx(0));
+                       graphiquecanvas.stroke();
+                            xA = xpx(-3);
+                            xB = xpx(3);
+                            y0 = ypx(0);
+                            ligne([xpx(0),y0-5],[xpx(0),y0+5]);
+                            graphe.strokeStyle = "#0098f8";
+                            graphe.setLineDash([]);
+                            graphe.lineWidth=3;
+                            segment(xmin,0,-3,0);
+                            segment(3,0,xmax,0);
+                            ligne([xA-5,y0-10],[xA,y0-10],[xA,y0+10],[xA-5,y0+10]);
+                            ligne([xB+5,y0-10],[xB,y0-10],[xB,y0+10],[xB+5,y0+10]);
+                       graphe.lineWidth=2;
+                       fleche(point(-3,1),point(0,1));
+                       fleche(point(0,1),point(-3,1));
+                       fleche(point(3,1),point(0,1));
+                       fleche(point(0,1),point(3,1));
+
+                    text = ecrit("$1$",1.4,1.5,"#0098f8");
+                    text = ecrit("$1$",-1.6,1.5,"#0098f8");
+
+                    text = ecrit("$1$",-3.5,-0.5,"#0098f8");
+                    text = ecrit("$2$",-0.15,-0.5);
+                    text = ecrit("$3$",2.8,-0.5,"#0098f8");
+
+                    ecrit("$-\\infty$",xmin,-0.5,"#0098f8");
+                    ecrit("$+\\infty$",xmax-1,-0.5,"#0098f8");
+                </script></li>
+                </ol></p>
+                <p><h3>72 p.29</h3><ol style="list-style-type : lower-latin;">
+                        <li>$\vert x - 3  \vert = 4,5 \Leftrightarrow x \in \lbrace -1,5 ; 7,5\rbrace$</li>
+                        <li>$\vert x - 5  \vert \leqslant 4 \Leftrightarrow x \in [1;9]$</li>
+                        <li>$\vert x + 1  \vert < 3 \Leftrightarrow x \in ]-4;2[$</li>
+                        <li>$\vert x - 6  \vert \geqslant 2 \Leftrightarrow x \in ]-\infty;4]\cup[8;+\infty[$</li>
+                </ol></p>
+                <p><h3>73 p.29</h3><ol style="list-style-type : lower-latin;">
+                        <li>$\vert x + 2  \vert \leqslant 2,5 \Leftrightarrow x \in [-4,5;0,5]$</li>
+                        <li>$\vert x - 3  \vert = 9 \Leftrightarrow x \in \lbrace -6 ; 12\rbrace$</li>
+                        <li>$\vert x - 4,2  \vert &lt; 1,2 \Leftrightarrow x \in ]-5,4;-3[$</li>
+                        <li>$\vert x - \sqrt{2}  \vert &gt; \sqrt{2} \Leftrightarrow x \in ]-\infty;0[\cup]2\sqrt{2};+\infty[ $</li>
+                </ol></p>
+                <p><h3>74 p.29</h3><ol style="list-style-type : lower-latin;">
+                        <li>$\vert x  \vert \leqslant 1 \Leftrightarrow x \in [-1;1]$</li>
+                        <li>$\vert x  \vert = 5 \Leftrightarrow x \in \lbrace -5 ; 5\rbrace$</li>
+                        <li>$\vert x - \frac{2}{5}  \vert \geqslant \frac{3}{4} \Leftrightarrow x \in ]-\infty;\frac{-7}{20}]\cup[\frac{23}{20};+\infty[$</li>
+                        <li>$\vert x - \pi  \vert \leqslant 3\pi \Leftrightarrow x \in [-2\pi;4\pi]$</li>
+                </ol></p>
+                <p><h3>75 p.29</h3><ol style="list-style-type : lower-latin;">
+                        <li>$x\in]-2;4[$ signifie que $\vert x - 1\vert &lt; 3$</li>
+                        <li>$x\in[-2;6]$ signifie que $\vert x - 2\vert \leqslant 4$</li>
+                        <li>$x\in[-5;1]$ signifie que $\vert x + 2\vert \leqslant 3$</li>
+                        <li>$x\in]-9;3[$ signifie que $\vert x + 3\vert &lt; 6$</li>
+                        <li>$x\in]-\infty;0,5[\cup]2;+\infty[$ signifie que $\vert x - 1,25\vert &gt; 0,75$</li>
+                        <li>$x\in]-\infty;3]\cup[7;+\infty[$ signifie que $\vert x - 5\vert \geqslant 2$</li>
+                </ol></p>
+                <p><h3>76 p.29</h3><ol style="list-style-type : lower-latin;">
+                        <li>$\vert x - 3\vert \leqslant 4$</li>
+                        <li>$\vert x + 1\vert \geqslant 2$</li>
+                        <li>$\vert x - 0,5\vert &lt; 10,5$</li>
+                        <li>$\vert x + 6,5\vert \geqslant 3,5$</li>
+                </ol></p>
+            </section>
+        </article>
+
+        <article>
+            <header>
+                <h2><span class="cadre">Entraînement</span> 107 à 114 p.35 et 36</h2>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la solution</button>
+                <button>Cacher la solution</button>
+                <p><h3>107 p.35</h3>
+                <table>
+                    <thead><tr><td>Inégalités</td><td>Ensembles</td><td>Valeur absolue</td></tr></thead>
+                    <tbody>
+                        <tr><td>$3 \leqslant x \leqslant 7$</td><td>[3;7]</td><td>$\vert x - 5 \vert \leqslant 2$</td></tr>
+                        <tr><td>$x &lt; 1$ ou $x &gt; 5$</td><td>$]-\infty;1[\cup]5;+\infty[$</td><td>$\vert x - 3 \vert &gt; 2$</td></tr>
+                        <tr><td>$-9 &lt; x &lt; -5$</td><td>$]-9;-5[$</td><td>$\vert x + 7 \vert &lt; 2$</td></tr>
+                        <tr><td>$x \leqslant 2$ ou $x \geqslant 4$</td><td>$]-\infty;2]\cup[4;+\infty[$</td><td>$\vert x - 3 \vert \geqslant 1$</td></tr>
+                    </tbody>
+                </table></p>
+                <p><h3>108 p.35</h3>
+                <ol style="list-style-type : lower-latin;">
+                    <li>La mouyenne est la somme des termes divisée par le nombre de termes.
+
+                    Il y a 6 termes et la somme :
+                    $4,35\times10^{-2}+4,00\times10^{-2}+4,05\times10^{-2}+4,30\times10^{-2}+4,10\times10^{-2}+4,10\times10^{-2}$
+                    peut se factorisée par $10^{-2}$ :
+                    $(4,35+4,00+4,05+4,30+4,10+4,10)\times10^{-2}$<br />
+                    Donc $d=\dfrac{4,35+4,00+4,05+4,30+4,10+4,10}{6}=4,15$
+                    et $D_m=4,15\times10^{-2}$</li>
+                    <li>$\vert D - D_m \vert \leqslant 0,5\times10^{-3}$ signifie
+                    que $D\in[D_m-0,5\times10^{-3};D_m+0,5\times10^{-3}]$
+                    donc $D\in[3,65\times10^{-2};4,65\times10^{-2}]$</li>
+                </ol>
+                </p>
+                <p><h3>109 p.35</h3>
+                <ol><li><ol><li>$\vert x + 3 \vert = \vert x - 1 \vert$ signifie que le point M d'abscisse $x$ est à la même distance des points A et B d'abscisses $-3$ et $1$.</li>
+                            <li>M est donc le milieu du segment [AB].</li>
+                            <li>On peut calculer : $x_M=\dfrac{x_A+x_B}{2}$ $=\dfrac{-3+1}{2}$ $ = -1$ </li></ol></li>
+                <li><ol><li>$\vert x \vert = \vert x + 7 \vert$ si $x=\dfrac{0+(-7)}{2}=-3,5$</li>
+                        <li>$\vert x - 1 \vert = \vert x + 1 \vert$ si $x=\dfrac{1+(-1)}{2}=0$</li></ol></li></ol>
+                </p>
+                <p><h3>110 p.36</h3>
+                <ol style="list-style-type : lower-latin;"><li>L'écart entre le
+                père et Raphaël est de 37cm.
+                L'écart entre le père et Allison est de 4cm.</li>
+                        <li>La mère a le même écart de taille entre ses
+                        deux enfants : $x$ $=\dfrac{1,81+1,4}{2}$ $=1,605$.
+                        La mère mesure donc $1$m$60,5$cm</li></ol>
+                </p>
+                <p><h3>111 p.36</h3>
+                <ol><li><ol><li>$\vert x + 1 \vert = MA$ et $\vert x - 5 \vert = BM$.</li>
+                            <li>On peut représenter les trois distances :
+
+                            <div class="centre"><div class="figure"><canvas id="graphe6" height="180", width="320">Balise canvas non supportée</canvas><br />
+                                <button onclick='dessine["graphe6"]("init")'>Initialiser</button>
+                                <button onclick='joue("graphe6")'>Jouer l'animation</button><br /></div></div>
+                <script>
+                     var graphe = calibre("graphe6",-10,10,-1,3,1);
+                       /* la graduation */
+                       graphiquecanvas.beginPath();
+                       graphiquecanvas.lineWidth="1";
+                       graphiquecanvas.strokeStyle="black";
+                       var pasx = 1;
+                       for (var k = pasx; Math.floor(xmin) + k < xmax; k = k + pasx) {
+                           graphiquecanvas.moveTo(xpx(Math.floor(xmin) + k),ypx(0)-3);
+                           graphiquecanvas.lineTo(xpx(Math.floor(xmin) + k),ypx(0)+3);
+                       }
+                       graphiquecanvas.stroke();
+                       /* l'axe des abscisses */
+                       graphiquecanvas.moveTo(xpx(xmin),ypx(0));
+                       graphiquecanvas.lineTo(xpx(xmax),ypx(0));
+                       graphiquecanvas.moveTo(xpx(xmax)-5,ypx(0)-3);
+                       graphiquecanvas.lineTo(xpx(xmax),ypx(0));
+                       graphiquecanvas.moveTo(xpx(xmax)-5,ypx(0)+3);
+                       graphiquecanvas.lineTo(xpx(xmax),ypx(0));
+                       graphiquecanvas.stroke();
+                            xA = xpx(-1);
+                            xB = xpx(5);
+                            y0 = ypx(0);
+                            t = 1
+                            xM = xpx(t);
+                            ligne([xM,y0-5],[xM,y0+5]);
+                            graphe.strokeStyle = "#0098f8";
+                            graphe.setLineDash([]);
+                            graphe.lineWidth=3;
+                            ligne([xA,y0],[xM,y0]);
+                            ligne([xB,y0],[xM,y0]);
+                            ligne([xM,y0-8],[xM,y0+8]);
+                            graphe.strokeStyle = "#000000";
+                            ligne([xA,y0-8],[xA,y0+8]);
+                            ligne([xB,y0-8],[xB,y0+8]);
+                       graphe.lineWidth=2;
+                            graphe.strokeStyle = "#0098f8";
+                       fleche(point(-1,3.6),point(t,3.6));
+                       fleche(point(t,3.6),point(-1,3.6));
+                       fleche(point(5,3.4),point(t,3.4));
+                       fleche(point(t,3.4),point(5,3.4));
+
+                    text = ecrit("$-1$",-1.7,-0.5);
+                    text = ecrit("$A$",-1.4,1.5);
+                    text = ecrit("$0$",-0.15,-0.5);
+                    text = ecrit("$5$",4.8,-0.5);
+                    text = ecrit("$B$",4.7,1.5);
+                    textM = ecrit("$M$",0.8,1.5,"#0098f8");
+                    textMA = ecrit("$MA = $",-1,5,"#0098f8");
+                    textMAv = ecrit(2,-1+3.4,4.6,"#0098f8");
+                    textMB = ecrit("$MB = $",1,3,"#0098f8");
+                    textMBv = ecrit(4,1+3.4,2.8,"#0098f8");
+                    text = ecrit("$MA + MB = $",xmin+1,-2,"#0098f8");
+                    textS = ecrit("6",xmin+8,-2.4,"#0098f8");
+
+                    ecrit("$-\\infty$",xmin,-0.5);
+                    ecrit("$+\\infty$",xmax-2,-0.5);
+
+                    var dessine = {"graphe6" : t => { laps = 8000;
+                        var graphe = calibre("graphe6",-10,10,-1,3,1);
+                        var x = xmax*t/laps+xmin*(1-t/laps);
+                        if (t=="init") {x = 1;}
+                        graphe.setLineDash([]);
+                        graphe.lineWidth=1;
+                        graphe.clearRect(0, 0, 320, 180);
+                        /* la graduation */
+                       graphiquecanvas.beginPath();
+                       graphiquecanvas.lineWidth="1";
+                       graphiquecanvas.strokeStyle="black";
+                       var pasx = 1;
+                       for (var k = pasx; Math.floor(xmin) + k < xmax; k = k + pasx) {
+                           graphiquecanvas.moveTo(xpx(Math.floor(xmin) + k),ypx(0)-3);
+                           graphiquecanvas.lineTo(xpx(Math.floor(xmin) + k),ypx(0)+3);
+                       }
+                       graphiquecanvas.stroke();
+                       /* l'axe des abscisses */
+                       graphiquecanvas.moveTo(xpx(xmin),ypx(0));
+                       graphiquecanvas.lineTo(xpx(xmax),ypx(0));
+                       graphiquecanvas.moveTo(xpx(xmax)-5,ypx(0)-3);
+                       graphiquecanvas.lineTo(xpx(xmax),ypx(0));
+                       graphiquecanvas.moveTo(xpx(xmax)-5,ypx(0)+3);
+                       graphiquecanvas.lineTo(xpx(xmax),ypx(0));
+                       graphiquecanvas.stroke();
+                            xA = xpx(-1);
+                            xB = xpx(5);
+                            y0 = ypx(0);
+                            t = x
+                            xM = xpx(t);
+                            ligne([xM,y0-5],[xM,y0+5]);
+                            graphe.strokeStyle = "#0098f8";
+                            graphe.setLineDash([]);
+                            graphe.lineWidth=3;
+                            ligne([xA,y0],[xM,y0]);
+                            ligne([xB,y0],[xM,y0]);
+                            ligne([xM,y0-8],[xM,y0+8]);
+                            graphe.strokeStyle = "#000000";
+                            ligne([xA,y0-8],[xA,y0+8]);
+                            ligne([xB,y0-8],[xB,y0+8]);
+                       graphe.lineWidth=2;
+                            graphe.strokeStyle = "#0098f8";
+                       fleche(point(-1,3.6),point(t,3.6));
+                       fleche(point(t,3.6),point(-1,3.6));
+                       fleche(point(5,3.4),point(t,3.4));
+                       fleche(point(t,3.4),point(5,3.4));
+                       textS.innerHTML = Math.round((Math.abs(t+1)+Math.abs(t-5))*100)/100;
+                       textMAv.innerHTML = Math.round(Math.abs(t+1)*100)/100;
+                       textMBv.innerHTML = Math.round(Math.abs(t-5)*100)/100;
+                       textMA.style.left=Math.min(xA,xM)+"px";
+                       textMAv.style.left=(Math.min(xA,xM)+xpx(3.4)-xpx(0))+"px";
+                       textMB.style.left=Math.min(xB,xM)+"px";
+                       textMBv.style.left=(Math.min(xB,xM)+xpx(3.4)-xpx(0))+"px";
+                       textM.style.left= (xM-textM.offsetWidth/2)+"px";
+                    }}
+                </script>
+                Quand $M$ est entre $A$ et $B$ la somme des distances est
+                constante et égale à 6. Sinon, l'un des segment recouvre complètement
+                le segment $[AB]$ donc la ditance est plus grande que 6.<br />
+                Le minimum est donc pour $x\in[-1;5]$.</li></ol></li>
+                <li><ol><li>En notant $A$ le point d'abscisse 2 et $B$ d'abscisse 4,
+                on cherche cette fois à étudier la différence $MA-MB$
+
+                <div class="centre"><div class="figure"><canvas id="graphe7" height="180", width="320">Balise canvas non supportée</canvas><br />
+                                <button onclick='dessine["graphe7"]("init")'>Initialiser</button>
+                                <button onclick='joue("graphe7")'>Jouer l'animation</button><br /></div></div>
+                <script>
+                     var graphe = calibre("graphe7",-1,7,-1,2,1);
+                       /* la graduation */
+                       graphiquecanvas.beginPath();
+                       graphiquecanvas.lineWidth="1";
+                       graphiquecanvas.strokeStyle="black";
+                       var pasx = 1;
+                       for (var k = pasx; Math.floor(xmin) + k < xmax; k = k + pasx) {
+                           graphiquecanvas.moveTo(xpx(Math.floor(xmin) + k),ypx(0)-3);
+                           graphiquecanvas.lineTo(xpx(Math.floor(xmin) + k),ypx(0)+3);
+                       }
+                       graphiquecanvas.stroke();
+                       /* l'axe des abscisses */
+                       graphiquecanvas.moveTo(xpx(xmin),ypx(0));
+                       graphiquecanvas.lineTo(xpx(xmax),ypx(0));
+                       graphiquecanvas.moveTo(xpx(xmax)-5,ypx(0)-3);
+                       graphiquecanvas.lineTo(xpx(xmax),ypx(0));
+                       graphiquecanvas.moveTo(xpx(xmax)-5,ypx(0)+3);
+                       graphiquecanvas.lineTo(xpx(xmax),ypx(0));
+                       graphiquecanvas.stroke();
+                            xA = xpx(2);
+                            xB = xpx(4);
+                            y0 = ypx(0);
+                            t = 3.5
+                            xM = xpx(t);
+                            ligne([xM,y0-5],[xM,y0+5]);
+                            graphe.strokeStyle = "#0098f8";
+                            graphe.setLineDash([]);
+                            graphe.lineWidth=3;
+                            ligne([xA,y0],[xM,y0]);
+                            ligne([xB,y0],[xM,y0]);
+                            ligne([xM,y0-8],[xM,y0+8]);
+                            graphe.strokeStyle = "#000000";
+                            ligne([xA,y0-8],[xA,y0+8]);
+                            ligne([xB,y0-8],[xB,y0+8]);
+                       graphe.lineWidth=2;
+                            graphe.strokeStyle = "#0098f8";
+                       fleche(point(2,1.6),point(t,1.6));
+                       fleche(point(t,1.6),point(2,1.6));
+                       fleche(point(4,1.5),point(t,1.5));
+                       fleche(point(t,1.5),point(4,1.5));
+
+                    text2 = ecrit("$2$",1.9,-0.4);
+                    text2 = ecrit("$A$",1.9,0.6);
+                    text2= ecrit("$4$",3.9,-0.4);
+                    text2 = ecrit("$B$",3.9,0.6);
+                    text2M = ecrit("$M$",3.3,0.6,"#0098f8");
+                    text2MA = ecrit("$MA = $",2,2.1,"#0098f8");
+                    text2MAv = ecrit(1.5,2+1.3,1.9,"#0098f8");
+                    text2MB = ecrit("$MB = $",3.5,1.3,"#0098f8");
+                    text2MBv = ecrit(0.5,3.5+1.3,1.1,"#0098f8");
+                    text2 = ecrit("$MA - MB = $",xmin+0.5,-1,"#0098f8");
+                    text2S = ecrit("1",xmin+3.2,-1.2,"#0098f8");
+
+                    ecrit("$-\\infty$",xmin,-0.5);
+                    ecrit("$+\\infty$",xmax-2,-0.5);
+
+                    dessine["graphe7"] = t => { laps = 8000;
+                        var graphe = calibre("graphe7",-1,7,-1,2,1);
+                        var x = xmax*t/laps+xmin*(1-t/laps);
+                        if (t=="init") {x = 3.5;}
+                        graphe.setLineDash([]);
+                        graphe.lineWidth=1;
+                        graphe.clearRect(0, 0, 320, 180);
+                        /* la graduation */
+                       graphiquecanvas.beginPath();
+                       graphiquecanvas.lineWidth="1";
+                       graphiquecanvas.strokeStyle="black";
+                       var pasx = 1;
+                       for (var k = pasx; Math.floor(xmin) + k < xmax; k = k + pasx) {
+                           graphiquecanvas.moveTo(xpx(Math.floor(xmin) + k),ypx(0)-3);
+                           graphiquecanvas.lineTo(xpx(Math.floor(xmin) + k),ypx(0)+3);
+                       }
+                       graphiquecanvas.stroke();
+                       /* l'axe des abscisses */
+                       graphiquecanvas.moveTo(xpx(xmin),ypx(0));
+                       graphiquecanvas.lineTo(xpx(xmax),ypx(0));
+                       graphiquecanvas.moveTo(xpx(xmax)-5,ypx(0)-3);
+                       graphiquecanvas.lineTo(xpx(xmax),ypx(0));
+                       graphiquecanvas.moveTo(xpx(xmax)-5,ypx(0)+3);
+                       graphiquecanvas.lineTo(xpx(xmax),ypx(0));
+                       graphiquecanvas.stroke();
+                            xA = xpx(2);
+                            xB = xpx(4);
+                            y0 = ypx(0);
+                            t = x
+                            xM = xpx(t);
+                            ligne([xM,y0-5],[xM,y0+5]);
+                            graphe.strokeStyle = "#0098f8";
+                            graphe.setLineDash([]);
+                            graphe.lineWidth=3;
+                            ligne([xA,y0],[xM,y0]);
+                            ligne([xB,y0],[xM,y0]);
+                            ligne([xM,y0-8],[xM,y0+8]);
+                            graphe.strokeStyle = "#000000";
+                            ligne([xA,y0-8],[xA,y0+8]);
+                            ligne([xB,y0-8],[xB,y0+8]);
+                       graphe.lineWidth=2;
+                            graphe.strokeStyle = "#0098f8";
+                       fleche(point(2,1.6),point(t,1.6));
+                       fleche(point(t,1.6),point(2,1.6));
+                       fleche(point(4,1.5),point(t,1.5));
+                       fleche(point(t,1.5),point(4,1.5));
+                       text2S.innerHTML = Math.round((Math.abs(t-2)-Math.abs(t-4))*100)/100;
+                       text2MAv.innerHTML = Math.round(Math.abs(t+1)*100)/100;
+                       text2MBv.innerHTML = Math.round(Math.abs(t-5)*100)/100;
+                       text2MA.style.left=Math.min(xA,xM)+"px";
+                       text2MAv.style.left=(Math.min(xA,xM)+xpx(1.3)-xpx(0))+"px";
+                       text2MB.style.left=Math.min(xB,xM)+"px";
+                       text2MBv.style.left=(Math.min(xB,xM)+xpx(1.3)-xpx(0))+"px";
+                       text2M.style.left= (xM-textM.offsetWidth/2)+"px";
+                    }
+                </script>
+
+                Cette différence est constante, égale à -2 si $M$ est situé avant
+                $A$ et constante égale à 2 après $B$. Entre les deux, $MA$ augmente
+                et $MB$ diminue donc la différence augmente et n'est qu'une seule
+                fois égale à 1 (qui est bien entre -2 et 2).<br />
+                Comme on connait alors la position relative des points, on peut
+                résoudre :<br />
+                $\vert x -2 \vert - \vert x -4 \vert = 1$
+                $\Leftrightarrow (x-2)-(4-x)=1$
+                $\Leftrightarrow 2x-6=1$
+                $\Leftrightarrow 2x=7$
+                $\Leftrightarrow$<span class="cadre">$x=3,5$</span>
+                </li>
+                <li>Pour les même raison, une solution ne peut se trouver
+                qu'entre $-7$ et $-4$ d'où la résolution :<br />
+                $\vert x +4 \vert - \vert x +7 \vert = 2$
+                $\Leftrightarrow (-4-x)-(x+7)=2$
+                $\Leftrightarrow -2x-11=2$
+                $\Leftrightarrow -2x=13$
+                $\Leftrightarrow$<span class="cadre">$x=-6,5$</span>
+                </li></ol></li></ol>
+                </p>
+
+                <p><h3>112 p.36</h3>
+                <ol><li><ol><li>$\vert x \vert = 2$ si et seulement si $x=-2$ ou $x=2$.
+                    Ce sont dont tous les point qui ont comme abscisse $-2$ ou $2$.
+                    <div class="centre"><div class="figure"><canvas id="graphe8" height="180", width="320">Balise canvas non supportée</canvas></div></div>
+                <script>
+                    var graphe = calibre("graphe8",-5.5,5.5,-5.5,5.5,1);
+                    axes();
+                    /* les droites */
+                    graphe.lineWidth=2;
+                    graphe.strokeStyle = "#ff0000";
+                    segment(-2,ymin,-2,ymax);
+                    segment(2,ymin,2,ymax);
+                    /* Les textes*/
+                    ecrit("$-2$",-2.5,-0.1,"#ff0000");
+                    ecrit("$2$",2.1,-0.1,"#ff0000");
+                </script>
+                </li><li>Le même raisonnement aboutit à :
+                    <div class="centre"><div class="figure"><canvas id="graphe9" height="180", width="320">Balise canvas non supportée</canvas></div></div>
+                <script>
+                    var graphe = calibre("graphe9",-5.5,5.5,-5.5,5.5,1);
+                    axes();
+                    /* les droites */
+                    graphe.lineWidth=2;
+                    graphe.strokeStyle = "#ff0000";
+                    segment(-2,ymin,-2,ymax);
+                    segment(2,ymin,2,ymax);
+                    graphe.strokeStyle = "#0000ff";
+                    segment(xmin,3.5,xmax,3.5);
+                    segment(xmin,-3.5,xmax,-3.5);
+                    graphe.strokeStyle = "#00ff00";
+                    /* Les textes*/
+                    ecrit("$-2$",-2.5,-0.1,"#f80000");
+                    ecrit("$2$",2.1,-0.1,"#f80000");
+                    ecrit("$3.5$",0.2,3.5,"#0000ff");
+                    ecrit("$-3.5$",0.2,-3.51,"#0000ff");
+                </script>
+                </li><li> Finalement, $\vert x \vert = 2$ et $\vert y \vert = 3,5$
+                    uniquement pour les quatres points de coordonnées $(2;3.5)$, $(2;-3.5)$, $(-2;-3.5)$ et $(-2;3.5)$.
+                    <div class="centre"><div class="figure"><canvas id="graphe10" height="180", width="320">Balise canvas non supportée</canvas></div></div>
+                <script>
+                    var graphe = calibre("graphe10",-5.5,5.5,-5.5,5.5,1);
+                    axes();
+                    /* les droites */
+                    graphe.lineWidth=2;
+                    graphe.strokeStyle = "#ff0000";
+                    segment(-2,ymin,-2,ymax);
+                    segment(2,ymin,2,ymax);
+                    graphe.strokeStyle = "#0000ff";
+                    segment(xmin,3.5,xmax,3.5);
+                    segment(xmin,-3.5,xmax,-3.5);
+                    graphe.lineWidth=3;
+                    graphe.strokeStyle = "#00ffff";
+                    graphe.fillStyle = "#00ffff";
+                    graphe.beginPath();
+                    graphe.arc(xpx(2), ypx(3.5), 3, 0, 2 * Math.PI);
+                    graphe.fill();
+                    graphe.beginPath();
+                    graphe.arc(xpx(-2), ypx(3.5), 3, 0, 2 * Math.PI);
+                    graphe.fill();
+                    graphe.beginPath();
+                    graphe.arc(xpx(2), ypx(-3.5), 3, 0, 2 * Math.PI);
+                    graphe.fill();
+                    graphe.beginPath();
+                    graphe.arc(xpx(-2), ypx(-3.5), 3, 0, 2 * Math.PI);
+                    graphe.fill();
+                    /* Les textes*/
+                    ecrit("$-2$",-2.5,-0.1,"#ff0000");
+                    ecrit("$2$",2.1,-0.1,"#ff0000");
+                    ecrit("$3.5$",0.2,3.5,"#0000ff");
+                    ecrit("$-3.5$",0.2,-3.51,"#0000ff");
+                </script>
+                </li></ol>
+                </li><li><ol><li>$\vert x \vert \leqslant 1$ et $\vert y \vert \leqslant 0,5$
+                    <div class="centre"><div class="figure"><canvas id="graphe11" height="180", width="320">Balise canvas non supportée</canvas></div></div>
+                <script>
+                    var graphe = calibre("graphe11",-2.5,2.5,-1.5,1.5,1);
+                    graphe.fillStyle = "#0098f8";
+                    remplir(point(-1,-0.5),point(-1,0.5),point(1,0.5),point(1,-0.5))
+                    axes();
+                    /* les droites */
+                    graphe.lineWidth=2;
+                    graphe.setLineDash([5,5]);
+                    segment(1,ymin,1,ymax);
+                    segment(-1,ymin,-1,ymax);
+                    segment(xmin,0.5,xmax,0.5);
+                    segment(xmin,-0.5,xmax,-0.5);
+                    graphe.lineWidth=3;
+                    graphe.strokeStyle = "#0098f8";
+                    /* Les textes*/
+                    ecrit("$-1$",-1.5,-0.1);
+                    ecrit("$1$",1.1,-0.1);
+                    ecrit("$0.5$",0.2,0.75);
+                    ecrit("$-0.5$",0.2,-0.5);
+                </script>
+                </li><li>$\vert x \vert \leqslant 2$ et $\vert y \vert \leqslant 1,5$
+                    <div class="centre"><div class="figure"><canvas id="graphe12" height="180", width="320">Balise canvas non supportée</canvas></div></div>
+                <script>
+                    var graphe = calibre("graphe12",-2.5,2.5,-2.5,2.5,1);
+                    graphe.fillStyle = "#0098f8";
+                    remplir(point(-2,-1.5),point(-2,1.5),point(2,1.5),point(2,-1.5))
+                    axes();
+                    /* les droites */
+                    graphe.lineWidth=2;
+                    graphe.setLineDash([5,5]);
+                    segment(2,ymin,2,ymax);
+                    segment(-2,ymin,-2,ymax);
+                    segment(xmin,1.5,xmax,1.5);
+                    segment(xmin,-1.5,xmax,-1.5);
+                    graphe.lineWidth=3;
+                    graphe.strokeStyle = "#0098f8";
+                    /* Les textes*/
+                    ecrit("$-2$",-2.5,-0.1);
+                    ecrit("$2$",2.1,-0.1);
+                    ecrit("$1.5$",0.2,1.75);
+                    ecrit("$-1.5$",0.2,-1.5);
+                </script>
+                </li></ol>
+                </li></ol></li></ol>
+
+                <p><h3>113 p.36</h3>
+                Les coordonnées $(x;y)$ des points coloriés en bleu sont ceux
+                vérifiant les conditions $x\in[-1;3]$ et $y \in [-2;2]$.
+
+                Ce sont les solutions de $\left\lbrace\begin{matrix}\vert x - 1\vert \leqslant 2\\\vert y\vert \leqslant 2\end{matrix}\right.$
+
+                <p><h3>114 p.36</h3>
+                <ol style="list-style-type : lower-latin;"><li>$MA &lt; MB \Leftrightarrow \vert x + 6 \vert &lt; \vert x - 3 \vert$.
+                </li><li>On trouve graphiquement $MA &lt; MB \Leftrightarrow x \in ]-\infty ; -1,5[$
+                <div class="centre"><div class="figure"><canvas id="graphe13" height="180", width="320">Balise canvas non supportée</canvas></div></div>
+                <script>
+                     var graphe = calibre("graphe13",-10,10,-1,3,1);
+                       /* la graduation */
+                       graphiquecanvas.beginPath();
+                       graphiquecanvas.lineWidth="1";
+                       graphiquecanvas.strokeStyle="black";
+                       var pasx = 1;
+                       for (var k = pasx; Math.floor(xmin) + k < xmax; k = k + pasx) {
+                           graphiquecanvas.moveTo(xpx(Math.floor(xmin) + k),ypx(0)-3);
+                           graphiquecanvas.lineTo(xpx(Math.floor(xmin) + k),ypx(0)+3);
+                       }
+                       graphiquecanvas.stroke();
+                       /* l'axe des abscisses */
+                       graphiquecanvas.moveTo(xpx(xmin),ypx(0));
+                       graphiquecanvas.lineTo(xpx(xmax),ypx(0));
+                       graphiquecanvas.moveTo(xpx(xmax)-5,ypx(0)-3);
+                       graphiquecanvas.lineTo(xpx(xmax),ypx(0));
+                       graphiquecanvas.moveTo(xpx(xmax)-5,ypx(0)+3);
+                       graphiquecanvas.lineTo(xpx(xmax),ypx(0));
+                       graphiquecanvas.stroke();
+                            xA = xpx(-6);
+                            xB = xpx(3);
+                            y0 = ypx(0);
+                            t = -3
+                            xM = xpx(t);
+                            ligne([xM,y0-5],[xM,y0+5]);
+                            graphe.strokeStyle = "#0098f8";
+                            graphe.setLineDash([]);
+                            graphe.lineWidth=3;
+                            ligne([xmin,y0],[xpx(-1.5),y0]);
+                            ligne([xM,y0-8],[xM,y0+8]);
+                            ligne([xpx(-1.5)+5,y0-8],[xpx(-1.5),y0-8],[xpx(-1.5),y0+8],[xpx(-1.5)+5,y0+8]);
+                            graphe.strokeStyle = "#000000";
+                            ligne([xA,y0-8],[xA,y0+8]);
+                            ligne([xB,y0-8],[xB,y0+8]);
+                       graphe.lineWidth=2;
+                            graphe.strokeStyle = "#0098f8";
+                       fleche(point(-6,3.6),point(t,3.6));
+                       fleche(point(t,3.6),point(-6,3.6));
+                       fleche(point(3,3.4),point(t,3.4));
+                       fleche(point(t,3.4),point(3,3.4));
+
+                    text = ecrit("$-6$",-6.7,-0.5);
+                    text = ecrit("$A$",-6.4,1.5);
+                    text = ecrit("$0$",-0.15,-0.5);
+                    text = ecrit("$3$",2.8,-0.5);
+                    text = ecrit("$B$",2.7,1.5);
+                    textM = ecrit("$M$",-3.8,1.5,"#0098f8");
+                    textMA = ecrit("$MA$",-5.5,5,"#0098f8");
+                    textMB = ecrit("$MB$",-1,3,"#0098f8");
+                    text = ecrit("$MA &lt; MB$",xmin+1,-2,"#0098f8");
+
+                    ecrit("$-\\infty$",xmin,-0.5);
+                    ecrit("$+\\infty$",xmax-2,-0.5);
+                    </script>
+                </li></ol></li></ol>
+            </section>
+        </article>

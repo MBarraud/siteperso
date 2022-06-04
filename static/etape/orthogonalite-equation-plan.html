@@ -1,0 +1,207 @@
+<article>
+            <header>
+                <h2><span class="cadre">Théorème</span> Équation de plan</h2>
+                <p>Soit $\vec n \left(\begin{smallmatrix}a\\b\\c\end{smallmatrix}\right)\neq\vec0$ dans un repère orthonormé et $\mathscr{P}$ un plan.
+                </p>
+                <div class="centre">$\vec n \left(\begin{smallmatrix}a\\b\\c\end{smallmatrix}\right)$ est un vecteur normal à $\mathscr{P}$, si et seulement si<br />
+                    il existe un réel $d$ pour lequel $ax+by+cz+d=0$ est une équation de $\mathscr{P}$.
+                </div>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la démonstration (ROC)</button>
+                <button>Cacher la démonstration</button>
+                <ul>
+                    <li>Si $\vec n \left(\begin{smallmatrix}a\\b\\c\end{smallmatrix}\right)$ est un vecteur normal à $\mathscr{P}$ :<br />
+                        Notons $A(x_0\,;\,y_0;\,z_0)$ un point de $\mathscr{P}$.<br />
+                        Alors, $M(x\,;y\,;z)\in\mathscr{P}\Leftrightarrow\overrightarrow{AM}.\vec{n}=0$<br />
+                        $\Leftrightarrow (x-x_0)a+(y-y_0)b+(z-z_0)c=0$<br />
+                        $\Leftrightarrow ax + by + cz - (ax_0+by_0+cz_0)=0$<br />
+                        $\Leftrightarrow ax + by + cz + d =0$ (avec $d =-(ax_0+by_0+cz_0)=0$)
+                    </li>
+                    <li>Réciproquement, si $ax+by+xz+d=0$ est une équation de $\mathscr{P}$ :<br />
+                        Comme $\vec n \left(\begin{smallmatrix}a\\b\\c\end{smallmatrix}\right)\neq \vec{0}$ alors on peut considérer
+                        $A(\frac{-d}{a}\,;0\,;0)$ ou $A(0\,;\frac{-d}{b}\,;0)$ ou $A(0\,;0\,;\frac{-d}{c})$.<br/>
+                        Tout vecteur $\vec d$ dans $\mathscr{P}$ s'écrit alors $\vec d=\overrightarrow{AM}$ avec $M(x\,;\,y;\,z)\in\mathscr{P}$
+                        Et : $\vec n . \vec d = a(x-\frac{-d}{a})+b(y-0)+c(z-0)=ax+by+cz+d=0$ <br />
+                        ou : $\vec n~.~\vec d=a(x-0)+b(y-\frac{-d}{b})+c(z-0)=ax+by+cz+d=0$<br />
+                        ou : $\vec n~.~\vec d=a(x-0)+b(y-0)+c(z-\frac{-d}{c})=ax+by+cz+d=0$.<br />
+                        Donc $\vec n$ est orthogonal à tout vecteur de $\mathscr{P}$ : il est normal à $\mathscr{P}$.
+            </section>
+            <section><h3>Exemples</h3>
+                <ul>
+                    <li>Une équation du plan passant par $A(1\,;2\,;3)$ et de vecteur normal $\vec n \left(\begin{smallmatrix}4\\5\\6\end{smallmatrix}\right)$
+                        est de la forme $4x+5y+6z+d=0$ avec $4\times1+5\times2+6\times3+d = 0$ donc $d = -32$.<br />
+                        Une équation de ce plan est : $4x+5y+6z-32=0$.
+                    </li>
+                    <li>Le plan d'équation $2x-3y+z-2=0$ passe par le point de coordonnées $A(0\,;0\,;2)$ car $2\times0-3\times0+1\times2-2 = 0$.<br />
+                        On peut lire directement les coordonnées d'un vecteur normal à ce plan :  $\left(\begin{smallmatrix}2\\-3\\1\end{smallmatrix}\right)$
+                    </li>
+                </ul>
+            </section>
+        </article>
+
+        <article>
+            <header>
+                <h2><span class="cadre">Exercice 8</span>Déterminer un vecteur normal</h2>
+                <p> Déterminer les coordonnées d'un vecteur normal à chacun des plans suivants  : </p>
+                <ol><li>$\mathscr{P}$ d'équation $3x-y+z+1=0$</li>
+                    <li>$\mathscr{Q}$ d'équation $y=-x+2$</li>
+                    <li>$\mathscr{R}$ d'équation $z+1=\frac{1}{3}(2x-4y)$</li>
+                    <li>$\mathscr{S}$ d'équation $y-4=0$</li>
+                    <li>$\mathscr{T}$ d'équation $z=2x-1$</li>
+                    <li>$\mathscr{U}$ passant par les points $A(1\,;-1\,;0)$, $B(2\,;0\,;-2)$ et $C(0\,;1\,;-1)$</li>
+                <ol>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la solution</button>
+                <button>Cacher la solution</button>
+                <ol><li>Il suffit de lire les coefficients : $\left(\begin{smallmatrix}3\\-1\\1\end{smallmatrix}\right)$</li>
+                    <li>Il faut d'abord passer tous les termes du même côté : $x+y-2=0$. Un vecteur normal : $\left(\begin{smallmatrix}1\\1\\0\end{smallmatrix}\right)$</li>
+                    <li>De même en multipliant d'abord par 3 : $-2x+4y+3z+3=0$. Donc : $\left(\begin{smallmatrix}-2\\4\\3\end{smallmatrix}\right)$ mais $\left(\begin{smallmatrix}\frac{-2}{3}\\\frac{4}{3}\\1\end{smallmatrix}\right)$ est aussi une bonne réponse (tous les vecteurs normaux sont colinéaires).</li>
+                    <li>On peut lire directement : $\left(\begin{smallmatrix}0\\1\\0\end{smallmatrix}\right)$</li>
+                    <li>$z=2x-1 \Leftrightarrow 2x-7-1=0$ d'où $\left(\begin{smallmatrix}2\\0\\-1\end{smallmatrix}\right)$</li>
+                    <li>Si on ne connait que trois points du plan $A(1\,;-1\,;0)$, $B(2\,;0\,;-2)$ et $C(0\,;1\,;-1)$<br />
+                        On peut toujours écrire une équation $ax+by+cz+d=0$ du plan. Comme les trois points vérifient cette équation, on obtient:
+                        $\left\lbrace\begin{matrix}a-b+0+d=0\\2a+0-2c+d=0\\0+b-c+d=0\end{matrix}\right.$
+                        $\Leftrightarrow\left\lbrace\begin{matrix}a=b-d\\2a-2c+d=0\\c=b+d\end{matrix}\right.$
+                        $\Leftrightarrow\left\lbrace\begin{matrix}a=b-d\\2(b-d)-2(b+d)+d=0\\c=b+d\end{matrix}\right.$
+                        $\Leftrightarrow\left\lbrace\begin{matrix}a=b-d\\-3d=0\\c=b+d\end{matrix}\right.$
+                        $\Leftrightarrow\left\lbrace\begin{matrix}a=b\\d=0\\c=b\end{matrix}\right.$<br />
+                        Il est normal de ne pas trouver une unique solution car il y a une infinité de vecteurs normaux (colinéaires). On choisit
+                        alors un coefficient comme paramètre (ici $b$). Les vecteurs normaux sont donc de la forme : $\left(\begin{smallmatrix}b\\b\\b\end{smallmatrix}\right)$.
+                        Un vecteur normal est par exemple : $\left(\begin{smallmatrix}1\\1\\1\end{smallmatrix}\right)$.<br />
+
+                        Solution alternative : Un vecteur est normal au plan s'il est orthogonal à au moins deux vecteurs non colinéaires du plan.
+                        Si on note $a$, $b$ et $c$ ses coordonées, il suffit donc de vérifier :
+                        $\left\lbrace\begin{matrix}\vec n . \overrightarrow{AB} = 0\\\vec n . \overrightarrow{AC} = 0\end{matrix}\right.$
+                        $\Leftrightarrow \left\lbrace\begin{matrix}a(2-1)+b(0-(-1))+c(-2-0)=0\\a(0-1)+b(1-(-1))+c(-1-0)=0\end{matrix}\right.$
+                        $\Leftrightarrow \left\lbrace\begin{matrix}a+b-2c=0\\-a+2b-c=0\end{matrix}\right.$
+                        $\Leftrightarrow \left\lbrace\begin{matrix}a=2c-b\\-(2c-b)+2b-c=0\end{matrix}\right.$
+                        $\Leftrightarrow \left\lbrace\begin{matrix}a=2c-b\\3b-3c=0\end{matrix}\right.$
+                        $\Leftrightarrow \left\lbrace\begin{matrix}a=c\\b=c\end{matrix}\right.$
+                        et on retrouve $a=b=c$. Cette solution est plus courte mais de donne pas le coefficient $d$ de l'équation du plan.</li>
+                <ol>
+            </section>
+        </article>
+
+        <article>
+            <header>
+                <h2><span class="cadre">Exercice 9</span> Déterminer une équation de plan</h2>
+                <p> Déterminer une équation du plan passant par le point $A$ et de vecteur normal $\vec n$ :
+                </p>
+                <ol><li>$A(-2\,;-1\,;3)$, et $\vec n \left(\begin{smallmatrix}1\\1\\-4\end{smallmatrix}\right)$</li>
+                    <li>$A(0\,;2\,;-3)$, et $\vec n \left(\begin{smallmatrix}5\\0\\1\end{smallmatrix}\right)$</li>
+                    <li>$A(5\,;3\,;1)$, et $\vec n \left(\begin{smallmatrix}0\\0\\2\end{smallmatrix}\right)$</li>
+                </ol>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la solution</button>
+                <button>Cacher la solution</button>
+                <ol><li>$\vec n \left(\begin{smallmatrix}1\\1\\-4\end{smallmatrix}\right)$ permet d'écrire l'équation $x+y-4z+d=0$<br />
+                        Et comme $A(-2\,;-1\,;3)$ est sur le plan : $(-2)+(-1)-4\times3+d=0$ donc $d=15$<br />
+                        Une équation du plan est donc $x+y-4z+15=0$</li>
+                    <li>$\vec n$ donne $5x+z+d=0$ et $A$ permet d'écrire $0-3+d=0$ donc $d=3$<br />
+                        Une équation du plan est donc $5x+z+3=0$</li>
+                    <li>De même, on trouve : $2z-2=0$ que l'on peut simplifier en $z-1=0$</li>
+                </ol>
+            </section>
+        </article>
+
+        <article>
+            <header>
+                <h2><span class="cadre">Exercice 10</span> Position relative des plans </h2>
+                <p> Dire si les plans $\mathscr{P}$ et $\mathscr{Q}$ sont parallèles et, sinon, s'ils sont perpendiculaires :
+                </p>
+                <ol><li>$\mathscr{P}$ : $x+3y-z=0$ et  $\mathscr{Q}$ : $-x+2y+5z+4=0$</li>
+                    <li>$\mathscr{P}$ : $\frac{x}{3}+\frac{y}{3}+z+1=0$ et $\mathscr{Q}$ : $-3x-y-z+\frac{5}{2}=0$</li>
+                    <li>$\mathscr{P}$ : $x-y+z+1=0$ et $\mathscr{Q}$ : $x=y$</li>
+                    <li>$\mathscr{P}$ : $x-2y+z=3$ et $\mathscr{Q}$ : $z=-x+2y-5$</li>
+                </ol>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la solution</button>
+                <button>Cacher la solution</button>
+                <p>On note $\vec n$ un vecteur normal de $\mathscr{P}$ et $\vec n'$ un vecteur normal de $\mathscr{Q}$</p>
+                <ol><li>$\vec n \left(\begin{smallmatrix}1\\3\\-1\end{smallmatrix}\right)$
+                        et $\vec n' \left(\begin{smallmatrix}-1\\2\\5\end{smallmatrix}\right)$  ne sont pas colinéaires ($1\times2-3\times(-1)\neq0$)<br />
+                        Donc les plans ne sont pas parallèles.<br />
+                        $\vec n . \vec n' = 1\times(-1)+3\times2+(-1)\times5=0$ : ils sont perpendiculaires.</li>
+                    <li>$\vec n \left(\begin{smallmatrix}1\\1\\3\end{smallmatrix}\right)$
+                        et $\vec n' \left(\begin{smallmatrix}-3\\-1\\-1\end{smallmatrix}\right)$  ne sont pas colinéaires ($1\times(-1)-1\times(-3)\neq0$)<br />
+                        Donc les plans ne sont pas parallèles.<br />
+                        $\vec n . \vec n' = 1\times(-3)+1\times(-1)+3\times(-1)\neq0$ : ils ne sont pas non plus perpendiculaires.</li>
+                    <li>$\vec n \left(\begin{smallmatrix}1\\-1\\1\end{smallmatrix}\right)$
+                        et $\vec n' \left(\begin{smallmatrix}1\\-1\\0\end{smallmatrix}\right)$  ne sont pas colinéaires ($(-1)\times0-1\times(-1)\neq0$)<br />
+                        Donc les plans ne sont pas parallèles.<br />
+                        $\vec n . \vec n' = 1\times1+(-1)\times(-1)+1\times0\neq0$ : ils ne sont pas non plus perpendiculaires.</li>
+                    <li>$\vec n \left(\begin{smallmatrix}1\\-2\\1\end{smallmatrix}\right)$
+                        et $\vec n' \left(\begin{smallmatrix}-1\\2\\-1\end{smallmatrix}\right)$  sont colinéaires ($\vec n' = - \vec n$)<br />
+                        Donc les plans sont parallèles.</li>
+                </ol>
+            </section>
+        </article>
+
+        <article>
+            <header>
+                <h2><span class="cadre">Exercice 11</span> Intersection de plans </h2>
+                <p> $\mathscr{P}$ et $\mathscr{Q}$ sont les plans d'équations $\mathscr{P}$ : $x-3y+2z=5$ et $\mathscr{Q}$ : $2x+3y+7z=1$.
+                </p>
+                <ol><li>Justifier que $\mathscr{P}$ et $\mathscr{Q}$ sont sécants.</li>
+                    <li>Donner une représentation paramétrique de leur droite d'intersection.</li>
+                </ol>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la solution</button>
+                <button>Cacher la solution</button>
+                <ol><li>On peut écrire mes coordonnées de vecteurs normaux : $\left(\begin{smallmatrix}1\\-3\\2\end{smallmatrix}\right)$
+                        et $\left(\begin{smallmatrix}2\\3\\7\end{smallmatrix}\right)$.<br />
+                        Ils ne sont pas colinéaires ($1\times3-(-3)\times2\neq0$) donc $\mathscr{P}$ et $\mathscr{Q}$ sont sécants.</li>
+                    <li>Les coordonnées $(x\,;y\,;z)$ des points de leur droite d'intersection doivent vérifier les deux équations :<br />
+                        $\left\lbrace\begin{matrix}x-3y+2z=5\\2x+3y+7z=1\end{matrix}\right.$
+                        $\Leftrightarrow\left\lbrace\begin{matrix}x=3y-2z+5\\2(3y-2z+5)+3y+7z=1\end{matrix}\right.$
+                        $\Leftrightarrow\left\lbrace\begin{matrix}x=3y-2z+5\\9y +3z = -9\end{matrix}\right.$
+                        $\Leftrightarrow\left\lbrace\begin{matrix}x=3y-2(-3y -3)+5\\z =-3y -3\end{matrix}\right.$
+                        $\Leftrightarrow\left\lbrace\begin{matrix}x=9y+11\\z =-3y -3\end{matrix}\right.$<br />
+                        Une paramétriqation possible de le droite est donc $\left\lbrace\begin{matrix}x=9t+11\\y=t\\z =-3t -3\end{matrix}\right., t \in \mathbb{R}$</li>
+                </ol>
+            </section>
+        </article>
+
+        <article>
+            <header>
+                <h2><span class="cadre">Exercice 12</span> Position relative droite / plan </h2>
+                <p>  Dans chaque cas, étudier la position relative du plan  $\mathscr{P}$ et de la droite $\mathscr{D}$ :
+                </p>
+                <ol><li>$\mathscr{P}$ : $x-y+z=0$ et $\mathscr{Q}$ : $\left\lbrace\begin{smallmatrix} x=2t+1 \\ y=-t-1 \\ z=t+2 \end{smallmatrix}\right., t \in \mathbb{R}$</li>
+                    <li>$\mathscr{P}$ : $x+2y+z=-1$ et $\mathscr{Q}$ : $\left\lbrace\begin{smallmatrix} x=-t+1 \\ y=2 \\ z=t+3 \end{smallmatrix}\right., t \in \mathbb{R}$</li>
+                    <li>$\mathscr{P}$ : $2x-y=1$ et $\mathscr{Q}$ passant par $A(0;-1;2)$ et $B(-1;-3;1)$.</li>
+                </ol>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la solution</button>
+                <button>Cacher la solution</button>
+                <ol><li>$\vec n \left(\begin{smallmatrix}1\\-1\\1\end{smallmatrix}\right)$ est normal à $\mathscr{P}$ et $\vec d \left(\begin{smallmatrix}2\\-1\\1\end{smallmatrix}\right)$ est directeur de $\mathscr{D}$<br />
+                        Commme $\vec n . \vec d = 4 \neq 0$ alors $\mathscr{P}$ et $\mathscr{D}$ sont sécants.<br />
+                        Comme $\vec n$ et $\vec d$ ne sont pas colinéaires, $\mathscr{D}$ n'est pas perpendiculaire à $\mathscr{P}$.<br />
+                        Si on souhaite déterminer le point d'intersection, on résout le système des 4 équations d'inconnues $x$, $y$, $z$ et $t$ en substituant
+                        celles définissant $\mathscr{D}$ dans celle définissant $\mathscr{P}$ :<br />
+                        $(2t+1)-(-t-1)+(t+2)=0$ $\Leftrightarrow 4t +4=0$ $\Leftrightarrow t=-1$<br />
+                        Et en reportant ce résultat dans la paramétrisation de $\mathscr{D}$ : $\left\lbrace\begin{smallmatrix} x=2\times(-1)+1 \\ y=1-1 \\ z=-1+2 \end{smallmatrix}\right.$ donc $\left\lbrace\begin{smallmatrix} x=-1 \\ y=0 \\ z=1 \end{smallmatrix}\right.$
+                        La droite $\mathscr{D}$ est donc sécante à $\mathscr{P}$ en $I(-1\,;0\,;1)$<br />
+                        Si on veut encore préciser comment se fait cette intersection, on peut en calculer l'angle :<br />
+                        $\vec n . \vec d = 4$ $ = \Vert \vec n \Vert \times  \Vert \vec d \Vert \times \cos(\widehat{\vec n\,;\vec d})$ $= \sqrt{3} \sqrt{6} \cos(\widehat{\vec n\,;\vec d})$  <br />
+                        Donc $\cos(\widehat{\vec n\,;\vec d}) = \dfrac{2\sqrt{2}}{3}$. On trouve $(\widehat{\vec n\,;\vec d})\approx 19,5°$<br />
+                        Finalement : $\mathscr{D}$ est sécante à $\mathscr{P}$ en $I(-1\,;0\,;1)$ avec un angle de $70,5°$.
+                    </li>
+                    <li>$\vec n \left(\begin{smallmatrix}1\\2\\1\end{smallmatrix}\right)$ est normal à $\mathscr{P}$ et $\vec d \left(\begin{smallmatrix}-1\\0\\1\end{smallmatrix}\right)$ est directeur de $\mathscr{D}$<br />
+                        Commme $\vec n . \vec d = 0$ alors $\mathscr{D}$ est parallèle à $\mathscr{P}$.<br />
+                        Pour $t=0$, on trouve $A(1\,;2\,;3)$ sur $\mathscr{D}$ mais subtituées dans l'équation de $\mathscr{P}$, ces coordonnées donnent $1+2\times2+3 \neq 1$ donc $A$ n'est pas sur $\mathscr{P}$.<br />
+                        Finalement : $\mathscr{D}$ est strictement parallèle à $\mathscr{P}$.
+                    </li>
+                    <li>$\vec n \left(\begin{smallmatrix}2\\-1\\0\end{smallmatrix}\right)$ est normal à $\mathscr{P}$ et $\overrightarrow{BA} \left(\begin{smallmatrix}1\\2\\1\end{smallmatrix}\right)$ est directeur de $\mathscr{D}$<br />
+                        Commme $\vec n . \vec d = 0$ alors $\mathscr{D}$ est parallèle à $\mathscr{P}$.<br />
+                        De plus $2\times 0-(-1) = 1$ donc $A$ est sur $\mathscr{P}$ et : $\mathscr{D}$ est incluse dans $\mathscr{P}$.
+                    </li>
+                </ol>
+            </section>
+        </article>

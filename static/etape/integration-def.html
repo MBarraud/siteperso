@@ -1,0 +1,57 @@
+        <article>
+            <header>
+                <h2><span class="cadre">Définition 1</span> Unité d'aire (u.a.).</h2>
+                <p>L'unité d'aire d'un repère orthogonal est l'aire du rectangle formé par ses deux vecteurs de base.</p>
+            </header>
+            <section><h3>Exemple</h3>
+                Dans un repère othonormé d'unités 3cm en absisse et 2cm en ordonnées,<br />
+                <div class="centre"><div class="figure"><canvas id="graphe1" height="180", width="320">Balise canvas non supportée</canvas></div></div>
+                <script>
+                     var graphe = calibre("graphe1",-1.5,2.5,-1.5,2.5,2/3);
+                     graphe.fillStyle = '#f89800';
+                     integrale(x=>1,0,1,'hachure');
+                     axes();
+                     /* Les textes*/
+                     ecrit("$3$cm",0.3,-0.1,"#0098f8");
+                     ecrit("$2$cm",-0.5,0.7,"#0098f8");
+                     ecrit("$1$u.a.$=6$cm",0.1,1.5,"#f89800");
+                </script>
+                l'unité d'aire est $3\text{cm}\times2\text{cm}=6\text{cm}^2$.
+            </section>
+        </article>
+
+        <article>
+            <header>
+                <h2><span class="cadre">DDéfinition 2</span> Intégrale de $f$ de $a$ à $b$ : $\displaystyle \int_a^b f(x) \text{d}x$.</h2>
+                <p>Soit $f$ est une fonction continue et positive sur un intervalle sur $[a\,;b]$.</p>
+                <p>Notons $\mathscr{C}_f$ sa représentation graphique dans un repère orthogonal.</p>
+                <p>L'intégrale de $f$ de $a$ à $b$ notée $\displaystyle \int_a^b f(x) \text{d}x$ est la valeur de l'aire, en unités d'aires, du domaine limité par les droites d'équations $x=a$ et $x=b$ et situé entre $\mathscr{C}_f$ et l'axe des abscisses.</p>
+            </header>
+            <section>
+                On peut hachurer le domaine considéré :<br />
+                <div class="centre"><div class="figure"><canvas id="graphe2" height="180", width="320">Balise canvas non supportée</canvas></div></div>
+                <script>
+                    var graphe = calibre("graphe2",-3.5,11.5,-1.5,5.5,3/2);
+                    var f = x => -(x-8)*(x+1)/4;
+                    graphe.fillStyle = '#0098f8';
+                    integrale(f,1,7,'hachure');
+                    axes();
+                    /* la courbes */
+                    graphe.strokeStyle = "#000000";
+                    graphe.lineWidth=2;
+                    trace(f,xmin,xmax);
+                    /* les droites */
+                    graphe.lineWidth=2;
+                    graphe.setLineDash([5,5]);
+                    segment(1,ymin,1,ymax);
+                    segment(7,ymin,7,ymax);
+                    /* Les textes*/
+                    /* Les textes*/
+                    ecrit("$\\mathscr{C}_f$",-2,2);
+                    ecrit("$x=1$",0.4,-0.1);
+                    ecrit("$x=6$",5.6,-0.1);
+                    ecrit("$\\displaystyle \\int_1^6 f(x)\\text{d}x$",7.5,3,'#0098f8');
+                </script>
+           L'intégrale est la valeur de l'aire de ce domaine (calculé en unités d'aires).
+            </section>
+        </article>

@@ -1,0 +1,159 @@
+        <article>
+            <header>
+                <h2><span class="cadre">Théorème 1</span> Intégration et primitive.</h2>
+                <p>Soit $f$ est une fonction continue et positive sur un intervalle sur $[a\,;b]$.<br />
+                   Notons $F$ la fonction définie sur $[a;b]$ par : $\displaystyle F(x)=\int_a^x f(t)\text{d}t$.<br />
+                   Alors $F$ est dérivable sur $[a\,;b]$ et a pour dérivée $f$.</p>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la démonstration dans le cas où la fonction est croissante (ROC)</button>
+                <button>Cacher la démonstration</button>
+                <div class="centre"><iframe src="https://embed.api.video/vod/viBQDpBvgmpNp0WloB3qULX" frameborder="0" scrolling="no" allowfullscreen=""></iframe></div>
+                Soit $x\in[a\,;b]$ et $h$ tel que $x+h\in[a\,;b]$. On cherche à évaluer $\displaystyle \lim_{h\to 0} \dfrac{F(x+h)-F(x)}{h}$.
+
+                <ol class="question">
+                    <li> On se place dans le cas $h>0$ pour calculer la limite à droite.<br />
+                        <div class="centre"><div class="figure"><canvas id="graphe1" height="180", width="320">Balise canvas non supportée</canvas></div></div>
+                        <script>
+                            var f = x => 0.2+2.3*Math.exp(-(x-7)*(x-7)/4);
+                            var graphe = calibre("graphe1",-0.5,8.5,-0.5,2.5,1);
+
+                            graphe.fillStyle = '#0098f8';
+                            integrale(f,2,6);
+                            graphe.fillStyle = '#f89800';
+                            integrale(f,2,5,'hachure');
+
+                            axes(2);
+
+                            graphe.lineWidth=1;
+                            graphe.strokeStyle = "#000000";
+                            trace(f,2,7);
+
+                            graphe.lineWidth=2;
+                            graphe.setLineDash([5,5]);
+                            trace(f,5,6);
+                            segment(6,f(6),6,0);
+                            segment(6,0,5,0);
+                            segment(5,0,5,f(5));
+
+                            ecrit("$\\displaystyle \\int_x^{x+h} f(t)\\text{d}t$",4.5,-0.2);
+                            ecrit("$\\displaystyle F(x+h)=\\int_a^{x+h} f(t)\\text{d}t$",0.5,3,'#0098f8');
+                            ecrit("$\\displaystyle F(x)=\\int_a^x f(t)\\text{d}t$",0.5,1.5,'#f89800');
+                        </script>
+                        Par différence des aires sous la courbe : $\displaystyle F(x+h)-F(x)=\int_x^{x+h}f(t)\text{d}t$.<br />
+                        Or par croissance sur $[x\,;x+h]$ : $\displaystyle f(x)\leqslant f(t)\leqslant f(x+h)$.<br />
+                        <div class="centre"><div class="figure"><canvas id="graphe2" height="180" width="320">Balise canvas non supportée</canvas></div></div>
+                        <script>
+                            var f = x => 0.2+2.3*Math.exp(-(x-7)*(x-7)/4);
+                            var graphe = calibre("graphe2",-2,7.5,-0.5,3,1);
+
+                            graphe.fillStyle = '#0098f8';
+                            integrale(x =>f(6),5,6);
+                            graphe.fillStyle = '#f89800';
+                            integrale(x =>f(5),5,6,'hachure');
+
+                            axes(2);
+
+                            graphe.lineWidth=1;
+                            graphe.strokeStyle = "#000000";
+                            trace(f,2,7);
+
+                            graphe.lineWidth=2;
+                            graphe.setLineDash([5,5]);
+                            trace(f,5,6);
+                            segment(6,f(6),6,0);
+                            segment(6,0,5,0);
+                            segment(5,0,5,f(5));
+
+                            graphe.setLineDash([3,3]);
+                            graphe.strokeStyle = '#f89800';
+                            segment(0,f(5),5,f(5));
+                            graphe.strokeStyle = '#0098f8';
+                            segment(0,f(6),6,f(6));
+
+                            ecrit("$f(x+h)$",-2,2.25,'#0098f8');
+                            ecrit("$f(x)$",-1.25,1.25,'#f89800');
+                            ecrit("$h$",5.5,-0.1);
+                        </script>
+                        En comparant les aires, on obtient donc :  $\displaystyle hf(x) \leqslant \int_x^{x+h}f(t)\text{d}t\leqslant hf(x+h)$.<br />
+                        Soit en divisant par $h$ : $\displaystyle f(x) \leqslant \dfrac{F(x+h)-F(x)}{h}\leqslant f(x+h)$.<br />
+                        Par continuité de $f$ en $x$ : $\displaystyle \lim_{h\to 0^+}f(x+h)=f(x)$.<br />
+                        On peut donc appliquer le théorème des gendarmes : $\displaystyle \lim_{h\to 0^+} \dfrac{F(x+h)-F(x)}{h} = f(x)$.
+                    </li>
+                    <li>Si $h<0$, $\displaystyle F(x)-F(x+h)=\int_{x+h}^x f(t)\text{d}t$  et  $\displaystyle f(x+h)\leqslant f(t)\leqslant f(x)$.<br />
+                        Donc $\displaystyle -hf(x+h) \leqslant \int_{x+h}^x f(t)\text{d}t \leqslant -hf(x)$ et on divise par $-h(>0)$ :<br />
+                        $\displaystyle f(x+h) \leqslant \dfrac{F(x)-F(x+h)}{-h} \leqslant f(x)$ c'est à dire $\displaystyle f(x+h) \leqslant \dfrac{F(x+h)-F(x)}{h} \leqslant f(x)$.<br />
+                        On conclut de la même façon que : $\displaystyle \lim_{h\to 0^-} \dfrac{F(x+h)-F(x)}{h} = f(x)$
+                    </li>
+                    <li> Finalement : $\displaystyle \lim_{h\to 0} \dfrac{F(x+h)-F(x)}{h} = f(x)$, ce qu'il fallait démontrer.
+                    </li>
+                </ol>
+            </section>
+        </article>
+
+        <article>
+            <header>
+                <h2><span class = "cadre">Théorème 2</span> Calcul d'intégrales par primitive.</h2>
+                <p>Soit $f$ une fonction continue sur un intervalle $I$<br />
+                    Si on connait une primitive $F$ de $f$ sur $I$, alors pour $[a\,;b]\subset I$ :<br />
+                    <div class="centre">$\displaystyle \int_a^b f(x)\text{d}x=F(b)-F(a)$</div>
+                </p>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la démonstration</button>
+                <button>Cacher la démonstration</button>
+                $F$ est une primitive de $f$ sur $[a;b]$ donc le théorème 1 donne : $\displaystyle F(x)=\int_a^x f(t) \text{d}t+C$.<br />
+                On calcule alors : $\displaystyle F(b)-F(a)=\int_a^b f(t) \text{d}t+C-(0+C)=\int_a^b f(t)  \text{d}t$
+            </section>
+            <section><h3>Exemple</h3>
+                <p>Soit à calculer $\displaystyle \int_2^4 x \text{d}x$.<br />
+                    Notons $f$ la fonction à intégrer : $f(x)=x$ sur $[2\,;4]$.<br />
+                    On en connait une primitive $F$ définie par : $F(x)=\frac{1}{2}x^2$ sur $[2\,;4]$.<br />
+                    D'où : $\displaystyle \int_2^4 x \text{d}x = \left(\frac{1}{2}4^2\right) - \left(\frac{1}{2}2^2\right) = $<span class="resultat">$6$</span>
+                </p>
+            </section>
+        </article>
+
+        <article>
+            <header>
+                <h2><span class="cadre">Notation</span> Crochets</h2>
+                <p>Pour éviter d'avoir à définir les fonctions $f$ puis $F$, dans le cas où ce calcul est "simple" on utilise la notation suivante :</p>
+                <div class="centre">$\left[F(x)\right]_a^b = F(b)-F(a)$</div>
+            </header>
+            <section><h3>Exemple</h3>
+                <p>Soit, comme précédemment, à calculer $\displaystyle \int_2^4 x \text{d}x$.<br />
+                   $\displaystyle \int_2^4 x \text{d}x$
+                   $ = \left[\frac{1}{2}x^2\right]_2^4$
+                   $ = \left(\frac{1}{2}4^2\right) - \left(\frac{1}{2}2^2\right)$
+                   $ = $<span class="resultat">$6$</span>
+                </p>
+            </section>
+        </article>
+
+        <article>
+            <div class="centre"><iframe src="https://embed.api.video/vod/vi2PsFFWEZtkKrK80JCWk7FC" frameborder="0" scrolling="no" allowfullscreen=""></iframe></div>
+        </article>
+
+        <article>
+            <header>
+                <h2><span class="cadre">Exercice d'application 1</span> Intégration, primitive et notation crochets</h2>
+                <p>Calculer $\displaystyle \int_{-3}^3 \left(2+\frac{x}{3}\right) \text{d}x$</p>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la solution</button>
+                <button>Cacher la solution</button>
+                <p> $\displaystyle \int_{-3}^3 \left(2+\frac{x}{3}\right) \text{d}x = \int_a^b f(x) \text{d}x$ avec $\displaystyle\left\lbrace\begin{matrix}a = -3\\b = 3\\f(x)=2+\frac{x}{3}\end{matrix}\right.$<br />
+                   On détermine alors une primitive $F$ de la fonction $f$ sur $[a\,;b] = [-3\,;3]$.<br />
+                   Comme $f$ est une fonction de référence, il n'y a rien à justifier : $\displaystyle F(x)=2x+\frac{x^2}{6}$.<br />
+                   Du coup : $\displaystyle \int_{-3}^3 \left(2+\frac{x}{3}\right) \text{d}x = \int_a^b f(x) \text{d}x$
+                   $ =F(b)-F(a)$
+                   $\displaystyle = \left(2\times3+\frac{3^2}{6}\right)-\left(2\times(-3)+\frac{(-3)^2}{6}\right)$
+                   $ = $<span class="resultat">$12$</span>
+                </p>
+                <p>La notation crochet permet de résumer tout le raisonnement en :<br />
+                   $\displaystyle \int_{-3}^3 \left(2+\frac{x}{3}\right) \text{d}x = \left[2x+\frac{x^2}{6}\right]_{-3}^3$
+                   $ = \left(2\times3+\frac{3^2}{2}\right)-\left(2\times(-3)+\frac{(-3)^2}{6}\right)$
+                   $ = $<span class="resultat">$12$</span>
+                </p>
+            </section>
+        </article>

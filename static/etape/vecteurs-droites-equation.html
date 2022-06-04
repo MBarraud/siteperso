@@ -1,0 +1,112 @@
+        <article>
+            <header>
+                <h2><span class="cadre">Définition </span> Droites</h2>
+                <p>Soit $\mathscr{D}$ une droite passant par deux points $A$ et $B$ et de vecteur directeur $\vec u$. Les définitions suivantes sont équivalentes :
+                <ul><li>$\mathscr{D}$ est l'ensemble de tous les points $M$ alignés avec $A$ et $B$.</li>
+                    <li>$\mathscr{D}$ est l'ensemble de tous les points $M$ tels que $\overrightarrow{AM}$ et $\vec u$ sont colinéaires.</li>
+                </ul></p>
+            </header>
+        </article>
+
+        <article>
+            <header>
+                <h2><span class="cadre">Théorème </span> Équation cartésienne</h2>
+                <p>On se place dans un repère du plan.
+                <ul><li>Toute droite admet une équation de la forme $ax+by+c=0$ où $a$, $b$, et $c$ sont trois réels.</li>
+                    <li>Réciproquement, si $a\neq0$ ou $b\neq0$, alors l'équation $ax+by+c=0$ est celle d'une droite.</li>
+                </ul>
+                On dit que $ax+by+c=0$ est une équation \emph{cartésienne} de droite.</p>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la démonstration</button>
+                <button>Cacher la démonstration</button>
+                Notons $A(x_A;y_A)$ un point et $\vec u\begin{pmatrix}p\\q\end{pmatrix}$ un vecteur.
+
+    L'ensemble des points $M(x;y)$ tels que $\overrightarrow{AM}\begin{pmatrix}x-x_A\\y-y_A\end{pmatrix}$ et $\vec u\begin{pmatrix}p\\q\end{pmatrix}$ sont colinéaires sont ceux vérifiant : $\text{det}\left(\overrightarrow{AM},\vec u\right)=0$
+    $\Leftrightarrow \left\vert \begin{matrix}x-x_A&p\\y-y_A&q\end{matrix}\right\vert=0$
+    $\Leftrightarrow (x-x_A)\times q - (y-y_A)\times p =0$
+    $\Leftrightarrow q x - p y - q x_A - p y_A =0$
+    $\Leftrightarrow (q) x + (- p) y + (- q x_A - p y_A) =0$
+                <ul><li>La droite passant par $A$ et de vecteur directeur $\vec u$ est donc d'équation $ax+by+c$ avec $a = q$, $b = -p$ et $c=- q x_A - p y_A$.</li>
+                    <li>Réciproquement, si $a\neq0$ ou $b\neq0$, alors $ax+by+c=0$ admet au moins une solution $A(x_A;y_A)$ :
+                <ul><li>si $a\neq0$, on peut prendre $A(-\frac{c}{a};0)$,</li>
+                    <li>si $b\neq0$, on peut prendre $A(0;-\frac{c}{b})$.</li>
+                </ul>
+
+    $ax+by+c=0$ est alors l'équation de la droite passant par $A$ et de vecteur directeur $\vec u\begin{pmatrix}-b\\a\end{pmatrix}$.</li>
+                </ul>
+            </section>
+        </article>
+
+        <article>
+            <header>
+                <h2><span class="cadre">Théorème </span> Dans la pratique</h2>
+                <ul><li>La droite d'équation $ax+by+c=0$ admet le vecteur directeur $\vec u \begin{pmatrix}-b\\a\end{pmatrix}$, coupe l'axe des abscisse en $A(-\frac{c}{a};0)$ si $a\neq0$, et coupe l'axe des ordonnées en $B(0;-\frac{c}{b})$ si $b\neq 0$.</li>
+                    <li>On trouve une équation de la droite passant par $A(x_A;y_A)$ de coefficient directeur $\vec u \begin{pmatrix}p\\q\end{pmatrix}$, en écrivant la colinéarité de $\overrightarrow{AM}$ avec $\vec u$ : $\left\vert \begin{matrix}x-x_A&p\\y-y_A&q\end{matrix}\right\vert=0$ </li>
+                </ul>
+            </header>
+        </article>
+
+        <article>
+            <header>
+                <h2><span class="cadre">Exercices</span> 44 à 53 p. 172 </h2>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la correction</button>
+                <button>Cacher la correction</button>
+                <h3>50 p.172</h3>
+                Un point est sur la droite si et seulement si ses coordonnées vérifient son équation.
+                <ul><li>$2\times 4 - 3 \times 3 + 1 = 8 - 9 + 1 = 0$ donc $A$ est sur la droite</li>
+                    <li>$2\times (-2) - 3 \times (-1) + 1 = -4 + 3 + 1 = 0$ donc $B$ est sur la droite</li>
+                    <li>$2\times -4 - 3 \times \frac{-7}{3} + 1 = -8 + 7 + 1 = 0$ donc $C$ est sur la droite</li>
+                </ul>
+                Finalement les trois points sont sur la droite (donc alignés).
+
+                <h3>53 p. 172</h3>
+                On se base surle cours mais on oublie pas que si vecteur directeur de la droite d'équation $ax+by+c=0$ est de coordonnées $\begin{pmatrix}-b\\a\end{pmatrix}$, tout vecteur colinéaire non nul est encore un vecteur directeur.
+                Pour le point, il ne s'agit pas de résoudre (c'est déjà fait) mais de trouver un exemple. On peut tout à fait tatonner sur de petits nombres entiers pour obtenir des valeur simples.
+                <ul><li>$d_1$  admet $\vec u_1\begin{pmatrix}5\\3\end{pmatrix}$ comme vecteur directeur et passe par $A(1;1)$</li>
+                    <li>$d_2$  admet $\vec u_2\begin{pmatrix}4\\1\end{pmatrix}$ comme vecteur directeur et passe par $B(3;0)$</li>
+                    <li>$d_3$  admet $\vec u_3\begin{pmatrix}0\\1\end{pmatrix}$ comme vecteur directeur et passe par $C(\frac{1}{2};0)$</li>
+                    <li>$d_4$  admet $\vec u_4\begin{pmatrix}-3\\1\end{pmatrix}$ comme vecteur directeur et passe par $A(1;1)$</li>
+                    <li>$d_5$  admet $\vec u_5\begin{pmatrix}1\\6\end{pmatrix}$ comme vecteur directeur et passe par $D(0;-2)$</li>
+                    <li>$d_6$  admet $\vec u_6\begin{pmatrix}4\\9\end{pmatrix}$ comme vecteur directeur et passe par $E(3;6)$</li>
+                </ul>
+            </section>
+        </article>
+
+        <article>
+            <header>
+                <h2><span class="cadre">Exercices</span> 56 à 63 p. 173 </h2>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la correction</button>
+                <button>Cacher la correction</button>
+
+                <h3>57 p. 172</h3>
+
+                On trouve une équation cartésienne en écrivant : $\det(\overrightarrow{OM},\vec u)=0$ où $O(0;0)$ est un point particulier et $M(x;y)$ un point quelconque  de la droite.
+                <ol style="list-style-type: lower-alpha;">
+                    <li>$\left\vert\begin{matrix}x&2\\y&-5\end{matrix}\right\vert=0$ c'est à dire $-5x-2y=0$</li>
+                    <li>$\left\vert\begin{matrix}x&4\\y&3\end{matrix}\right\vert=0$ c'est à dire $3x-4y=0$</li>
+                    <li>$\left\vert\begin{matrix}x&-5\\y&1\end{matrix}\right\vert=0$ c'est à dire $x+5y=0$</li>
+                </ol>
+
+
+                <h3>58 p. 172</h3>
+
+                On trouve une équation cartésienne en écrivant : $\det(\overrightarrow{AM},\vec u)=0$ c'est à dire $\left\vert\begin{matrix}x-2&0\\y-3&5\end{matrix}\right\vert=0$ c'est à dire $5(x-2)-0=0$ ou : $x=2$<br/>
+
+                On pouvait par ailleurs donner directement ce résultat car le vecteur est dirigé selon l'axe des ordonnées et la droite passe par un point d'abscisse $2$.
+
+                <h3>59 p. 172</h3>
+
+                <ol style="list-style-type: lower-alpha;">
+                    <li>On trouve une équation cartésienne en écrivant : $\det(\overrightarrow{AM},\vec u)=0$ c'est à dire $\left\vert\begin{matrix}x-(-2)&1\\y-4&3\end{matrix}\right\vert=0$
+                        c'est à dire $3(x+2)-1(y-4)=0$ ou : $3x-y+10=0$</li>
+                    <li> On peut vérifier que $A(-2;4)$ est bien sur la droite en calculant $3\times(-2)-4+10=0$<br/>
+                         Mais $B(5;5)$ n'est pas sur la droite car $3\times5-5+10=20\neq0$ </li>
+                </ol>
+
+            </section>
+        </article>

@@ -1,0 +1,169 @@
+        <article>
+            <header>
+                <h2><span class="cadre">Théorème </span> Droites parallèles</h2>
+                <p>Deux droites sont parallèles si et seulement si leurs vecteurs directeurs sont colinéaires.</p>
+            </section>
+        </article>
+
+        <article>
+            <header>
+                <h2><span class="cadre">Théorème </span> Incidence et équations réduites</h2>
+                <p>Les droites d'équations $y=m x+p$ et $y=n x+q$ sont parallèles si et seulement si $m=n$.
+                <ul><li>Elles sont strictement parallèles si et seulement si $m=n$ et $p \ne q$.</li>
+                    <li>Elles sont confondues si et seulement si $m=n$ et $p= q$.</li>
+                    <li>Elles sont sécantes si et seulement si $m\ne n$.</li>
+                </ul>
+                </p>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la démonstration</button>
+                <button>Cacher la démonstration</button>
+                Les vecteurs directeurs, de coordonnées $(\begin{smallmatrix}1\\m\end{smallmatrix})$  et $(\begin{smallmatrix}1\\n\end{smallmatrix})$, sont colinéaires si et seulement si $m=n$. Si de plus $p=q$, les deux équations sont identiques donc les droites aussi.
+            </section>
+            <section><h3>Exemple</h3>
+            On considère les droites $\mathscr{D}$ et $\mathscr{D'}$ d'équations $y=2x+3$ et $y=4x+6$.
+            <ul><li> Démontrer que $\mathscr{D}$ et $\mathscr{D'}$ sont sécantes.</br>
+                     Comme elles n'ont pas la même pente : $2 \neq 4$ elles sont sécantes.</li>
+                    <li>Déterminer l'équation réduite de la parallèle à $\mathscr{D}$ passant par l'origine.</br>
+                     La parallèle à la même pente donc son équation est de la forme $y=2x+p$.</br>
+                     Comme elle passe par l'origine, son ordonnée à l'origine est nulle : $y = 2x$</li>
+                </ul>
+            </section>
+        </article>
+
+        <article>
+            <header>
+                <h2><span class="cadre">Théorème </span> Incidence et équations cartésiennes</h2>
+                <p>Les droites d'équations $ax+by+c=0$ et $a'x+b'y+c'=0$ sont parallèles si et seulement si $\left\vert\begin{smallmatrix}a&b\\a'&b'\end{smallmatrix}\right\vert=0$.
+                <ul><li>Elle sont strictement parallèles si et seulement si $\left\vert\begin{smallmatrix}a&b\\a'&b'\end{smallmatrix}\right\vert=0$ et $\left\vert\begin{smallmatrix}b&c\\b'&c'\end{smallmatrix}\right\vert\ne 0$.</li>
+                    <li>Elle sont confondues si et seulement si $\left\vert\begin{smallmatrix}a&b\\a'&b'\end{smallmatrix}\right\vert=0$ et $
+                        \left\lbrace\begin{matrix}
+                                  \left\vert\begin{smallmatrix}b&c\\b'&c'\end{smallmatrix}\right\vert= 0
+                                & \text{si}
+                                & b\ne 0\\
+                                  \left\vert\begin{smallmatrix}c&a\\c'&a'\end{smallmatrix}\right\vert= 0
+                                & \text{si}
+                                & a\ne 0
+                             \end{matrix}\right.$</li>
+                    <li>Elle sont sécantes si et seulement si $\left\vert\begin{smallmatrix}a&b\\a'&b'\end{smallmatrix}\right\vert\ne 0$.</li>
+                </ul></p>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la démonstration</button>
+                <button>Cacher la démonstration</button>
+                Les vecteurs directeurs, de coordonnées $(\begin{smallmatrix}-b\\a\end{smallmatrix})$  et $(\begin{smallmatrix}-b'\\a'\end{smallmatrix})$, sont colinéaires si et seulement si $\left\vert\begin{smallmatrix}-b&-b'\\a&a'\end{smallmatrix}\right\vert=0$ c'est à dire $-b\times a'-a\times(-b')=0$ qui se réécrit : $ab'-ba'=0$ c'est à dire $\left\vert\begin{smallmatrix}a&b\\a'&b'\end{smallmatrix}\right\vert=0$.</br>
+
+                Dans ce cas, l'un des vecteurs est multiple de l'autre. On peut réécrire : $a'=\lambda a$ et $b' = \lambda b$ et les équations : $ax+by+c=0$ et $\lambda a x+ \lambda b y+c'=0$. Si de plus $c' = \lambda c$ alors les deux équations sont équivalentes et définissent la même droite sinon, aucune solution de l'une n'est solution de l'autre et les droites sont strictement parallèles.</br>
+
+                C'est bien ce que dit l'énoncé car dans ce cas :
+                <ul><li>$\left\vert\begin{smallmatrix}b&c\\b'&c'\end{smallmatrix}\right\vert$ vaut $\left\vert\begin{smallmatrix}b&c\\\lambda b&c'\end{smallmatrix}\right\vert = bc'-\lambda bc = b(c'-\lambda c)$ qui est nul (pour $b\ne 0$) si et seulement si $c' = \lambda c$.</li>
+                    <li>$\left\vert\begin{smallmatrix}c&a\\c'&a'\end{smallmatrix}\right\vert$ vaut $\left\vert\begin{smallmatrix}c&a\\ c'&\lambda a\end{smallmatrix}\right\vert = \lambda ac- ac' = a(\lambda c-c')$ qui est nul (pour $a\ne 0$) si et seulement si $c' = \lambda c$.</li>
+                </ul>
+            </section>
+            <section><h3>Exemple</h3>
+            On considère les droites $\mathscr{D}$ et $\mathscr{D'}$ d'équations $2x+3y+4=0$ et $4x+6y-8=0$.
+            <ul><li>Démontrer que $\mathscr{D}$ et $\mathscr{D'}$ sont strictement parallèles.</br>
+                    $\left\vert\begin{smallmatrix}2&3\\4&6\end{smallmatrix}\right\vert=2\times6-4\times3=0$ donc $\mathscr{D}$ et $\mathscr{D'}$ sont parallèles.</br>
+                    De plus $\left\vert\begin{smallmatrix}3&4\\6&-8\end{smallmatrix}\right\vert=3\times(-8)-6\times4=-48\neq0$ donc $\mathscr{D}$ et $\mathscr{D'}$ sont strictement parallèles.</li>
+                    <li>En modifiant un seul coefficient de l'équation $\mathscr{D'}$, écrire celle d'une droite confondue avec $\mathscr{D}$.</br>
+                     On peut garder les deux premiers coefficient qui donnent une droite parallèle : $4x+6y+c=0$</br>
+                     Il suffit alors d'avoir $\left\vert\begin{smallmatrix}3&4\\6&c\end{smallmatrix}\right\vert=0$ c'est à dire $3\times c-6\times4=0$ donc $c = 8$.</br>
+                     L'équation recherchée est $4x+6y+8=0$</li>
+                </ul>
+            </section>
+        </article>
+
+        <article>
+            <header>
+                <h2><span class="cadre">Exercices</span> 78 à 86 p. 174 </h2>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la correction</button>
+                <button>Cacher la correction</button>
+                <h3>81 p.174</h3>
+                Le déterminant du système $\left\lbrace\begin{matrix}\frac{8}{3}x-2y+1=0\\4x-3y=0\end{matrix}\right.$
+                est $\left\vert\begin{smallmatrix}\frac{8}{3}&-2\\4&-3\end{smallmatrix}\right\vert$
+                $=\frac{8}{3}\times(-3)-(-2)\times4$ $=-8+8$ $=0$ donc les deux droites sont parallèles.</br>
+                On peut préciser, comme $\left\vert\begin{smallmatrix}-2&1\\-3&0\end{smallmatrix}\right\vert$
+                $=3$ $\neq0$ qu'elles sont strictement parallèles.
+
+                <h3>82 p.174</h3>
+                Le déterminant du système $\left\lbrace\begin{matrix}2x+3y-5=0\\5x-7y+1=0\end{matrix}\right.$
+                est $\left\vert\begin{smallmatrix}2&3\\5&-7\end{smallmatrix}\right\vert$
+                $=2\times(-7)-5\times3$ $=-29$ $\neq0$ donc les deux droites sont sécantes.</br>
+
+                <h3>83 p.174</h3>
+                Le déterminant du système $\left\lbrace\begin{matrix}3x-9y+4=0\\4x-12y+\frac{16}{3}=0\end{matrix}\right.$
+                est $\left\vert\begin{smallmatrix}3&-9\\4&-12\end{smallmatrix}\right\vert$
+                $=3\times(-12)-4\times(-9)$ $=0$ donc les deux droites sont parallèles.</br>
+                On peut préciser, comme $\left\vert\begin{smallmatrix}-9&4\\-12&\frac{16}{3}\end{smallmatrix}\right\vert$
+                $=-9\times\frac{16}{3}-(-12)\times4$ $=0$ qu'elles sont confondues.
+
+                <h3>85 p.174</h3>
+                On peut conserver les coefficients $a=1$ et $b=1$ pour que les droites soient parallèles : $x+y+c=0$
+
+                <ol style="list-style-type: lower-alpha;">
+                    <li>Elle passe par l'origine si $0+0+c=0$ donc $c=0$, d'où l'équation : $x+y=0$.</li>
+                    <li>Elle passe par $A(3;-4)$ si $3+(-4)+c=0$ donc $c=1$, d'où l'équation : $x+y+1=0$ </li>
+                </ol>
+            </section>
+        </article>
+
+        <article>
+            <header>
+                <h2><span class="cadre">Exercices</span> 87 à 107 p. 174 et 175 </h2>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la correction</button>
+                <button>Cacher la correction</button>
+
+                <h3>91 p. 174</h3>
+                Le système admet une unique solution si les droites correspondantes à chaque équation sont sécantes, c'est à dire si le détermiant des coefficants de $x$ et de $y$ est nul, c'est à dire si le tableau formé par ces coefficiants est un tableau de proportionnalité.
+
+                <ol style="list-style-type: lower-alpha;">
+                    <li>$\left\vert\begin{smallmatrix}1&1\\1&-2\end{smallmatrix}\right\vert\neq0$, car il faudrait un $1$ au lieu du $-2$ pour avoir proportionnalité. Il y a donc une unique solution.</li>
+                    <li>$\left\vert\begin{smallmatrix}3&1\\-6&-2\end{smallmatrix}\right\vert=0$, car la seconde ligne est $-2$ fois la première. Il n'y a donc pas une unique solution.</li>
+                    <li>$\left\vert\begin{smallmatrix}-3&1\\-1&-4\end{smallmatrix}\right\vert\neq0$ car il faudrait par exemple $-12$ au lieu du $-1$ pour avoir proportionnalité. Il y a donc une unique solution.</li>
+                    <li>$\left\vert\begin{smallmatrix}1&-2\\-3&6\end{smallmatrix}\right\vert=0$, car la seconde ligne est $-3$ fois la première. Il n'y a donc pas une unique solution.</li>
+                </ol>
+
+
+                <h3>96 p. 175</h3>
+                <ol style="list-style-type: lower-alpha;">
+                    <li>La première équation $-6x+y+17=0$ se réécrit $y=6x-17$.</li>
+                    <li>Par substitution dans la seconde, on obtient $7x+2(6x-17)-4=0$, c'est à dire $19x-38=0$ $\Leftrightarrow 19x=38$ $\Leftrightarrow x=2$</br>
+                        Pour terminer la résolution, on substitue ce résultat à $x$ dans l'expression de $y$ :$ \Leftrightarrow y=6\times2-17$ $\Leftrightarrow y=-5$</br>
+                        Solution : $(x;y) = (2;-5)$</li>
+                </ol>
+
+                <h3>97 p. 175</h3>
+                <ol style="list-style-type: lower-alpha;">
+                    <li>Le plus simple est d'isoler $x$ dans la première équation : $x=3y-17$.</br>
+                        On substitue alors dans la seconde : $2(3y-17)+4y=6$ et on trouve $y=4$</br>
+                        On substitue ce résultat dans $x=3\times4-17$ donc $x=-5$</br>
+                        Solution : $(x;y) = (-5;4)$</li>
+                    <li>Le plus simple est d'isoler $b$ dans la seconde équation : $b=6-4a$.</br>
+                        On substitue alors dans la première : $2a+3(6-4a)=-2$ et on trouve $a=2$</br>
+                        On substitue ce résultat dans $b=6-4\times2$ donc $b=-2$</br>
+                        Solution : $(a;b) = (2;-2)$</li>
+                </ol>
+
+                <h3>101 p. 175</h3>
+                <ol style="list-style-type: lower-alpha;">
+                    <li>En multipliant la première par $(-3)$, on obtient : $(S)\Leftrightarrow\left\lbrace\begin{matrix}-9x-6y=-21\\4x+6y=1\end{matrix}\right.$</li>
+                    <li>Par addittion membre à membre : $-5x=-20$</li>
+                    <li>On en déduit $x=4$, puis par substitution dans l'une ou l'autre des équations de départ : $y=-2,5$</br>
+                        Solution : $(x;y) = (4;2,5)$</li>
+                </ol>
+
+                <h3>102 p. 175</h3>
+                <ol style="list-style-type: lower-alpha;">
+                    <li>Inutile de multiplier ; par simple addition membre à membre : $7x=14$ c'est à dire $x=2$, puis par substitution : $y=0,2$.</br>
+                        Solution : $(x;y) = (2;0,2)$</li>
+                    <li>On peut multiplier la première par $(-1)$ avant l'addition membre à membre. On trouve $10y=15$, c'est à dire $y=-1,5$.</br>
+                        En multipliant la première par 3 et la seconde par 2, on obtient $(S)\Leftrightarrow\left\lbrace\begin{matrix}6x-12y=-18\\4x+12y=18\end{matrix}\right.$</br>
+                        L'addition membre à membre donne alors $10x=0$ c'est à dire $x=0$.</br>
+                        Solution : $(x;y) = (0;-1,5)$</li>
+                </ol>
+            </section>
+        </article>

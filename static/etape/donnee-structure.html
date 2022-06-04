@@ -1,0 +1,168 @@
+<article>
+            <header>
+                <h2><span class="cadre">Définition</span> Open data </h2>
+                Un contenu est dit en open data s’il est librement utilisable, modifiable et partageable par n’importe
+                qui et pour n’importe quelle raison.
+            </header>
+            <section><h3>Exemples</h3>
+                <ul>
+                    <li> En France, Etalab s’occupe de <a href="http://data.gouv.fr" target="_blank">data.gouv.fr</a>, site de partage des données publiques.</li>
+                    <li> Des données sont également disponibles localement, par exemple : <a href="http://data.larochesuryon.fr" target="_blank">data.larochesuryon.fr</a>.</li>
+                    <li> Certaines données sont collaboratives, par exemple : <a href="http://fr.openfoodfacts.org" target="_blank">fr.openfoodfacts.org</a> autour des produits alimentaires
+                         ou <a href="http://openstreetmap.fr" target="_blank">openstreetmap.fr</a> sur la cartographie.</li>
+                </ul>
+            </section>
+        </article>
+
+        <article>
+            <header>
+                <h2><span class="cadre">Activité 1</span> Open data </h2>
+                Aller sur le site : <a href="https://data.paysdelaloire.fr" target="_blank">data.paysdelaloire.fr</a>.
+                <ol><li>Saisir le mot-clé &laquo; restaurant &raquo;.<br />
+                        Combien de jeux de données sont disponibles ?
+                    </li>
+                    <li>
+                        Choisir &laquo; Offre touristique : restaurants en Pays de la Loire &raquo;.<br />
+                        Combien de lignes de données sont disponibles ?
+                    </li>
+                </ol>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la solution</button>
+                <button>Fermer la solution</button>
+                <ol><li>Au monent de la rédaction de cette solution : 16 (écrit en blac sur fond noit en haut à gauche)
+                    </li>
+                    <li>Au monent de la rédaction de cette solution : 4083 (écrit en blac sur fond noit en haut à gauche)
+                    </li>
+                </ol>
+            </section>
+        </article>
+
+
+        <article>
+            <header>
+                <h2><span class="cadre">Définition</span> Table</h2>
+                Une <strong>table</strong> est un tableau particulier de données.<br />
+                <ul><li>Le contenu de chaque case du tableau est une <strong>valeur</strong>.</li>
+                    <li>Chaque ligne du tableau est un <strong>enregistrement</strong>.</li>
+                    <li>Les valeurs d’une même colonne du tableau décrivent le même aspect d’un enregistrement.<br />
+                        Cet aspect est nommé en titre de colonne et appelé <strong>descripteur</strong>.
+                    </li>
+                </ul>
+            </header>
+        </article>
+
+        <article>
+            <header>
+                <h2><span class="cadre">Activité 2</span> Formats d'une table et descripteurs </h2>
+                A partir de &laquo; Offre touristique : restaurants en Pays de la Loire &raquo;, je cherche le nom d'une pizzeria en Vendée
+                dans laquelle je me souviens d'avoir bien manger.
+                <ol>
+                    <li>Lister les descripteurs utiles au traitement de cette recherche.</li>
+                    <li>Cliquer sur l’onglet <code>Export</code>.<br />
+                        Citer les deux premiers formats de fichiers proposés et les télécharger.
+                    </li>
+                    <li>Ouvrir les deux fichiers à l’aide un éditeur de texte basique (bloc-note ou gedit) et
+                        vérifier dans les deux cas, qu'il s’agit bien de fichiers texte lisibles directement.
+                    </li>
+                    <li>Comment sont distinguées les valeurs les unes des autres,
+                        <ol><li>dans le CSV ?</li>
+                            <li>dans le JSON ?</li>
+                        </ol>
+                    </li>
+                    <li>Où sont renseignés les descripteurs,
+                        <ol><li>dans le CSV ?</li>
+                            <li>dans le JSON ?</li>
+                        </ol>
+                    </li>
+                    <li>Pour visualiser plus facilement les données d'un fichier CSV, on peut utiliser un tableur. Le faire : quel séparateur faut-il choisir ?<br />
+                        (Pour visualiser plus facilement les données d'un fichier JSON on peut utiliser certains navigateur internet comme Firefox.)</li>
+                </ol>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la solution</button>
+                <button>Fermer la solution</button>
+
+                <ol>
+                    <li>Les descripteurs utiles au traitement de la recherche du nom d'une pizzeria en Vendée :
+                        <ul>
+                            <li>Nom de l'offre touristique</li>
+                            <li>Catégorie du restaurant</li>
+                            <li>Département (le dernier des très nombreux descripteur)</li>
+                        </ul>
+                    </li>
+                    <li>Les deux premiers formats de fichiers proposés au téléchargement : VSV et JSON.
+                    </li>
+                    <li>Les 10 premières lignes du fichier CSV :<br />
+                        <pre><code class="language-csv">Nom de l'offre touristique;Type de restaurant;Catégorie du restaurant;Adresse1;Adresse2;Adresse3;Code postal;Cedex;Bureau distributeur;Commune;Code Insee de la Commune;latitude;longitude;Situation de l'offre;N° de téléphone mobile;N° de téléphone fixe;N° de fax;Adresse e-Mail;Url du site web;Url pour accéder à la vidéo;Type de plateforme/url;widget tripadvisor;Code Embed pour intégrer une video;Classement dans les guides restaurants;Label classement logis;Label tourisme handicap;Animal accepté: oui / non;Complément information animal accepté;Labels;Service(s) proposé(s) sur l'équipement;Nombre max couverts;Nombre salles restaurant;Nombre max couverts en terrasse;Nombre salles de réunion;Nombre salles climatisées;Présence de l'offre sur les grands itinéraires vélo;Langue(s) parlée(s) à l'accueil;Langue(s) parlée(s) à l'accueil;Nombre personnes min pour les groupes;Nombre personnes max pour les groupes;Ouvert toute l'année: oui / non;Horaires d'ouvertures;Moyen(s) de réservation directe;Centrale de réservation en ligne?;Moyen(s) de réservation en ligne;Tarifs;Mode(s) de paiement accepté(s);localisation;Département
+AUBERGE LES TROIS CHÊNES;Restaurant;Cuisine traditionnelle;;Les 3 Chênes;;44110;;;ERBRAY;44054;47.6586708;-1.272751;;06 47 85 97 50;02 40 55 57 96;;poulainanthony0673@orange.fr;www.auberge-des-trois-chenes.fr;;;;;;;;oui;;;"Banquet;Séminaire";120;2;;;;;oui;oui;;80;oui;||||||fermé le soir du lundi au vendredi et le dimanche soir||||||||||||||||||||||||||||||||||||||||||||||||||||||||;||02 40 55 57 96||;;;||10,90||32,00||;"Cartes bancaires;Chèques bancaires et postaux;Tickets Restaurant";47.6586708,-1.272751;Loire-Atlantique
+PIZZERIA LA CASA BELLA;Restaurant;Pizzeria;;3 route de Nantes;;44170;;;NOZAY;44113;47.5628355;-1.6267627;;;02 40 79 52 97;;casabella44@orange.fr;;;Facebook||https://www.facebook.com/pages/Casa-Bella/198720190254772;;;;;;;;;"Plats à emporter;Service en terrasse";60;;;;;;Français;Français;;;oui;;;;;;;47.5628355,-1.6267627;Loire-Atlantique
+113;Restaurant;Restauration rapide;;8 Rue Maréchal Joffre;;85000;;;LA ROCHE-SUR-YON;85191;46.6698513;-1.4260254;;;;;;;;Facebook||https://www.facebook.com/kebab113/;;;;;;;;;;;;;;;;;;;;oui;||||||||11:00||||||01:00||11:00||||||01:00||11:00||||||01:00||11:00||||||01:00||11:00||||||02:00||11:00||||||02:00||11:00||||||01:00;;;;;;46.6698513,-1.4260254;Vendée
+14 AVENUE;Restaurant;Cuisine traditionnelle;;14 avenue Pavie;;44500;;;LA BAULE-ESCOUBLAC;44055;47.28261;-2.40536;;;02 40 60 09 21;;rest14ave@orange.fr;http://www.14avenue-labaule.com;;;;;Gault Millau;;;;;;;;;;;;;;;;;;"01/01/2020||31/12/2020|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| ; 01/01/2020||31/12/2020|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| ; 01/01/2020||31/12/2020|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| ; 01/01/2020||31/12/2020|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| ; 01/01/2020||31/12/2020|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| ; 01/07/2020||31/08/2020||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||";;;;;Cartes bancaires;47.28261,-2.40536;Loire-Atlantique
+1929 TAPASSERIE ANGEVINE;;;;52 rue Saint Nicolas;;49400;;;SAUMUR;49328;47.26099;-0.07988;;;02 41 40 96 20;;alexandre.aubin1929@gmail.com;;;Tripadvisor||;;;;;;;;;;;;;;;;;;;;;01/01/2020||31/12/2020||Pour connaitre le détail, contacter l'établissement.||||||||||||||||||||||||||||||||||||||||||||||||||||||||||;;;;;;47.26099,-0.07988;Maine-et-Loire
+A MA TABLE;;Cuisine traditionnelle;;11 rue Fouré;;44000;;;NANTES;44109;47.213296;-1.5463442;;;02 40 47 01 18;;;http://www.amatable-restaurant.com;;;;;"Gault Millau;Les Tables de Nantes";;;;;;;;;;;;;;;;;;;;oui;||http://www.nantes-tourisme.com/book/229044||||||;;;47.213296,-1.5463442;Loire-Atlantique
+ALOHA BOWLS;Restaurant;Restauration rapide;;45 Promenade Georges Clémenceau;;85100;;;LES SABLES-D'OLONNE;85194;46.493965;-1.779697;;;02 51 32 23 35;;;;;;;;;;;;;;"Plats à emporter;Livraison à domicile / Covid-19";;;;;;;;;;;;;;;;;;46.493965,-1.779697;Vendée
+AMERICAN SNACK COFFEE;;Cuisine du Monde;;7 rue Charles Sauria;ZA Jean Boutton;49130;;;LES PONTS-DE-CE;49246;47.44055;-0.50257;;;02 41 57 27 77;;american.snackcoffee@laposte.net;;;Facebook||https://www.facebook.com/pages/American-Snack-Coffee/351288128315609?fref=ts;;;;;;;;;Plats à emporter / Covid-19;128;2;28;;;;"Anglais;Français";"Anglais;Français";;30;;"01/01/2018||31/12/2018||||||||||||||12:00||||||14:00||12:00||||19:00||||12:00||||19:00||||12:00||||19:00||||12:00||||19:00|||||||||| ; 12/05/2020||15/07/2020||||||11:30||||||14:00||11:30||||||14:00||11:30||||18:30||||11:30||||18:30||||11:30||||18:30||||11:30||||18:30||||||||||";;;;;"Cartes bancaires;Chèques bancaires et postaux";47.44055,-0.50257;Maine-et-Loire
+AQUILON;Hôtel restaurant;Cuisine traditionnelle;;2 rue Michel Ange - Océanis;;44600;;;SAINT-NAZAIRE;44184;47.2579191;-2.268409;"Gare SNCF||||7 ; Transport en commun||Ligne U1 - Arrêt: Aprolis||0,035 ; Transport en commun||Ligne Hélyce/U2/T1 - Arrêt: Océanis||0,35";;02 51 76 67 66;02 40 53 15 60;info@hotelaquilon.com;www.hotelaquilon.com;;Facebook||https://www.facebook.com/HotelAquilon/timeline?ref=page_internal;;;;;;oui;;Qualité Tourisme;"Banquet;Séminaire;Service en terrasse;WiFi";280;1;80;3;;;oui;oui;;200;oui;01/01/2020||31/12/2020||Ouvert du lundi au dimanche||Ouvert 7j/7||||||||||||||||||||||||||||||||||||||||||||||||||||||||;||02 51 76 67 66||info@hotelaquilon.com;;;;"Cartes bancaires;Chèques bancaires et postaux;Chèques Vacances;Espèces;Tickets Restaurant;Virement";47.2579191,-2.268409;Loire-Atlantique
+</code></pre>
+                        Les 1000 premiers caractère de l'unique ligne du fichier JSON :<br />
+                        <pre><code class="language-json">[{"datasetid": "234400034_070-008_offre-touristique-restaurants-rpdl", "recordid": "d915794d01b389ef8f717ce847b5f875fc828d84", "fields": {"departement": "Loire-Atlantique", "capacitenbsalles": 2, "commmail": "poulainanthony0673@orange.fr", "capacitenbcouverts": 120, "commmob": "06 47 85 97 50", "commtel": "02 40 55 57 96", "ouverturealannee": "oui", "codepostal": 44110, "modepaiement": "Cartes bancaires;Ch\u00e8ques bancaires et postaux;Tickets Restaurant", "adresse2": "Les 3 Ch\u00eanes", "languesparleesaccueil": "Anglais", "ouverturegranule": "||||||ferm\u00e9 le soir du lundi au vendredi et le dimanche soir||||||||||||||||||||||||||||||||||||||||||||||||||||||||", "latitude": 47.6586708, "type": "Restaurant", "commune": "ERBRAY", "categorie": "Cuisine traditionnelle", "tarifs": "||10,90||32,00||", "nomoffre": "AUBERGE LES TROIS CH\u00caNES", "localisation": [47.6586708, -1.272751], "services": "Banquet;S\u00e9minaire", "codeinseecommune": 44054, "animauxacceptes": "oui", "accueilgr</code></pre>
+                    </li>
+                    <li>
+                        <ol><li>Dans le CSV, les valeurs sont séparées par un point-virgule et les enregistrments par passage à la ligne : Les descripteurs n'apparaissent qu'une fois en première ligne (titres des colones).</li>
+                            <li>Dans le JSON, les valeurs sont séparées par des virgules et préfixées systématiquement par le nom du descripteur et deux points.</li>
+                        </ol>
+                    </li>
+                    <li> (Voir réponse précédente.)
+                    </li>
+                    <li>Pour CE fichier CSV, il faut choisir le point-virgule. Le fichier JSON est standard, le navigateur se débrouille.</li>
+                </ol>
+            </section>
+        </article>
+
+
+        <article>
+            <header>
+                <h2><span class="cadre">Activité 3</span> Lecture d'un CSV avec Python </h2>
+                <p>Cette activité est facultative mais fortement recommandée pour ceux ayant choisis la spécialité NSI pour l'année prochaine.</p>
+                <p>On part du fichier CSV chargé à l'activité 2</p>
+                <ol>
+                    <li>Renommer votre fichier : <code class="language-bash">retaurants.csv</code></li>
+                    <li>Recopier le script suivant dans un fichier python, par exemple : <code class="language-bash">retaurants.py</code>
+                    <pre><code class="language-python">import csv
+
+# Ouverture du fichier, en lecture, en mode texte, encodée en UTF-8
+with open('restaurants.csv', encoding='utf8') as fichier:
+    # Préparation de la lecture du fichier CSV ligne par ligne
+    # chaque enregistrements sera utilisable comme une liste de ses valeurs.
+    restaurant = csv.reader(fichier, delimiter=';')
+    # traitement de chaque enregistrement.
+    for restau in restaurant:
+        print(restau)</code></pre>
+                    </li>
+                    <li>Lancer le script pour visualiser la façon dont est mémorisée l'information.</li>
+                    <li>Que faudrait-il modifier pour que seul le nom de chaque restaurant s'affiche.</li>
+                </ol>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la solution</button>
+                <button>Fermer la solution</button>
+                <ol>
+                    <li>Rien a commenter.</li>
+                    <li>Rien a commenter.</li>
+                    <li>Rien a commenter.</li>
+                    <li>Pour que seul le nom de chaque restaurant s'affiche, on peut, par exemple, modifier comme suit :
+                    <pre><code class="language-python">import csv
+
+# Ouverture du fichier, en lecture, en mode texte, encodée en UTF-8
+with open('restaurants.csv', encoding='utf8') as fichier:
+    # Préparation de la lecture du fichier CSV ligne par ligne
+    # chaque enregistrements sera utilisable comme une liste de ses valeurs.
+    restaurant = csv.reader(fichier, delimiter=';')
+    # traitement de chaque enregistrement.
+    for restau in restaurant:
+        print(restau[0],end=', ')</code></pre></li>
+                </ol>
+
+            </section>
+        </article>

@@ -1,0 +1,302 @@
+<article>
+            <header>
+                <h2><span class="cadre">Propriété</span> Règles de calcul</h2>
+                <p>$\vec u$, $\vec v$ et $\vec w$ désignent trois vecteurs de l'espace et $\lambda$ un réel.</p>
+                <h3>Symétrie</h3>
+                <div class="centre"><span class="cadre">$\vec u . \vec v = \vec v . \vec u$</span></div>
+                <h3>Bilinéarité</h3>
+                <div class="centre"><div class="cadre">
+                    $(\vec u + \vec v). \vec w = \vec u . \vec w + \vec v . \vec w$<br />
+                    $\vec u .( \vec v+ \vec w) = \vec u . \vec v + \vec u . \vec w$<br />
+                    $\lambda \times (\vec u . \vec v) = (\lambda \vec u) . \vec v =\vec u .  (  \lambda\vec v)$
+                </div></div>
+                <h3>Définie positive</h3>
+                <div class="centre"><div class="cadre">
+                    $\vec u . \vec u \geqslant 0$<br />
+                    $\vec u . \vec u = 0 \Leftrightarrow  \vec u = \vec 0$
+                </div></div>
+                <p>On note alors $\vec{u}^2 = \vec u . \vec u = \Vert \vec u \Vert^2$ que l'on appelle carré scalaire</p>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la démonstration</button>
+                <button>Cacher la démonstration</button>
+                <h3>Symétrie</h3>
+                Le produit est symétrique dans $\mathbb{R}$ donc $\Vert \vec u \Vert \times \Vert \vec v \Vert = \Vert \vec v \Vert \times \Vert \vec u \Vert$
+                et le cosinus est paire, donc $\cos(\widehat{\vec{u}\,; \vec{v}}) = \cos(-(\widehat{\vec{u}\,; \vec{v}})) = \cos(\widehat{\vec{v}\,; \vec{u}})$.
+                <h3>Bilinéarité</h3>
+                <p>Partant d'un point $O$, notons $\overrightarrow{OA}=\vec u$,  $\overrightarrow{AB}=\vec v$ et  $\overrightarrow{OC}=\vec w$, puis $H$ et $K$ les projetés respectifs de $A$ et $B$ sur $(OC)$, alors
+                <div class="centre"><div class="figure"><canvas id="graphe1" height="180" width="320">Balise canvas non supportée</canvas></div></div>
+                <script>
+                    var graphe = calibre("graphe1",4,9,2,10,1);
+                    /*axes();*/
+                    fleche(point(4,4),point(9,4));
+                    fleche(point(4,4),point(7,6));
+                    fleche(point(7,6),point(8,8));
+                    ligne(point(6.5,4),point(6.5,4.5),point(7,4.5));
+                    graphe.setLineDash([4,2]);
+                    ligne(point(7,6),point(7,4));
+                    graphe.setLineDash([1,1]);
+                    ligne(point(8,8),point(8,4));
+                    ligne(point(7.5,4),point(7.5,4.5),point(8,4.5));
+                    graphe.strokeStyle = '#0098f8';
+                    graphe.setLineDash([]);
+                    graphe.lineWidth = 1.5;
+                    fleche(point(7,6),point(8,6));
+                    fleche(point(7,4),point(8,4));
+                    ecrit("$O$",3.5,3.7);
+                    ecrit("$C$",8.5,3.7);
+                    ecrit("$\\vec w$",5,3.7);
+                    ecrit("$A$",6.5,6.8);
+                    ecrit("$\\vec u$",5,6);
+                    ecrit("$B$",7.5,8.8);
+                    ecrit("$\\vec v$",6.7,8);
+                    ecrit("$H$",6.7,3.7);
+                    ecrit("$K$",7.7,3.7);
+                </script>
+                <ul><li>$(\vec u + \vec v). \vec w = (\overrightarrow{OA}+\overrightarrow{AB}).\overrightarrow{OC}$
+                    $ = \overrightarrow{OB}.\overrightarrow{OC}$ $ = \overrightarrow{OK}.\overrightarrow{OC}$
+                </li><li>$\vec u . \vec w + \vec v. \vec w = \overrightarrow{OA}.\overrightarrow{OC}+\overrightarrow{AB}.\overrightarrow{OC}$
+                $ = \overrightarrow{OH}.\overrightarrow{OC}+\overrightarrow{HK}.\overrightarrow{OC}$<br />
+                $ = \pm OH \times OC + \pm HK \times OC$ (selon si les vecteurs sont de même sens où non.)<br />
+                $ = (\pm OH + \pm HK) \times OC$ (par factoriation sur des réels.)<br />
+                $ = (\pm OK) \times OC$ (en distinguant les 4 cas possibles.)<br />
+                $ = \overrightarrow{OK}.\overrightarrow{OC}$
+                </li></ul>d'où $(\vec u + \vec v). \vec w = \vec u . \vec w + \vec v. \vec w$.</p>
+                <p> La seconde égalité est également vraie par symétrie.</p>
+                <p> La troisième est immédiate d'après la définition et la commutativité de produit sur les réels.</p>
+                <h3>Définie positive</h3>
+                <p>$\vec{u}^2 = \vec u . \vec u = \Vert \vec u \Vert^2 \geqslant 0$ et<br />
+                $\vec u . \vec u = 0 \Leftrightarrow \Vert \vec u \Vert^2 = 0$ $\Leftrightarrow  \Vert \vec u \Vert = 0$ $\Leftrightarrow \vec u = \vec 0$
+                </p>
+
+            </section>
+        </article>
+
+        <article>
+            <header>
+                <h2><span class="cadre">Exercice 2</span> Calcul dans un tétraèdre</h2>
+                <p> On considère ci-dessous le tétraèdre régulier  $ABCD$ de côté $a$.</p>
+                <div class="centre"><div class="figure"><canvas id="graphe2" height="180" width="320">Balise canvas non supportée</canvas></div></div>
+                <script>
+                    var graphe = calibre3D("graphe2", -0.5, 0.5, -0.5, 1, -0.25, 1);
+                    var A = point(-0.5,0,0);
+                    var B = point(0.5,0,0);
+                    var C = point(0,Math.sqrt(3)/6,Math.sqrt(2/3));
+                    var D = point(0,Math.sqrt(3)/2,0);
+                    graphe.lineWidth = 1;
+                    graphe.fillStyle = '#0098f8';
+                    ligne(B,C,D,B);
+                    ligne(C,A,B);
+                    graphe.setLineDash([3,3]);
+                    ligne(A,D);
+                    ecrit("$A$",-0.6,-0.1);
+                    ecrit("$B$",0.5,-0.1);
+                    ecrit("$C$",0.6,0.4);
+                    ecrit("$D$",0.09,1.1);
+                </script>
+                <ol>
+                    <li>Calculer par la formule de votre choix :
+                        <ol>
+                            <li>$\overrightarrow{AB} . \overrightarrow{AC}$</li>
+                            <li>$\overrightarrow{AB} . \overrightarrow{CD}$</li>
+                            <li>$\overrightarrow{AB} . \overrightarrow{DC}$</li>
+                        </ol>
+                    </li>
+                    <li>Soient $I$ et $J$ les milieux respectifs de $[AB]$ et $[DC]$.
+                        <ol>
+                            <li>Démontrer que $(IJ)$ est perpendiculaire à $(DC)$ et à $(AB)$.</li>
+                            <li>Peut-on affirmer dans l'espace que deux droites perpendiculaires à une même troisième sont parallèles entre-elles ?</li>
+                        </ol>
+                    </li>
+                </ol>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la solution</button>
+                <button>Cacher la solution</button>
+                <ol>
+                    <li>
+                        <ol>
+                            <li>$\overrightarrow{AB} . \overrightarrow{AC} = a \times a \times cos(\frac{\pi}{3}) = \frac{a^2}{2}$</li>
+                            <li>Pour $\overrightarrow{AB} . \overrightarrow{CB} $, si on veut se mettre dans la situation de pouvoir simplement projeter un vecteur sur l'autre, on peut écrire :<br />
+                                $\overrightarrow{AB} . \overrightarrow{CB} $
+                                $= (-\overrightarrow{BA}) . (-\overrightarrow{BC}) $
+                                $= (-1)\times(-1)\times(\overrightarrow{BA}.\overrightarrow{BC}) $
+                                $= \overrightarrow{BA}.\overrightarrow{BC} $.<br />
+                                On se retrouve dans le même situation (triangle équilatéral) qui donne : $\frac{a^2}{2}$
+                            </li>
+                            <li>Pour $\overrightarrow{AB} . \overrightarrow{DC}$, on peut difficilement justifier da la projection d'un vecteur sur l'autre
+                                car il faudrait les dessiner dans le même plan, ce qui n'est pas possible sans rajouter des points à la figure.
+                                De même, déterminer l'angle entre ces deux vecteurs n'est pas évident. Dans ce cas, on cherche à utiliser les propriétés du cours
+                                en décomposant au moins un des deux vecteurs :<br />
+                                D'après la relation de Chasles : $\overrightarrow{DC} = \overrightarrow{DA} + \overrightarrow{AC}$<br />
+                                Donc $\overrightarrow{AB} . \overrightarrow{DC} = \overrightarrow{AB} . (\overrightarrow{DA} + \overrightarrow{AC})$
+                                $=\overrightarrow{AB} . \overrightarrow{DA} + \overrightarrow{AB} . \overrightarrow{AC}$
+                                $=\overrightarrow{AB} . (-\overrightarrow{AD}) +  \frac{a^2}{2}$
+                                $=-(\overrightarrow{AB} . \overrightarrow{AD}) + \frac{a^2}{2}$ $ = 0$
+                            </li>
+                        </ol>
+                    </li>
+                    <li>Les milieux $I$ et $J$ de $[AB]$ et $[DC]$ :
+                        <div class="centre"><div class="figure"><canvas id="graphe3" height="180" width="320">Balise canvas non supportée</canvas></div></div>
+                        <script>
+                            var graphe = calibre3D("graphe3", -0.5, 0.5, -0.5, 1, -0.25, 1);
+                            var A = point(-0.5,0,0);
+                            var B = point(0.5,0,0);
+                            var C = point(0,Math.sqrt(3)/6,Math.sqrt(2/3));
+                            var D = point(0,Math.sqrt(3)/2,0);
+                            var I = combinaison(0.5,A,0.5,B);
+                            var J = combinaison(0.5,C,0.5,D);
+                            graphe.lineWidth = 1;
+                            ligne(B,C,D,B);
+                            ligne(C,A,B);
+                            graphe.setLineDash([3,3]);
+                            ligne(A,D);
+                            graphe.strokeStyle = '#0098f8';
+                            graphe.setLineDash([3,3]);
+                            ligne(I,J);
+                            graphe.setLineDash([1,1]);
+                            ligne(combinaison(1,I,0.1,B,-0.1,A),combinaison(0.9,I,0.1,B,-0.1,A,0.1,J),combinaison(0.9,I,0.1,J));
+                            ligne(combinaison(1,J,0.1,D,-0.1,C),combinaison(0.1,I,0.1,D,-0.1,C,0.9,J),combinaison(0.1,I,0.9,J));
+                            ecrit("$A$",-0.6,-0.1);
+                            ecrit("$B$",0.5,-0.1);
+                            ecrit("$I$",-0.05,-0.1);
+                            ecrit("$C$",0.6,0.4);
+                            ecrit("$D$",0.09,1.1);
+                            ecrit("$J$",0.37,0.75);
+                        </script>
+                        <ol>
+                            <li><ul>
+                                    <li>Démontrer que (IJ) est perpendiculaire à (AB) se fait dans le triangle $ABJ$ en démontrant que l'angle en I est droit.
+                                        Cela revient à montrer que $\cos(\widehat{\overrightarrow{IB},\overrightarrow{IJ}})=0$. Cela revient donc à montrer $\overrightarrow{IB} . \overrightarrow{IJ}=0$.<br />
+                                        Or : $\overrightarrow{IB} . \overrightarrow{IJ}$
+                                        $= \overrightarrow{IB} . (\overrightarrow{IA}+\overrightarrow{AC}+\overrightarrow{CJ})$
+                                        $= \overrightarrow{IB} . \overrightarrow{IA}+\overrightarrow{IB} . \overrightarrow{AC}+\overrightarrow{IB} . \overrightarrow{CJ}$
+                                        $= -\frac{a}{2}\times \frac{a}{2}+(\frac{1}{2}\overrightarrow{AB}) . \overrightarrow{AC}+(\frac{1}{2}\overrightarrow{AB}) . (-\frac{1}{2}\overrightarrow{DC})$
+                                        $= -\frac{a^2}{4}+\frac{1}{2}\times\overrightarrow{AB} . \overrightarrow{AC}-\frac{1}{4}\times\overrightarrow{AB} . \overrightarrow{DC}$
+                                        $= -\frac{a^2}{4}+\frac{1}{2}\times\frac{a^2}{2}+0$
+                                        $ = 0$
+                                        </li>
+                                    <li>De la même façon, il suffit de démontrer que $\overrightarrow{JD} . \overrightarrow{JI} = 0$, ce qui peut, par exemple, se faire
+                                        en décomposant : $\overrightarrow{JI} = \overrightarrow{JC}+\overrightarrow{CA}+\overrightarrow{AI}$...</li>
+                                </ul>
+                            </li>
+                            <li>La droite $(IJ)$ est bien perpendiculaire à $(AB)$ et $(DC)$, mais on a déjà calculé $\overrightarrow{AB} . \overrightarrow{DC} = 0$ donc il y a un angle
+                                 droit entre les vecteurs $\overrightarrow{AB}$ et $\overrightarrow{DC}$, donc $(AB)$ et $(DC)$ ne peuvent pas être parallèles. C'est un théorème
+                                 du plan qui ne s'applique pas dans l'espace.</li>
+                        </ol>
+                    </li>
+                </ol>
+            </section>
+        </article>
+
+        <article>
+            <header>
+                <h2><span class="cadre">Propriété</span> Identités remarquables</h2>
+                <p>Les règles de calcul précédentes permettent les développements suivants :</p>
+                <ul>
+                    <li> $(\vec u + \vec v)^2  = \vec u ^2 + 2\vec u . \vec v + \vec  v ^2$</li>
+                    <li> $(\vec u - \vec v)^2  = \vec u ^2 - 2\vec u . \vec v + \vec  v ^2$</li>
+                    <li> $(\vec u - \vec v)(\vec u + \vec v)  = \vec u ^2 -  \vec  v ^2$</li>
+                </ul>
+                <p>On en déduit par exemple : <div class="centre"><span class="cadre">$\vec u . \vec v = \frac{1}{4}\left((\vec u + \vec v)^2 - (\vec u - \vec v)^2\right)$</span></div></p>
+
+            </header>
+        </article>
+        <article>
+            <header>
+                <h2><span class="cadre">Propriété</span> Expression analytique</h2>
+                <p>Dans un repère orthonormé, si $\vec{u}\left(\begin{smallmatrix} x \\ y \\ z \end{smallmatrix}\right)$ et $\vec{v}\left(\begin{smallmatrix} x' \\ y' \\ z' \end{smallmatrix}\right)$:
+                <div class="centre"><span class="cadre">$\vec u . \vec v = xx'+yy'+zz'$</span></div></p>
+            </header>
+        </article>
+
+        <article>
+            <header>
+                <h2><span class="cadre">Exercice 3</span> Dans un repère orthonormé</h2>
+                <p> Dans un repère orthonormé, on considère les points $A(0\,;0\,;1)$, $B(1\,;-1\,;-1)$ et $C(3\,;0\,;0)$.</p>
+                <ol>
+                    <li>Calculer  $\overrightarrow{AB} . \overrightarrow{AC}$</li>
+                    <li>En déduire l'arrondi au degré près de la mesure  de l'angle $\widehat{BAC}$</li>
+                </ol>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la solution</button>
+                <button>Cacher la solution</button>
+                <ol>
+                    <li>On utilise la formule $\overrightarrow{AB} \left(\begin{smallmatrix}x_B-x_A\\y_B-y_A\\z_B-z_A\end{smallmatrix}\right)$
+                        pour détreminer : $\overrightarrow{AB} \left(\begin{smallmatrix}1\\-1\\-2\end{smallmatrix}\right)$ et
+                        $\overrightarrow{AC} \left(\begin{smallmatrix}3\\0\\-1\end{smallmatrix}\right)$. Alors :
+                        $\overrightarrow{AB} . \overrightarrow{AC} = 1 \times 3 + (-1)\times0+(-2)\times(-1)=5$</li>
+                    <li>Comme $5 = \overrightarrow{AB} . \overrightarrow{AC} = AB \times AC \times \cos(\widehat{\overrightarrow{AB}\,;\overrightarrow{AC}})$,
+                        on calcule : <br />
+                        $AB = \sqrt{(x_B-x_A)^2+(y_B-y_A)^2+(z_B-z_A)^2} = \sqrt{1^2+(-1)^2+(-2)^2}=\sqrt{6}$ <br />
+                        $AC =  \sqrt{3^2+0^2+(-1)^2}=\sqrt{10}$<br />
+                        Donc $5 = \sqrt{6} \times \sqrt{10} \times \cos(\widehat{\overrightarrow{AB}\,;\overrightarrow{AC}})$,  <br />
+                        $\cos(\widehat{\overrightarrow{AB}\,;\overrightarrow{AC}}) = \dfrac{5}{\sqrt{60}}$. L'utilisation de la calculatrice donne alors $\widehat{BAC}\approx 50°$</li>
+                </ol>
+            </section>
+        </article>
+
+        <article>
+            <header>
+                <h2><span class="cadre">Exercice 4</span> Retour au tétraèdre</h2>
+                <p> On considère ci-dessous un tétraèdre régulier  $ABCD$.</p>
+                <div class="centre"><div class="figure"><canvas id="graphe4" height="180" width="320">Balise canvas non supportée</canvas></div></div>
+                <script>
+                    var graphe = calibre3D("graphe4", -0.5, 0.5, -0.5, 1, -0.25, 1);
+                    var A = point(-0.5,0,0);
+                    var B = point(0.5,0,0);
+                    var C = point(0,Math.sqrt(3)/2,0);
+                    var D = point(0,Math.sqrt(3)/6,Math.sqrt(2/3));
+                    var I = combinaison(0.5,A,0.5,B);
+                    var J = combinaison(0.5,A,0.5,D);
+                    graphe.lineWidth = 1;
+                    ligne(A,B,D,A);
+                    ligne(B,C,D);
+                    graphe.setLineDash([3,3]);
+                    ligne(A,C);
+                    graphe.strokeStyle = '#0098f8';
+                    ligne(I,C,J);
+                    graphe.setLineDash([]);
+                    angle(I,C,J,0)
+                    ecrit("$A$",-0.6,-0.1);
+                    ecrit("$B$",0.5,-0.1);
+                    ecrit("$I$",-0.05,-0.1,'#0098f8');
+                    ecrit("$C$",0.6,0.4);
+                    ecrit("$D$",0.09,1.1);
+                    ecrit("$J$",-0.3,0.55,'#0098f8');
+                </script>
+                On note $I$ et $J$ les milieux respectifs de $[AB]$ et $[AD]$.<br />
+                Calculer au degré près une mesure de l'angle $\widehat{ICJ}$.
+            </header>
+            <section class="ouvrable">
+                <button>Voir la solution</button>
+                <button>Cacher la solution</button>
+                Étant donnée l'abscence de repère orthonnormé dans cet exercice, on ne peut pas avoir recourt aux calculs analytiques.<br />
+                Une mesure $\theta$ de l'angle peut être calculée par la formule $\overrightarrow{CI}.\overrightarrow{CJ} = CI\times CJ\times\cos(\theta)$<br />
+                <ol><li>Calcul de $\overrightarrow{CI}.\overrightarrow{CJ}$ :<br />
+                $\overrightarrow{CI}.\overrightarrow{CJ} = (\overrightarrow{CA}+\overrightarrow{AI}).(\overrightarrow{CA}+\overrightarrow{AJ})$
+                $=\overrightarrow{CA}.\overrightarrow{CA}+\overrightarrow{CA}.\overrightarrow{AJ}+\overrightarrow{AI}.\overrightarrow{CA}+\overrightarrow{AI}.\overrightarrow{AJ}$<br />
+                En notant $a$ le côté du tétraèdre :<br />
+                <ul>
+                    <li>$\overrightarrow{CA}.\overrightarrow{CA} = a^2$</li>
+                    <li>$\overrightarrow{CA}.\overrightarrow{AJ} = (-\overrightarrow{AC}).(\frac{1}{2}\overrightarrow{AD})$
+                        $=-\frac{1}{2} \times \overrightarrow{AC}.\overrightarrow{AD}$
+                        $=-\frac{a^2}{4}$
+                    </li>
+                    <li>$\overrightarrow{AI}.\overrightarrow{CA} = (\frac{1}{2}\overrightarrow{AB}).(-\overrightarrow{AC})$
+                        $=-\frac{1}{2} \times \overrightarrow{AB}.\overrightarrow{AC}$
+                        $=-\frac{a^2}{4}$</li>
+                    <li>$\overrightarrow{AI}.\overrightarrow{AJ} = (\frac{1}{2}\overrightarrow{AB}).(\frac{1}{2}\overrightarrow{AD})$
+                        $=\frac{1}{4} \times \overrightarrow{AB}.\overrightarrow{AD}$
+                        $=\frac{a^2}{8}$</li>
+                </ul>
+                Finalement : $\overrightarrow{CI}.\overrightarrow{CJ} = a^2-\frac{a^2}{4}-\frac{a^2}{4}+\frac{a^2}{8}=$<span class="cadre">$\frac{5a^2}{8}$</span><br />
+                </li>
+                <li>Calcul de $CI$ et $CJ$ :<br />
+                    Ce sont des hauteurs dans des triangles équilatérals de côté $a$ donc $CI = CJ = \frac{\sqrt{3}a}{2}$. (Que l'on peut retrouver par le théorème de Pythagore.)
+                </li></ol>
+                La formule du produit scalaire se réécrit alors : $\frac{5a^2}{8} = \frac{\sqrt{3}a}{2} \times \frac{\sqrt{3}a}{2} \times \cos(\theta)$<br />
+                D'où <span class="cadre">$\cos(\theta)=\frac{5}{6}$</span> et la calculatrice donne $\widehat{ICJ} \approx 34°$.
+            </section>
+        </article>

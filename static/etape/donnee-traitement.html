@@ -1,0 +1,138 @@
+<article>
+            <header>
+                <h2><span class="cadre">Définition</span> Filtre </h2>
+                Filtrer les données d'une table, permet de masquer les enregistrements ne répondant pas
+                à un ou plusieurs critères.
+            </header>
+        </article>
+
+        <article>
+            <header>
+                <h2><span class="cadre">Activité 4</span> Filtrer avec un tableur </h2>
+                (Les explication ci-dessous sont faites considérant le tableur LibreOffice Calc.)<br />
+                <ol>
+                    <li>Ouvrir votre fichier <code class="language-bash">retaurants.csv</code> avec un tableur. (Attention au choix du séparateur.) </li>
+                    <li>Dans le menu « Données » ou dans la barre d'icone s'il y apparait, cliquer sur « Auto-Filtre » (l'icone représente un entonoire).<br />
+                        Expliquer ce que cela produit dans la feuille de calcul.
+                    </li><li>Je cherche toujours le nom d'une pizzeria en Vendée dans laquelle je me souviens d'avoir bien mangé.
+                         Filtrer la table pour ne voir que les enregistrements correspondants à ces critères.
+                    </li><li> Cela fait encore beaucoup de données à parcourir. Mais je me souviens que le nom de la pizzeria commençait par « PIZZA ... »
+                         Dans le menu  « Données » puis « Plus de filtres » cliquer « Filtres standards » et ajouter cette contrainte aux autres filtres.<br />
+                         Combien cela laisse-t-il d'enregistrements ?
+                    </li>
+                </ol>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la solution</button>
+                <button>Fermer la solution</button>
+                <ol>
+                    <li>Séparateur : le point-virgule.</li>
+                    <li>Une flèche de menu déroulant apparait pour chaque descripteur permettant de choisir quelles valeurs pour ce descripteur laisser apparant.
+                    </li><li>Descripteur : Catégorie du restaurant (colone C), on ne laisse que "Pizzeria" de coché.<br />
+                             Descripteur : Département (colone AW) on ne laisse que "Vendée" de coché.<br />
+                    </li><li>Dans la fenêtre de filtre standard, on a joute une ligne "ET - Nom de l'offre touristique - Commence par - PIZZA"<br />
+                        Il ne reste que 6 enregistrements.
+                    </li>
+                </ol>
+            </section>
+        </article>
+
+
+        <article>
+            <header>
+                <h2><span class="cadre">Activité 4'</span> Filtrer avec Python</h2>
+                On reprend le script déjà étudié :
+                <pre><code class="language-python">import csv
+
+with open('restaurants.csv', encoding='utf8') as fichier:
+    restaurant = csv.reader(fichier, delimiter=';')
+    # traitement de chaque enregistrement.
+    for restau in restaurant:
+        print(restau[0],end=', ')</code></pre>
+        Filtrer revenant à exprimer une condition pour l'affichage :
+        <ol><li>utiliser l'instruction <code class="language-python">if</code> pour ne lister que les pizzerias</li>
+        <li>combiner la condition avec une autre par le mot clé <code class="language-python">and</code> pour ne lister que les pizzerias de Vendée</li>
+        <li>combiner avec la condition <code class="language-python">restau[0][0:5]=='PIZZA'</code> pour ne lister que les pizzerias de Vendée dont les 5 premières lettres (<code class="language-python">[0:5]</code>) du nom (<code class="language-python">restau[0]</code>) sont PIZZA.</li>
+        </ol>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la solution</button>
+                <button>Fermer la solution</button>
+
+        <ol><li>
+                <pre><code class="language-python">    for restau in restaurant:
+        if restau[2]=="Pizzeria":
+            print(restau[0],end=', ')</code></pre></li>
+        <li>
+                <pre><code class="language-python">    for restau in restaurant:
+        if restau[2]=="Pizzeria" and restau[-1]=="Vendée":
+            print(restau[0],end=', ')</code></pre></li>
+        <li>
+                <pre><code class="language-python">    for restau in restaurant:
+        if restau[2]=="Pizzeria" and restau[-1]=="Vendée" and restau[0][0:5]=='PIZZA':
+            print(restau[0],end=', ')</code></pre></li>
+        </ol>
+            </section>
+        </article>
+
+        <article>
+            <header>
+                <h2><span class="cadre">Définition</span> Tri </h2>
+                Dans une table de données, l'ordre des enregistrements n'est pas défini a priori.<br />
+                Trier les enregistrements, c'est les afficher dans un certain ordre (croissant ou décroissant), suivant les valeurs de certaines colones choisies avec des priorités.
+            </header>
+        </article>
+
+        <article>
+            <header>
+                <h2><span class="cadre">Activité 5</span> Filtrer avec un tableur </h2>
+                (Les explication ci-dessous sont faites considérant le tableur LibreOffice Calc.)<br />
+                <ol>
+                    <li>Ouvrir votre fichier <code class="language-bash">retaurants.csv</code> avec un tableur (ou supprimer simplement les filtres de l'activité précédente.) </li>
+                    <li>Dans le menu « Données » ou dans la barre d'icone s'il y apparait, cliquer sur « Trier... » (l'icone représente deux flêches).
+                        Dans la boite de dialogue qui apparait, choisir la clé « Département » et trier de façon décroissante.<br />
+                        Où sont maintenant les enregistrements des restaurants de Vendée ? Pourquoi ?
+                    </li><li>Je cherche toujours le nom d'une pizzeria en Vendée dans laquelle je me souviens d'avoir bien mangé.
+                         Ajouter un critère de tri (croissant)  pour regrouper les pizzerias sur des lignes qui se suivent.<br />
+                         Sur quelles lignes se retrouvent les enregistrements correpondants ?
+                    </li><li> Ajouter un critère de tri sur le nom des restaurants.<br />
+                         Combien de pizzerias en Vendée ont un nom commançant par « PIZZA » ?
+                    </li>
+                </ol>
+            </header>
+            <section class="ouvrable">
+                <button>Voir la solution</button>
+                <button>Fermer la solution</button>
+                <ol>
+                    <li>Rien a commenter.</li>
+                    <li>Les enregistrements des restaurants de Vendée se retrouvent tous en haut car "Vendée" est le dernier département par ordre aphabétique.
+                    </li><li>L'ajout du critère de tri (croissant) sur "Catégorie du restaurant" regroupe des pieeria vendéennes sur les lignes 730 et 834.
+                    </li><li>L'ajout du critère de tri sur le nom des restaurants permet de retrouver les 6 pizzerias en Vendée qui ont un nom commançant par « PIZZA ».
+                    </li>
+                </ol>
+            </section>
+        </article>
+
+        <article>
+            <header>
+                <h2><span class="cadre">Pour information</span> Trier avec Python </h2>
+                Pour trier avec un script Python, on ne peut plus se contenter de traiter chaque information indépendament les unes des autres.
+                Une solution (quand le nombre d'enregistrements n'est pas trop grand) consiste à les mémoriser toutes dans une liste :
+                <pre><code class="language-python">import csv
+
+#Préparation de la liste pour mémoriser les enregistrements
+listeRestau = []
+with open('restaurants.csv', encoding='utf8') as fichier:
+    restaurant = csv.reader(fichier, delimiter=';')
+    # mémorisation de chaque enregistrement.
+    for restau in restaurant:
+        listeRestau.append(restau)
+
+# Tri des enregistrement par ordre croissant en commençant par la première colone.
+sorted(listeRestau)
+# Affichage des noms
+for restau in listeRestau:
+    print(restau[0], end=', ')</code></pre>
+            Les tris plus poussés et les algorithmes correspondants dépassent largement les attendus en seconde et ne seront abordés qu'en 1NSI.
+            </header>
+        </article>
